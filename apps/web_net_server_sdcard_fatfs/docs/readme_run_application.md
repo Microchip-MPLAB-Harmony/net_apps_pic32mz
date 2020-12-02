@@ -1,6 +1,6 @@
 ---
 grand_parent:  Harmony 3 TCP/IP Application for PIC32MZ Family
-parent: TCP/IP Web NET Server SDSPI Application
+parent: TCP/IP Web NET Server SDCARD Application
 title: Running Application
 nav_order: 3
 has_children: false

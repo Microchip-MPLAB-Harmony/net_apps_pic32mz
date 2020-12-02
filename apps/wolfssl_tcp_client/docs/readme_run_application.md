@@ -1,5 +1,5 @@
 ---
-grand_parent:  Harmony 3 TCP/IP Application for PIC32MZ EF Family
+grand_parent:  Harmony 3 TCP/IP Application for PIC32MZ Family
 parent: TCP/IP WolfSSL TCP Client
 title: Running Application
 nav_order: 3

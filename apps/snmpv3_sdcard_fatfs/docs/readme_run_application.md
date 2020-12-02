@@ -1,7 +1,7 @@
 ---
 grand_parent:  Harmony 3 TCP/IP Application for PIC32MZ Family
 parent: TCP/IP SNMP SDCARD FATFS Application
-title: Application with FreeRTOS
+title: Running Application
 nav_order: 3
 has_children: false
 has_toc: false

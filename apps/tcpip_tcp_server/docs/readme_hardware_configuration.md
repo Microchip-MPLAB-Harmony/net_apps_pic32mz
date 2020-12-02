@@ -8,7 +8,7 @@ has_toc: false
 ---
 [![MCHP](https://www.microchip.com/ResourcePackages/Microchip/assets/dist/images/logo.png)](https://www.microchip.com)
 
-# TCP/IP TCP Client Hardware Configuration
+# TCP/IP TCP Server Hardware Configuration
 
 This is the following section describes the hardware configurations and one of the configuration can be used for this application demonstration.
 

@@ -1,5 +1,5 @@
 ---
-grand_parent:  Harmony 3 TCP/IP Application for PIC32MZ EF Family
+grand_parent:  Harmony 3 TCP/IP Application for PIC32MZ Family
 parent: TCP/IP WolfSSL TCP Server
 title: MHC Configuration
 nav_order: 1

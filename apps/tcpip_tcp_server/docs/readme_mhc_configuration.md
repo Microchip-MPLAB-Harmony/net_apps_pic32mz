@@ -8,9 +8,9 @@ has_toc: false
 ---
 [![MCHP](https://www.microchip.com/ResourcePackages/Microchip/assets/dist/images/logo.png)](https://www.microchip.com)
 
-# TCP/IP TCP Client MHC Configuration
+# TCP/IP TCP Server MHC Configuration
 
-The following Project Graph diagram shows the Harmony components included in the TCP Client demonstration application.
+The following Project Graph diagram shows the Harmony components included in the TCP Server demonstration application.
 
 * MHC is launched by selecting **Tools > Embedded > MPLAB® Harmony 3 Configurator** from the MPLAB X IDE and after successful database migration , TCP/IP demo project is ready to be configured and regenerated.
 
