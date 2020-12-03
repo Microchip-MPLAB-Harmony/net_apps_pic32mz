@@ -50,7 +50,7 @@ This table list the name and location of the MPLAB X IDE project folder for the 
 
     There are three commands available in the demonstration from the serial port:
 
-    openurl < url > - The < url > argument must be a fully formed URL; for instance, http://www.microchip.com/
+    openurl < url > - The < url > argument must be a fully formed URL; for instance, https://www.microchip.com/
     ipmode < mode > - The < mode > argument selects the IP version. 0 - Any IP version, 4 - IPv4 only, 6 - IPv6 only
     stats - Output the statistics of the previous openurl run. Statistics such as how long each phase of the connection took, and how many bytes were transferred.
 
