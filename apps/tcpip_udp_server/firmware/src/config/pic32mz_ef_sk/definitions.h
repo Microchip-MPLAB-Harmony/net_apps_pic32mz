@@ -48,6 +48,7 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
+#include "peripheral/nvm/plib_nvm.h"
 #include "system/time/sys_time.h"
 #include "peripheral/coretimer/plib_coretimer.h"
 #include "peripheral/uart/plib_uart2.h"
@@ -55,9 +56,7 @@
 #include "driver/ethmac/drv_ethmac.h"
 #include "driver/miim/drv_miim.h"
 #include "system/sys_time_h2_adapter.h"
-#include "system/sys_clk_h2_adapter.h"
 #include "system/sys_random_h2_adapter.h"
-#include "system/sys_reset_h2_adapter.h"
 #include "system/int/sys_int.h"
 #include "osal/osal.h"
 #include "system/debug/sys_debug.h"

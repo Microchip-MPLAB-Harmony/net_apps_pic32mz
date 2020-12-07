@@ -1,0 +1,14 @@
+format_version: v1.0
+type: GroupComponent
+attributes: {displayName: DRIVER LAYER, id: DRIVER LAYER}
+children:
+- type: ElementPosition
+  attributes: {x: '540', y: '20', id: DRIVER LAYER}
+- type: Attachments
+  children:
+  - type: Attachment
+    attributes: {targetComponentID: TCP/IP STACK, namespace: drvExtMacEncx24j600_0,
+      id: ENCX24J600_SPI, targetAttachmentID: 'TCP/IP STACK:drvExtMacEncx24j600_0:ENCX24J600_SPI'}
+  - type: Attachment
+    attributes: {targetComponentID: BASIC CONFIGURATION, namespace: drvExtMacEncx24j600_0,
+      id: libdrvExtMacEncx24j600, targetAttachmentID: 'tcpipNetConfig_0:NETCONFIG_MAC_Dependency'}

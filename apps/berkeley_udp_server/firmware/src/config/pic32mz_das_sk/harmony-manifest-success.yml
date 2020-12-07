@@ -4,26 +4,20 @@
 
 
 project: berkeley_udp_server
-creation_date: 2020-06-07T11:38:43.900+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2020-12-08T17:22:43.049+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mhc_mode: Headless            # [IDE|Standalone|Headless]
+mhc_version: v3.6.2
 mplabx_version: NA        # if MPLAB X plugin only
 plugin_version: NA        # if MPLAB X plugin only
+compiler: xc32
 
 modules:
-    - {name: "bsp", version: "v3.7.0"}
-    - {name: "CMSIS-FreeRTOS", version: "v10.3.0"}
-    - {name: "contentmanager", version: "v1.3.1"}
-    - {name: "core", version: "v3.7.1"}
-    - {name: "crypto", version: "v3.5.1"}
-    - {name: "csp", version: "v3.7.1"}
-    - {name: "dev_packs", version: "v3.7.0"}
-    - {name: "doc_o_matic_h3", version: "unknown"}
-    - {name: "mhc", version: "v3.4.1"}
-    - {name: "mplabx_plugin", version: "v3.5.0"}
+    - {name: "csp", version: "v3.8.2"}
+    - {name: "core", version: "v3.8.1"}
+    - {name: "dev_packs", version: "v3.8.0"}
+    - {name: "wolfssl", version: "v4.5.0"}
     - {name: "net", version: "unknown"}
-    - {name: "touch", version: "v3.6.0"}
-    - {name: "usb", version: "v3.5.0"}
-    - {name: "wolfMQTT", version: "v1.2.0"}
-    - {name: "wolfssl", version: "v4.3.0"}
+    - {name: "bsp", version: "v3.8.2"}
+    - {name: "crypto", version: "v3.6.1"}
 

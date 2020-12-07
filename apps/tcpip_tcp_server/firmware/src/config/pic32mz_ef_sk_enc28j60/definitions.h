@@ -48,16 +48,16 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
+#include "crypto/crypto.h"
+#include "peripheral/nvm/plib_nvm.h"
 #include "system/time/sys_time.h"
 #include "peripheral/coretimer/plib_coretimer.h"
 #include "peripheral/uart/plib_uart2.h"
-#include "peripheral/spi/plib_spi1.h"
+#include "peripheral/spi/spi_master/plib_spi1_master.h"
 #include "driver/spi/drv_spi.h"
 #include "library/tcpip/tcpip.h"
 #include "system/sys_time_h2_adapter.h"
-#include "system/sys_clk_h2_adapter.h"
 #include "system/sys_random_h2_adapter.h"
-#include "system/sys_reset_h2_adapter.h"
 #include "system/int/sys_int.h"
 #include "system/ports/sys_ports.h"
 #include "system/dma/sys_dma.h"
@@ -68,6 +68,7 @@
 #include "peripheral/clk/plib_clk.h"
 #include "peripheral/gpio/plib_gpio.h"
 #include "peripheral/evic/plib_evic.h"
+#include "wolfssl/wolfcrypt/port/pic32/crypt_wolfcryptcb.h"
 #include "system/console/sys_console.h"
 #include "system/console/src/sys_console_uart_definitions.h"
 #include "app.h"

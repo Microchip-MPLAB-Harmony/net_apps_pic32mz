@@ -1,0 +1,15 @@
+format_version: v1.0
+type: UniqueComponent
+attributes: {id: tcpipStack}
+children:
+- type: Symbols
+  children:
+  - type: Integer
+    attributes: {id: TCPIP_STACK_HEAP_SIZE_RECOMMEND}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tcpipStack, value: '23'}
+- type: ElementPosition
+  attributes: {x: '240', y: '20', id: tcpipStack}
