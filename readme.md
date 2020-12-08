@@ -57,6 +57,8 @@ The following applications are provided to demonstrate the typical or interestin
 |tcpip_udp_client     | [TCP/IP UDP Client Application](apps/tcpip_udp_client/readme.md)              |
 |tcpip_udp_server     | [TCP/IP UDP Server Application](apps/tcpip_udp_server/readme.md)              |
 |tcpip_udp_client_server     | [TCP/IP UDP Client Server Application](apps/tcpip_udp_client_server/readme.md)              |
+|tcpip_tcp_server_bridge     | [TCP/IP WEB Server MAC Bridge Application](apps/tcpip_tcp_server_bridge/readme.md)              |
+|tcpip_tcp_server_ipfwd     | [TCP/IP WEB Server IPv4 Forwarding Application](apps/tcpip_tcp_server_ipfwd/readme.md)              |
 |snmpv3_nvm_mpfs  | [TCP/IP SNMP & Secure Web Server NVM with MPFS Application](apps/snmpv3_nvm_mpfs/readme.md)       |
 |snmpv3_sdcard_fatfs  | [TCP/IP SNMP & Secure Web Server SDCARD with FATFS Application](apps/snmpv3_sdcard_fatfs/readme.md)       |
 |web_ftp_server_mpfs_fatfs | [TCP/IP Secure WEB & FTP Server NVM MPFS & SDCARD FATFS Application](apps/web_ftp_server_mpfs_fatfs/readme.md)|

@@ -43,21 +43,19 @@ This table list the name and location of the MPLAB X IDE project folder for the 
 		* Alternatively: Use the Announce service or ping to get the IP address of the board.
 
         * Run **tcpip_discoverer.jar** to discover the IPv4 and IPv6 address for the board.
-        
+
 5. Execution :
 
-    1. After the successful broad bring up, the console output becomes
+	1. After the successful broad bring up, the console output becomes
 
-        ![tcpip_berkeley_tcp_client_project](images/dhcp_5.png)
+        ![tcpip_tcp_client_project](images/dhcp_5.png)
 
-    2. For TCP Client test, input the following command from the serial port: 
-    	
-    	**openurl < url >** - The < url > argument must be a fully formed URL; for instance, http://www.microchip.com/.
+    2. For TCP Client test, input the following command from the serial port:
 
-        For this above URL , the DNS module will make a DNS query. Then it will open a connection to the requested URL and perform a simple HTTP GET command.
-        
-        The response received from the server will be printed on the terminal application through the serial port.
+    * **openurl < url >** - The < url > argument must be a fully formed URL; for instance, http://www.microchip.com/.
 
-        The expected output -
+    * For this above URL , the DNS module will make a DNS query. Then it     will open a connection to the requested URL and perform a simple HTTP GET command.
 
-        ![tcpip_berkeley_tcp_client_project](images/http_put_6.png)
+    * The response received from the server will be printed on the terminal application through the serial port. The expected output -
+
+        ![tcpip_tcp_client_project](images/http_put_6.png)
