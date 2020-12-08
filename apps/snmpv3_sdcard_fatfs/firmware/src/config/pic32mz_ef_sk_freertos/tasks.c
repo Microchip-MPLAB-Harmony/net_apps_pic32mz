@@ -72,7 +72,7 @@ void _DRV_SDSPI_0_Tasks(  void *pvParameters  )
 TaskHandle_t xAPP_Tasks;
 
 void _APP_Tasks(  void *pvParameters  )
-{
+{   
     while(1)
     {
         APP_Tasks();
@@ -91,6 +91,16 @@ void _DRV_MIIM_Task(  void *pvParameters  )
 }
 
 
+void _NET_PRES_Tasks(  void *pvParameters  )
+{
+    while(1)
+    {
+        NET_PRES_Tasks(sysObj.netPres);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+    }
+}
+
+
 void _SYS_FS_Tasks(  void *pvParameters  )
 {
     while(1)
@@ -100,16 +110,6 @@ void _SYS_FS_Tasks(  void *pvParameters  )
     }
 }
 
-
-
-void _NET_PRES_Tasks(  void *pvParameters  )
-{
-    while(1)
-    {
-        NET_PRES_Tasks(sysObj.netPres);
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
-    }
-}
 
 
 void _TCPIP_STACK_Task(  void *pvParameters  )
