@@ -68,16 +68,6 @@ void _DRV_SDSPI_0_Tasks(  void *pvParameters  )
     }
 }
 
-
-void _NET_PRES_Tasks(  void *pvParameters  )
-{
-    while(1)
-    {
-        NET_PRES_Tasks(sysObj.netPres);
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
-    }
-}
-
 /* Handle for the APP_Tasks. */
 TaskHandle_t xAPP_Tasks;
 
@@ -116,6 +106,16 @@ void _DRV_MIIM_Task(  void *pvParameters  )
     while(1)
     {
         DRV_MIIM_Tasks(sysObj.drvMiim);
+        vTaskDelay(1 / portTICK_PERIOD_MS);
+    }
+}
+
+
+void _NET_PRES_Tasks(  void *pvParameters  )
+{
+    while(1)
+    {
+        NET_PRES_Tasks(sysObj.netPres);
         vTaskDelay(1 / portTICK_PERIOD_MS);
     }
 }
@@ -194,21 +194,21 @@ void SYS_Tasks ( void )
 
     /* Maintain Middleware & Other Libraries */
     
-    xTaskCreate( _NET_PRES_Tasks,
-        "NET_PRES_Tasks",
-        NET_PRES_RTOS_STACK_SIZE,
-        (void*)NULL,
-        NET_PRES_RTOS_TASK_PRIORITY,
-        (TaskHandle_t*)NULL
-    );
-
-
-
     xTaskCreate( _TCPIP_STACK_Task,
         "TCPIP_STACK_Tasks",
         TCPIP_RTOS_STACK_SIZE,
         (void*)NULL,
         TCPIP_RTOS_PRIORITY,
+        (TaskHandle_t*)NULL
+    );
+
+
+
+    xTaskCreate( _NET_PRES_Tasks,
+        "NET_PRES_Tasks",
+        NET_PRES_RTOS_STACK_SIZE,
+        (void*)NULL,
+        NET_PRES_RTOS_TASK_PRIORITY,
         (TaskHandle_t*)NULL
     );
 
