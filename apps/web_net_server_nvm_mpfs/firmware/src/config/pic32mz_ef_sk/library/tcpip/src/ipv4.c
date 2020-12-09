@@ -463,7 +463,7 @@ static TCPIP_IPV4_DEST_TYPE TCPIP_IPV4_PktMacDestination(IPV4_PACKET* pPkt, cons
 
 static void TCPIP_IPV4_Process(void);
 
-static void TCPIP_IPV4_DispatchPacket(TCPIP_MAC_PACKET* pRxPkt);
+static TCPIP_MAC_PKT_ACK_RES TCPIP_IPV4_DispatchPacket(TCPIP_MAC_PACKET* pRxPkt);
 
 static IPV4_OPTION_FIELD* _IPv4CheckPacketOption(TCPIP_MAC_PACKET* pRxPkt, int* pOptLen);
 
@@ -998,7 +998,7 @@ static bool TCPIP_IPV4_ForwardPkt(TCPIP_MAC_PACKET* pFwdPkt, const IPV4_ROUTE_TA
         pktPayload = TCPIP_PKT_PayloadLen(pFwdPkt);
         linkMtu = _TCPIPStackNetLinkMtu(pFwdIf);
         if(pktPayload > linkMtu)
-        {   // TODO aa: add fragmentation support!
+        {
 #if ((TCPIP_IPV4_DEBUG_LEVEL & TCPIP_IPV4_DEBUG_MASK_FWD) != 0)
             pFwdDbg->failMtu++;
 #endif  // ((TCPIP_IPV4_DEBUG_LEVEL & TCPIP_IPV4_DEBUG_MASK_FWD) != 0)
@@ -1041,7 +1041,6 @@ static bool TCPIP_IPV4_ForwardPkt(TCPIP_MAC_PACKET* pFwdPkt, const IPV4_ROUTE_TA
     pFwdPkt->pktFlags |= TCPIP_MAC_PKT_FLAG_TX; 
 
     // adjust the TTL and recalculate the IP checksum
-    // TODO aa: since only TTL is modified here, the checksum could be directly adjusted!
     IPV4_HEADER* pHeader = (IPV4_HEADER*)pFwdPkt->pNetLayer;
     pHeader->TimeToLive -= 1;
     pHeader->HeaderChecksum = 0;
@@ -1692,9 +1691,6 @@ bool TCPIP_IPV4_PacketTransmit(IPV4_PACKET* pPkt)
     }
     else
     {   // select packet's external destination MAC address
-        // TODO aa: colapse TCPIP_IPV4_FwdPktMacDestination/TCPIP_IPV4_PktMacDestination into 1 routine:
-        //  - use a pEntry and set some flags to differentiate: transmit/forward, i.e. pkt intern/extern 
-        //  - the macPkt has the source/dest addresses set as is is formatted with TCPIP_IPV4_PacketFormatTx()
         destType = TCPIP_IPV4_PktMacDestination(pPkt, &pPkt->destAddress, &pMacDst, &arpTarget);
         if(destType == TCPIP_IPV4_DEST_FAIL) 
         {   // discard, cannot send
@@ -2025,7 +2021,8 @@ static void TCPIP_IPV4_Process(void)
         if(pRxPkt->ipv4PktData != 0)
         {   // re-visited packet; forwarded first; now processed
             pRxPkt->ipv4PktData = 0;
-            TCPIP_IPV4_DispatchPacket(pRxPkt);
+            ackRes = TCPIP_IPV4_DispatchPacket(pRxPkt);
+            _IPv4AssertCond(ackRes == TCPIP_MAC_PKT_ACK_NONE, __func__, __LINE__);
             continue;
         }
 #endif  // (TCPIP_IPV4_FORWARDING_ENABLE != 0)
@@ -2160,7 +2157,7 @@ static void TCPIP_IPV4_Process(void)
             }
 
             // valid IPv4 packet
-            TCPIP_IPV4_DispatchPacket(pRxPkt);
+            ackRes = TCPIP_IPV4_DispatchPacket(pRxPkt);
             break;
         }
 
@@ -2174,7 +2171,9 @@ static void TCPIP_IPV4_Process(void)
 
 // dispatch an IPv4 packet to its module
 // packet is assumed to be valid!
-static void TCPIP_IPV4_DispatchPacket(TCPIP_MAC_PACKET* pRxPkt)
+// returns TCPIP_MAC_PKT_ACK_NONE if packet dispatched OK
+// an error code  (< 0) otherwise 
+static TCPIP_MAC_PKT_ACK_RES TCPIP_IPV4_DispatchPacket(TCPIP_MAC_PACKET* pRxPkt)
 {
     IPV4_HEADER  *pHeader;
     bool        isFragment;
@@ -2185,10 +2184,6 @@ static void TCPIP_IPV4_DispatchPacket(TCPIP_MAC_PACKET* pRxPkt)
     headerLen = pHeader->IHL << 2;
 
     // for internal processed packets, change to host order
-    // TODO aa: are these fileds changed in the packet itself really needed?
-    //          calculations could be made locally...
-    //      For example ICMP packets, wich are just retransmitted using TCPIP_IPV4_MacPacketSwitchTxToRx, this is inefficient! 
-    //          - TCPIP_IPV4_MacPacketSwitchTxToRx should know not to switch htons
     pRxPkt->pTransportLayer = pRxPkt->pNetLayer + headerLen;
     pRxPkt->pDSeg->segLen -= headerLen;
     pHeader->TotalLength = TCPIP_Helper_ntohs(pHeader->TotalLength);
@@ -2199,7 +2194,10 @@ static void TCPIP_IPV4_DispatchPacket(TCPIP_MAC_PACKET* pRxPkt)
 
     // check where it needs to go
     destId = TCPIP_IPV4_FrameDestination(pHeader);
-    _IPv4AssertCond(destId != TCPIP_MODULE_NONE, __func__, __LINE__);
+    if(destId == TCPIP_MODULE_NONE)
+    {
+        return TCPIP_MAC_PKT_ACK_PROTO_DEST_ERR;
+    }
 
 #if (_TCPIP_IPV4_FRAGMENTATION != 0)
     pRxPkt->pkt_next = 0;       // make sure it's not linked
@@ -2210,8 +2208,7 @@ static void TCPIP_IPV4_DispatchPacket(TCPIP_MAC_PACKET* pRxPkt)
 
         if(ackRes != TCPIP_MAC_PKT_ACK_NONE)
         {   // failed; discard
-            TCPIP_PKT_PacketAcknowledge(pRxPkt, ackRes); 
-            return;
+            return ackRes;
         }
 
         if(fragNode != 0)
@@ -2228,6 +2225,8 @@ static void TCPIP_IPV4_DispatchPacket(TCPIP_MAC_PACKET* pRxPkt)
     {   // forward this packet and signal
         _TCPIPStackModuleRxInsert(destId, pRxPkt, true);
     }
+
+    return TCPIP_MAC_PKT_ACK_NONE;
 } 
 
 /*
@@ -2313,14 +2312,10 @@ static IPV4_PKT_PROC_TYPE TCPIP_IPV4_VerifyPktFwd(TCPIP_NET_IF* pNetIf, IPV4_HEA
         {   // multicast
             if(_TCPIPStack_IsLocalMcast(pktDestIP))
             {   // local, never forwarded
-                // TODO aa: check that at least one of the logical/virtual interfaces on which this packet arrived
-                // is part of the destination MCAST group!
                 procType = ((currFilter & TCPIP_IPV4_FILTER_MULTICAST) == 0) ? (IPV4_PKT_DEST_HOST | IPV4_PKT_TYPE_MCAST) : (IPV4_PKT_TYPE_MCAST);
             }
             else
             {   // can be forwarded
-                // TODO aa: check that at least one of the logical/virtual interfaces on which this packet arrived
-                // is part of the destination MCAST group!
                 procType = IPV4_PKT_TYPE_MCAST | IPV4_PKT_DEST_FWD;
                 if((currFilter & TCPIP_IPV4_FILTER_MULTICAST) == 0)
                 {
@@ -2737,7 +2732,6 @@ void TCPIP_IPV4_MacPacketSwitchTxToRx(TCPIP_MAC_PACKET* pRxPkt, bool setChecksum
     pIpv4Hdr->DestAddress.Val = pIpv4Hdr->SourceAddress.Val;
     pIpv4Hdr->SourceAddress.Val = _TCPIPStackNetAddress((TCPIP_NET_IF*)pRxPkt->pktIf);
 
-    // TODO aa: the packet should already be in network order!
     pIpv4Hdr->TotalLength = TCPIP_Helper_htons(pIpv4Hdr->TotalLength);
     pIpv4Hdr->FragmentInfo.val = TCPIP_Helper_htons(pIpv4Hdr->FragmentInfo.val);
     if(pIpv4Hdr->TimeToLive == 0)
@@ -3487,60 +3481,6 @@ bool TCPIP_IPV4_PacketHandlerDeregister(TCPIP_IPV4_PROCESS_HANDLE pktHandle)
 }
 
 #endif  // (TCPIP_IPV4_EXTERN_PACKET_PROCESS != 0)
-
-// IP forwarding TODO aa list: (TCPIP_IPV4_FORWARDING_ENABLE != 0)
-//
-//  - unicast reverse path forwarding should also be implemented!
-//  - RFC 1812: routers should generate ICMP messages!
-//  - Fragmentation support should be added! 
-//
-//  - 5.3.9 Packet Filtering and Access Lists - For improved security
-//      Include list - specification of a list of {source, dest} to be forwarded
-//      Exclude list - specification of a list of {source, dest} to be NOT forwarded
-//      Criteria may include other identifying information such as IP Protocol Type
-//      or TCP port number
-//  - 5.3.11 Controls on Forwarding - add to API
-//      For each physical interface, a router SHOULD have a configuration
-//      option that specifies whether forwarding is enabled on that interface.
-//      This feature allows the network manager to essentially turn off an interface 
-//  - 5.3.2 Type of Service (TOS)
-//      A router SHOULD consider the TOS field in a packet’s IP header
-//      when deciding how to forward it. 
-//
-//  - 5.3.8 Source Address Validation 
-//      if a router wouldn’t route a packet containing this address
-//      through a particular interface, it shouldn’t believe the address
-//      if it appears as a source address in a packet read from this interface.
-//      If this feature is implemented, it MUST be disabled by default.
-//
-//  - 5.3.10 Multicast Routing
-//      An IP router SHOULD support forwarding of IP multicast packets
-//
-//  - 5.3.13.4 Source Route Options
-//      A router MUST implement support for source route options in forwarded packets.
-//
-//  - RFC 3704: Ingress Filtering for Multihomed Networks
-//
-//
-//  - TCPIP_IPV4_VerifyPktFwd():
-//      Deciding to forward using the RFC 1812 rules:
-//      - A router MUST NOT forward any packet that the router received as a
-//        Link Layer broadcast, unless it is directed to an IP Multicast address.
-//      -  A router MUST NOT forward any packet which the router received as a
-//         Link Layer multicast unless the packet’s destination address is an IP multicast address.
-//      -  A router SHOULD silently discard a packet that is received via a Link Layer broadcast
-//         but does not specify an IP multicast or IP broadcast destination address.
-//      
-//  - ! TCPIP_IPV4_FindFwdRoute() improvement                  
-//  - IPV4_32LeadingOnes() improvement                  
-//  
-//  - Virtual interface support!
-//
-//  RFC 2644 change for Directed Broadcast: done for forward (needed for receive?)
-//      A router MAY have a configuration option to allow it to receive and forward the directed broadcast packets,
-//      however these options MUST be disabled by default,
-//      and thus  the router MUST NOT receive and/or forward Network Directed Broadcast packets
-//      unless specifically configured by the end user.
 
 #endif  // defined(TCPIP_STACK_USE_IPV4)
 

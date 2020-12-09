@@ -92,11 +92,11 @@ DRV_MIIM_Tasks(sysObj.drvMiim);
 
     /* Maintain Middleware & Other Libraries */
     
-NET_PRES_Tasks(sysObj.netPres);
-
-
-
 TCPIP_STACK_Task(sysObj.tcpip);
+
+
+
+NET_PRES_Tasks(sysObj.netPres);
 
 
 
