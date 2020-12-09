@@ -4,30 +4,21 @@
 
 
 project: snmpv3_nvm_mpfs
-creation_date: 2020-06-10T05:49:58.366+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2020-12-09T14:10:20.508+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mhc_mode: IDE            # [IDE|Standalone|Headless]
-mplabx_version: v5.40        # if MPLAB X plugin only
-plugin_version: v3.5.0        # if MPLAB X plugin only
+mplabx_version: v5.45        # if MPLAB X plugin only
+plugin_version: v3.6.1        # if MPLAB X plugin only
+compiler: XC32 (2.41)
 
 modules:
-    - {name: "aws_cloud", version: "v3.0.0"}
-    - {name: "bsp", version: "v3.7.0"}
-    - {name: "CMSIS-FreeRTOS", version: "unknown"}
-    - {name: "core", version: "v3.7.1"}
-    - {name: "crypto", version: "v3.5.1"}
-    - {name: "csp", version: "v3.7.1"}
-    - {name: "dev_packs", version: "v3.7.0"}
-    - {name: "doc_o_matic_h3", version: "unknown"}
-    - {name: "ethercat", version: "unknown"}
-    - {name: "ethercat_old", version: "unknown"}
-    - {name: "ethercat_settu", version: "unknown"}
-    - {name: "mhc", version: "v3.4.1"}
-    - {name: "microchip-mplab-harmony.github.io.wiki", version: "unknown"}
-    - {name: "mplabx_plugin", version: "v3.5.0"}
+    - {name: "core", version: "v3.8.1"}
+    - {name: "csp", version: "v3.8.1"}
+    - {name: "dev_packs", version: "v3.8.0"}
+    - {name: "mhc", version: "v3.6.1"}
+    - {name: "wolfssl", version: "v4.5.0-stable"}
     - {name: "net", version: "unknown"}
-    - {name: "usb", version: "v3.5.0"}
-    - {name: "wireless", version: "unknown"}
-    - {name: "wolfMQTT", version: "v1.2.0"}
-    - {name: "wolfssl", version: "v4.3.0-stable"}
+    - {name: "bsp", version: "v3.7.0"}
+    - {name: "crypto", version: "v3.6.1"}
+    - {name: "CMSIS-FreeRTOS", version: "unknown"}
 
