@@ -1,0 +1,13 @@
+format_version: v1.0
+type: GroupComponent
+attributes: {displayName: TCP/IP STACK, id: TCP/IP STACK}
+children:
+- type: ElementPosition
+  attributes: {x: '791', y: '178', id: TCP/IP STACK}
+- type: Attachments
+  children:
+  - type: Attachment
+    attributes: {namespace: BASIC CONFIGURATION, id: 'tcpipStack:Core_SysConsole_Dependency'}
+  - type: Attachment
+    attributes: {targetComponentID: lib_wolfssl, namespace: PRESENTATION LAYER, id: 'net_Pres:Net_Pres_Crypto_Dependency',
+      targetAttachmentID: lib_wolfssl}

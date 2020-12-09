@@ -1,0 +1,36 @@
+format_version: v1.0
+type: UniqueComponent
+attributes: {id: tcpipHttpNet}
+children:
+- type: Symbols
+  children:
+  - type: Boolean
+    attributes: {id: TCPIP_HTTP_NET_CUSTOM_TEMPLATE_SL}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tcpipHttpNet, value: 'true'}
+  - type: Integer
+    attributes: {id: TCPIP_HTTP_NET_HEAP_SIZE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tcpipHttpNet, value: '4944'}
+  - type: Integer
+    attributes: {id: TCPIP_HTTP_NET_LISTEN_PORT}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '443'}
+  - type: Integer
+    attributes: {id: TCPIP_HTTP_NET_SSI_VARIABLE_STRING_MAX_LENGTH}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '20'}
+- type: ElementPosition
+  attributes: {x: '387', y: '154', id: tcpipHttpNet}
