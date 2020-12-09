@@ -80,13 +80,13 @@ extern "C" {
 // *****************************************************************************
 // *****************************************************************************
 /* TIME System Service Configuration Options */
-#define SYS_TIME_INDEX_0                     0
-#define SYS_TIME_MAX_TIMERS                  5
-#define SYS_TIME_HW_COUNTER_WIDTH            32
-#define SYS_TIME_HW_COUNTER_PERIOD           4294967295U
-#define SYS_TIME_HW_COUNTER_HALF_PERIOD	     (SYS_TIME_HW_COUNTER_PERIOD>>1)
-#define SYS_TIME_CPU_CLOCK_FREQUENCY         200000000
-#define SYS_TIME_COMPARE_UPDATE_EXECUTION_CYCLES      (620)
+#define SYS_TIME_INDEX_0                            (0)
+#define SYS_TIME_MAX_TIMERS                         (5)
+#define SYS_TIME_HW_COUNTER_WIDTH                   (32)
+#define SYS_TIME_HW_COUNTER_PERIOD                  (4294967295U)
+#define SYS_TIME_HW_COUNTER_HALF_PERIOD             (SYS_TIME_HW_COUNTER_PERIOD>>1)
+#define SYS_TIME_CPU_CLOCK_FREQUENCY                (200000000)
+#define SYS_TIME_COMPARE_UPDATE_EXECUTION_CYCLES    (620)
 
 #define SYS_CONSOLE_INDEX_0                       0
 
@@ -184,10 +184,10 @@ extern "C" {
 #define TCPIP_SNMP_OID_MAX_LEN						18
 #define TCPIP_SNMP_MAX_MSG_SIZE 					480
 #define TCPIP_SNMP_MAX_NON_REC_ID_OID 				3
-#define TCPIP_SNMP_COMMUNITY_MAX_LEN 				8
+#define TCPIP_SNMP_COMMUNITY_MAX_LEN 				16
 #define TCPIP_SNMP_MAX_COMMUNITY_SUPPORT 			3
-#define TCPIP_SNMP_NOTIFY_COMMUNITY_LEN 			8
-#define TCPIP_SNMP_TRAP_COMMUNITY_MAX_LEN_MEM_USE 	8
+#define TCPIP_SNMP_NOTIFY_COMMUNITY_LEN 			16
+#define TCPIP_SNMP_TRAP_COMMUNITY_MAX_LEN_MEM_USE 	16
 #define TCPIP_SNMP_TRAP_TABLE_SIZE 					2
 #define TCPIP_SNMP_USE_TRAP_SUPPORT   				true
 
@@ -196,8 +196,8 @@ extern "C" {
 #define TCPIP_SNMP_TRAP_COMMUNITY_MAX_LEN       	(TCPIP_SNMP_TRAP_COMMUNITY_MAX_LEN_MEM_USE+1)
 
 /*** SNMP Stack Configuration Index 0 ***/
-#define TCPIP_SNMP_STACK_READCOMMUNITY_NAME_IDX0 	"public" 
-#define TCPIP_SNMP_STACK_WRITECOMMUNITY_NAME_IDX0 	"private" 
+#define TCPIP_SNMP_STACK_READCOMMUNITY_NAME_IDX0 	"harmony" 
+#define TCPIP_SNMP_STACK_WRITECOMMUNITY_NAME_IDX0 	"unicorn" 
 
 /*** SNMP Stack Configuration Index 1 ***/
 #define TCPIP_SNMP_STACK_READCOMMUNITY_NAME_IDX1 	"read" 
@@ -205,7 +205,7 @@ extern "C" {
 
 /*** SNMP Stack Configuration Index 2 ***/
 #define TCPIP_SNMP_STACK_READCOMMUNITY_NAME_IDX2		0
-#define TCPIP_SNMP_STACK_WRITECOMMUNITY_NAME_IDX2 	"public" 
+#define TCPIP_SNMP_STACK_WRITECOMMUNITY_NAME_IDX2 	"harmony" 
 
 
 
@@ -225,6 +225,7 @@ extern "C" {
 #define TCPIP_DNS_CLIENT_MAX_HOSTNAME_LEN			64
 #define TCPIP_DNS_CLIENT_MAX_SELECT_INTERFACES		4
 #define TCPIP_DNS_CLIENT_DELETE_OLD_ENTRIES			true
+#define TCPIP_DNS_CLIENT_CONSOLE_CMD               	true
 #define TCPIP_DNS_CLIENT_USER_NOTIFICATION   false
 
 
@@ -264,12 +265,12 @@ extern "C" {
 #define TCPIP_HTTP_NET_CHUNKS_NUMBER                    10
 #define TCPIP_HTTP_NET_CHUNK_RETRIES                    10
 #define TCPIP_HTTP_NET_MAX_RECURSE_LEVEL				3
-#define TCPIP_HTTP_NET_DYNVAR_PROCESS           1
+#define TCPIP_HTTP_NET_DYNVAR_PROCESS           		1
 #define TCPIP_HTTP_NET_DYNVAR_DESCRIPTORS_NUMBER		10
 #define TCPIP_HTTP_NET_DYNVAR_MAX_LEN					50
 #define TCPIP_HTTP_NET_DYNVAR_ARG_MAX_NUMBER			4
 #define TCPIP_HTTP_NET_DYNVAR_PROCESS_RETRIES			10
-#define TCPIP_HTTP_NET_SSI_PROCESS           1
+#define TCPIP_HTTP_NET_SSI_PROCESS           			1
 #define TCPIP_HTTP_NET_SSI_ATTRIBUTES_MAX_NUMBER        4
 #define TCPIP_HTTP_NET_SSI_STATIC_ATTTRIB_NUMBER        2
 #define TCPIP_HTTP_NET_SSI_CMD_MAX_LEN                  100
@@ -277,9 +278,10 @@ extern "C" {
 #define TCPIP_HTTP_NET_SSI_VARIABLE_NAME_MAX_LENGTH     10
 #define TCPIP_HTTP_NET_SSI_VARIABLE_STRING_MAX_LENGTH   20
 #define TCPIP_HTTP_NET_SSI_ECHO_NOT_FOUND_MESSAGE       "SSI Echo - Not Found: "
-#define TCPIP_HTTP_NET_CONNECTION_TIMEOUT          		0
-#define TCPIP_HTTP_NET_MALLOC_FUNC                     0
-#define TCPIP_HTTP_NET_FREE_FUNC                        0
+#define TCPIP_HTTP_NET_CONNECTION_TIMEOUT          	0
+#define TCPIP_HTTP_NET_MALLOC_FUNC                  malloc
+#define TCPIP_HTTP_NET_FREE_FUNC                    free
+#define TCPIP_HTTP_NET_CONSOLE_CMD           		false
 
 
 
@@ -290,7 +292,7 @@ extern "C" {
 
 /*** TCPIP MAC Configuration ***/
 #define TCPIP_EMAC_TX_DESCRIPTORS				    8
-#define TCPIP_EMAC_RX_DESCRIPTORS				    6
+#define TCPIP_EMAC_RX_DESCRIPTORS				    8
 #define TCPIP_EMAC_RX_DEDICATED_BUFFERS				4
 #define TCPIP_EMAC_RX_INIT_BUFFERS				    0
 #define TCPIP_EMAC_RX_LOW_THRESHOLD				    1
@@ -320,10 +322,6 @@ extern "C" {
 #define TCPIP_INTMAC_MODULE_ID		    			_ETH_BASE_ADDRESS
 #define TCPIP_INTMAC_PERIPHERAL_CLK  				100000000
 
-#define DRV_ETHMAC_INSTANCES_NUMBER				1
-#define DRV_ETHMAC_CLIENTS_NUMBER				1
-#define DRV_ETHMAC_INDEX	    	    		1
-#define DRV_ETHMAC_PERIPHERAL_ID				1
 #define DRV_ETHMAC_INTERRUPT_SOURCE				_ETHERNET_VECTOR
 
 #define DRV_ETHMAC_INTERRUPT_MODE        			true
@@ -366,7 +364,8 @@ extern "C" {
 #define TCPIP_DHCP_HOST_NAME_SIZE                   20
 #define TCPIP_DHCP_CLIENT_CONNECT_PORT              68
 #define TCPIP_DHCP_SERVER_LISTEN_PORT               67
-#define TCPIP_DHCP_CLIENT_ENABLED                   true
+#define TCPIP_DHCP_CLIENT_CONSOLE_CMD               true
+
 #define TCPIP_DHCP_USE_OPTION_TIME_SERVER           0
 #define TCPIP_DHCP_TIME_SERVER_ADDRESSES            0
 #define TCPIP_DHCP_USE_OPTION_NTP_SERVER            0
@@ -385,8 +384,9 @@ extern "C" {
 #define TCPIP_ARP_CACHE_PURGE_QUANTA		    		1
 #define TCPIP_ARP_CACHE_ENTRY_RETRIES		    		3
 #define TCPIP_ARP_GRATUITOUS_PROBE_COUNT			1
-#define TCPIP_ARP_TASK_PROCESS_RATE		        	2
+#define TCPIP_ARP_TASK_PROCESS_RATE		        	2000
 #define TCPIP_ARP_PRIMARY_CACHE_ONLY		        	true
+#define TCPIP_ARP_COMMANDS false
 
 
 
@@ -430,14 +430,8 @@ extern "C" {
 
 
 
-/*** tcpip_cmd Configuration ***/
-#define TCPIP_STACK_COMMAND_ENABLE
-#define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUESTS         4
-#define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_DELAY    1000
-#define TCPIP_STACK_COMMANDS_ICMP_ECHO_TIMEOUT          5000
-#define TCPIP_STACK_COMMANDS_WIFI_ENABLE             	false
-#define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_BUFF_SIZE    2000
-#define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_DATA_SIZE    100
+	/*** tcpip_cmd Configuration ***/
+	#define TCPIP_STACK_COMMAND_ENABLE
 
 
 
@@ -470,7 +464,14 @@ extern "C" {
 
 
 /*** IPv4 Configuration ***/
+#define TCPIP_IPV4_ARP_SLOTS                        10
 #define TCPIP_IPV4_EXTERN_PACKET_PROCESS   false
+
+#define TCPIP_IPV4_COMMANDS false
+
+#define TCPIP_IPV4_FORWARDING_ENABLE    false 
+
+
 
 
 
@@ -495,7 +496,6 @@ extern "C" {
 
 
 /*** TCPIP Heap Configuration ***/
-
 #define TCPIP_STACK_USE_INTERNAL_HEAP
 #define TCPIP_STACK_DRAM_SIZE                       39250
 #define TCPIP_STACK_DRAM_RUN_LIMIT                  2048
@@ -604,6 +604,7 @@ extern "C" {
 #define WOLFCRYPT_ONLY
 #define WOLFSSL_HAVE_MIN
 #define WOLFSSL_HAVE_MAX
+// ---------- FUNCTIONAL CONFIGURATION START ----------
 #define NO_MD4
 #define WOLFSSL_SHA224
 #define WOLFSSL_AES_128
@@ -623,6 +624,7 @@ extern "C" {
 #define HAVE_ECC
 #define NO_DH
 #define NO_DSA
+#define FP_MAX_BITS 4096
 #define USE_CERT_BUFFERS_2048
 #define NO_DEV_RANDOM
 #define HAVE_HASHDRBG
@@ -630,6 +632,10 @@ extern "C" {
 #define SINGLE_THREADED
 #define NO_ERROR_STRINGS
 #define NO_WOLFSSL_MEMORY
+// ---------- FUNCTIONAL CONFIGURATION END ----------
+
+
+
 
 
 /*** SNMPv3 Configuration ***/
