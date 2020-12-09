@@ -46,8 +46,23 @@ This table list the name and location of the MPLAB X IDE project folder for the 
         
 5. Execution :
     
-    As soon as a valid IP address is assigned through the DHCP to the demonstration, it is ready to serve Web pages.
+    1. As soon as a valid IP address is assigned through the DHCP to the demonstration, it is ready to accept a TCP/IP connection on non-secured port **80** or secured port **443**.
 
-    The demonstration does not offer any additional functionality through the serial port; however, the current IP can be checked.
+        ![tcpip_tcp_wolfssl_server_project](images/dhcp_5.png)
 
-    Use any Web browser (i.e., Chrome, Internet Explorer, Firefox, etc.) to connect to the Web server with either http:// or https://.
+    2. Send a TCP packet to the IP address of the hardware board using port **443** from any TCP Client application running on the computer.
+
+    3. The TCP Server demonstration running on the evaluation kit will echo back everything it receives along the connection.
+
+    4. For TCP Server test, the TCP Client application is required to run on the computer (SocketTest, Packet Sender etc). In this demonstration, we use the program, SocketTest (http://sockettest.sourceforge.net/). This demonstration is tested with **SocketTest v3.0**.
+        
+        * Open the **SocketTest** software and set the configuration as shown in the following figure.
+
+        	![tcpip_tcp_wolfssl_server_project](images/socketTest__secured_server_connection.png)
+
+        *  Press the Connect button on the **SocketTest** software after setting the configuration. The serial terminal indicates that the connection has been established.
+        
+        * Type any message in the message box of the **SocketTest** program, and press the Send button. The Server running on the development board will echo back the message to the **SocketTest** program.
+
+        	![tcpip_tcp_wolfssl_server_project](images/securedServerOutput.png)
+
