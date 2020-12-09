@@ -73,7 +73,7 @@ void _TCPIP_STACK_Task(  void *pvParameters  )
 TaskHandle_t xAPP_Tasks;
 
 void _APP_Tasks(  void *pvParameters  )
-{
+{   
     while(1)
     {
         APP_Tasks();
@@ -84,7 +84,7 @@ void _APP_Tasks(  void *pvParameters  )
 TaskHandle_t xAPP1_Tasks;
 
 void _APP1_Tasks(  void *pvParameters  )
-{
+{   
     while(1)
     {
         APP1_Tasks();
@@ -95,7 +95,7 @@ void _APP1_Tasks(  void *pvParameters  )
 TaskHandle_t xAPP2_Tasks;
 
 void _APP2_Tasks(  void *pvParameters  )
-{
+{   
     while(1)
     {
         APP2_Tasks();
@@ -106,7 +106,7 @@ void _APP2_Tasks(  void *pvParameters  )
 TaskHandle_t xAPP3_Tasks;
 
 void _APP3_Tasks(  void *pvParameters  )
-{
+{   
     while(1)
     {
         APP3_Tasks();
@@ -117,7 +117,7 @@ void _APP3_Tasks(  void *pvParameters  )
 TaskHandle_t xAPP4_Tasks;
 
 void _APP4_Tasks(  void *pvParameters  )
-{
+{   
     while(1)
     {
         APP4_Tasks();
