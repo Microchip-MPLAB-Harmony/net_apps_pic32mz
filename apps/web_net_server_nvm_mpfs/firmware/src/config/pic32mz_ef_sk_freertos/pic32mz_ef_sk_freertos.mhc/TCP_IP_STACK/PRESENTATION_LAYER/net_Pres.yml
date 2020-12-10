@@ -173,15 +173,20 @@ children:
       children:
       - type: Dynamic
         attributes: {id: net_Pres, value: 'false'}
-  - type: Menu
-    attributes: {id: NET_PRES_RTOS_MENU}
+  - type: Integer
+    attributes: {id: NET_PRES_RTOS_DELAY}
     children:
-    - type: Attributes
+    - type: Values
       children:
-      - type: Boolean
-        attributes: {id: visible}
-        children:
-        - {type: Value, value: 'true'}
+      - type: User
+        attributes: {value: '1'}
+  - type: Integer
+    attributes: {id: NET_PRES_RTOS_STACK_SIZE}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '32768'}
   - type: Boolean
     attributes: {id: NET_PRES_SUPPORT_CLIENT_ENC}
     children:
@@ -241,15 +246,6 @@ children:
       children:
       - type: Boolean
         attributes: {id: visible}
-        children:
-        - {type: Value, value: 'true'}
-  - type: File
-    attributes: {id: NET_PRES_SYS_RTOS_TASK}
-    children:
-    - type: Attributes
-      children:
-      - type: Boolean
-        attributes: {id: enabled}
         children:
         - {type: Value, value: 'true'}
   - type: Boolean

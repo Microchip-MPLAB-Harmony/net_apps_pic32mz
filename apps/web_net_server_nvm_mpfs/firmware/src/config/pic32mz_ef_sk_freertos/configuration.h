@@ -257,8 +257,8 @@ extern "C" {
 #define TCPIP_HTTP_NET_SSI_VARIABLE_STRING_MAX_LENGTH   20
 #define TCPIP_HTTP_NET_SSI_ECHO_NOT_FOUND_MESSAGE       "SSI Echo - Not Found: "
 #define TCPIP_HTTP_NET_CONNECTION_TIMEOUT          	0
-#define TCPIP_HTTP_NET_MALLOC_FUNC                  malloc
-#define TCPIP_HTTP_NET_FREE_FUNC                    free
+#define TCPIP_HTTP_NET_MALLOC_FUNC                  pvPortMalloc
+#define TCPIP_HTTP_NET_FREE_FUNC                    vPortFree
 #define TCPIP_HTTP_NET_CONSOLE_CMD           		false
 
 
@@ -651,7 +651,7 @@ extern "C" {
 #define NET_PRES_NUM_SOCKETS 10
 
 /* Net Pres RTOS Configurations*/
-#define NET_PRES_RTOS_STACK_SIZE                1024
+#define NET_PRES_RTOS_STACK_SIZE                8192
 #define NET_PRES_RTOS_TASK_PRIORITY             1
 	
 #define FREERTOS

@@ -7,7 +7,7 @@ children:
 - type: Attachments
   children:
   - type: Attachment
-    attributes: {namespace: BASIC CONFIGURATION, id: 'tcpipStack:Core_SysConsole_Dependency'}
-  - type: Attachment
     attributes: {targetComponentID: lib_wolfssl, namespace: PRESENTATION LAYER, id: 'net_Pres:Net_Pres_Crypto_Dependency',
       targetAttachmentID: lib_wolfssl}
+  - type: Attachment
+    attributes: {namespace: BASIC CONFIGURATION, id: 'tcpipStack:Core_SysConsole_Dependency'}

@@ -18,8 +18,8 @@ children:
       children:
       - type: Dynamic
         attributes: {id: tcpipStack, value: '46'}
-  - type: Boolean
-    attributes: {id: TCPIP_STACK_INTERFACE_CHANGE_SIGNALING}
+  - type: Menu
+    attributes: {id: TCPIP_STACK_RTOS_MENU}
     children:
     - type: Attributes
       children:
@@ -34,5 +34,14 @@ children:
       children:
       - type: Dynamic
         attributes: {id: tcpipStack, value: 'true'}
+  - type: File
+    attributes: {id: TCPIP_SYS_RTOS_TASK}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: enabled}
+        children:
+        - {type: Value, value: 'true'}
 - type: ElementPosition
   attributes: {x: '239', y: '20', id: tcpipStack}
