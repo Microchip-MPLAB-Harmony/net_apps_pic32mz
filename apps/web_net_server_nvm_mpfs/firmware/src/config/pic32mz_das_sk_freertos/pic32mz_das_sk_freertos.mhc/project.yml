@@ -1924,13 +1924,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: BBE2AB9763E7BB36934A49D9681301A3
-- generatedChecksum: 902D1CB325D5C326467A64F8DCA9110A
+- generatedChecksum: 8A358F242B8D40E6715BC4D8B28B4EDF
   logicalPath: config\pic32mz_das_sk_freertos
   name: configuration.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 902D1CB325D5C326467A64F8DCA9110A
+  userChecksum: 8A358F242B8D40E6715BC4D8B28B4EDF
 - generatedChecksum: E2213F8AC22EC0D94CED6269EA154195
   logicalPath: wolfcrypt
   name: cpuid.h
