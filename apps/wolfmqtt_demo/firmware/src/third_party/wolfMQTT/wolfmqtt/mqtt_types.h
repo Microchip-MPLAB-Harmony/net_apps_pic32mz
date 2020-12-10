@@ -1,6 +1,6 @@
 /* mqtt_types.h
  *
- * Copyright (C) 2006-2018 wolfSSL Inc.
+ * Copyright (C) 2006-2020 wolfSSL Inc.
  *
  * This file is part of wolfMQTT.
  *
@@ -45,6 +45,85 @@
 
 #include "wolfmqtt/visibility.h"
 
+#ifdef _WIN32
+    #define USE_WINDOWS_API
+
+    /* Make sure a level of Win compatibility is defined */
+    #ifndef _WIN32_WINNT
+    #define _WIN32_WINNT 0x0501
+    #endif
+
+    /* Allow "unsafe" strncpy */
+    #ifndef _CRT_SECURE_NO_WARNINGS
+    #define _CRT_SECURE_NO_WARNINGS
+    #endif
+
+    /* Visual Studio build settings from wolfmqtt/vs_settings.h */
+    #include "wolfmqtt/vs_settings.h"
+#endif
+
+#ifdef WOLFMQTT_USER_SETTINGS
+#include "user_settings.h"
+#endif
+
+#ifdef ENABLE_MQTT_TLS
+    #if !defined(WOLFSSL_USER_SETTINGS) && !defined(USE_WINDOWS_API)
+        #include <wolfssl/options.h>
+    #endif
+    #include <wolfssl/wolfcrypt/settings.h>
+    #include <wolfssl/ssl.h>
+    #include <wolfssl/wolfcrypt/types.h>
+    #include <wolfssl/wolfcrypt/error-crypt.h>
+
+    #ifndef WOLF_TLS_DHKEY_BITS_MIN /* allow define to be overridden */
+        #ifdef WOLFSSL_MAX_STRENGTH
+            #define WOLF_TLS_DHKEY_BITS_MIN 2048
+        #else
+            #define WOLF_TLS_DHKEY_BITS_MIN 1024
+        #endif
+    #endif
+#endif
+
+#ifdef WOLFMQTT_MULTITHREAD
+    /* Multi-threading uses binary semaphores */
+    #if defined(__MACH__)
+        /* Apple Style Dispatch Semaphore */
+        #include <dispatch/dispatch.h>
+        typedef dispatch_semaphore_t wm_Sem;
+
+    #elif defined(__FreeBSD__) || defined(__linux__)
+        /* Posix Style Semaphore */
+        #define WOLFMQTT_POSIX_SEMAPHORES
+        #include <semaphore.h>
+        typedef sem_t wm_Sem;
+
+    #elif defined(FREERTOS)
+        /* FreeRTOS binary semaphore */
+        #include <FreeRTOS.h>
+        
+        #include <semphr.h>
+        typedef SemaphoreHandle_t wm_Sem;
+
+    #elif defined(USE_WINDOWS_API)
+        /* Windows semaphore object */
+        #include <winsock2.h> /* winsock2.h needs included before windows.h */
+        #include <ws2tcpip.h>
+        #include <windows.h>
+        typedef HANDLE wm_Sem;
+    
+    #elif defined(WOLFMQTT_USER_THREADING)
+        /* User provides API's and wm_Sem type */
+
+    #else
+        #error "Multithreading requires binary semaphore implementation!"
+    #endif
+
+    WOLFMQTT_API int wm_SemInit(wm_Sem* s);
+    WOLFMQTT_API int wm_SemFree(wm_Sem* s);
+    WOLFMQTT_API int wm_SemLock(wm_Sem* s);
+    WOLFMQTT_API int wm_SemUnlock(wm_Sem* s);
+#endif
+
 /* configuration for Harmony */
 #ifdef MICROCHIP_MPLAB_HARMONY
     #define NO_EXIT
@@ -54,29 +133,15 @@
         #define WOLFMQTT_NONBLOCK
     #endif
 
-    /* use SYS_PRINT for printf */
-    #define WOLFMQTT_CUSTOM_PRINTF
-    #define PRINTF(_f_, ...)  SYS_PRINT( (_f_ "\n"), ##__VA_ARGS__)
-
     #include "system_config.h"
-    #include "system_definitions.h"
-#endif
+    #ifdef SYS_CMD_ENABLE
+        extern void SYS_CMD_PRINT(const char *format, ...);
 
-#ifdef _WIN32
-    #define USE_WINDOWS_API
-
-    /* Make sure a level of Win compatibility is defined */
-    #ifndef _WIN32_WINNT
-        #define _WIN32_WINNT 0x0501
+        /* use SYS_PRINT for printf */
+        #define WOLFMQTT_CUSTOM_PRINTF
+        #define PRINTF(_f_, ...)  SYS_CMD_PRINT( (_f_ "\n"), ##__VA_ARGS__)
     #endif
 
-    /* Allow "unsafe" strncpy */
-    #ifndef _CRT_SECURE_NO_WARNINGS
-        #define _CRT_SECURE_NO_WARNINGS
-    #endif
-
-    /* Visual Studio build settings from wolfmqtt/vs_settings.h */
-    #include "wolfmqtt/vs_settings.h"
 #endif
 
 #ifndef WOLFMQTT_NO_STDIO
@@ -201,7 +266,16 @@ enum MqttPacketResponseCodes {
         #define LINE_END    "\n"
     #endif
     #ifndef PRINTF
-        #define PRINTF(_f_, ...)  printf( (_f_ LINE_END), ##__VA_ARGS__)
+        #if defined(WOLFMQTT_MULTITHREAD) && defined(WOLFMQTT_DEBUG_THREAD)
+            #ifdef USE_WINDOWS_API
+                #define PRINTF(_f_, ...)  printf( ("%lx: "_f_ LINE_END), GetCurrentThreadId(), ##__VA_ARGS__)
+            #else
+                #include <pthread.h>
+                #define PRINTF(_f_, ...)  printf( ("%lx: "_f_ LINE_END), pthread_self(), ##__VA_ARGS__)
+            #endif
+        #else
+            #define PRINTF(_f_, ...)  printf( (_f_ LINE_END), ##__VA_ARGS__)
+        #endif
     #endif
 
     #ifndef WOLFMQTT_NO_STDIO
@@ -216,6 +290,7 @@ enum MqttPacketResponseCodes {
 
 /* GCC 7 has new switch() fall-through detection */
 /* default to FALL_THROUGH stub */
+#ifndef FALL_THROUGH
 #define FALL_THROUGH
 
 #if defined(__GNUC__)
@@ -223,6 +298,7 @@ enum MqttPacketResponseCodes {
         #undef  FALL_THROUGH
         #define FALL_THROUGH __attribute__ ((fallthrough));
     #endif
+#endif
 #endif
 
 #ifdef __cplusplus

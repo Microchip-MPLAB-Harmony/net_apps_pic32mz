@@ -1,6 +1,6 @@
 /* mqtt_socket.h
  *
- * Copyright (C) 2006-2018 wolfSSL Inc.
+ * Copyright (C) 2006-2020 wolfSSL Inc.
  *
  * This file is part of wolfMQTT.
  *
@@ -33,13 +33,6 @@
 
 #include "wolfmqtt/mqtt_types.h"
 #ifdef ENABLE_MQTT_TLS
-    #if !defined(WOLFSSL_USER_SETTINGS) && !defined(USE_WINDOWS_API)
-        #include <wolfssl/options.h>
-    #endif
-	#include <wolfssl/wolfcrypt/settings.h>
-    #include <wolfssl/ssl.h>
-    #include <wolfssl/wolfcrypt/types.h>
-
     #ifndef WOLF_TLS_DHKEY_BITS_MIN /* allow define to be overridden */
         #ifdef WOLFSSL_MAX_STRENGTH
             #define WOLF_TLS_DHKEY_BITS_MIN 2048
@@ -110,6 +103,10 @@ WOLFMQTT_LOCAL int MqttSocket_Connect(struct _MqttClient *client,
         MqttTlsCb cb);
 WOLFMQTT_LOCAL int MqttSocket_Disconnect(struct _MqttClient *client);
 
+#ifdef ENABLE_MQTT_TLS
+int MqttSocket_TlsSocketReceive(WOLFSSL* ssl, char *buf, int sz, void *ptr);
+int MqttSocket_TlsSocketSend(WOLFSSL* ssl, char *buf, int sz, void *ptr);
+#endif
 
 #ifdef __cplusplus
     } /* extern "C" */

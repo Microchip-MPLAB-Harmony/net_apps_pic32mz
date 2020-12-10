@@ -1,6 +1,6 @@
 /* mqtt_socket.c
  *
- * Copyright (C) 2006-2018 wolfSSL Inc.
+ * Copyright (C) 2006-2020 wolfSSL Inc.
  *
  * This file is part of wolfMQTT.
  *
@@ -25,7 +25,11 @@
 #endif
 
 #ifdef WOLFMQTT_NONBLOCK
-    #include <sys/errno.h>
+    /* need EWOULDBLOCK and EAGAIN */
+    #ifdef MICROCHIP_MPLAB_HARMONY
+        #include <sys/errno.h>
+    #endif
+    #include <errno.h>
 #endif
 
 #include "wolfmqtt/mqtt_client.h"
@@ -38,9 +42,9 @@
 #endif
 
 
-/* Private Functions */
+/* Public Functions */
 #ifdef ENABLE_MQTT_TLS
-static int MqttSocket_TlsSocketReceive(WOLFSSL* ssl, char *buf, int sz,
+int MqttSocket_TlsSocketReceive(WOLFSSL* ssl, char *buf, int sz,
     void *ptr)
 {
     int rc;
@@ -63,7 +67,7 @@ static int MqttSocket_TlsSocketReceive(WOLFSSL* ssl, char *buf, int sz,
     return rc;
 }
 
-static int MqttSocket_TlsSocketSend(WOLFSSL* ssl, char *buf, int sz,
+int MqttSocket_TlsSocketSend(WOLFSSL* ssl, char *buf, int sz,
     void *ptr)
 {
     int rc;
@@ -86,8 +90,6 @@ static int MqttSocket_TlsSocketSend(WOLFSSL* ssl, char *buf, int sz,
 }
 #endif
 
-
-/* Public Functions */
 int MqttSocket_Init(MqttClient *client, MqttNet *net)
 {
     int rc = MQTT_CODE_ERROR_BAD_ARG;
@@ -121,7 +123,10 @@ static int MqttSocket_WriteDo(MqttClient *client, const byte* buf, int buf_len,
         if (rc < 0) {
         #ifdef WOLFMQTT_DEBUG_SOCKET
             int error = wolfSSL_get_error(client->tls.ssl, 0);
-            PRINTF("MqttSocket_Write: SSL Error=%d", error);
+            if (error != WOLFSSL_ERROR_WANT_WRITE) {
+                PRINTF("MqttSocket_Write: SSL Error=%d (rc %d, sockrc %d)",
+    				error, rc, client->tls.sockRc);
+            }
         #endif
 
             /* return code from net callback */
@@ -327,7 +332,6 @@ int MqttSocket_Connect(MqttClient *client, const char* host, word16 port,
     }
 #endif
 
-
     if ((client->flags & MQTT_CLIENT_FLAG_IS_CONNECTED) == 0) {
         /* Validate port */
         if (port == 0) {
@@ -393,9 +397,6 @@ int MqttSocket_Connect(MqttClient *client, const char* host, word16 port,
 
             wolfSSL_SetIOReadCtx(client->tls.ssl, (void *)client);
             wolfSSL_SetIOWriteCtx(client->tls.ssl, (void *)client);
-        #if !defined(WOLFMQTT_NO_TIMEOUT) && defined(WOLFMQTT_NONBLOCK)
-            wolfSSL_set_using_nonblock(client->tls.ssl, 1);
-        #endif
         }
 
         if (client->ctx != NULL) {

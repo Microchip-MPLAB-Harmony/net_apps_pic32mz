@@ -80,13 +80,13 @@ extern "C" {
 // *****************************************************************************
 // *****************************************************************************
 /* TIME System Service Configuration Options */
-#define SYS_TIME_INDEX_0                     0
-#define SYS_TIME_MAX_TIMERS                  5
-#define SYS_TIME_HW_COUNTER_WIDTH            32
-#define SYS_TIME_HW_COUNTER_PERIOD           4294967295U
-#define SYS_TIME_HW_COUNTER_HALF_PERIOD	     (SYS_TIME_HW_COUNTER_PERIOD>>1)
-#define SYS_TIME_CPU_CLOCK_FREQUENCY         200000000
-#define SYS_TIME_COMPARE_UPDATE_EXECUTION_CYCLES      (620)
+#define SYS_TIME_INDEX_0                            (0)
+#define SYS_TIME_MAX_TIMERS                         (5)
+#define SYS_TIME_HW_COUNTER_WIDTH                   (32)
+#define SYS_TIME_HW_COUNTER_PERIOD                  (4294967295U)
+#define SYS_TIME_HW_COUNTER_HALF_PERIOD             (SYS_TIME_HW_COUNTER_PERIOD>>1)
+#define SYS_TIME_CPU_CLOCK_FREQUENCY                (200000000)
+#define SYS_TIME_COMPARE_UPDATE_EXECUTION_CYCLES    (620)
 
 #define SYS_CONSOLE_INDEX_0                       0
 
@@ -158,6 +158,7 @@ extern "C" {
 #define TCPIP_DNS_CLIENT_MAX_HOSTNAME_LEN			64
 #define TCPIP_DNS_CLIENT_MAX_SELECT_INTERFACES		4
 #define TCPIP_DNS_CLIENT_DELETE_OLD_ENTRIES			true
+#define TCPIP_DNS_CLIENT_CONSOLE_CMD               	true
 #define TCPIP_DNS_CLIENT_USER_NOTIFICATION   false
 
 
@@ -197,7 +198,7 @@ extern "C" {
 
 /*** TCPIP MAC Configuration ***/
 #define TCPIP_EMAC_TX_DESCRIPTORS				    8
-#define TCPIP_EMAC_RX_DESCRIPTORS				    6
+#define TCPIP_EMAC_RX_DESCRIPTORS				    8
 #define TCPIP_EMAC_RX_DEDICATED_BUFFERS				4
 #define TCPIP_EMAC_RX_INIT_BUFFERS				    0
 #define TCPIP_EMAC_RX_LOW_THRESHOLD				    1
@@ -227,10 +228,6 @@ extern "C" {
 #define TCPIP_INTMAC_MODULE_ID		    			_ETH_BASE_ADDRESS
 #define TCPIP_INTMAC_PERIPHERAL_CLK  				120000000
 
-#define DRV_ETHMAC_INSTANCES_NUMBER				1
-#define DRV_ETHMAC_CLIENTS_NUMBER				1
-#define DRV_ETHMAC_INDEX	    	    		1
-#define DRV_ETHMAC_PERIPHERAL_ID				1
 #define DRV_ETHMAC_INTERRUPT_SOURCE				_ETHERNET_VECTOR
 
 #define DRV_ETHMAC_INTERRUPT_MODE        			true
@@ -251,31 +248,15 @@ extern "C" {
 #define KEEP_PEER_CERT
 #define HAVE_CRL_IO
 #define HAVE_IO_TIMEOUT
-#define HAVE_FFDHE_2048
-#define HAVE_FFDHE_3072
-#define HAVE_FFDHE_4096
-#define HAVE_FFDHE_6144
-#define HAVE_FFDHE_8192
 #define TFM_NO_ASM
 #define WOLFSSL_NO_ASM
 #define SIZEOF_LONG_LONG 8
 #define WOLFSSL_USER_IO
 #define NO_WRITEV
 #define MICROCHIP_TCPIP
-
-
-
-    
-    
-    
-
+#define NO_PWDBASED
 #define NO_ERROR_STRINGS
-    
-    
-    
-    
-    
-   
+#define NO_OLD_TLS
 
 
 /*** TCP Configuration ***/
@@ -297,7 +278,7 @@ extern "C" {
 #define TCPIP_TCP_TASK_TICK_RATE		        	5
 #define TCPIP_TCP_MSL_TIMEOUT		        	    0
 #define TCPIP_TCP_QUIET_TIME		        	    0
-#define TCPIP_TCP_COMMANDS   true
+#define TCPIP_TCP_COMMANDS   false
 #define TCPIP_TCP_EXTERN_PACKET_PROCESS   false
 
 
@@ -309,7 +290,8 @@ extern "C" {
 #define TCPIP_DHCP_HOST_NAME_SIZE                   20
 #define TCPIP_DHCP_CLIENT_CONNECT_PORT              68
 #define TCPIP_DHCP_SERVER_LISTEN_PORT               67
-#define TCPIP_DHCP_CLIENT_ENABLED                   true
+#define TCPIP_DHCP_CLIENT_CONSOLE_CMD               true
+
 #define TCPIP_DHCP_USE_OPTION_TIME_SERVER           0
 #define TCPIP_DHCP_TIME_SERVER_ADDRESSES            0
 #define TCPIP_DHCP_USE_OPTION_NTP_SERVER            0
@@ -328,19 +310,14 @@ extern "C" {
 #define TCPIP_ARP_CACHE_PURGE_QUANTA		    		1
 #define TCPIP_ARP_CACHE_ENTRY_RETRIES		    		3
 #define TCPIP_ARP_GRATUITOUS_PROBE_COUNT			1
-#define TCPIP_ARP_TASK_PROCESS_RATE		        	2
+#define TCPIP_ARP_TASK_PROCESS_RATE		        	2000
 #define TCPIP_ARP_PRIMARY_CACHE_ONLY		        	true
+#define TCPIP_ARP_COMMANDS false
 
 
 
-/*** tcpip_cmd Configuration ***/
-#define TCPIP_STACK_COMMAND_ENABLE
-#define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUESTS         4
-#define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_DELAY    1000
-#define TCPIP_STACK_COMMANDS_ICMP_ECHO_TIMEOUT          5000
-#define TCPIP_STACK_COMMANDS_WIFI_ENABLE             	false
-#define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_BUFF_SIZE    2000
-#define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_DATA_SIZE    100
+	/*** tcpip_cmd Configuration ***/
+	#define TCPIP_STACK_COMMAND_ENABLE
 
 
 
@@ -365,20 +342,20 @@ extern "C" {
 #define TCPIP_NETWORK_DEFAULT_MAC_DRIVER_IDX0			DRV_ETHMAC_PIC32MACObject
 
 
-/* MPLAB Harmony Net Presentation Layer Definitions*/
-#define NET_PRES_NUM_INSTANCE 1
-#define NET_PRES_NUM_SOCKETS 10
-
-
-
 
 /*** IPv4 Configuration ***/
+#define TCPIP_IPV4_ARP_SLOTS                        10
 #define TCPIP_IPV4_EXTERN_PACKET_PROCESS   false
+
+#define TCPIP_IPV4_COMMANDS false
+
+#define TCPIP_IPV4_FORWARDING_ENABLE    false 
+
+
 
 
 
 /*** TCPIP Heap Configuration ***/
-
 #define TCPIP_STACK_USE_INTERNAL_HEAP
 #define TCPIP_STACK_DRAM_SIZE                       61440
 #define TCPIP_STACK_DRAM_RUN_LIMIT                  2048
@@ -435,17 +412,17 @@ extern "C" {
 
 /*** SNTP Configuration ***/
 #define TCPIP_STACK_USE_SNTP_CLIENT
-#define TCPIP_NTP_DEFAULT_IF		        		"PIC32INT"
-#define TCPIP_NTP_VERSION             			    	4
-#define TCPIP_NTP_DEFAULT_CONNECTION_TYPE   			IP_ADDRESS_TYPE_IPV4
-#define TCPIP_NTP_EPOCH		                		2208988800ul
-#define TCPIP_NTP_REPLY_TIMEOUT		        		6
-#define TCPIP_NTP_MAX_STRATUM		        		15
+#define TCPIP_NTP_DEFAULT_IF		        	"ETHMAC"
+#define TCPIP_NTP_VERSION             			4
+#define TCPIP_NTP_DEFAULT_CONNECTION_TYPE   	IP_ADDRESS_TYPE_IPV4
+#define TCPIP_NTP_EPOCH		                	2208988800ul
+#define TCPIP_NTP_REPLY_TIMEOUT		        	6
+#define TCPIP_NTP_MAX_STRATUM		        	15
 #define TCPIP_NTP_TIME_STAMP_TMO				660
 #define TCPIP_NTP_SERVER		        		"pool.ntp.org"
 #define TCPIP_NTP_SERVER_MAX_LENGTH				30
 #define TCPIP_NTP_QUERY_INTERVAL				600
-#define TCPIP_NTP_FAST_QUERY_INTERVAL	    			14
+#define TCPIP_NTP_FAST_QUERY_INTERVAL	    	14
 #define TCPIP_NTP_TASK_TICK_RATE				1100
 #define TCPIP_NTP_RX_QUEUE_LIMIT				2
 
@@ -495,6 +472,7 @@ extern "C" {
 #define WOLF_CRYPTO_CB  // provide call-back support
 #define WOLFSSL_HAVE_MIN
 #define WOLFSSL_HAVE_MAX
+// ---------- FUNCTIONAL CONFIGURATION START ----------
 #define NO_MD4
 #define WOLFSSL_SHA224
 #define WOLFSSL_AES_128
@@ -513,6 +491,7 @@ extern "C" {
 #define HAVE_ECC
 #define NO_DH
 #define NO_DSA
+#define FP_MAX_BITS 4096
 #define USE_CERT_BUFFERS_2048
 #define NO_DEV_RANDOM
 #define HAVE_HASHDRBG
@@ -520,6 +499,16 @@ extern "C" {
 #define SINGLE_THREADED
 #define NO_ERROR_STRINGS
 #define NO_WOLFSSL_MEMORY
+// ---------- FUNCTIONAL CONFIGURATION END ----------
+
+/* MPLAB Harmony Net Presentation Layer Definitions*/
+#define NET_PRES_NUM_INSTANCE 1
+#define NET_PRES_NUM_SOCKETS 10
+
+
+
+
+
 
 
 
