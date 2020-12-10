@@ -229,8 +229,6 @@ extern "C" {
 #define HAVE_FFDHE_2048
 #define HAVE_FFDHE_3072
 #define HAVE_FFDHE_4096
-#define HAVE_FFDHE_6144
-#define HAVE_FFDHE_8192
 #define WOLFSSL_DTLS
 #define NO_PWDBASED
 #define HAVE_TLS_EXTENSIONS
@@ -476,7 +474,7 @@ extern "C" {
 #define HAVE_ECC
 #define HAVE_DH
 #define NO_DSA
-#define FP_MAX_BITS 16384
+#define FP_MAX_BITS 8192
 #define USE_CERT_BUFFERS_2048
 #define WC_RSA_PSS
 #define NO_DEV_RANDOM
