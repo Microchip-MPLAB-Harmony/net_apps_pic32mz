@@ -123,6 +123,8 @@
                 <itemPath>../src/config/pic32mz_ef_sk_sw/library/tcpip/src/lldp_manager.h</itemPath>
                 <itemPath>../src/config/pic32mz_ef_sk_sw/library/tcpip/src/lldp_private.h</itemPath>
                 <itemPath>../src/config/pic32mz_ef_sk_sw/library/tcpip/src/lldp_tlv.h</itemPath>
+                <itemPath>..\src\config\pic32mz_ef_sk_sw\library\tcpip\src\tcpip_mac_bridge_manager.h</itemPath>
+                <itemPath>..\src\config\pic32mz_ef_sk_sw\library\tcpip\src\tcpip_mac_bridge_private.h</itemPath>
               </logicalFolder>
               <itemPath>../src/config/pic32mz_ef_sk_sw/library/tcpip/tcpip_common_ports.h</itemPath>
               <itemPath>../src/config/pic32mz_ef_sk_sw/library/tcpip/tcpip_mac.h</itemPath>
@@ -168,6 +170,7 @@
               <itemPath>../src/config/pic32mz_ef_sk_sw/library/tcpip/tcpip_commands.h</itemPath>
               <itemPath>../src/config/pic32mz_ef_sk_sw/library/tcpip/tcpip.h</itemPath>
               <itemPath>../src/config/pic32mz_ef_sk_sw/library/tcpip/tcpip_ethernet.h</itemPath>
+              <itemPath>..\src\config\pic32mz_ef_sk_sw\library\tcpip\tcpip_mac_bridge.h</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f4" displayName="net_pres" projectFiles="true">
@@ -183,6 +186,11 @@
               <itemPath>../src/config/pic32mz_ef_sk_sw/net_pres/pres/net_pres_socketapiconversion.h</itemPath>
               <itemPath>../src/config/pic32mz_ef_sk_sw/net_pres/pres/net_pres_enc_glue.h</itemPath>
             </logicalFolder>
+          </logicalFolder>
+          <logicalFolder name="f8" displayName="osal" projectFiles="true">
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\osal\osal.h</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\osal\osal_definitions.h</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\osal\osal_impl_basic.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f3" displayName="peripheral" projectFiles="true">
             <logicalFolder name="f3" displayName="clk" projectFiles="true">
@@ -221,10 +229,8 @@
               <itemPath>../src/config/pic32mz_ef_sk_sw/system/time/sys_time_definitions.h</itemPath>
               <itemPath>../src/config/pic32mz_ef_sk_sw/system/time/src/sys_time_local.h</itemPath>
             </logicalFolder>
-            <itemPath>../src/config/pic32mz_ef_sk_sw/system/sys_clk_h2_adapter.h</itemPath>
             <itemPath>../src/config/pic32mz_ef_sk_sw/system/sys_time_h2_adapter.h</itemPath>
             <itemPath>../src/config/pic32mz_ef_sk_sw/system/sys_random_h2_adapter.h</itemPath>
-            <itemPath>../src/config/pic32mz_ef_sk_sw/system/sys_reset_h2_adapter.h</itemPath>
             <itemPath>../src/config/pic32mz_ef_sk_sw/system/system.h</itemPath>
             <itemPath>../src/config/pic32mz_ef_sk_sw/system/system_common.h</itemPath>
             <itemPath>../src/config/pic32mz_ef_sk_sw/system/system_module.h</itemPath>
@@ -236,18 +242,7 @@
           <itemPath>../src/config/pic32mz_ef_sk_sw/toolchain_specifics.h</itemPath>
           <itemPath>../src/config/pic32mz_ef_sk_sw/definitions.h</itemPath>
           <itemPath>../src/config/pic32mz_ef_sk_sw/config.h</itemPath>
-        </logicalFolder>
-      </logicalFolder>
-      <logicalFolder name="f4" displayName="osal" projectFiles="true">
-        <itemPath>../src/config/pic32mz_ef_sk_sw/osal/osal.h</itemPath>
-        <itemPath>../src/config/pic32mz_ef_sk_sw/osal/osal_definitions.h</itemPath>
-        <itemPath>../src/config/pic32mz_ef_sk_sw/osal/osal_impl_basic.h</itemPath>
-      </logicalFolder>
-      <logicalFolder name="f3" displayName="packs" projectFiles="true">
-        <logicalFolder name="f1"
-                       displayName="PIC32MZ2048EFM144_DFP"
-                       projectFiles="true">
-          <itemPath>../src/packs/PIC32MZ2048EFM144_DFP/device.h</itemPath>
+          <itemPath>..\src\config\pic32mz_ef_sk_sw\device.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="f5" displayName="wolfcrypt" projectFiles="true">
@@ -380,6 +375,10 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/sha256.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/sha512.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/wc_port.h</itemPath>
+        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\curve448.h</itemPath>
+        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\ed448.h</itemPath>
+        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\fe_448.h</itemPath>
+        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\ge_448.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="wolfssl" projectFiles="true">
         <itemPath>../src/third_party/wolfssl/wolfssl/callbacks.h</itemPath>
@@ -401,16 +400,80 @@
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="true">
+      <logicalFolder name="f2" displayName="pic32mz_ef_sk_sw.mhc" projectFiles="true">
+        <logicalFolder name="f1" displayName="TCP_IP_STACK" projectFiles="true">
+          <logicalFolder name="f1" displayName="APPLICATION_LAYER" projectFiles="true">
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\APPLICATION_LAYER\APPLICATION_LAYER.yml</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\APPLICATION_LAYER\tcpipDhcp.yml</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\APPLICATION_LAYER\tcpipDns.yml</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\APPLICATION_LAYER\tcpipSntp.yml</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\APPLICATION_LAYER\tcpip_apps_config.yml</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f2" displayName="BASIC_CONFIGURATION" projectFiles="true">
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\BASIC_CONFIGURATION\BASIC_CONFIGURATION.yml</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\BASIC_CONFIGURATION\tcpipCmd.yml</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\BASIC_CONFIGURATION\tcpipNetConfig.yml</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\BASIC_CONFIGURATION\tcpipStack.yml</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\BASIC_CONFIGURATION\tcpip_basic_config.yml</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f3" displayName="DRIVER_LAYER" projectFiles="true">
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\DRIVER_LAYER\DRIVER_LAYER.yml</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\DRIVER_LAYER\drvExtPhyLan8740.yml</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\DRIVER_LAYER\drvMiim.yml</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\DRIVER_LAYER\drvPic32mEthmac.yml</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\DRIVER_LAYER\tcpip_driver_config.yml</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f4" displayName="NETWORK_LAYER" projectFiles="true">
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\NETWORK_LAYER\NETWORK_LAYER.yml</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\NETWORK_LAYER\tcpipArp.yml</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\NETWORK_LAYER\tcpipIcmp.yml</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\NETWORK_LAYER\tcpipIPv4.yml</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\NETWORK_LAYER\tcpip_network_config.yml</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f5" displayName="PRESENTATION_LAYER" projectFiles="true">
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\PRESENTATION_LAYER\net_Pres.yml</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\PRESENTATION_LAYER\PRESENTATION_LAYER.yml</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f6" displayName="TRANSPORT_LAYER" projectFiles="true">
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\TRANSPORT_LAYER\tcpipTcp.yml</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\TRANSPORT_LAYER\tcpipUdp.yml</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\TRANSPORT_LAYER\tcpip_transport_config.yml</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\TRANSPORT_LAYER\TRANSPORT_LAYER.yml</itemPath>
+          </logicalFolder>
+          <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\TCP_IP_STACK\TCP_IP_STACK.yml</itemPath>
+        </logicalFolder>
+        <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\BSP_PIC32MZ_EF_Starter_Kit.yml</itemPath>
+        <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\core.yml</itemPath>
+        <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\core_timer.yml</itemPath>
+        <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\dfp.yml</itemPath>
+        <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\GraphSettings.yml</itemPath>
+        <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\HarmonyCore.yml</itemPath>
+        <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\lib_crypto.yml</itemPath>
+        <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\lib_wolfcrypt.yml</itemPath>
+        <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\lib_wolfssl.yml</itemPath>
+        <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\project.yml</itemPath>
+        <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\settings.yml</itemPath>
+        <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\sys_command.yml</itemPath>
+        <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\sys_console.yml</itemPath>
+        <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\sys_debug.yml</itemPath>
+        <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\sys_time.yml</itemPath>
+        <itemPath>..\src\config\pic32mz_ef_sk_sw\pic32mz_ef_sk_sw.mhc\uart2.yml</itemPath>
+      </logicalFolder>
       <logicalFolder name="f1" displayName="wolfcrypt" projectFiles="true">
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/misc.c</itemPath>
+        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\evp.c</itemPath>
       </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>../src/config/pic32mz_ef_sk_sw/harmony.prj</itemPath>
-      <itemPath>../src/config/pic32mz_ef_sk_sw/pic32mz_ef_sk_sw.xml</itemPath>
+      <itemPath>..\src\config\pic32mz_ef_sk_sw\harmony-manifest-success.yml</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="config" projectFiles="true">
+        <logicalFolder name="f1" displayName="pic32mz_ef_sk_sw" projectFiles="true">
+          <itemPath>..\src\config\pic32mz_ef_sk_sw\p32MZ2048EFM144.ld</itemPath>
+        </logicalFolder>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -527,6 +590,7 @@
               <itemPath>../src/config/pic32mz_ef_sk_sw/system/time/src/sys_time.c</itemPath>
             </logicalFolder>
             <itemPath>../src/config/pic32mz_ef_sk_sw/system/sys_time_h2_adapter.c</itemPath>
+            <itemPath>..\src\config\pic32mz_ef_sk_sw\system\sys_random_h2_adapter.c</itemPath>
           </logicalFolder>
           <itemPath>../src/config/pic32mz_ef_sk_sw/tasks.c</itemPath>
           <itemPath>../src/config/pic32mz_ef_sk_sw/initialization.c</itemPath>
@@ -621,6 +685,12 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sha.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sha256.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sha512.c</itemPath>
+        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\curve448.c</itemPath>
+        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\ed448.c</itemPath>
+        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\fe_448.c</itemPath>
+        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\ge_448.c</itemPath>
+        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\sp_dsp32.c</itemPath>
+        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\wc_dsp.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="wolfssl" projectFiles="true">
         <itemPath>../src/third_party/wolfssl/src/crl.c</itemPath>
@@ -651,7 +721,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>ICD4Tool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.41</languageToolchainVersion>
+        <languageToolchainVersion>2.50</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
@@ -676,6 +746,7 @@
       </compileType>
       <makeCustomizationType>
         <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
+        <makeUseCleanTarget>false</makeUseCleanTarget>
         <makeCustomizationPreStep></makeCustomizationPreStep>
         <makeCustomizationPostStepEnabled>false</makeCustomizationPostStepEnabled>
         <makeCustomizationPostStep></makeCustomizationPostStep>
@@ -692,7 +763,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src/packs/PIC32MZ2048EFH144_DFP;../src/config/pic32mz_ef_sk_sw/library;../src/config/pic32mz_ef_sk_sw/library/tcpip/src;../src/config/pic32mz_ef_sk_sw/library/tcpip/src/common;../src;../src/config/pic32mz_ef_sk_sw;../src/packs/PIC32MZ2048EFM144_DFP;../src/third_party/wolfssl;../src/third_party/wolfssl/wolfssl"/>
+                  value="../src/third_party/wolfssl/wolfssl;../src/third_party/wolfssl;../src;../src/config/pic32mz_ef_sk_sw;../src/packs/PIC32MZ2048EFM144_DFP;../src/config/pic32mz_ef_sk_sw/library;../src/config/pic32mz_ef_sk_sw/library/tcpip/src;../src/config/pic32mz_ef_sk_sw/library/tcpip/src/common;../src/packs/PIC32MZ2048EFH144_DFP"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -702,7 +773,7 @@
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
         <property key="preprocessor-macros"
-                  value="HAVE_CONFIG_H;WOLFSSL_IGNORE_FILE_WARN"/>
+                  value="WOLFSSL_IGNORE_FILE_WARN;HAVE_CONFIG_H"/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
         <property key="toplevel-reordering" value=""/>
@@ -757,7 +828,7 @@
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-cross-reference-file" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
-        <property key="heap-size" value="102400"/>
+        <property key="heap-size" value="142400"/>
         <property key="input-libraries" value=""/>
         <property key="kseg-length" value=""/>
         <property key="kseg-origin" value=""/>
@@ -788,7 +859,8 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exceptions" value="true"/>
         <property key="exclude-floating-point" value="false"/>
-        <property key="extra-include-directories" value=""/>
+        <property key="extra-include-directories"
+                  value="../src;../src/config/pic32mz_ef_sk_sw;../src/packs/PIC32MZ2048EFM144_DFP;"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
