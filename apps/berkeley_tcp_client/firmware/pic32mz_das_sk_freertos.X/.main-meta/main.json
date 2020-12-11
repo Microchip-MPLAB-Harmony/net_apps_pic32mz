@@ -1,0 +1,76 @@
+{
+	"metaDataVersion": "1.0.0",
+	"category": "com.microchip.ide.project",
+	"content": {
+		"metaDataVersion": "1.1.0",
+		"name": "com.microchip.mcu32.mplabx.project.net_apps_pic32mz_berkeley_tcp_client_pic32mz_das_sk_freertos",
+		"version": "3.7.0",
+		"displayName": "TCP/IP Berkeley TCP Client Example for PIC32MZ DA Family",
+		"projectName": "berkeley_tcp_client_freertos",
+		"shortDescription": "The Berkeley TCP Client configuration demonstrates creating a network client with the Berkeley API to make a TCP/IP connection to a web server.",
+		"ide": {
+			"name": "MPLABX",
+			"semverRange": ">=5.45.0"
+		},
+		"compiler": [
+			{
+				"name": "XC32",
+				"semverRange": ">=2.50.0"
+			}
+		],
+		"dfp": {
+			"name": "PIC32MZ-DA_DFP",
+			"semverRange": "^1.2.102"
+		},
+		"configurator": {
+			"name": "MHC",
+			"semverRange": ">=3.6.2"
+		},
+		"device": {
+			"metaDataVersion": "1.0.0",
+			"category": "com.microchip.portal.contentRef",
+			"content": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.device",
+				"name": "PIC32MZ2064DAS169",
+				"versionRange": "*"
+			}
+		},
+		"author": "Microchip",
+		"subcategories": [
+			[
+				"Development Kit", "PIC32MZ Embedded Graphics with Stacked DRAM (DA) Starter Kit (Crypto)"
+			],
+			[
+				"Harmony", "Middleware", "TCP/IP", "BERKELEY_TCP_CLIENT"
+			],
+			[
+				"Middleware", "TCP/IP", "BERKELEY_TCP_CLIENT"
+			]
+		],
+		"peripherals": [
+			"MAC"
+		],
+		"keywords": [
+			"MHC",
+			"Harmony",
+			"Middleware",
+			"TCP/IP",
+			"PIC32MZ2064DAS169",
+			"PIC32MZ DA Family",
+			"Ethernet MAC",
+			"GMAC"
+		],
+		"additionalData": {
+			"longDescription": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.portal.fileRef",
+				"content": {
+					"metaDataVersion": "1.0.0",
+					"fileName": "./../../readme.md",
+					"mimeType": "text/markdown"
+				}
+			}
+		}
+	}
+}
