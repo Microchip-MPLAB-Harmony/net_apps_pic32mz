@@ -284,6 +284,9 @@ extern "C" {
 #define WOLFSSL_USER_IO
 #define NO_WRITEV
 #define MICROCHIP_TCPIP
+#define XMALLOC_OVERRIDE
+#define XMALLOC(s, h, type)  OSAL_Malloc((s))
+#define XFREE(p, h, type)    OSAL_Free((p))
 #define WOLFSSL_DTLS
 #define NO_PWDBASED
 #define NO_ERROR_STRINGS
@@ -490,7 +493,7 @@ extern "C" {
 
 /*** TCPIP Heap Configuration ***/
 #define TCPIP_STACK_USE_INTERNAL_HEAP
-#define TCPIP_STACK_DRAM_SIZE                       59250
+#define TCPIP_STACK_DRAM_SIZE                       65536
 #define TCPIP_STACK_DRAM_RUN_LIMIT                  2048
 
 #define TCPIP_STACK_MALLOC_FUNC                     malloc
@@ -634,8 +637,8 @@ extern "C" {
 #define NO_HC128
 #define NO_RABBIT
 #define HAVE_ECC
-#define NO_DH
-#define NO_DSA
+#define HAVE_X963_KDF
+#define HAVE_DH
 #define FP_MAX_BITS 4096
 #define USE_CERT_BUFFERS_2048
 #define NO_DEV_RANDOM

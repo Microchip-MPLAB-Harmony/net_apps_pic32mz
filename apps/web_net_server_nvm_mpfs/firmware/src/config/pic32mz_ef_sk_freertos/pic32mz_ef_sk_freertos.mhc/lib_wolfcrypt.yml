@@ -33,6 +33,34 @@ children:
       - type: User
         attributes: {value: FreeRTOS}
   - type: Boolean
+    attributes: {id: wolfcrypt_dh}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 'true'}
+  - type: Boolean
+    attributes: {id: wolfcrypt_dsa}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 'true'}
+  - type: Boolean
+    attributes: {id: wolfcrypt_ecc}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 'true'}
+  - type: Boolean
+    attributes: {id: wolfcrypt_kdf}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 'true'}
+  - type: Boolean
     attributes: {id: wolfssl_included}
     children:
     - type: Values
