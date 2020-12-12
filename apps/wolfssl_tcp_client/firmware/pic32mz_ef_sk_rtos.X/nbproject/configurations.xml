@@ -123,8 +123,8 @@
                 <itemPath>../src/config/pic32mz_ef_sk_rtos/library/tcpip/src/lldp_manager.h</itemPath>
                 <itemPath>../src/config/pic32mz_ef_sk_rtos/library/tcpip/src/lldp_private.h</itemPath>
                 <itemPath>../src/config/pic32mz_ef_sk_rtos/library/tcpip/src/lldp_tlv.h</itemPath>
-                <itemPath>..\src\config\pic32mz_ef_sk_rtos\library\tcpip\src\tcpip_mac_bridge_manager.h</itemPath>
-                <itemPath>..\src\config\pic32mz_ef_sk_rtos\library\tcpip\src\tcpip_mac_bridge_private.h</itemPath>
+                <itemPath>../src/config/pic32mz_ef_sk_rtos/library/tcpip/src/tcpip_mac_bridge_manager.h</itemPath>
+                <itemPath>../src/config/pic32mz_ef_sk_rtos/library/tcpip/src/tcpip_mac_bridge_private.h</itemPath>
               </logicalFolder>
               <itemPath>../src/config/pic32mz_ef_sk_rtos/library/tcpip/tcpip_common_ports.h</itemPath>
               <itemPath>../src/config/pic32mz_ef_sk_rtos/library/tcpip/tcpip_mac.h</itemPath>
@@ -170,7 +170,7 @@
               <itemPath>../src/config/pic32mz_ef_sk_rtos/library/tcpip/tcpip_commands.h</itemPath>
               <itemPath>../src/config/pic32mz_ef_sk_rtos/library/tcpip/tcpip.h</itemPath>
               <itemPath>../src/config/pic32mz_ef_sk_rtos/library/tcpip/tcpip_ethernet.h</itemPath>
-              <itemPath>..\src\config\pic32mz_ef_sk_rtos\library\tcpip\tcpip_mac_bridge.h</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_rtos/library/tcpip/tcpip_mac_bridge.h</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f4" displayName="net_pres" projectFiles="true">
@@ -188,9 +188,9 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f8" displayName="osal" projectFiles="true">
-            <itemPath>..\src\config\pic32mz_ef_sk_rtos\osal\osal.h</itemPath>
-            <itemPath>..\src\config\pic32mz_ef_sk_rtos\osal\osal_definitions.h</itemPath>
-            <itemPath>..\src\config\pic32mz_ef_sk_rtos\osal\osal_freertos.h</itemPath>
+            <itemPath>../src/config/pic32mz_ef_sk_rtos/osal/osal.h</itemPath>
+            <itemPath>../src/config/pic32mz_ef_sk_rtos/osal/osal_definitions.h</itemPath>
+            <itemPath>../src/config/pic32mz_ef_sk_rtos/osal/osal_freertos.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f3" displayName="peripheral" projectFiles="true">
             <logicalFolder name="f3" displayName="clk" projectFiles="true">
@@ -243,7 +243,7 @@
           <itemPath>../src/config/pic32mz_ef_sk_rtos/definitions.h</itemPath>
           <itemPath>../src/config/pic32mz_ef_sk_rtos/config.h</itemPath>
           <itemPath>../src/config/pic32mz_ef_sk_rtos/FreeRTOSConfig.h</itemPath>
-          <itemPath>..\src\config\pic32mz_ef_sk_rtos\device.h</itemPath>
+          <itemPath>../src/config/pic32mz_ef_sk_rtos/device.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="f6" displayName="FreeRTOS" projectFiles="true">
@@ -413,10 +413,10 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/sha256.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/sha512.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/wc_port.h</itemPath>
-        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\curve448.h</itemPath>
-        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\ed448.h</itemPath>
-        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\fe_448.h</itemPath>
-        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\ge_448.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/curve448.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/ed448.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/fe_448.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/ge_448.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="wolfssl" projectFiles="true">
         <itemPath>../src/third_party/wolfssl/wolfssl/callbacks.h</itemPath>
@@ -502,17 +502,17 @@
       </logicalFolder>
       <logicalFolder name="f1" displayName="wolfcrypt" projectFiles="true">
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/misc.c</itemPath>
-        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\evp.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/evp.c</itemPath>
       </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>..\src\config\pic32mz_ef_sk_rtos\harmony-manifest-success.yml</itemPath>
+      <itemPath>../src/config/pic32mz_ef_sk_rtos/harmony-manifest-success.yml</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="config" projectFiles="true">
         <logicalFolder name="f1" displayName="pic32mz_ef_sk_rtos" projectFiles="true">
-          <itemPath>..\src\config\pic32mz_ef_sk_rtos\p32MZ2048EFM144.ld</itemPath>
+          <itemPath>../src/config/pic32mz_ef_sk_rtos/p32MZ2048EFM144.ld</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
@@ -590,7 +590,7 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f9" displayName="osal" projectFiles="true">
-            <itemPath>..\src\config\pic32mz_ef_sk_rtos\osal\osal_freertos.c</itemPath>
+            <itemPath>../src/config/pic32mz_ef_sk_rtos/osal/osal_freertos.c</itemPath>
           </logicalFolder>
           <logicalFolder name="f4" displayName="peripheral" projectFiles="true">
             <logicalFolder name="f3" displayName="clk" projectFiles="true">
@@ -634,7 +634,7 @@
               <itemPath>../src/config/pic32mz_ef_sk_rtos/system/time/src/sys_time.c</itemPath>
             </logicalFolder>
             <itemPath>../src/config/pic32mz_ef_sk_rtos/system/sys_time_h2_adapter.c</itemPath>
-            <itemPath>..\src\config\pic32mz_ef_sk_rtos\system\sys_random_h2_adapter.c</itemPath>
+            <itemPath>../src/config/pic32mz_ef_sk_rtos/system/sys_random_h2_adapter.c</itemPath>
           </logicalFolder>
           <itemPath>../src/config/pic32mz_ef_sk_rtos/tasks.c</itemPath>
           <itemPath>../src/config/pic32mz_ef_sk_rtos/initialization.c</itemPath>
@@ -648,7 +648,7 @@
         <logicalFolder name="f1" displayName="Source" projectFiles="true">
           <logicalFolder name="f1" displayName="portable" projectFiles="true">
             <logicalFolder name="f1" displayName="MemMang" projectFiles="true">
-              <itemPath>../src/third_party/rtos/FreeRTOS/Source/portable/MemMang/heap_2.c</itemPath>
+              <itemPath>..\src\third_party\rtos\FreeRTOS\Source\portable\MemMang\heap_3.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f2" displayName="MPLAB" projectFiles="true">
               <logicalFolder name="f1" displayName="PIC32MZ" projectFiles="true">
@@ -753,12 +753,12 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sha.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sha256.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sha512.c</itemPath>
-        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\curve448.c</itemPath>
-        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\ed448.c</itemPath>
-        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\fe_448.c</itemPath>
-        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\ge_448.c</itemPath>
-        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\sp_dsp32.c</itemPath>
-        <itemPath>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\wc_dsp.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/curve448.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/ed448.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/fe_448.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/ge_448.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sp_dsp32.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/wc_dsp.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="wolfssl" projectFiles="true">
         <itemPath>../src/third_party/wolfssl/src/crl.c</itemPath>
@@ -898,7 +898,7 @@
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-cross-reference-file" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
-        <property key="heap-size" value="146960"/>
+        <property key="heap-size" value="200000"/>
         <property key="input-libraries" value=""/>
         <property key="kseg-length" value=""/>
         <property key="kseg-origin" value=""/>

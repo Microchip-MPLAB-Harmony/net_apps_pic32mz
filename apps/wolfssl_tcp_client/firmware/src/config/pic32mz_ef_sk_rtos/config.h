@@ -2,6 +2,7 @@
 #define _WOLFCRYPT_REQUIRED_CONFIG_H_
 
 #include "configuration.h"
+#include "definitions.h"
 
 #include <stddef.h>
 extern void* OSAL_Malloc(size_t size);

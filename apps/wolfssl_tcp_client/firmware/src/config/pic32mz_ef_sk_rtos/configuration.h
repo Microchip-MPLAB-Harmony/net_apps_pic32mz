@@ -232,6 +232,9 @@ extern "C" {
 #define WOLFSSL_USER_IO
 #define NO_WRITEV
 #define MICROCHIP_TCPIP
+#define XMALLOC_OVERRIDE
+#define XMALLOC(s, h, type)  OSAL_Malloc((s))
+#define XFREE(p, h, type)    OSAL_Free((p))
 #define HAVE_FFDHE_2048
 #define HAVE_FFDHE_3072
 #define HAVE_FFDHE_4096

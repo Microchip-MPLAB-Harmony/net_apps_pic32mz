@@ -489,13 +489,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 9A555048379522BACA8216BFA898FC4A
-- generatedChecksum: C54912EA6FB602BF00A56D88F303F6A5
+- generatedChecksum: 1EA5B9CC1D496CDD236B90D730EF0C5A
   logicalPath: FreeRTOS\Source\portable\MemMang
-  name: heap_2.c
+  name: heap_3.c
   physicalPath: ..\..\third_party\rtos\FreeRTOS\Source\portable\MemMang
   security: NON_SECURE
   type: SOURCE
-  userChecksum: C54912EA6FB602BF00A56D88F303F6A5
+  userChecksum: 1EA5B9CC1D496CDD236B90D730EF0C5A
 - generatedChecksum: F47C9E7119EA3074588F2531D1800801
   logicalPath: config\pic32mz_ef_sk_rtos\library\tcpip\src\common
   name: helpers.c
@@ -1427,13 +1427,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: AF3A8D8AA610E7DFD3E38DDAC5E42074
-- generatedChecksum: 462535AA6AEF76B5485C1AF2757E8721
+- generatedChecksum: D7B2EDB55522AC8F7BFA5A368C5776E8
   logicalPath: config\pic32mz_ef_sk_rtos
   name: FreeRTOSConfig.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 462535AA6AEF76B5485C1AF2757E8721
+  userChecksum: D7B2EDB55522AC8F7BFA5A368C5776E8
 - generatedChecksum: 774011E09B9B257B4F572704E6AB9713
   logicalPath: FreeRTOS\Source\portable\MPLAB\PIC32MZ
   name: ISR_Support.h
@@ -1608,14 +1608,14 @@ files:
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: BBE2AB9763E7BB36934A49D9681301A3
-- generatedChecksum: B6F8263FC01F9ECB21E5E9B47815535B
+  userChecksum: 241476B16BBC9DF6DDEEAD1BA8402944
+- generatedChecksum: 10B1ACED4289FBAECA1286AD32A7964D
   logicalPath: config\pic32mz_ef_sk_rtos
   name: configuration.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: B6F8263FC01F9ECB21E5E9B47815535B
+  userChecksum: 10B1ACED4289FBAECA1286AD32A7964D
 - generatedChecksum: E2213F8AC22EC0D94CED6269EA154195
   logicalPath: wolfcrypt
   name: cpuid.h
@@ -3415,13 +3415,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: C99E758A00938DD4FF1F7209697D49E5
-- generatedChecksum: 4B3C3EF8A318908A22B78500515C3288
+- generatedChecksum: null
   logicalPath: config\pic32mz_ef_sk_rtos
   name: user.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 4B3C3EF8A318908A22B78500515C3288
+  userChecksum: null
 - generatedChecksum: 87E2ADAF80F3E49FBAA82D12E87395CC
   logicalPath: wolfssl
   name: version.h
@@ -3602,7 +3602,7 @@ settings:
   delimiter: ''
   key: heap-size
   security: NON_SECURE
-  value: '146960'
+  value: '200000'
 - append: false
   category: C32-LD
   delimiter: ''
