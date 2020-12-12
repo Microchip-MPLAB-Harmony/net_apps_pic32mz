@@ -2329,7 +2329,7 @@ children:
       - type: String
         attributes: {id: value}
         children:
-        - {type: Value, value: '124960'}
+        - {type: Value, value: '164960'}
   - type: Integer
     attributes: {id: XC32_HEAP_SIZE}
     children:
@@ -2338,7 +2338,7 @@ children:
       - type: Dynamic
         attributes: {id: core, value: '1024'}
       - type: User
-        attributes: {value: '124960'}
+        attributes: {value: '164960'}
   - type: KeyValueSet
     attributes: {id: clkSvcMode}
     children:
