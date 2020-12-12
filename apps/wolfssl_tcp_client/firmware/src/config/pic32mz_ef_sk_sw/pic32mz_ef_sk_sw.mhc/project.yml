@@ -1497,13 +1497,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: BBE2AB9763E7BB36934A49D9681301A3
-- generatedChecksum: F985A3B8C4B16BA4A7D20B472E0A0D67
+- generatedChecksum: 3D5AE91147A10EA2D989196438EB17D1
   logicalPath: config\pic32mz_ef_sk_sw
   name: configuration.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: F985A3B8C4B16BA4A7D20B472E0A0D67
+  userChecksum: 3D5AE91147A10EA2D989196438EB17D1
 - generatedChecksum: E2213F8AC22EC0D94CED6269EA154195
   logicalPath: wolfcrypt
   name: cpuid.h
@@ -3360,7 +3360,7 @@ settings:
   delimiter: ''
   key: heap-size
   security: NON_SECURE
-  value: '142400'
+  value: '164400'
 - append: false
   category: C32-LD
   delimiter: ''
