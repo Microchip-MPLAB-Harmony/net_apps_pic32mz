@@ -58,6 +58,10 @@
 #include "system/cache/sys_cache.h"
 #include "osal/osal.h"
 #include "system/debug/sys_debug.h"
+#include "net_pres/pres/net_pres.h"
+#include "net_pres/pres/net_pres_encryptionproviderapi.h"
+#include "net_pres/pres/net_pres_transportapi.h"
+#include "net_pres/pres/net_pres_socketapi.h"
 #include "system/fs/sys_fs.h"
 #include "system/fs/sys_fs_media_manager.h"
 #include "system/fs/sys_fs_fat_interface.h"
@@ -68,17 +72,11 @@
 #include "peripheral/nvm/plib_nvm.h"
 #include "driver/memory/drv_memory_nvm.h"
 #include "peripheral/uart/plib_uart2.h"
-#include "net_pres/pres/net_pres.h"
-#include "net_pres/pres/net_pres_encryptionproviderapi.h"
-#include "net_pres/pres/net_pres_transportapi.h"
-#include "net_pres/pres/net_pres_socketapi.h"
 #include "library/tcpip/tcpip.h"
 #include "driver/ethmac/drv_ethmac.h"
 #include "driver/miim/drv_miim.h"
 #include "system/sys_time_h2_adapter.h"
-#include "system/sys_clk_h2_adapter.h"
 #include "system/sys_random_h2_adapter.h"
-#include "system/sys_reset_h2_adapter.h"
 #include "driver/sdmmc/drv_sdmmc.h"
 #include "system/command/sys_command.h"
 #include "peripheral/clk/plib_clk.h"
@@ -218,9 +216,9 @@ typedef struct
 
 
     SYS_MODULE_OBJ  drvMiim;
-    SYS_MODULE_OBJ  drvMemory0;
     SYS_MODULE_OBJ  netPres;
 
+    SYS_MODULE_OBJ  drvMemory0;
 
     SYS_MODULE_OBJ  tcpip;
     SYS_MODULE_OBJ  sysDebug;

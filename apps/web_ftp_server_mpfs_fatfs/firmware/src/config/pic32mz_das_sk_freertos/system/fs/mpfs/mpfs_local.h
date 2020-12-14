@@ -118,7 +118,6 @@ typedef struct {
     unsigned short	fdate;			/* Last modified date */
     unsigned short	ftime;			/* Last modified time */
     unsigned char	fattrib;		/* Attribute */
-#if SYS_FS_USE_LFN
     /* Alternate file name */
     char        altname[13];
     /* Primary file name */
@@ -127,10 +126,6 @@ typedef struct {
     char       *lfname;
     /* Size of LFN buffer in TCHAR */
     uint32_t    lfsize;
-#else
-    /* Short file name (8.3 format) */
-    char        fname[13];
-#endif
 } MPFS_STATUS;
 
 // Alias of MPFSGetPosition
