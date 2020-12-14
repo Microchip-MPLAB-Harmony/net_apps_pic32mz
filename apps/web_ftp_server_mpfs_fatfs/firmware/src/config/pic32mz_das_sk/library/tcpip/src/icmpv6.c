@@ -870,7 +870,7 @@ void TCPIP_ICMPV6_Process(TCPIP_NET_IF * pNetIf, TCPIP_MAC_PACKET* pRxPkt, IPV6_
             _ICMPV6_NotifyClients(pNetIf, ICMPV6_ERROR_DEST_UNREACHABLE, localIP, remoteIP, &h.header_Error);
             break;
         case ICMPV6_ERROR_PACKET_TOO_BIG:
-            if(dataLen < sizeof(h.header_Error) || (tempDataLen = dataLen - sizeof (h.header_Error)) < sizeof(IPV6_HEADER));
+            if(dataLen < sizeof(h.header_Error) || (tempDataLen = dataLen - sizeof (h.header_Error)) < sizeof(IPV6_HEADER))
             // If the received packet doesn't contain the IPv6 header of the packet that caused the
             // error, we can't extract the destination address and update the destination cache entry's MTU
             {
@@ -940,7 +940,7 @@ void TCPIP_ICMPV6_Process(TCPIP_NET_IF * pNetIf, TCPIP_MAC_PACKET* pRxPkt, IPV6_
         case ICMPV6_INFO_ECHO_REQUEST:
             if(dataLen < 8)
             {   // ill formed?
-                pRxPkt->ipv6PktData = TCPIP_MAC_PKT_ACK_STRUCT_ERR;
+                pRxPkt->ipv6PktData = (uint16_t) TCPIP_MAC_PKT_ACK_STRUCT_ERR;
                 return;
             }
 
