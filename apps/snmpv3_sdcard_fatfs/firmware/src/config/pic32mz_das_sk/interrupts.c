@@ -69,32 +69,32 @@ void SDHC_InterruptHandler( void );
 
 
 /* All the handlers are defined here.  Each will call its PLIB-specific function. */
-void __ISR(_CORE_TIMER_VECTOR, ipl1AUTO) CORE_TIMER_Handler (void)
+void __ISR(_CORE_TIMER_VECTOR, ipl1SRS) CORE_TIMER_Handler (void)
 {
     CORE_TIMER_InterruptHandler();
 }
 
-void __ISR(_UART2_FAULT_VECTOR, ipl1AUTO) UART2_FAULT_Handler (void)
+void __ISR(_UART2_FAULT_VECTOR, ipl1SRS) UART2_FAULT_Handler (void)
 {
     UART2_FAULT_InterruptHandler();
 }
 
-void __ISR(_UART2_RX_VECTOR, ipl1AUTO) UART2_RX_Handler (void)
+void __ISR(_UART2_RX_VECTOR, ipl1SRS) UART2_RX_Handler (void)
 {
     UART2_RX_InterruptHandler();
 }
 
-void __ISR(_UART2_TX_VECTOR, ipl1AUTO) UART2_TX_Handler (void)
+void __ISR(_UART2_TX_VECTOR, ipl1SRS) UART2_TX_Handler (void)
 {
     UART2_TX_InterruptHandler();
 }
 
-void __ISR(_ETHERNET_VECTOR, ipl1AUTO) ETHERNET_Handler (void)
+void __ISR(_ETHERNET_VECTOR, ipl1SRS) ETHERNET_Handler (void)
 {
     ETHERNET_InterruptHandler();
 }
 
-void __ISR(_SDHC_VECTOR, ipl1AUTO) SDHC_Handler (void)
+void __ISR(_SDHC_VECTOR, ipl1SRS) SDHC_Handler (void)
 {
     SDHC_InterruptHandler();
 }
