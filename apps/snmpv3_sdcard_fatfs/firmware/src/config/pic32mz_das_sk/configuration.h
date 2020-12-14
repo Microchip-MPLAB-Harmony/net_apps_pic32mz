@@ -313,6 +313,11 @@ extern "C" {
 #define WOLFSSL_USER_IO
 #define NO_WRITEV
 #define MICROCHIP_TCPIP
+#define HAVE_FFDHE_2048
+#define HAVE_FFDHE_3072
+#define HAVE_FFDHE_4096
+#define HAVE_FFDHE_6144
+#define HAVE_FFDHE_8192
 #define WOLFSSL_DTLS
 #define NO_PWDBASED
 #define NO_ERROR_STRINGS
@@ -665,6 +670,7 @@ extern "C" {
 #define NO_DSA
 #define FP_MAX_BITS 4096
 #define USE_CERT_BUFFERS_2048
+#define WC_RSA_PSS
 #define NO_DEV_RANDOM
 #define HAVE_HASHDRBG
 #define WC_NO_HARDEN

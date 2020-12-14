@@ -32,6 +32,20 @@ children:
       children:
       - type: User
         attributes: {value: 'true'}
+  - type: Combo
+    attributes: {id: wolfcrypt_rsaKeySize}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 4096 bits}
+  - type: Boolean
+    attributes: {id: wolfcrypt_rsaPss}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 'true'}
   - type: Boolean
     attributes: {id: wolfssl_included}
     children:

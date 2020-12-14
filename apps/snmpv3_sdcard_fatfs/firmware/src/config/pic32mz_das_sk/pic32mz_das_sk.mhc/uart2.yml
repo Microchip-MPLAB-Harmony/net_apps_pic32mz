@@ -47,25 +47,10 @@ children:
   - type: Boolean
     attributes: {id: UART_RING_BUFFER_ENABLE}
     children:
-    - type: Attributes
-      children:
-      - type: Boolean
-        attributes: {id: readOnly}
-        children:
-        - {type: Value, value: 'true'}
     - type: Values
       children:
       - type: Dynamic
         attributes: {id: uart2, value: 'true'}
-  - type: Integer
-    attributes: {id: UART_RX_RING_BUFFER_SIZE}
-    children:
-    - type: Attributes
-      children:
-      - type: Boolean
-        attributes: {id: visible}
-        children:
-        - {type: Value, value: 'true'}
   - type: File
     attributes: {id: UART_SOURCE}
     children:
@@ -78,12 +63,6 @@ children:
   - type: Integer
     attributes: {id: UART_TX_RING_BUFFER_SIZE}
     children:
-    - type: Attributes
-      children:
-      - type: Boolean
-        attributes: {id: visible}
-        children:
-        - {type: Value, value: 'true'}
     - type: Values
       children:
       - type: User
@@ -98,12 +77,6 @@ children:
   - type: Boolean
     attributes: {id: USART_INTERRUPT_MODE}
     children:
-    - type: Attributes
-      children:
-      - type: Boolean
-        attributes: {id: readOnly}
-        children:
-        - {type: Value, value: 'true'}
     - type: Values
       children:
       - type: Dynamic

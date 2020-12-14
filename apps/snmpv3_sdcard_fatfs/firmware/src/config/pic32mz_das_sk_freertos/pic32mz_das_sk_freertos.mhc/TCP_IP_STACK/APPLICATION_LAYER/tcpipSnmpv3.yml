@@ -1,0 +1,15 @@
+format_version: v1.0
+type: UniqueComponent
+attributes: {id: tcpipSnmpv3}
+children:
+- type: Symbols
+  children:
+  - type: Integer
+    attributes: {id: TCPIP_SNMPV3_HEAP_SIZE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tcpipSnmpv3, value: '975'}
+- type: ElementPosition
+  attributes: {x: '190', y: '180', id: tcpipSnmpv3}

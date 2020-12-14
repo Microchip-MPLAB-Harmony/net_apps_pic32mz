@@ -1847,13 +1847,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: BBE2AB9763E7BB36934A49D9681301A3
-- generatedChecksum: FEDD98BFCF230B7D654ABE6DF1EE1C66
+- generatedChecksum: F0CDB5E1819BA5C164BC6459E05273A1
   logicalPath: config\pic32mz_das_sk
   name: configuration.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: FEDD98BFCF230B7D654ABE6DF1EE1C66
+  userChecksum: F0CDB5E1819BA5C164BC6459E05273A1
 - generatedChecksum: E2213F8AC22EC0D94CED6269EA154195
   logicalPath: wolfcrypt
   name: cpuid.h
@@ -3695,13 +3695,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: C99E758A00938DD4FF1F7209697D49E5
-- generatedChecksum: 4B3C3EF8A318908A22B78500515C3288
+- generatedChecksum: null
   logicalPath: config\pic32mz_das_sk
   name: user.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 4B3C3EF8A318908A22B78500515C3288
+  userChecksum: null
 - generatedChecksum: 87E2ADAF80F3E49FBAA82D12E87395CC
   logicalPath: wolfssl
   name: version.h

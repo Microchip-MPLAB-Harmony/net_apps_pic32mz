@@ -77,7 +77,7 @@
 /*** DEVCFG1 ***/
 #pragma config FNOSC =      SPLL
 #pragma config DMTINTV =    WIN_127_128
-#pragma config FSOSCEN =    ON
+#pragma config FSOSCEN =    OFF
 #pragma config IESO =       ON
 #pragma config POSCMOD =    EC
 #pragma config OSCIOFNC =   OFF
@@ -91,9 +91,9 @@
 #pragma config FDMTEN =     OFF
 
 /*** DEVCFG2 ***/
-#pragma config FPLLIDIV =   DIV_1
+#pragma config FPLLIDIV =   DIV_3
 #pragma config FPLLRNG =    RANGE_5_10_MHZ
-#pragma config FPLLICLK =   PLL_FRC
+#pragma config FPLLICLK =   PLL_POSC
 #pragma config FPLLMULT =   MUL_50
 #pragma config FPLLODIV =   DIV_2
 #pragma config VBATBOREN =  ON
@@ -180,6 +180,7 @@ const DRV_SDMMC_INIT drvSDMMC0InitData =
     .isWriteProtectCheckEnabled     = false,
     .speedMode                      = DRV_SDMMC_CONFIG_SPEED_MODE_IDX0,
     .busWidth                       = DRV_SDMMC_CONFIG_BUS_WIDTH_IDX0,
+	.sleepWhenIdle 					= false,
     .isFsEnabled                    = true,
 };
 
@@ -200,63 +201,6 @@ SYSTEM_OBJECTS sysObj;
 // Section: Library/Stack Initialization Data
 // *****************************************************************************
 // *****************************************************************************
-// <editor-fold defaultstate="collapsed" desc="File System Initialization Data">
-
-
-const SYS_FS_MEDIA_MOUNT_DATA sysfsMountTable[SYS_FS_VOLUME_NUMBER] =
-{
-    {NULL}
-};
-
-const SYS_FS_FUNCTIONS FatFsFunctions =
-{
-    .mount             = FATFS_mount,
-    .unmount           = FATFS_unmount,
-    .open              = FATFS_open,
-    .read              = FATFS_read,
-    .close             = FATFS_close,
-    .seek              = FATFS_lseek,
-    .fstat             = FATFS_stat,
-    .getlabel          = FATFS_getlabel,
-    .currWD            = FATFS_getcwd,
-    .getstrn           = FATFS_gets,
-    .openDir           = FATFS_opendir,
-    .readDir           = FATFS_readdir,
-    .closeDir          = FATFS_closedir,
-    .chdir             = FATFS_chdir,
-    .chdrive           = FATFS_chdrive,
-    .write             = FATFS_write,
-    .tell              = FATFS_tell,
-    .eof               = FATFS_eof,
-    .size              = FATFS_size,
-    .mkdir             = FATFS_mkdir,
-    .remove            = FATFS_unlink,
-    .setlabel          = FATFS_setlabel,
-    .truncate          = FATFS_truncate,
-    .chmode            = FATFS_chmod,
-    .chtime            = FATFS_utime,
-    .rename            = FATFS_rename,
-    .sync              = FATFS_sync,
-    .putchr            = FATFS_putc,
-    .putstrn           = FATFS_puts,
-    .formattedprint    = FATFS_printf,
-    .testerror         = FATFS_error,
-    .formatDisk        = (FORMAT_DISK)FATFS_mkfs,
-    .partitionDisk     = FATFS_fdisk,
-    .getCluster        = FATFS_getclusters
-};
-
-
-const SYS_FS_REGISTRATION_TABLE sysFSInit [ SYS_FS_MAX_FILE_SYSTEM_TYPE ] =
-{
-    {
-        .nativeFileSystemType = FAT,
-        .nativeFileSystemFunctions = &FatFsFunctions
-    }
-};
-
-// </editor-fold>
-
 /* Net Presentation Layer Data Definitions */
 #include "net_pres/pres/net_pres_enc_glue.h"
 
@@ -359,6 +303,7 @@ static const NET_PRES_TransportObject netPresTransObject0DC = {
 
 static const NET_PRES_INST_DATA netPresCfgs[] = 
 {  
+        
     {
         .pTransObject_ss = &netPresTransObject0SS,
         .pTransObject_sc = &netPresTransObject0SC,
@@ -369,6 +314,7 @@ static const NET_PRES_INST_DATA netPresCfgs[] =
         .pProvObject_ds = NULL,
         .pProvObject_dc = NULL,
     },
+        
 };
 
 static const NET_PRES_INIT_DATA netPresInitData = 
@@ -378,6 +324,63 @@ static const NET_PRES_INIT_DATA netPresInitData =
 };
   
  
+
+// <editor-fold defaultstate="collapsed" desc="File System Initialization Data">
+
+
+const SYS_FS_MEDIA_MOUNT_DATA sysfsMountTable[SYS_FS_VOLUME_NUMBER] =
+{
+    {NULL}
+};
+
+const SYS_FS_FUNCTIONS FatFsFunctions =
+{
+    .mount             = FATFS_mount,
+    .unmount           = FATFS_unmount,
+    .open              = FATFS_open,
+    .read              = FATFS_read,
+    .close             = FATFS_close,
+    .seek              = FATFS_lseek,
+    .fstat             = FATFS_stat,
+    .getlabel          = FATFS_getlabel,
+    .currWD            = FATFS_getcwd,
+    .getstrn           = FATFS_gets,
+    .openDir           = FATFS_opendir,
+    .readDir           = FATFS_readdir,
+    .closeDir          = FATFS_closedir,
+    .chdir             = FATFS_chdir,
+    .chdrive           = FATFS_chdrive,
+    .write             = FATFS_write,
+    .tell              = FATFS_tell,
+    .eof               = FATFS_eof,
+    .size              = FATFS_size,
+    .mkdir             = FATFS_mkdir,
+    .remove            = FATFS_unlink,
+    .setlabel          = FATFS_setlabel,
+    .truncate          = FATFS_truncate,
+    .chmode            = FATFS_chmod,
+    .chtime            = FATFS_utime,
+    .rename            = FATFS_rename,
+    .sync              = FATFS_sync,
+    .putchr            = FATFS_putc,
+    .putstrn           = FATFS_puts,
+    .formattedprint    = FATFS_printf,
+    .testerror         = FATFS_error,
+    .formatDisk        = (FORMAT_DISK)FATFS_mkfs,
+    .partitionDisk     = FATFS_fdisk,
+    .getCluster        = FATFS_getclusters
+};
+
+
+const SYS_FS_REGISTRATION_TABLE sysFSInit [ SYS_FS_MAX_FILE_SYSTEM_TYPE ] =
+{
+    {
+        .nativeFileSystemType = FAT,
+        .nativeFileSystemFunctions = &FatFsFunctions
+    }
+};
+
+// </editor-fold>
 
 
 // <editor-fold defaultstate="collapsed" desc="TCP/IP Stack Initialization Data">
@@ -427,14 +430,14 @@ const TCPIP_TCP_MODULE_CONFIG tcpipTCPInitData =
 const TCPIP_HTTP_NET_MODULE_CONFIG tcpipHTTPNetInitData =
 {
     .nConnections   = TCPIP_HTTP_NET_MAX_CONNECTIONS,
-    .dataLen		= TCPIP_HTTP_NET_MAX_DATA_LEN,
-    .sktTxBuffSize	= TCPIP_HTTP_NET_SKT_TX_BUFF_SIZE,
-    .sktRxBuffSize	= TCPIP_HTTP_NET_SKT_RX_BUFF_SIZE,
-    .listenPort	    = TCPIP_HTTP_NET_LISTEN_PORT,
+    .dataLen        = TCPIP_HTTP_NET_MAX_DATA_LEN,
+    .sktTxBuffSize  = TCPIP_HTTP_NET_SKT_TX_BUFF_SIZE,
+    .sktRxBuffSize  = TCPIP_HTTP_NET_SKT_RX_BUFF_SIZE,
+    .listenPort     = TCPIP_HTTP_NET_LISTEN_PORT,
     .nDescriptors   = TCPIP_HTTP_NET_DYNVAR_DESCRIPTORS_NUMBER,
     .nChunks        = TCPIP_HTTP_NET_CHUNKS_NUMBER, 
     .maxRecurseLevel= TCPIP_HTTP_NET_MAX_RECURSE_LEVEL,    
-    .configFlags	= TCPIP_HTTP_NET_CONFIG_FLAGS,
+    .configFlags    = TCPIP_HTTP_NET_CONFIG_FLAGS,
     .nFileBuffers   = TCPIP_HTTP_NET_FILE_PROCESS_BUFFERS_NUMBER,
     .fileBufferSize = TCPIP_HTTP_NET_FILE_PROCESS_BUFFER_SIZE,
     .chunkPoolRetries = TCPIP_HTTP_NET_CHUNK_RETRIES,
@@ -449,13 +452,13 @@ const TCPIP_HTTP_NET_MODULE_CONFIG tcpipHTTPNetInitData =
 /*** SNTP Client Initialization Data ***/
 const TCPIP_SNTP_MODULE_CONFIG tcpipSNTPInitData =
 {
-    .ntp_server		        = TCPIP_NTP_SERVER,
-    .ntp_interface		    = TCPIP_NTP_DEFAULT_IF,
-    .ntp_connection_type	= TCPIP_NTP_DEFAULT_CONNECTION_TYPE,
-    .ntp_reply_timeout		= TCPIP_NTP_REPLY_TIMEOUT,
-    .ntp_stamp_timeout		= TCPIP_NTP_TIME_STAMP_TMO,
-    .ntp_success_interval	= TCPIP_NTP_QUERY_INTERVAL,
-    .ntp_error_interval		= TCPIP_NTP_FAST_QUERY_INTERVAL,
+    .ntp_server             = TCPIP_NTP_SERVER,
+    .ntp_interface          = TCPIP_NTP_DEFAULT_IF,
+    .ntp_connection_type    = TCPIP_NTP_DEFAULT_CONNECTION_TYPE,
+    .ntp_reply_timeout      = TCPIP_NTP_REPLY_TIMEOUT,
+    .ntp_stamp_timeout      = TCPIP_NTP_TIME_STAMP_TMO,
+    .ntp_success_interval   = TCPIP_NTP_QUERY_INTERVAL,
+    .ntp_error_interval     = TCPIP_NTP_FAST_QUERY_INTERVAL,
 };
 
 
@@ -476,7 +479,7 @@ const TCPIP_SMTPC_MODULE_CONFIG tcpipSMTPCInitData =
 /*** DHCP client Initialization Data ***/
 const TCPIP_DHCP_MODULE_CONFIG tcpipDHCPInitData =
 {     
-    .dhcpEnable     = TCPIP_DHCP_CLIENT_ENABLED,   
+    .dhcpEnable     = false,   
     .dhcpTmo        = TCPIP_DHCP_TIMEOUT,
     .dhcpCliPort    = TCPIP_DHCP_CLIENT_CONNECT_PORT,
     .dhcpSrvPort    = TCPIP_DHCP_SERVER_LISTEN_PORT,
@@ -563,6 +566,14 @@ const TCPIP_IPV6_MODULE_CONFIG  tcpipIPv6InitData =
     .fragmentPktRxTimeout   = TCPIP_IPV6_FRAGMENT_PKT_TIMEOUT,
 };
 
+/*** IPv4 Initialization Data ***/
+
+
+const TCPIP_IPV4_MODULE_CONFIG  tcpipIPv4InitData = 
+{
+    .arpEntries = TCPIP_IPV4_ARP_SLOTS, 
+};
+
 TCPIP_SNMP_COMMUNITY_CONFIG tcpipSNMPInitReadcommunity[] =
 {
 /*** SNMP Configuration Index 0 ***/
@@ -573,7 +584,7 @@ TCPIP_SNMP_COMMUNITY_CONFIG tcpipSNMPInitReadcommunity[] =
     {
         TCPIP_SNMP_STACK_READCOMMUNITY_NAME_IDX1,
     },
-/*** SNMP Configuration Index 2 ***/	
+/*** SNMP Configuration Index 2 ***/    
     {
         TCPIP_SNMP_STACK_READCOMMUNITY_NAME_IDX2,
     },
@@ -600,36 +611,36 @@ TCPIP_SNMPV3_USM_USER_CONFIG tcpipSNMPv3InitUSM[] =
 {
 /*** SNMPV3 Configuration Index 0 ***/
     {
-        TCPIP_SNMPV3_STACK_USM_NAME_IDX0,            			/*** securityName ***/
-        TCPIP_SNMPV3_STACK_SECURITY_LEVEL_IDX0,              	/*** authentication and privacy security-level ***/
+        TCPIP_SNMPV3_STACK_USM_NAME_IDX0,                       /*** securityName ***/
+        TCPIP_SNMPV3_STACK_SECURITY_LEVEL_IDX0,                 /*** authentication and privacy security-level ***/
         /*** auth ***/
-        TCPIP_SNMPV3_STACK_AUTH_PROTOCOL_IDX0,        			/*** MD5 auth protocol ***/
-        TCPIP_SNMPV3_STACK_AUTH_PASSWORD_IDX0,            		/*** auth passphrase ***/
+        TCPIP_SNMPV3_STACK_AUTH_PROTOCOL_IDX0,                  /*** MD5 auth protocol ***/
+        TCPIP_SNMPV3_STACK_AUTH_PASSWORD_IDX0,                  /*** auth passphrase ***/
         /*** priv ***/
-        TCPIP_SNMPV3_STACK_PRIV_PROTOCOL_IDX0,        			/*** AES priv protocol ***/
-        TCPIP_SNMPV3_STACK_PRIV_PASSWORD_IDX0,            		/*** priv passphrase ***/
+        TCPIP_SNMPV3_STACK_PRIV_PROTOCOL_IDX0,                  /*** AES priv protocol ***/
+        TCPIP_SNMPV3_STACK_PRIV_PASSWORD_IDX0,                  /*** priv passphrase ***/
     },
-/*** SNMPV3 Configuration Index 1 ***/	
+/*** SNMPV3 Configuration Index 1 ***/  
     {
-        TCPIP_SNMPV3_STACK_USM_NAME_IDX1,            			/*** securityName ***/
-        TCPIP_SNMPV3_STACK_SECURITY_LEVEL_IDX1,              	/*** authentication and privacy security-level ***/
+        TCPIP_SNMPV3_STACK_USM_NAME_IDX1,                       /*** securityName ***/
+        TCPIP_SNMPV3_STACK_SECURITY_LEVEL_IDX1,                 /*** authentication and privacy security-level ***/
         /*** auth ***/
-        TCPIP_SNMPV3_STACK_AUTH_PROTOCOL_IDX1,        			/*** MD5 auth protocol ***/
-        TCPIP_SNMPV3_STACK_AUTH_PASSWORD_IDX1,            		/*** auth passphrase ***/
+        TCPIP_SNMPV3_STACK_AUTH_PROTOCOL_IDX1,                  /*** MD5 auth protocol ***/
+        TCPIP_SNMPV3_STACK_AUTH_PASSWORD_IDX1,                  /*** auth passphrase ***/
         /*** priv ***/
-        TCPIP_SNMPV3_STACK_PRIV_PROTOCOL_IDX1,        			/*** AES priv protocol ***/
-        TCPIP_SNMPV3_STACK_PRIV_PASSWORD_IDX1,            		/*** priv passphrase ***/
+        TCPIP_SNMPV3_STACK_PRIV_PROTOCOL_IDX1,                  /*** AES priv protocol ***/
+        TCPIP_SNMPV3_STACK_PRIV_PASSWORD_IDX1,                  /*** priv passphrase ***/
     },
-/*** SNMPV3 Configuration Index 2 ***/	
+/*** SNMPV3 Configuration Index 2 ***/  
     {
-        TCPIP_SNMPV3_STACK_USM_NAME_IDX2,            			/*** securityName ***/
-        TCPIP_SNMPV3_STACK_SECURITY_LEVEL_IDX2,              	/*** authentication and privacy security-level ***/
+        TCPIP_SNMPV3_STACK_USM_NAME_IDX2,                       /*** securityName ***/
+        TCPIP_SNMPV3_STACK_SECURITY_LEVEL_IDX2,                 /*** authentication and privacy security-level ***/
         /*** auth ***/
-        TCPIP_SNMPV3_STACK_AUTH_PROTOCOL_IDX2,        			/*** MD5 auth protocol ***/
-        TCPIP_SNMPV3_STACK_AUTH_PASSWORD_IDX2,            		/*** auth passphrase ***/
+        TCPIP_SNMPV3_STACK_AUTH_PROTOCOL_IDX2,                  /*** MD5 auth protocol ***/
+        TCPIP_SNMPV3_STACK_AUTH_PASSWORD_IDX2,                  /*** auth passphrase ***/
         /*** priv ***/
-        TCPIP_SNMPV3_STACK_PRIV_PROTOCOL_IDX2,        			/*** AES priv protocol ***/
-        TCPIP_SNMPV3_STACK_PRIV_PASSWORD_IDX2,            		/*** priv passphrase ***/
+        TCPIP_SNMPV3_STACK_PRIV_PROTOCOL_IDX2,                  /*** AES priv protocol ***/
+        TCPIP_SNMPV3_STACK_PRIV_PASSWORD_IDX2,                  /*** priv passphrase ***/
     },
 };
 
@@ -640,38 +651,42 @@ TCPIP_SNMPV3_TARGET_ENTRY_CONFIG tcpipSNMPv3InitTargetTrap[]=
 /*** SNMPV3 Configuration Index 0 ***/
     {
         TCPIP_SNMPV3_TARGET_ENTRY_SEC_NAME_IDX0,                    /*** securityName ***/
-        TCPIP_SNMPV3_TARGET_ENTRY_MESSAGE_PROTOCOL_TYPE_IDX0,    	/*** Message processing model ***/
-        TCPIP_SNMPV3_TARGET_ENTRY_SEC_MODEL_TYPE_IDX0,      		/*** Security Model ***/
-        TCPIP_SNMPV3_TARGET_ENTRY_SEC_LEVEL_IDX0,             		/*** Security-level ***/
+        TCPIP_SNMPV3_TARGET_ENTRY_MESSAGE_PROTOCOL_TYPE_IDX0,       /*** Message processing model ***/
+        TCPIP_SNMPV3_TARGET_ENTRY_SEC_MODEL_TYPE_IDX0,              /*** Security Model ***/
+        TCPIP_SNMPV3_TARGET_ENTRY_SEC_LEVEL_IDX0,                   /*** Security-level ***/
     },
-/*** SNMPV3 Configuration Index 1 ***/	
+/*** SNMPV3 Configuration Index 1 ***/  
      {
         TCPIP_SNMPV3_TARGET_ENTRY_SEC_NAME_IDX1,                    /*** securityName ***/
-        TCPIP_SNMPV3_TARGET_ENTRY_MESSAGE_PROTOCOL_TYPE_IDX1,    	/*** Message processing model ***/
-        TCPIP_SNMPV3_TARGET_ENTRY_SEC_MODEL_TYPE_IDX1,      		/*** Security Model ***/
-        TCPIP_SNMPV3_TARGET_ENTRY_SEC_LEVEL_IDX1,             		/*** Security-level ***/
+        TCPIP_SNMPV3_TARGET_ENTRY_MESSAGE_PROTOCOL_TYPE_IDX1,       /*** Message processing model ***/
+        TCPIP_SNMPV3_TARGET_ENTRY_SEC_MODEL_TYPE_IDX1,              /*** Security Model ***/
+        TCPIP_SNMPV3_TARGET_ENTRY_SEC_LEVEL_IDX1,                   /*** Security-level ***/
     },
-/*** SNMPV3 Configuration Index 2 ***/	
-	{
+/*** SNMPV3 Configuration Index 2 ***/  
+    {
         TCPIP_SNMPV3_TARGET_ENTRY_SEC_NAME_IDX2,                    /*** securityName ***/
-        TCPIP_SNMPV3_TARGET_ENTRY_MESSAGE_PROTOCOL_TYPE_IDX2,    	/*** Message processing model ***/
-        TCPIP_SNMPV3_TARGET_ENTRY_SEC_MODEL_TYPE_IDX2,      		/*** Security Model ***/
-        TCPIP_SNMPV3_TARGET_ENTRY_SEC_LEVEL_IDX2,             		/*** Security-level ***/
+        TCPIP_SNMPV3_TARGET_ENTRY_MESSAGE_PROTOCOL_TYPE_IDX2,       /*** Message processing model ***/
+        TCPIP_SNMPV3_TARGET_ENTRY_SEC_MODEL_TYPE_IDX2,              /*** Security Model ***/
+        TCPIP_SNMPV3_TARGET_ENTRY_SEC_LEVEL_IDX2,                   /*** Security-level ***/
     },
 };
 
 const TCPIP_SNMP_MODULE_CONFIG tcpipSNMPInitData =
 {
-	.trapEnable             = TCPIP_SNMP_USE_TRAP_SUPPORT,
-	.snmp_trapv2_use        = TCPIP_SNMP_STACK_USE_V2_TRAP,
-	.snmpv3_trapv1v2_use    = TCPIP_SNMPV3_STACK_USE_V1_V2_TRAP,
-	.snmp_bib_file          = TCPIP_SNMP_BIB_FILE_NAME,
-	.read_community_config  = (TCPIP_SNMP_COMMUNITY_CONFIG*)tcpipSNMPInitReadcommunity,
-	.write_community_config = (TCPIP_SNMP_COMMUNITY_CONFIG*)tcpipSNMPInitWritecommunity,
-	.usm_config             = (TCPIP_SNMPV3_USM_USER_CONFIG*)tcpipSNMPv3InitUSM,
-	.trap_target_config     = (TCPIP_SNMPV3_TARGET_ENTRY_CONFIG*)tcpipSNMPv3InitTargetTrap,
-	.mountPath				= TCPIP_SNMP_MOUNT_POINT,
+    .trapEnable             = TCPIP_SNMP_USE_TRAP_SUPPORT,
+    .snmp_trapv2_use        = TCPIP_SNMP_STACK_USE_V2_TRAP,
+    .snmpv3_trapv1v2_use    = TCPIP_SNMPV3_STACK_USE_V1_V2_TRAP,
+    .snmp_bib_file          = TCPIP_SNMP_BIB_FILE_NAME,
+    .read_community_config  = (TCPIP_SNMP_COMMUNITY_CONFIG*)tcpipSNMPInitReadcommunity,
+    .write_community_config = (TCPIP_SNMP_COMMUNITY_CONFIG*)tcpipSNMPInitWritecommunity,
+    .usm_config             = (TCPIP_SNMPV3_USM_USER_CONFIG*)tcpipSNMPv3InitUSM,
+    .trap_target_config     = (TCPIP_SNMPV3_TARGET_ENTRY_CONFIG*)tcpipSNMPv3InitTargetTrap,
+    .mountPath              = TCPIP_SNMP_MOUNT_POINT,
 };
+
+
+
+
 
 TCPIP_STACK_HEAP_INTERNAL_CONFIG tcpipHeapConfig =
 {
@@ -687,7 +702,7 @@ TCPIP_STACK_HEAP_INTERNAL_CONFIG tcpipHeapConfig =
 
 const TCPIP_NETWORK_CONFIG __attribute__((unused))  TCPIP_HOSTS_CONFIGURATION[] =
 {
-	/*** Network Configuration Index 0 ***/
+    /*** Network Configuration Index 0 ***/
     {
         TCPIP_NETWORK_DEFAULT_INTERFACE_NAME_IDX0,       // interface
         TCPIP_NETWORK_DEFAULT_HOST_NAME_IDX0,            // hostName
@@ -707,7 +722,7 @@ const size_t TCPIP_HOSTS_CONFIGURATION_SIZE = sizeof (TCPIP_HOSTS_CONFIGURATION)
 
 const TCPIP_STACK_MODULE_CONFIG TCPIP_STACK_MODULE_CONFIG_TBL [] =
 {
-    {TCPIP_MODULE_IPV4,             0},
+    {TCPIP_MODULE_IPV4,             &tcpipIPv4InitData},
 
     {TCPIP_MODULE_ICMP,             0},                             // TCPIP_MODULE_ICMP
 
@@ -756,7 +771,7 @@ const size_t TCPIP_STACK_MODULE_CONFIG_TBL_SIZE = sizeof (TCPIP_STACK_MODULE_CON
  ********************************************************************/
 
 
-SYS_MODULE_OBJ TCPIP_STACK_Init()
+SYS_MODULE_OBJ TCPIP_STACK_Init(void)
 {
     TCPIP_STACK_INIT    tcpipInit;
 
@@ -868,6 +883,7 @@ const SYS_DEBUG_INIT debugInit =
 
 void SYS_Initialize ( void* data )
 {
+
     /* Start out with interrupts disabled before configuring any modules */
     __builtin_disable_interrupts();
 
@@ -910,9 +926,9 @@ void SYS_Initialize ( void* data )
     /*** File System Service Initialization Code ***/
     SYS_FS_Initialize( (const void *) sysFSInit );
 
-    sysObj.netPres = NET_PRES_Initialize(0, (SYS_MODULE_INIT*)&netPresInitData);
 
-
+	/* Network Presentation Layer Initialization */
+	sysObj.netPres = NET_PRES_Initialize(0, (SYS_MODULE_INIT*)&netPresInitData);
     /* TCPIP Stack Initialization */
     sysObj.tcpip = TCPIP_STACK_Init();
     SYS_ASSERT(sysObj.tcpip != SYS_MODULE_OBJ_INVALID, "TCPIP_STACK_Init Failed" );
