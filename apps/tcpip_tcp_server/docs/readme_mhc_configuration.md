@@ -67,12 +67,18 @@ The following Project Graph diagram shows the Harmony components included in the
         TCP/IP ENC28j60 driver module selected for the external ethernet  mac ENC28j60 device. For high MAC TX and RX performance DRV_ENC28j60_MAC_TX_DESCRIPTORS and DRV_ENC28j60_MAC_RX_DESCRIPTORS can be configured respectively more than the default descriptor value size "2".
         ![tcpip_pic32mzef_project](images/tcpip_tcp_demo_enc28j60_driver.png)
 
+        GPIO RH12 pin is configured for SPI chip select.
+
         ![tcpip_pic32mz_project](images/tcpip_tcp_demo_enc28j60_driver_config.png)
+        
+
 
     3. **External ENCX24j600 ethernet driver**
 
         TCP/IP ENCx24j600 driver module selected for the external ethernet  mac ENC28j60 device. For high MAC TX and RX performance DRV_ENCX24j600_MAC_TX_DESCRIPTORS and DRV_ENCX24j600_MAC_RX_DESCRIPTORS can be configured respectively more than the default descriptor value size "2".
 
         ![tcpip_pic32mz_project](images/tcpip_tcp_demo_encx24j600_driver.png)
+
+        GPIO RE9 pin is configured for SPI chip select.
 
         ![tcpip_pic32mz_project](images/tcpip_tcp_demo_enc624j600_driver_config.png)

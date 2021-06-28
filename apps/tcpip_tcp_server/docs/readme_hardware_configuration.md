@@ -52,15 +52,19 @@ This is the following section describes the hardware configurations and one of t
 
     The PIC32MZ Embedded Connectivity with FPU (EF) Starter Kit is connected to J1 on the Starter Kit I/O Expansion board.
 
-    The pin 46 on J10 and pin 47 on J11 (on I/O Expansion board) need to be connected to control the Chip-Select line by the PIC32.
+    The pin 46 on J10 and pin 47 on J11 (on I/O Expansion board) need to be connected to control the Chip-Select ( GPIO RE9 configuration ) line by the PIC32.
 
     To power the set-up, connect the micro USB cable from the computer to the micro-A/B port J4 on the PIC32MZ EF Starter Kit
 
     For serial console, connect the mini USB cable from the computer to the USB-UART connector on the PIC32MZ EF Starter Kit
 
-    Please refer to the following figure for more detail.
+    Please refer to the following figure for GPIO PIN RE9.
 
     ![required_enc28j60_setup](images/PIC32MZ_ENC28J60.png)
+
+    Please refer to the following figure for GPIO PIN RH12 ( without Jumper).
+
+    ![required_enc28j60_setup](images/PIC32MZ_ENC28J60_RH12.png)
 
 
 4. This section describes PIC32MZ EF device hardware configuration for **external Ethernet controller ENC624J600** with PIC32MZ2048EFH144 development board.
