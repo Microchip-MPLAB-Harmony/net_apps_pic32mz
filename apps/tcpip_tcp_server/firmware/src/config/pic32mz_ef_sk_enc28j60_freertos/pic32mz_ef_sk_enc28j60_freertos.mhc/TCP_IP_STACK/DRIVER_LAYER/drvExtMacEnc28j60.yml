@@ -1,0 +1,22 @@
+format_version: v1.0
+type: GeneratorComponent
+attributes: {id: drvExtMacEnc28j60}
+children:
+- type: Instances
+  children:
+  - type: InstanceComponent
+    attributes: {instance: '0', id: drvExtMacEnc28j60}
+    children:
+    - type: Symbols
+      children:
+      - type: KeyValueSet
+        attributes: {id: DRV_ENC28J60_SPI_CS_IDX0}
+        children:
+        - type: Values
+          children:
+          - type: Dynamic
+            attributes: {id: drvExtMacEnc28j60_0, value: '61'}
+          - type: User
+            attributes: {value: '93'}
+- type: ElementPosition
+  attributes: {x: '280', y: '20', id: drvExtMacEnc28j60}
