@@ -196,7 +196,7 @@ void APP1_Tasks ( void )
             for(ix = 0; ix < netNo; ix++)
             {
                 hNet = TCPIP_STACK_IndexToNet(ix);
-                if(!TCPIP_DHCP_IsBound(hNet))
+                if(!TCPIP_STACK_NetIsReady(hNet))
                 {
                     return;
                 }

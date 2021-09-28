@@ -201,7 +201,7 @@ void APP3_Tasks ( void )
                     return;
                 }
 
-                if(TCPIP_DHCP_IsEnabled(hNet) && !TCPIP_DHCP_IsBound(hNet))
+                if(!TCPIP_STACK_NetIsReady(hNet))
                 {
                     return;
                 }
