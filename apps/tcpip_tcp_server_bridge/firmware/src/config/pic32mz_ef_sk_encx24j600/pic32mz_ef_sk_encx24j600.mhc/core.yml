@@ -1439,6 +1439,20 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: ETHERNET_InterruptHandler}
+  - type: Combo
+    attributes: {id: EVIC_153_PRIORITY}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '5'}
+  - type: Hex
+    attributes: {id: EVIC_153_PRIVALUE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: '5120'}
   - type: Boolean
     attributes: {id: EVIC_167_ENABLE}
     children:
@@ -1564,49 +1578,49 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: SRS}
+        attributes: {id: core, value: AUTO}
   - type: Combo
     attributes: {id: EVIC_PRIORITY_2ATTRIBUTE}
     children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: SRS}
+        attributes: {id: core, value: AUTO}
   - type: Combo
     attributes: {id: EVIC_PRIORITY_3ATTRIBUTE}
     children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: SRS}
+        attributes: {id: core, value: AUTO}
   - type: Combo
     attributes: {id: EVIC_PRIORITY_4ATTRIBUTE}
     children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: SRS}
+        attributes: {id: core, value: AUTO}
   - type: Combo
     attributes: {id: EVIC_PRIORITY_5ATTRIBUTE}
     children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: SRS}
+        attributes: {id: core, value: AUTO}
   - type: Combo
     attributes: {id: EVIC_PRIORITY_6ATTRIBUTE}
     children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: SRS}
+        attributes: {id: core, value: AUTO}
   - type: Combo
     attributes: {id: EVIC_PRIORITY_7ATTRIBUTE}
     children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: SRS}
+        attributes: {id: core, value: AUTO}
   - type: Boolean
     attributes: {id: EVIC_SRS_ENABLE}
     children:
@@ -1614,6 +1628,8 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: 'true'}
+      - type: User
+        attributes: {value: 'false'}
   - type: Boolean
     attributes: {id: FLASH_CONTROL_INTERRUPT_ENABLE}
     children:
@@ -2451,4 +2467,4 @@ children:
       - type: Dynamic
         attributes: {id: core, value: '0'}
 - type: ElementPosition
-  attributes: {x: '240', y: '20', id: core}
+  attributes: {x: '238', y: '20', id: core}

@@ -292,6 +292,8 @@ children:
           children:
           - type: Dynamic
             attributes: {id: tcpipNetConfig_1, value: 192.168.100.1}
+          - type: User
+            attributes: {value: 192.168.100.1}
       - type: String
         attributes: {id: TCPIP_NETWORK_DEFAULT_GATEWAY_IDX1}
         children:
@@ -299,6 +301,8 @@ children:
           children:
           - type: Dynamic
             attributes: {id: tcpipNetConfig_1, value: 192.168.100.1}
+          - type: User
+            attributes: {value: 192.168.100.1}
       - type: String
         attributes: {id: TCPIP_NETWORK_DEFAULT_HOST_NAME_IDX1}
         children:
@@ -320,6 +324,8 @@ children:
           children:
           - type: Dynamic
             attributes: {id: tcpipNetConfig_1, value: 192.168.100.10}
+          - type: User
+            attributes: {value: 192.168.100.10}
       - type: String
         attributes: {id: TCPIP_NETWORK_DEFAULT_MAC_DRIVER_IDX1}
         children:
