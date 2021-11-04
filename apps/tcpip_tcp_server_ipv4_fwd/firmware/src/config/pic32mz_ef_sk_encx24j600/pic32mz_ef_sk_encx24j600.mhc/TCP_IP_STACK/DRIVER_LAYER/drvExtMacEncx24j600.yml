@@ -1,0 +1,20 @@
+format_version: v1.0
+type: GeneratorComponent
+attributes: {id: drvExtMacEncx24j600}
+children:
+- type: Instances
+  children:
+  - type: InstanceComponent
+    attributes: {instance: '0', id: drvExtMacEncx24j600}
+    children:
+    - type: Symbols
+      children:
+      - type: KeyValueSet
+        attributes: {id: DRV_ENCX24J600_SPI_CS_IDX0}
+        children:
+        - type: Values
+          children:
+          - type: Dynamic
+            attributes: {id: drvExtMacEncx24j600_0, value: '61'}
+- type: ElementPosition
+  attributes: {x: '280', y: '20', id: drvExtMacEncx24j600}
