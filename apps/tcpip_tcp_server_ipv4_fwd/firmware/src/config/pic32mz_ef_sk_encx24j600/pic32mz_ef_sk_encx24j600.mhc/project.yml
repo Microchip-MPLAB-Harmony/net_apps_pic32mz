@@ -363,13 +363,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: E1C11C9FEFFE008A939BAEE929D54A1D
-- generatedChecksum: 5ACDE06C6FAA59D44D420CF294D3833F
+- generatedChecksum: F8032689AA2CFA85F982D77829EEA26D
   logicalPath: config/pic32mz_ef_sk_encx24j600
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 5ACDE06C6FAA59D44D420CF294D3833F
+  userChecksum: F8032689AA2CFA85F982D77829EEA26D
 - generatedChecksum: B201DD41531E95F64AF1E35DB3BC9C20
   logicalPath: config/pic32mz_ef_sk_encx24j600
   name: interrupts.c
@@ -846,13 +846,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 7774A96BC3229FF92454D22B75D94FA3
-- generatedChecksum: 48B767FB03718BC8D0F480E9F4101468
+- generatedChecksum: DE545DDFE32AD1EBE53F02A494D606D0
   logicalPath: config/pic32mz_ef_sk_encx24j600
   name: configuration.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 48B767FB03718BC8D0F480E9F4101468
+  userChecksum: DE545DDFE32AD1EBE53F02A494D606D0
 - generatedChecksum: 858410DFAED3C81F2190A621BCC4D4BC
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip
   name: ddns.h

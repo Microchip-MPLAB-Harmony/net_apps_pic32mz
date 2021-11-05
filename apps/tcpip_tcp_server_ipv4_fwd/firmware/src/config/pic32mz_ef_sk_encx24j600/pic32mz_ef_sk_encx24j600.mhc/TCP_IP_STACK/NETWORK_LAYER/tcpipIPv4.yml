@@ -40,7 +40,7 @@ children:
     - type: Values
       children:
       - type: User
-        attributes: {value: '2'}
+        attributes: {value: '3'}
   - type: Boolean
     attributes: {id: TCPIP_IPV4_FWD_ENTRY_BOOLX0}
     children:
@@ -50,6 +50,13 @@ children:
         attributes: {id: tcpipIPv4, value: 'true'}
   - type: Boolean
     attributes: {id: TCPIP_IPV4_FWD_ENTRY_BOOLX1}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tcpipIPv4, value: 'true'}
+  - type: Boolean
+    attributes: {id: TCPIP_IPV4_FWD_ENTRY_BOOLX2}
     children:
     - type: Values
       children:
@@ -70,6 +77,19 @@ children:
         attributes: {value: eth0}
   - type: String
     attributes: {id: TCPIP_IPV4_FWD_ENTRY_DEST_IF_NAME_IDX1}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'true'}
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: eth1}
+  - type: String
+    attributes: {id: TCPIP_IPV4_FWD_ENTRY_DEST_IF_NAME_IDX2}
     children:
     - type: Attributes
       children:
@@ -107,6 +127,19 @@ children:
       children:
       - type: User
         attributes: {value: 0.0.0.0}
+  - type: String
+    attributes: {id: TCPIP_IPV4_FWD_ENTRY_GW_ADD_IDX2}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'true'}
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 192.168.1.100}
   - type: Integer
     attributes: {id: TCPIP_IPV4_FWD_ENTRY_METRIC_IDX0}
     children:
@@ -118,6 +151,15 @@ children:
         - {type: Value, value: 'true'}
   - type: Integer
     attributes: {id: TCPIP_IPV4_FWD_ENTRY_METRIC_IDX1}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'true'}
+  - type: Integer
+    attributes: {id: TCPIP_IPV4_FWD_ENTRY_METRIC_IDX2}
     children:
     - type: Attributes
       children:
@@ -152,6 +194,19 @@ children:
       - type: User
         attributes: {value: 192.168.1.0}
   - type: String
+    attributes: {id: TCPIP_IPV4_FWD_ENTRY_NET_ADD_IDX2}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'true'}
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 0.0.0.0}
+  - type: String
     attributes: {id: TCPIP_IPV4_FWD_ENTRY_NET_MASK_IDX0}
     children:
     - type: Attributes
@@ -177,6 +232,15 @@ children:
       children:
       - type: User
         attributes: {value: 255.255.255.0}
+  - type: String
+    attributes: {id: TCPIP_IPV4_FWD_ENTRY_NET_MASK_IDX2}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'true'}
   - type: Menu
     attributes: {id: TCPIP_IPV4_FWD_ENTRY_NUMBERX0}
     children:
@@ -188,6 +252,15 @@ children:
         - {type: Value, value: 'true'}
   - type: Menu
     attributes: {id: TCPIP_IPV4_FWD_ENTRY_NUMBERX1}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'true'}
+  - type: Menu
+    attributes: {id: TCPIP_IPV4_FWD_ENTRY_NUMBERX2}
     children:
     - type: Attributes
       children:
@@ -210,6 +283,19 @@ children:
         attributes: {value: eth1}
   - type: String
     attributes: {id: TCPIP_IPV4_FWD_ENTRY_SRC_IF_NAME_IDX1}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'true'}
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: eth0}
+  - type: String
+    attributes: {id: TCPIP_IPV4_FWD_ENTRY_SRC_IF_NAME_IDX2}
     children:
     - type: Attributes
       children:

@@ -4,6 +4,13 @@ attributes: {id: tcpipArp}
 children:
 - type: Symbols
   children:
+  - type: Boolean
+    attributes: {id: TCPIP_ARP_COMMANDS_ENABLE}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 'true'}
   - type: Integer
     attributes: {id: TCPIP_ARP_HEAP_SIZE}
     children:
