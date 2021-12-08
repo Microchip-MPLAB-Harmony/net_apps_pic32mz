@@ -18,5 +18,14 @@ children:
       children:
       - type: Dynamic
         attributes: {id: net_Pres, value: 'true'}
+  - type: File
+    attributes: {id: NET_PRES_SYS_RTOS_TASK}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: enabled}
+        children:
+        - {type: Value, value: 'false'}
 - type: ElementPosition
   attributes: {x: '20', y: '20', id: net_Pres}
