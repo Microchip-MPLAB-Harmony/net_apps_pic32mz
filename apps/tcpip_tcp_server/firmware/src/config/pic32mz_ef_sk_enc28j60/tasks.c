@@ -80,11 +80,7 @@ SYS_CMD_Tasks();
 
 
     /* Maintain Device Drivers */
-    /* ENC28J60 Tasks Function */
-DRV_ENC28J60_Tasks(sysObj.enc28j60Object);
-
-
-
+    
 
     /* Maintain Middleware & Other Libraries */
     

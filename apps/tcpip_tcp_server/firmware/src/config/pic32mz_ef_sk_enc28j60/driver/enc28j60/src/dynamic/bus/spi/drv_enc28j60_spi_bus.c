@@ -1608,8 +1608,8 @@ TCPIP_MAC_RES DRV_ENC28J60_SPI_WritePacket(DRV_ENC28J60_DriverInfo *  pDrvInstan
         return TCPIP_MAC_RES_OP_ERR;
     }
 
-    if(pSeg == 0 || pSeg->segLoadOffset < sizeof(TCPIP_MAC_PACKET*) + 2)
-    {   // cannot send this packet; 2 bytes gap needed to store the command
+    if(pSeg == 0)
+    {   // cannot send this packet; 
         return TCPIP_MAC_RES_PACKET_ERR;
     }
 
@@ -1704,7 +1704,6 @@ uintptr_t DRV_ENC28J60_SPI_ReadDataStart(DRV_ENC28J60_DriverInfo *  pDrvInstance
 
         *pWrBuff = DRV_ENC28J60_SPI_INST_RBM;	
 
-        //spiHandle = DRV_SPI_BufferAddWriteRead(pBusInfo->clientHandle, pWrBuff, 1, &buffer[-1], dataSize + 1, DRV_ENC28J60_SPI_Acknowledge, pDrvInstance);
         DRV_SPI_WriteReadTransferAdd(pBusInfo->clientHandle, pWrBuff, 1, &buffer[-1], dataSize + 1, &spiHandle);
         if(spiHandle != DRV_SPI_TRANSFER_HANDLE_INVALID)
         {

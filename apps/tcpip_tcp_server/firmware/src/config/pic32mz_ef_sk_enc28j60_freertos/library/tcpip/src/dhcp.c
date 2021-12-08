@@ -99,7 +99,7 @@ typedef struct
             uint8_t bWasBound           : 1;    // successfully held a lease
             uint8_t bReportFail         : 1;    // report run time failure flag
             uint8_t bWriteBack          : 1;    // write back the resulting host name
-            uint8_t reserved            : 1;    // not used
+            uint8_t bRetry              : 1;    // a new cycle/retry because of a failure
 	    };
 	    uint8_t val;
 	} flags;
@@ -665,6 +665,8 @@ static void _DHCPSetRunFail(DHCP_CLIENT_VARS* pClient, TCPIP_DHCP_STATUS newStat
     {
         _DHCPSetFailTimeout(pClient, false, true);
     }
+
+    pClient->flags.bRetry = true;
 }
 
 static void _DHCPSetTimeout(DHCP_CLIENT_VARS* pClient)
@@ -955,7 +957,7 @@ static bool _DHCPStartOperation(TCPIP_NET_IF* pNetIf, TCPIP_DHCP_OPERATION_REQ o
                     }
                     // avoid replying to these requests while changing the address
                     IPV4_ADDR zeroAdd = {0};
-                    _TCPIPStackSetConfigAddress(pNetIf, &zeroAdd, &zeroAdd, true);
+                    _TCPIPStackSetConfigAddress(pNetIf, &zeroAdd, &zeroAdd, 0, true);
                 }
                 else if(!TCPIP_STACK_AddressServiceCanStart(pNetIf, TCPIP_STACK_ADDRESS_SERVICE_DHCPC))
                 {
@@ -2024,7 +2026,7 @@ static void _DHCPSetNewLease(DHCP_CLIENT_VARS* pClient, TCPIP_NET_IF* pNetIf)
     oldNetIp.Val = TCPIP_STACK_NetAddressGet(pNetIf);
     oldNetMask.Val = TCPIP_STACK_NetMaskGet(pNetIf);
 
-    _TCPIPStackSetConfigAddress(pNetIf, &pClient->dhcpIPAddress, &pClient->dhcpMask, false);
+    _TCPIPStackSetConfigAddress(pNetIf, &pClient->dhcpIPAddress, &pClient->dhcpMask, 0, false);
     if(pClient->validValues.Gateway)
     {
         TCPIP_STACK_GatewayAddressSet(pNetIf, &pClient->dhcpGateway);
@@ -2078,6 +2080,7 @@ static void _DHCPSetBoundState(DHCP_CLIENT_VARS* pClient)
     pClient->flags.bIsBound = true;	
     pClient->flags.bWasBound = true;	
     pClient->flags.bReportFail = true; 
+    pClient->flags.bRetry = false; 
     _DHCPSetIPv4Filter(pClient, false);
 }
 
@@ -2218,8 +2221,10 @@ static bool _DHCPSend(DHCP_CLIENT_VARS* pClient, TCPIP_NET_IF* pNetIf, int messa
     newTransaction = (messageType == TCPIP_DHCP_DISCOVER_MESSAGE || messageType == TCPIP_DHCP_REQUEST_RENEW_MESSAGE || (messageType == TCPIP_DHCP_REQUEST_MESSAGE && pClient->dhcpOp == TCPIP_DHCP_OPER_INIT_REBOOT));
     if (newTransaction)
     {
-        // generate a new transaction ID
-        pClient->transactionID.Val = SYS_RANDOM_PseudoGet(); 
+        if(pClient->flags.bRetry == false)
+        {   // generate a new transaction ID
+            pClient->transactionID.Val = SYS_RANDOM_PseudoGet(); 
+        }
         // Reset offered flag so we know to act upon the next valid offer
         pClient->flags.bOfferReceived = false;
     }
@@ -2581,7 +2586,7 @@ void TCPIP_DHCP_ConnectionHandler(TCPIP_NET_IF* pNetIf, TCPIP_MAC_EVENT connEven
         {
             // let it wait for the connection
             _DHCPClientClose(pNetIf, false, false);
-            _TCPIPStackSetConfigAddress(pNetIf, 0, 0, true);
+            _TCPIPStackSetConfigAddress(pNetIf, 0, 0, 0, true);
             TCPIP_STACK_AddressServiceEvent(pNetIf, TCPIP_STACK_ADDRESS_SERVICE_DHCPC, TCPIP_STACK_ADDRESS_SERVICE_EVENT_CONN_LOST);
             _DHCPDbgAddServiceEvent(pClient, TCPIP_STACK_ADDRESS_SERVICE_EVENT_CONN_LOST, 0);
             _DHCPNotifyClients(pNetIf, DHCP_EVENT_CONN_LOST);
@@ -2830,10 +2835,11 @@ bool TCPIP_DHCP_InfoGet(TCPIP_NET_HANDLE hNet, TCPIP_DHCP_INFO* pDhcpInfo)
     {
         DHCP_CLIENT_VARS* pClient = DHCPClients + TCPIP_STACK_NetIxGet(pNetIf);
 
-        if(pClient->flags.bDHCPEnabled == true && (pDhcpInfo->status = pClient->smState) >= TCPIP_DHCP_BOUND)
+        if(pClient->flags.bDHCPEnabled == true && pClient->smState >= TCPIP_DHCP_BOUND)
         {
             if(pDhcpInfo)
             {
+                pDhcpInfo->status = pClient->smState;
                 pDhcpInfo->dhcpTime = _DHCPSecondCountGet();
                 pDhcpInfo->leaseStartTime = pClient->tRequest;
                 pDhcpInfo->leaseDuration = pClient->tExpSeconds;

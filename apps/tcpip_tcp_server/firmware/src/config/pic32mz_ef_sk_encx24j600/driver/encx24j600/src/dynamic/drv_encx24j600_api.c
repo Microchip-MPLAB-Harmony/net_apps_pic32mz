@@ -40,6 +40,7 @@ THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 #include "drv_encx24j600_utils.h"
 #include "driver/encx24j600/drv_encx24j600.h"
 
+#define TCPIP_THIS_MODULE_ID   TCPIP_MODULE_MAC_ENCJ600
 // Data needed by the TCPIP Stack
 const TCPIP_MAC_OBJECT DRV_ENCX24J600_MACObject =
 {
@@ -75,7 +76,7 @@ const TCPIP_MAC_OBJECT DRV_ENCX24J600_MACObject =
 
 // Local information
 static DRV_ENCX24J600_DriverInfo drvEncX24J600DrvInst[DRV_ENCX24J600_INSTANCES_NUMBER] __attribute__((aligned(4)));
-static DRV_ENCX24J600_ClientInfo drvEncX24J600ClntInst[DRV_ENCX24J600_CLIENT_INSTANCES_IDX0]; //todo
+static DRV_ENCX24J600_ClientInfo drvEncX24J600ClntInst[DRV_ENCX24J600_CLIENT_INSTANCES_IDX0];
 static uint8_t drvEncX24J600NumOfDrivers = 0;
 static OSAL_MUTEX_HANDLE_TYPE  drvEncX24J600ClntMutex;
 
@@ -160,7 +161,7 @@ SYS_MODULE_OBJ DRV_ENCX24J600_Initialize(SYS_MODULE_INDEX index, SYS_MODULE_INIT
     }
 
     // Clear out any cruft that might be in there
-    memset(pDrvInst, 0, sizeof(DRV_ENCX24J600_Configuration));
+    memset(pDrvInst, 0, sizeof(*pDrvInst));
 
     pDrvInst->inUse = true;
     OSAL_RESULT res = 0;
@@ -203,12 +204,15 @@ SYS_MODULE_OBJ DRV_ENCX24J600_Initialize(SYS_MODULE_INDEX index, SYS_MODULE_INIT
 */
 void DRV_ENCX24J600_Deinitialize(SYS_MODULE_OBJ object)
 {
-    DRV_ENCX24J600_DriverInfo * pDrvInst = ( DRV_ENCX24J600_DriverInfo *)object;
+    DRV_ENCX24J600_DriverInfo * pDrvInst = ( DRV_ENCX24J600_DriverInfo *)object;    
+    TCPIP_MAC_PACKET* pkt;
+	
     if (!_DRV_ENCX24J600_ValidateDriverInstance(pDrvInst))
     {
         return;
     }
-
+    
+    
     DRV_ENCX24J600_SPI_DeinitializeInterface(pDrvInst);
 
     OSAL_MUTEX_Delete(&pDrvInst->drvMutex);
@@ -220,11 +224,18 @@ void DRV_ENCX24J600_Deinitialize(SYS_MODULE_OBJ object)
         (*pDrvInst->stackCfg.pktFreeF)(pkt);
     }
     TCPIP_Helper_ProtectedSingleListDeinitialize(&pDrvInst->rxFreePackets);
+    
+    while ((pkt = (TCPIP_MAC_PACKET*)TCPIP_Helper_ProtectedSingleListHeadRemove(&pDrvInst->txPendingPackets)) != 0)
+    {
+        pkt->pktFlags &= ~TCPIP_MAC_PKT_FLAG_QUEUED;        
+        // acknowledge the packet
+        (*pDrvInst->stackCfg.pktAckF)(pkt, TCPIP_MAC_PKT_ACK_NET_DOWN, TCPIP_THIS_MODULE_ID);
+       
+    } 
     TCPIP_Helper_ProtectedSingleListDeinitialize(&pDrvInst->txPendingPackets);
     TCPIP_Helper_ProtectedSingleListDeinitialize(&pDrvInst->rxWaitingForPickupPackets);
 
-
-    memset(pDrvInst, 0, sizeof(DRV_ENCX24J600_Configuration));
+    memset(pDrvInst, 0, sizeof(*pDrvInst));
     drvEncX24J600NumOfDrivers--;
     if (drvEncX24J600NumOfDrivers == 0)
     {
@@ -544,6 +555,7 @@ void DRV_ENCX24J600_Close(DRV_HANDLE handle)
     res = res; // Force ignore of unused variable, which will be used if SYS_ASSERT was used
 
     SYS_ASSERT(res == OSAL_RESULT_TRUE, "Could not get driver lock");
+    (*pDrvInst->busVTable->fpCloseIf)(pDrvInst);
     pDrvInst->numClients --;
     pDrvInst->exclusiveMode = false;
     res = OSAL_MUTEX_Unlock(&pDrvInst->drvMutex);
@@ -682,7 +694,7 @@ TCPIP_MAC_RES DRV_ENCX24J600_PacketTx(DRV_HANDLE hMac, TCPIP_MAC_PACKET * ptrPac
     Details:
     This function retrieves a packet from the driver.  The packet needs to be
     acknowledged with the linked acknowledge function so it can be reused.
-    Note: ppPktStat is ignored in the first release.
+    Note: pPktStat is ignored in the first release.
 
     Preconditions:
     The client had to be successfully open with DRV_ENCX24J600_Open()
@@ -690,13 +702,13 @@ TCPIP_MAC_RES DRV_ENCX24J600_PacketTx(DRV_HANDLE hMac, TCPIP_MAC_PACKET * ptrPac
     Parameters:
         hMac: the successfully opened handle
         pRes: the result of the operation
-        ppPktStat: pointer to the receive statistics
+        pPktStat: address to the receive statistics
 
     Returns:
         pointer to a valid packet on success
         NULL otherwise
 */
-TCPIP_MAC_PACKET* DRV_ENCX24J600_PacketRx(DRV_HANDLE hMac, TCPIP_MAC_RES* pRes, const TCPIP_MAC_PACKET_RX_STAT** ppPktStat)
+TCPIP_MAC_PACKET* DRV_ENCX24J600_PacketRx(DRV_HANDLE hMac, TCPIP_MAC_RES* pRes, TCPIP_MAC_PACKET_RX_STAT* pPktStat)
 {
     DRV_ENCX24J600_ClientInfo * pClient = (DRV_ENCX24J600_ClientInfo *)hMac;
     DRV_ENCX24J600_DriverInfo * pDrvInst = _DRV_ENCX24J600_ValidateClientHandle(pClient);
