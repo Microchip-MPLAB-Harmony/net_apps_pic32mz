@@ -731,12 +731,8 @@ static void _APP_RelayClientTasks() {
         }
             break;
         case APP_STATE_RELAY_CLIENT_RUNNING:
-        {
-#if !defined(__PIC32C__) && !defined(__SAMA5D2)
-            itoa(cannedData, appData.relayClientNumberOfPackets, 10);
-#else
-            itoa(appData.relayClientNumberOfPackets, cannedData, 10);
-#endif            
+        {          
+            sprintf(cannedData, "%u", appData.relayClientNumberOfPackets);
             int i = sendto(appData.relayClientSocket, (const char *) cannedData, sizeof (cannedData), 0, (const struct sockaddr*) &appData.relayClientAddr, sizeof (struct sockaddr_in6));
             if (i < 0) {
                 break;
