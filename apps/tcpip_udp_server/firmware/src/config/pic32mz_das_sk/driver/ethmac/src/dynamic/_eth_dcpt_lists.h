@@ -44,12 +44,17 @@ THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
     that the hardware overhead is higher when many buffers have to be handled
     for one packet.  The list ends when the next field is NULL or when the pBuff
     is NULL.
+
+    NOTE: definition matches the tcpip_mac.h::TCPIP_MAC_DATA_SEGMENT!
 */
 
 typedef struct _tag_DRV_ETHMAC_PKT_DCPT
 {
     // Next descriptor in chain. NULL to end
     struct _tag_DRV_ETHMAC_PKT_DCPT  *next;
+
+    // segment buffer. Not used
+    void                    *segBuffer;
 
     // Buffer to be transmitted
     void                   *pBuff;
@@ -355,7 +360,7 @@ typedef struct
 //
 #define     DRV_ETHMAC_LIB_ListIsEmpty(pL)       ((pL)->head==0)
 
-extern __inline__ int __attribute__((always_inline)) DRV_ETHMAC_LIB_ListCount(DRV_ETHMAC_DCPT_LIST* pL)
+static __inline__ int __attribute__((always_inline)) DRV_ETHMAC_LIB_ListCount(DRV_ETHMAC_DCPT_LIST* pL)
 {
 
     DRV_ETHMAC_DCPT_NODE*  pN;
@@ -368,7 +373,7 @@ extern __inline__ int __attribute__((always_inline)) DRV_ETHMAC_LIB_ListCount(DR
 }
 
 
-extern __inline__ void __attribute__((always_inline)) DRV_ETHMAC_LIB_ListAddHead(DRV_ETHMAC_DCPT_LIST* pL, DRV_ETHMAC_DCPT_NODE* pN)
+static __inline__ void __attribute__((always_inline)) DRV_ETHMAC_LIB_ListAddHead(DRV_ETHMAC_DCPT_LIST* pL, DRV_ETHMAC_DCPT_NODE* pN)
 {
     pN->next=pL->head;
     pN->hwDcpt.next_ed=KVA_TO_PA(&pL->head->hwDcpt);
@@ -381,7 +386,7 @@ extern __inline__ void __attribute__((always_inline)) DRV_ETHMAC_LIB_ListAddHead
 }
 
 
-extern __inline__ void __attribute__((always_inline)) DRV_ETHMAC_LIB_ListAddTail(DRV_ETHMAC_DCPT_LIST* pL, DRV_ETHMAC_DCPT_NODE* pN)
+static __inline__ void __attribute__((always_inline)) DRV_ETHMAC_LIB_ListAddTail(DRV_ETHMAC_DCPT_LIST* pL, DRV_ETHMAC_DCPT_NODE* pN)
 {
     pN->next=0;
     pN->hwDcpt.next_ed = 0;
@@ -405,7 +410,7 @@ extern __inline__ void __attribute__((always_inline)) DRV_ETHMAC_LIB_ListAddTail
                         }while(0)
 
 
-extern __inline__ DRV_ETHMAC_DCPT_NODE* __attribute__((always_inline)) DRV_ETHMAC_LIB_ListRemoveHead(DRV_ETHMAC_DCPT_LIST* pL)
+static __inline__ DRV_ETHMAC_DCPT_NODE* __attribute__((always_inline)) DRV_ETHMAC_LIB_ListRemoveHead(DRV_ETHMAC_DCPT_LIST* pL)
 {
     DRV_ETHMAC_DCPT_NODE* pN=pL->head;
     if(pL->head==pL->tail)
@@ -421,7 +426,7 @@ extern __inline__ DRV_ETHMAC_DCPT_NODE* __attribute__((always_inline)) DRV_ETHMA
 }
 
 
-extern __inline__ void __attribute__((always_inline)) DRV_ETHMAC_LIB_ListAppendTail(DRV_ETHMAC_DCPT_LIST* pL, DRV_ETHMAC_DCPT_LIST* pAList)
+static __inline__ void __attribute__((always_inline)) DRV_ETHMAC_LIB_ListAppendTail(DRV_ETHMAC_DCPT_LIST* pL, DRV_ETHMAC_DCPT_LIST* pAList)
 {
     DRV_ETHMAC_DCPT_NODE* pN;
     while((pN=DRV_ETHMAC_LIB_ListRemoveHead(pAList)))
@@ -433,7 +438,7 @@ extern __inline__ void __attribute__((always_inline)) DRV_ETHMAC_LIB_ListAppendT
 
 #if defined(__PIC32MZ__)
 // flushes a data cache line/address
-extern __inline__ void __attribute__((always_inline)) DRV_ETHMAC_LIB_DataLineFlush(void* address)
+static __inline__ void __attribute__((always_inline)) DRV_ETHMAC_LIB_DataLineFlush(void* address)
 {   // issue a hit-writeback invalidate order
     __asm__ __volatile__ ("cache 0x15, 0(%0)" ::"r"(address));
     __asm__ __volatile__ ("sync");
@@ -441,7 +446,7 @@ extern __inline__ void __attribute__((always_inline)) DRV_ETHMAC_LIB_DataLineFlu
 #endif  // defined(__PIC32MZ__)
 
 
-extern __inline__ DRV_ETHMAC_DCPT_LIST* __attribute__((always_inline)) DRV_ETHMAC_LIB_ListInit(DRV_ETHMAC_DCPT_LIST* pL)
+static __inline__ DRV_ETHMAC_DCPT_LIST* __attribute__((always_inline)) DRV_ETHMAC_LIB_ListInit(DRV_ETHMAC_DCPT_LIST* pL)
 {
 #if defined(__PIC32MZ__)
     DRV_ETHMAC_LIB_DataLineFlush(pL);
@@ -472,7 +477,7 @@ typedef struct
 
 }DRV_ETHMAC_SGL_LIST;	// single linked list
 
-extern __inline__ void  __attribute__((always_inline)) DRV_ETHMAC_SingleListInitialize(DRV_ETHMAC_SGL_LIST* pL)
+static __inline__ void  __attribute__((always_inline)) DRV_ETHMAC_SingleListInitialize(DRV_ETHMAC_SGL_LIST* pL)
 {
     pL->head = pL->tail = 0;
     pL->nNodes = 0;
@@ -480,7 +485,7 @@ extern __inline__ void  __attribute__((always_inline)) DRV_ETHMAC_SingleListInit
 
 
 
-extern __inline__ int __attribute__((always_inline)) DRV_ETHMAC_SingleListCount(DRV_ETHMAC_SGL_LIST* pL)
+static __inline__ int __attribute__((always_inline)) DRV_ETHMAC_SingleListCount(DRV_ETHMAC_SGL_LIST* pL)
 {
     return pL->nNodes;
 }
