@@ -237,7 +237,6 @@ int32_t DRV_ENCX24J600_ConfigStateTask(struct _DRV_ENCX24J600_DriverInfo * pDrvI
             reg.value = 0;
             reg.erxfcon.MCEN = 1;
             reg.erxfcon.BCEN = 1;
-            reg.erxfcon.NOTMEEN = 1;
             ret = (pDrvInst->busVTable->fpSfrBitSet)(pDrvInst, DRV_ENCX24J600_SFR_ERXFCON, reg, DRV_ENCX24J600_CS_OP_SET_ERXFCON);
             if (ret != 0)
             {

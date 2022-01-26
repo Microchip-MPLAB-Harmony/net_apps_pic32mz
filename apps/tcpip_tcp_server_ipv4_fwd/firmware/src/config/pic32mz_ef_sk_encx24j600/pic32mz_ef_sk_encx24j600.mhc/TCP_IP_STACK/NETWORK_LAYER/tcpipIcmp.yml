@@ -5,15 +5,6 @@ children:
 - type: Symbols
   children:
   - type: Boolean
-    attributes: {id: TCPIP_ICMP_CLIENT_USER_NOTIFICATION}
-    children:
-    - type: Attributes
-      children:
-      - type: Boolean
-        attributes: {id: visible}
-        children:
-        - {type: Value, value: 'true'}
-  - type: Boolean
     attributes: {id: TCPIP_ICMP_COMMAND_ENABLE}
     children:
     - type: Attributes
@@ -82,6 +73,15 @@ children:
         - {type: Value, value: 'true'}
   - type: Integer
     attributes: {id: TCPIP_STACK_COMMANDS_ICMP_ECHO_TIMEOUT}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'true'}
+  - type: Integer
+    attributes: {id: TCPIP_STACK_MAX_CLIENT_ECHO_REQUESTS}
     children:
     - type: Attributes
       children:

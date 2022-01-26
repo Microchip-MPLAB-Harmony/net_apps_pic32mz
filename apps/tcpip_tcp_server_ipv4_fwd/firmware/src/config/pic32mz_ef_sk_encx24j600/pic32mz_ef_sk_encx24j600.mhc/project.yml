@@ -34,13 +34,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: D79BA55E813834EE8CAD55FC5FEA1095
-- generatedChecksum: 8EAC77700DE184BFBF09D9BB89EC1E55
+- generatedChecksum: 89F0AA725C536D59D36052931C9A265F
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src
   name: dhcp.c
   physicalPath: library/tcpip/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 8EAC77700DE184BFBF09D9BB89EC1E55
+  userChecksum: 89F0AA725C536D59D36052931C9A265F
 - generatedChecksum: 65F5B99DAB8ECAC3CB0624E73CA6E0A0
   logicalPath: config/pic32mz_ef_sk_encx24j600/system/fs/fat_fs/hardware_access
   name: diskio.c
@@ -103,7 +103,7 @@ files:
   physicalPath: driver/encx24j600/src/dynamic/initialization_state
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 08255190E31B62A8E09A4CA7CC601CBB
+  userChecksum: 14DE5D15EE08A86FFC712024CFEFDB5F
 - generatedChecksum: 40FF543691BF34AA5623608081E106D0
   logicalPath: config/pic32mz_ef_sk_encx24j600/driver/encx24j600/src/dynamic/initialization_state
   name: drv_encx24j600_detect_state.c
@@ -195,13 +195,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: EA83D0C675007A96B9EB288D208EE461
-- generatedChecksum: A56E64C8F37B41D67E395BD35798A680
+- generatedChecksum: 4BA4917291B1268849041A85BB5FD49A
   logicalPath: config/pic32mz_ef_sk_encx24j600/driver/ethphy/src/dynamic
   name: drv_ethphy.c
   physicalPath: driver/ethphy/src/dynamic
   security: NON_SECURE
   type: SOURCE
-  userChecksum: A56E64C8F37B41D67E395BD35798A680
+  userChecksum: 4BA4917291B1268849041A85BB5FD49A
 - generatedChecksum: C9052D45CC77DF04D1AD2506D73D2758
   logicalPath: config/pic32mz_ef_sk_encx24j600/driver/ethphy/src/dynamic
   name: drv_extphy_smsc8740.c
@@ -230,20 +230,20 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: DC6BF3BD3BE8D60070E6CFAD73ECC6EF
-- generatedChecksum: 063A0626D53AF0EF665B206909725730
+- generatedChecksum: 0E1B1E293A2B25711C143C917406BA0E
   logicalPath: config/pic32mz_ef_sk_encx24j600/driver/miim/src/dynamic
   name: drv_miim.c
   physicalPath: driver/miim/src/dynamic
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 063A0626D53AF0EF665B206909725730
+  userChecksum: 0E1B1E293A2B25711C143C917406BA0E
 - generatedChecksum: 633857DF1ECB6E15DA77A0CD39B77C8F
   logicalPath: config/pic32mz_ef_sk_encx24j600/driver/spi
   name: drv_spi.c
   physicalPath: driver/spi/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 5CD139BA611A6B5CE62F8E4587134747
+  userChecksum: 633857DF1ECB6E15DA77A0CD39B77C8F
 - generatedChecksum: 2F93CCFAEB36B18AC3E3FB791041CDDB
   logicalPath: config/pic32mz_ef_sk_encx24j600/driver/spi
   name: drv_spi_local.h
@@ -349,13 +349,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: D079C8E0E027716324567114C8182682
-- generatedChecksum: 058E9CB891AA836042079E9B16BE53D5
+- generatedChecksum: 1DFF178987AB8470EF8CB03600F99C53
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src
   name: icmp.c
   physicalPath: library/tcpip/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 058E9CB891AA836042079E9B16BE53D5
+  userChecksum: 1DFF178987AB8470EF8CB03600F99C53
 - generatedChecksum: E1C11C9FEFFE008A939BAEE929D54A1D
   logicalPath: web_pages
   name: index.htm
@@ -419,13 +419,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 81CACC84586E802DF9C0E851F03FC8D6
-- generatedChecksum: C95E5D23BD8D2E5286AD9D3FB62E89B6
+- generatedChecksum: 349243C5EF50D83FFB1B84CB265F66D8
   logicalPath: config/pic32mz_ef_sk_encx24j600/net_pres/pres/src
   name: net_pres.c
   physicalPath: net_pres/pres/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: C95E5D23BD8D2E5286AD9D3FB62E89B6
+  userChecksum: 349243C5EF50D83FFB1B84CB265F66D8
 - generatedChecksum: E16AE1053896D773DC96862706DB87AF
   logicalPath: config/pic32mz_ef_sk_encx24j600/net_pres/pres
   name: net_pres_cert_store.c
@@ -664,13 +664,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 1115692CC0E3DF70C0007627FCAC6FFA
-- generatedChecksum: 2E5502ED0E2F2A8BFB23EEF2C8B70A79
+- generatedChecksum: 75B14036B9ECCC3A806A4E5ADB440413
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src/common
   name: sys_fs_shell.c
   physicalPath: library/tcpip/src/common
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 2E5502ED0E2F2A8BFB23EEF2C8B70A79
+  userChecksum: 75B14036B9ECCC3A806A4E5ADB440413
 - generatedChecksum: C95CE0ABB86E6B11CF77E8891D294510
   logicalPath: config/pic32mz_ef_sk_encx24j600/system/int
   name: sys_int.c
@@ -678,13 +678,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: C95CE0ABB86E6B11CF77E8891D294510
-- generatedChecksum: 21B531192E183E11DCAD9BC1B63C6D66
+- generatedChecksum: 6E907D9AEFDAE88D8E9B23F0668846C6
   logicalPath: config/pic32mz_ef_sk_encx24j600/system
   name: sys_random_h2_adapter.c
   physicalPath: system
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 21B531192E183E11DCAD9BC1B63C6D66
+  userChecksum: 6E907D9AEFDAE88D8E9B23F0668846C6
 - generatedChecksum: 47B584985982B2FF32628D4CB874CB4D
   logicalPath: config/pic32mz_ef_sk_encx24j600/system/reset
   name: sys_reset.c
@@ -720,13 +720,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: B8810AC22D73CE43E5661105B6D3C8EB
-- generatedChecksum: B342EF4B980D55EE7BDFA6C54B0CEDE3
+- generatedChecksum: 20752CA504E113CE90EE29E91906E319
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src
   name: tcpip_commands.c
   physicalPath: library/tcpip/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: B342EF4B980D55EE7BDFA6C54B0CEDE3
+  userChecksum: 20752CA504E113CE90EE29E91906E319
 - generatedChecksum: 0911DB28A8AA8D2EDEC039BD1BA1CED1
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src
   name: tcpip_heap_alloc.c
@@ -734,13 +734,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 0911DB28A8AA8D2EDEC039BD1BA1CED1
-- generatedChecksum: 4590A2C67BDF01715945823CAB5E2F10
+- generatedChecksum: A2369C12783F6B5742386F125111403F
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src
   name: tcpip_heap_internal.c
   physicalPath: library/tcpip/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 4590A2C67BDF01715945823CAB5E2F10
+  userChecksum: A2369C12783F6B5742386F125111403F
 - generatedChecksum: 41E9DA13FC2CC263ACF1F2373500E7F4
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src
   name: tcpip_helper_c32.S
@@ -748,20 +748,20 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 41E9DA13FC2CC263ACF1F2373500E7F4
-- generatedChecksum: 874F75411FA9C7408FC45C666503F518
+- generatedChecksum: 81EADD271AD3FD00D134231272F6692C
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src
   name: tcpip_helpers.c
   physicalPath: library/tcpip/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 874F75411FA9C7408FC45C666503F518
-- generatedChecksum: 62D4E18C45A36ED0C64EBCE28874D10D
+  userChecksum: 81EADD271AD3FD00D134231272F6692C
+- generatedChecksum: 45BD0E33146096EDEDB1F9F6CA7D3BEB
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src
   name: tcpip_manager.c
   physicalPath: library/tcpip/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 62D4E18C45A36ED0C64EBCE28874D10D
+  userChecksum: 45BD0E33146096EDEDB1F9F6CA7D3BEB
 - generatedChecksum: 5A25A79EFC070534190D40826D08046B
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src
   name: tcpip_notify.c
@@ -776,13 +776,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 1B541BCAB76578E4E5ED23B2DB34D608
-- generatedChecksum: BFBA4BFB6A144D47EBE4D6F3D59B3A9F
+- generatedChecksum: DB55FAE083880B4E709ED38EFB14CF98
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src
   name: udp.c
   physicalPath: library/tcpip/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: BFBA4BFB6A144D47EBE4D6F3D59B3A9F
+  userChecksum: DB55FAE083880B4E709ED38EFB14CF98
 - generatedChecksum: 4E25492D0D2E6A77AA829DE55FF00BF5
   logicalPath: web_pages
   name: upload.htm
@@ -832,13 +832,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: D0C763149DFEA26198F5F598DD308663
-- generatedChecksum: 135BC6BCC6E6BB5B47D0D3D1477113DA
+- generatedChecksum: F0FEC11883266C663101B473DBB9C745
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip
   name: berkeley_api.h
   physicalPath: library/tcpip
   security: NON_SECURE
   type: HEADER
-  userChecksum: 135BC6BCC6E6BB5B47D0D3D1477113DA
+  userChecksum: F0FEC11883266C663101B473DBB9C745
 - generatedChecksum: 7774A96BC3229FF92454D22B75D94FA3
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src
   name: berkeley_manager.h
@@ -846,13 +846,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 7774A96BC3229FF92454D22B75D94FA3
-- generatedChecksum: DE545DDFE32AD1EBE53F02A494D606D0
+- generatedChecksum: 06F6F2AE1B9EFC72545F4F0BBFBE351E
   logicalPath: config/pic32mz_ef_sk_encx24j600
   name: configuration.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: DE545DDFE32AD1EBE53F02A494D606D0
+  userChecksum: 06F6F2AE1B9EFC72545F4F0BBFBE351E
 - generatedChecksum: 858410DFAED3C81F2190A621BCC4D4BC
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip
   name: ddns.h
@@ -909,6 +909,27 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: AB99E6635C9C3A2E448487057AB59432
+- generatedChecksum: F378C91710B432FA506FFF6F4C1E2C69
+  logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip
+  name: dhcp_server.h
+  physicalPath: library/tcpip
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: F378C91710B432FA506FFF6F4C1E2C69
+- generatedChecksum: 9EFF17CC1F25051E5560AF13932C16D1
+  logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src
+  name: dhcp_server_manager.h
+  physicalPath: library/tcpip/src
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: 9EFF17CC1F25051E5560AF13932C16D1
+- generatedChecksum: BBF9514CFFAFFDF4C39E53446AB46C33
+  logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src
+  name: dhcp_server_private.h
+  physicalPath: library/tcpip/src
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: BBF9514CFFAFFDF4C39E53446AB46C33
 - generatedChecksum: E1D8C77E0B7F57C8A5F614C38EBA5EB1
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip
   name: dhcps.h
@@ -1392,13 +1413,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: F1FC0858028996C745F3DDA19CB3428F
-- generatedChecksum: 3E2E6BADEAD6620ADCF4552348245C90
+- generatedChecksum: 93D1E1E2E1E5A86F9502AE32000EB680
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip
   name: icmp.h
   physicalPath: library/tcpip
   security: NON_SECURE
   type: HEADER
-  userChecksum: 3E2E6BADEAD6620ADCF4552348245C90
+  userChecksum: 93D1E1E2E1E5A86F9502AE32000EB680
 - generatedChecksum: DD88B589790400244B3F011223EF63E8
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src
   name: icmp_manager.h
@@ -1931,13 +1952,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: BC6E1661BF4CAC21B70F5F56A0D7BBDB
-- generatedChecksum: 751EE9993B5654990D2344BA43295EAB
+- generatedChecksum: 89A2BB1ACE0A3BCFDBEC1528E5F76FC0
   logicalPath: config/pic32mz_ef_sk_encx24j600/system
   name: sys_random_h2_adapter.h
   physicalPath: system
   security: NON_SECURE
   type: HEADER
-  userChecksum: 751EE9993B5654990D2344BA43295EAB
+  userChecksum: 89A2BB1ACE0A3BCFDBEC1528E5F76FC0
 - generatedChecksum: 8E43BD17134E69982826F202D0AB42C5
   logicalPath: config/pic32mz_ef_sk_encx24j600/system/reset
   name: sys_reset.h
@@ -2113,13 +2134,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 3FB4AF6DF0E1AFAAC7AB7D042672EC20
-- generatedChecksum: 86B8FA64501DF0D11AB6BB027665E69A
+- generatedChecksum: C2639B76AA3ED555DE0E35E023356ADF
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip
   name: tcpip_mac.h
   physicalPath: library/tcpip
   security: NON_SECURE
   type: HEADER
-  userChecksum: 86B8FA64501DF0D11AB6BB027665E69A
+  userChecksum: C2639B76AA3ED555DE0E35E023356ADF
 - generatedChecksum: F7969FE2EDC637424E363FD8D5F894E4
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip
   name: tcpip_mac_bridge.h
@@ -2155,13 +2176,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: DF4A57443EEF976E1564F28FE4FDBD52
-- generatedChecksum: D02CAA83FD840AF5B7E6B6E844434614
+- generatedChecksum: 90AE2EB0B93F3F0E910C4E96878E6D89
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src
   name: tcpip_manager_control.h
   physicalPath: library/tcpip/src
   security: NON_SECURE
   type: HEADER
-  userChecksum: D02CAA83FD840AF5B7E6B6E844434614
+  userChecksum: 90AE2EB0B93F3F0E910C4E96878E6D89
 - generatedChecksum: 5851ABD4B6100EED203CA27DFB90C598
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src
   name: tcpip_module_manager.h
@@ -2274,13 +2295,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: CAC44960D20AEC03CF4B325A1CD2877C
-- generatedChecksum: 23248DE45F9EC71D5484DF1895031B07
+- generatedChecksum: B494DA024D227F3ADEB75149D586B89C
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip
   name: udp.h
   physicalPath: library/tcpip
   security: NON_SECURE
   type: HEADER
-  userChecksum: 23248DE45F9EC71D5484DF1895031B07
+  userChecksum: B494DA024D227F3ADEB75149D586B89C
 - generatedChecksum: 1D7FBFA79EAE512971BD54237F6F71F4
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src
   name: udp_manager.h
@@ -2288,13 +2309,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 1D7FBFA79EAE512971BD54237F6F71F4
-- generatedChecksum: AC8B4990C73D805BE60579039E7A3D49
+- generatedChecksum: D65791C7FC2FB24860DB02F5E3978688
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src
   name: udp_private.h
   physicalPath: library/tcpip/src
   security: NON_SECURE
   type: HEADER
-  userChecksum: AC8B4990C73D805BE60579039E7A3D49
+  userChecksum: D65791C7FC2FB24860DB02F5E3978688
 - generatedChecksum: null
   logicalPath: config/pic32mz_ef_sk_encx24j600
   name: user.h
