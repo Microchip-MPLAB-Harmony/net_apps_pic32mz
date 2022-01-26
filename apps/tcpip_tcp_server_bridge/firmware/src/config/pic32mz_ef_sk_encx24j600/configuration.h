@@ -533,6 +533,9 @@ extern "C" {
 
 
 
+#define TCPIP_STACK_NETWORK_INTERAFCE_COUNT  	2
+
+
 
 /*** Bridge Configuration ***/
 #define TCPIP_STACK_USE_MAC_BRIDGE
