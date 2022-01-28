@@ -1518,13 +1518,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: null
-- generatedChecksum: 8798D0655262C08492B48FCD655FD079
+- generatedChecksum: 6ADB7A3553F7BCDFE3043FA4E3D58DA4
   logicalPath: ''
   name: app_mqtt_task.h
   physicalPath: ../..
   security: NON_SECURE
   type: HEADER
-  userChecksum: 8798D0655262C08492B48FCD655FD079
+  userChecksum: 6ADB7A3553F7BCDFE3043FA4E3D58DA4
 - generatedChecksum: F18EBACF5A587D5E164EFFDFADEC07AE
   logicalPath: wolfcrypt
   name: arc4.h
@@ -1672,13 +1672,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 9537C1E41F14DFF1B50CF8AE3880105C
-- generatedChecksum: 3244A6D23042D0256F316095D8BEA6D9
+- generatedChecksum: 118D5167FC0E28B77C1252DE5439C634
   logicalPath: config/pic32mz_ef_sk_freertos
   name: configuration.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 3244A6D23042D0256F316095D8BEA6D9
+  userChecksum: 118D5167FC0E28B77C1252DE5439C634
 - generatedChecksum: 66CDC9B1DAB0393100A835676816E8BF
   logicalPath: wolfcrypt
   name: cpuid.h

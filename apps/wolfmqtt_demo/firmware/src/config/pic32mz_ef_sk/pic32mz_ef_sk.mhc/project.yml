@@ -1560,13 +1560,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 9537C1E41F14DFF1B50CF8AE3880105C
-- generatedChecksum: C880F8DEF0542AC2DF32772E3DAE9F3C
+- generatedChecksum: C99E45B96700FA350B0E5C4F77A58F83
   logicalPath: config/pic32mz_ef_sk
   name: configuration.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: C880F8DEF0542AC2DF32772E3DAE9F3C
+  userChecksum: C99E45B96700FA350B0E5C4F77A58F83
 - generatedChecksum: 66CDC9B1DAB0393100A835676816E8BF
   logicalPath: wolfcrypt
   name: cpuid.h
