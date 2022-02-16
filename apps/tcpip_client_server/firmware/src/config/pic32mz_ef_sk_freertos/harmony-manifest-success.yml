@@ -4,13 +4,13 @@
 
 
 project: tcpip_client_server
-creation_date: 2022-02-16T13:58:51.186-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2022-02-16T14:07:31.938-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
-mhc_mode: IDE            # [IDE|Standalone|Headless]
+mhc_mode: Standalone            # [IDE|Standalone|Headless]
 mhc_version: v3.8.2
-mplabx_version: v6.00        # if MPLAB X plugin only
-plugin_version: v3.6.4        # if MPLAB X plugin only
-compiler: XC32 (4.00)
+mplabx_version: NA        # if MPLAB X plugin only
+plugin_version: NA        # if MPLAB X plugin only
+compiler: xc32
 
 modules:
     - {name: "core", version: "v3.10.1"}
