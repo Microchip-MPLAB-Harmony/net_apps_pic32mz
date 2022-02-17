@@ -50,8 +50,8 @@
 #include <stdbool.h>
 #include "driver/memory/drv_memory.h"
 #include "driver/ethmac/drv_ethmac.h"
-#include "peripheral/nvm/plib_nvm.h"
 #include "system/time/sys_time.h"
+#include "peripheral/nvm/plib_nvm.h"
 #include "peripheral/coretimer/plib_coretimer.h"
 #include "driver/memory/drv_memory_nvm.h"
 #include "driver/encx24j600/drv_encx24j600.h"

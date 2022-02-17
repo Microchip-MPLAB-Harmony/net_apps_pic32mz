@@ -342,13 +342,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: E1C11C9FEFFE008A939BAEE929D54A1D
-- generatedChecksum: 0CD2104823748F3C8F1652524576E751
+- generatedChecksum: 267DAE44E088A4348DB15E4DB4497A6D
   logicalPath: config/pic32mz_ef_sk_encx24j600
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 0CD2104823748F3C8F1652524576E751
+  userChecksum: 267DAE44E088A4348DB15E4DB4497A6D
 - generatedChecksum: B201DD41531E95F64AF1E35DB3BC9C20
   logicalPath: config/pic32mz_ef_sk_encx24j600
   name: interrupts.c
