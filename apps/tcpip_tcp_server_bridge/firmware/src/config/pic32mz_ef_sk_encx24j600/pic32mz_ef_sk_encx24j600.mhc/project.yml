@@ -41,13 +41,6 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 412F30E1E173E8BB91C29F79DACCAF97
-- generatedChecksum: 65F5B99DAB8ECAC3CB0624E73CA6E0A0
-  logicalPath: config/pic32mz_ef_sk_encx24j600/system/fs/fat_fs/hardware_access
-  name: diskio.c
-  physicalPath: system/fs/fat_fs/hardware_access
-  security: NON_SECURE
-  type: SOURCE
-  userChecksum: 65F5B99DAB8ECAC3CB0624E73CA6E0A0
 - generatedChecksum: 47635753828B814A05048B66B1AF534B
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src
   name: dns.c
@@ -279,20 +272,6 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: D230A6B646D2E78CEAA6AA924E04FCA0
-- generatedChecksum: B2ADAD943E1B2BEEFF974468E2509BD5
-  logicalPath: config/pic32mz_ef_sk_encx24j600/system/fs/fat_fs/file_system
-  name: ff.c
-  physicalPath: system/fs/fat_fs/file_system
-  security: NON_SECURE
-  type: SOURCE
-  userChecksum: B2ADAD943E1B2BEEFF974468E2509BD5
-- generatedChecksum: 9E153A6D4F8E0EA1F6901BAED7DD80FD
-  logicalPath: config/pic32mz_ef_sk_encx24j600/system/fs/fat_fs/file_system
-  name: ffunicode.c
-  physicalPath: system/fs/fat_fs/file_system
-  security: NON_SECURE
-  type: SOURCE
-  userChecksum: 9E153A6D4F8E0EA1F6901BAED7DD80FD
 - generatedChecksum: 34B5EC3D6AFF76D534C2533264F70746
   logicalPath: web_pages
   name: footer.htm
@@ -363,13 +342,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: E1C11C9FEFFE008A939BAEE929D54A1D
-- generatedChecksum: 9BC5DD516D9F6343E73EB3C096695AC9
+- generatedChecksum: 973B947B4BEF75A1561B052F4A853079
   logicalPath: config/pic32mz_ef_sk_encx24j600
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 9BC5DD516D9F6343E73EB3C096695AC9
+  userChecksum: 973B947B4BEF75A1561B052F4A853079
 - generatedChecksum: B201DD41531E95F64AF1E35DB3BC9C20
   logicalPath: config/pic32mz_ef_sk_encx24j600
   name: interrupts.c
@@ -419,6 +398,20 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 81CACC84586E802DF9C0E851F03FC8D6
+- generatedChecksum: AAACD36E35667FC85D1631EA5120B084
+  logicalPath: config/pic32mz_ef_sk_encx24j600/system/fs/mpfs
+  name: mpfs.c
+  physicalPath: system/fs/mpfs
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: AAACD36E35667FC85D1631EA5120B084
+- generatedChecksum: 2E89E47DCE9D78E9E0A559CA4E61DAE8
+  logicalPath: ''
+  name: mpfs_net_img.c
+  physicalPath: ../..
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 2E89E47DCE9D78E9E0A559CA4E61DAE8
 - generatedChecksum: 349243C5EF50D83FFB1B84CB265F66D8
   logicalPath: config/pic32mz_ef_sk_encx24j600/net_pres/pres/src
   name: net_pres.c
@@ -643,27 +636,20 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 0A6893369C4DA0EE7906866EB6E1D310
-- generatedChecksum: 64197587C5A197FD05E94AB039A2DD66
+- generatedChecksum: 76CDE84DCFB93137B2CDB8F84F5F5A80
   logicalPath: config/pic32mz_ef_sk_encx24j600/system/fs
   name: sys_fs.c
   physicalPath: system/fs/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 64197587C5A197FD05E94AB039A2DD66
-- generatedChecksum: 1F79CD9E378D98E657FCEB0552B2B659
-  logicalPath: config/pic32mz_ef_sk_encx24j600/system/fs
-  name: sys_fs_fat_interface.c
-  physicalPath: system/fs/src
-  security: NON_SECURE
-  type: SOURCE
-  userChecksum: 1F79CD9E378D98E657FCEB0552B2B659
-- generatedChecksum: 1115692CC0E3DF70C0007627FCAC6FFA
+  userChecksum: 76CDE84DCFB93137B2CDB8F84F5F5A80
+- generatedChecksum: 3B71D49550A03D83A3F0D6E1B8124465
   logicalPath: config/pic32mz_ef_sk_encx24j600/system/fs
   name: sys_fs_media_manager.c
   physicalPath: system/fs/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 1115692CC0E3DF70C0007627FCAC6FFA
+  userChecksum: 3B71D49550A03D83A3F0D6E1B8124465
 - generatedChecksum: 75B14036B9ECCC3A806A4E5ADB440413
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip/src/common
   name: sys_fs_shell.c
@@ -853,13 +839,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 7774A96BC3229FF92454D22B75D94FA3
-- generatedChecksum: E1B912765BC79222F2A4881F130F47D0
+- generatedChecksum: 63E2A7CFCF50F971EDC2A1C0F3272636
   logicalPath: config/pic32mz_ef_sk_encx24j600
   name: configuration.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: E1B912765BC79222F2A4881F130F47D0
+  userChecksum: 63E2A7CFCF50F971EDC2A1C0F3272636
 - generatedChecksum: 858410DFAED3C81F2190A621BCC4D4BC
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip
   name: ddns.h
@@ -874,13 +860,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 7959E2B94CEE186632B984636D40C252
-- generatedChecksum: C865323BA79512A4193AB6B1704B8A89
+- generatedChecksum: 5B413F897A5F820760654B09953C1290
   logicalPath: config/pic32mz_ef_sk_encx24j600
   name: definitions.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: C865323BA79512A4193AB6B1704B8A89
+  userChecksum: 5B413F897A5F820760654B09953C1290
 - generatedChecksum: E189C26B2269F8DE46033CCD0621958D
   logicalPath: config/pic32mz_ef_sk_encx24j600
   name: device.h
@@ -979,13 +965,6 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 2D4F76C315C644DE5B899FC521DE31C6
-- generatedChecksum: 630DFA1824A5279838B4330DA2FF3E5E
-  logicalPath: config/pic32mz_ef_sk_encx24j600/system/fs/fat_fs/hardware_access
-  name: diskio.h
-  physicalPath: system/fs/fat_fs/hardware_access
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 630DFA1824A5279838B4330DA2FF3E5E
 - generatedChecksum: 5123AFE76FCBF3EDC0AD747B127D4432
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip
   name: dns.h
@@ -1301,20 +1280,6 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 05A15437D96080BB0A84D3102EB2137C
-- generatedChecksum: 2D3A9FC37968F5000CB45C6B4AD965D6
-  logicalPath: config/pic32mz_ef_sk_encx24j600/system/fs/fat_fs/file_system
-  name: ff.h
-  physicalPath: system/fs/fat_fs/file_system
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 2D3A9FC37968F5000CB45C6B4AD965D6
-- generatedChecksum: 4E1DC558E64EF7706189FC3224899E86
-  logicalPath: config/pic32mz_ef_sk_encx24j600/system/fs/fat_fs/file_system
-  name: ffconf.h
-  physicalPath: system/fs/fat_fs/file_system
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 4E1DC558E64EF7706189FC3224899E86
 - generatedChecksum: F9FF7F501257C24ABE3E4A5258ED7212
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip
   name: ftp.h
@@ -1567,6 +1532,20 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 38843E3789FC642552BCA71C39116136
+- generatedChecksum: F5E399EE7E2CFF6833B81FF7AC2225DB
+  logicalPath: config/pic32mz_ef_sk_encx24j600/system/fs/mpfs
+  name: mpfs.h
+  physicalPath: system/fs/mpfs
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: F5E399EE7E2CFF6833B81FF7AC2225DB
+- generatedChecksum: 8552EF08DE7B052636251A1B5BB7C7D3
+  logicalPath: config/pic32mz_ef_sk_encx24j600/system/fs/mpfs
+  name: mpfs_local.h
+  physicalPath: system/fs/mpfs
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: 8552EF08DE7B052636251A1B5BB7C7D3
 - generatedChecksum: F74D8EB5B501CEF184B30ED0D76F7AFB
   logicalPath: config/pic32mz_ef_sk_encx24j600/library/tcpip
   name: nbns.h
@@ -1889,20 +1868,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 42E557EFE638D7A736FB88AA84F085F1
-- generatedChecksum: 4A8DA7BC60B438CE161462CB299CCC9D
+- generatedChecksum: 78116D68391513DA68B350A8CD660508
   logicalPath: config/pic32mz_ef_sk_encx24j600/system/fs
   name: sys_fs.h
   physicalPath: system/fs
   security: NON_SECURE
   type: HEADER
-  userChecksum: 4A8DA7BC60B438CE161462CB299CCC9D
-- generatedChecksum: 0D9FE9035E3AA8082C5657240106F2DC
-  logicalPath: config/pic32mz_ef_sk_encx24j600/system/fs
-  name: sys_fs_fat_interface.h
-  physicalPath: system/fs
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 0D9FE9035E3AA8082C5657240106F2DC
+  userChecksum: 78116D68391513DA68B350A8CD660508
 - generatedChecksum: 0D162D1868A187FDC092657020E668D8
   logicalPath: config/pic32mz_ef_sk_encx24j600/system/fs
   name: sys_fs_local.h
@@ -2387,12 +2359,6 @@ settings:
   key: extra-include-directories
   security: NON_SECURE
   value: ../src;../src/config/pic32mz_ef_sk_encx24j600;
-- append: true
-  category: C32
-  delimiter: ;
-  key: extra-include-directories
-  security: NON_SECURE
-  value: ;../src/config/pic32mz_ef_sk_encx24j600/system/fs/fat_fs/file_system;../src/config/pic32mz_ef_sk_encx24j600/system/fs/fat_fs/hardware_access
 - append: false
   category: C32
   delimiter: ''
@@ -2423,12 +2389,6 @@ settings:
   key: extra-include-directories
   security: NON_SECURE
   value: ../src;../src/config/pic32mz_ef_sk_encx24j600;
-- append: true
-  category: C32CPP
-  delimiter: ;
-  key: extra-include-directories
-  security: NON_SECURE
-  value: ;../src/config/pic32mz_ef_sk_encx24j600/system/fs/fat_fs/file_system;../src/config/pic32mz_ef_sk_encx24j600/system/fs/fat_fs/hardware_access
 - append: false
   category: C32CPP
   delimiter: ''

@@ -10,7 +10,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: tcpipHttpNet, value: 'false'}
+        attributes: {id: tcpipHttpNet, value: 'true'}
   - type: Integer
     attributes: {id: TCPIP_HTTP_NET_HEAP_SIZE}
     children:

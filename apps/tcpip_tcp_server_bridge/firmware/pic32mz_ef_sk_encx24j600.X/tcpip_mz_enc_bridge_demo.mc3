@@ -210,8 +210,8 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="BASIC CONFIGURATION" name="harmonyGroupAttachments"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;Attachments&gt;
   &lt;Attachments dnOrder=&quot;0&quot;&gt;
-    &lt;Attachment dnOrder=&quot;0&quot; id=&quot;NETCONFIG_MAC_Dependency&quot; namespace=&quot;tcpipNetConfig_0&quot; targetAttachmentID=&quot;drvExtMacEncx24j600_0:libdrvExtMacEncx24j600&quot; targetComponentID=&quot;DRIVER LAYER&quot;/&gt;
-    &lt;Attachment dnOrder=&quot;1&quot; id=&quot;Core_SysConsole_Dependency&quot; namespace=&quot;tcpipStack&quot; targetAttachmentID=&quot;TCP/IP STACK:tcpipStack:Core_SysConsole_Dependency&quot; targetComponentID=&quot;TCP/IP STACK&quot;/&gt;
+    &lt;Attachment dnOrder=&quot;0&quot; id=&quot;Core_SysConsole_Dependency&quot; namespace=&quot;tcpipStack&quot; targetAttachmentID=&quot;TCP/IP STACK:tcpipStack:Core_SysConsole_Dependency&quot; targetComponentID=&quot;TCP/IP STACK&quot;/&gt;
+    &lt;Attachment dnOrder=&quot;1&quot; id=&quot;NETCONFIG_MAC_Dependency&quot; namespace=&quot;tcpipNetConfig_0&quot; targetAttachmentID=&quot;drvExtMacEncx24j600_0:libdrvExtMacEncx24j600&quot; targetComponentID=&quot;DRIVER LAYER&quot;/&gt;
   &lt;/Attachments&gt;
 &lt;/Attachments&gt;
 </value>
@@ -224,8 +224,8 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="DRIVER LAYER" name="harmonyGroupAttachments"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;Attachments&gt;
   &lt;Attachments dnOrder=&quot;0&quot;&gt;
-    &lt;Attachment dnOrder=&quot;0&quot; id=&quot;ENCX24J600_SPI&quot; namespace=&quot;drvExtMacEncx24j600_0&quot; targetAttachmentID=&quot;TCP/IP STACK:drvExtMacEncx24j600_0:ENCX24J600_SPI&quot; targetComponentID=&quot;TCP/IP STACK&quot;/&gt;
-    &lt;Attachment dnOrder=&quot;1&quot; id=&quot;libdrvExtMacEncx24j600&quot; namespace=&quot;drvExtMacEncx24j600_0&quot; targetAttachmentID=&quot;tcpipNetConfig_0:NETCONFIG_MAC_Dependency&quot; targetComponentID=&quot;BASIC CONFIGURATION&quot;/&gt;
+    &lt;Attachment dnOrder=&quot;0&quot; id=&quot;libdrvExtMacEncx24j600&quot; namespace=&quot;drvExtMacEncx24j600_0&quot; targetAttachmentID=&quot;tcpipNetConfig_0:NETCONFIG_MAC_Dependency&quot; targetComponentID=&quot;BASIC CONFIGURATION&quot;/&gt;
+    &lt;Attachment dnOrder=&quot;1&quot; id=&quot;ENCX24J600_SPI&quot; namespace=&quot;drvExtMacEncx24j600_0&quot; targetAttachmentID=&quot;TCP/IP STACK:drvExtMacEncx24j600_0:ENCX24J600_SPI&quot; targetComponentID=&quot;TCP/IP STACK&quot;/&gt;
   &lt;/Attachments&gt;
 &lt;/Attachments&gt;
 </value>
@@ -884,8 +884,8 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TCP/IP STACK" name="harmonyGroupAttachments"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;Attachments&gt;
   &lt;Attachments dnOrder=&quot;0&quot;&gt;
-    &lt;Attachment dnOrder=&quot;0&quot; id=&quot;tcpipStack:Core_SysConsole_Dependency&quot; namespace=&quot;BASIC CONFIGURATION&quot; targetAttachmentID=&quot;sys_console&quot; targetComponentID=&quot;sys_console_0&quot;/&gt;
-    &lt;Attachment dnOrder=&quot;1&quot; id=&quot;drvExtMacEncx24j600_0:ENCX24J600_SPI&quot; namespace=&quot;DRIVER LAYER&quot; targetAttachmentID=&quot;drv_spi&quot; targetComponentID=&quot;drv_spi_0&quot;/&gt;
+    &lt;Attachment dnOrder=&quot;0&quot; id=&quot;drvExtMacEncx24j600_0:ENCX24J600_SPI&quot; namespace=&quot;DRIVER LAYER&quot; targetAttachmentID=&quot;drv_spi&quot; targetComponentID=&quot;drv_spi_0&quot;/&gt;
+    &lt;Attachment dnOrder=&quot;1&quot; id=&quot;tcpipStack:Core_SysConsole_Dependency&quot; namespace=&quot;BASIC CONFIGURATION&quot; targetAttachmentID=&quot;sys_console&quot; targetComponentID=&quot;sys_console_0&quot;/&gt;
   &lt;/Attachments&gt;
 &lt;/Attachments&gt;
 </value>
@@ -917,7 +917,26 @@
         &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;uart2&quot; x=&quot;48&quot; y=&quot;264&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;1&quot; id=&quot;BASIC CONFIGURATION&quot;&gt;
+    &lt;ComponentGraph dnOrder=&quot;1&quot; id=&quot;PRESENTATION LAYER&quot;&gt;
+      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
+        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;net_Pres&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
+      &lt;/ElementPositions&gt;
+    &lt;/ComponentGraph&gt;
+    &lt;ComponentGraph dnOrder=&quot;2&quot; id=&quot;DRIVER LAYER&quot;&gt;
+      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
+        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;drvExtMacEncx24j600&quot; x=&quot;280&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpip_driver_config&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
+      &lt;/ElementPositions&gt;
+    &lt;/ComponentGraph&gt;
+    &lt;ComponentGraph dnOrder=&quot;3&quot; id=&quot;APPLICATION LAYER&quot;&gt;
+      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
+        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipDhcp&quot; x=&quot;320&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipDns&quot; x=&quot;460&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;tcpipHttpNet&quot; x=&quot;620&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;tcpip_apps_config&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
+      &lt;/ElementPositions&gt;
+    &lt;/ComponentGraph&gt;
+    &lt;ComponentGraph dnOrder=&quot;4&quot; id=&quot;BASIC CONFIGURATION&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;drvExtPhyLan8740&quot; x=&quot;138&quot; y=&quot;304&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;drvMiim&quot; x=&quot;9&quot; y=&quot;317&quot;/&gt;
@@ -928,20 +947,15 @@
         &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;tcpip_basic_config&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;2&quot; id=&quot;DRIVER LAYER&quot;&gt;
-      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
-        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;drvExtMacEncx24j600&quot; x=&quot;280&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpip_driver_config&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
-      &lt;/ElementPositions&gt;
-    &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;3&quot; id=&quot;TRANSPORT LAYER&quot;&gt;
+    &lt;GraphSettings canvasHeight=&quot;429&quot; canvasWidth=&quot;741&quot; dnOrder=&quot;5&quot;/&gt;
+    &lt;ComponentGraph dnOrder=&quot;6&quot; id=&quot;TRANSPORT LAYER&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipTcp&quot; x=&quot;440&quot; y=&quot;20&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipUdp&quot; x=&quot;300&quot; y=&quot;20&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;tcpip_transport_config&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;4&quot; id=&quot;NETWORK LAYER&quot;&gt;
+    &lt;ComponentGraph dnOrder=&quot;7&quot; id=&quot;NETWORK LAYER&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipArp&quot; x=&quot;440&quot; y=&quot;20&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipIPv4&quot; x=&quot;300&quot; y=&quot;20&quot;/&gt;
@@ -949,13 +963,7 @@
         &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;tcpip_network_config&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;5&quot; id=&quot;PRESENTATION LAYER&quot;&gt;
-      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
-        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;net_Pres&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
-      &lt;/ElementPositions&gt;
-    &lt;/ComponentGraph&gt;
-    &lt;GraphSettings canvasHeight=&quot;429&quot; canvasWidth=&quot;741&quot; dnOrder=&quot;6&quot;/&gt;
-    &lt;ComponentGraph dnOrder=&quot;7&quot; id=&quot;TCP/IP STACK&quot;&gt;
+    &lt;ComponentGraph dnOrder=&quot;8&quot; id=&quot;TCP/IP STACK&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;APPLICATION LAYER&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;BASIC CONFIGURATION&quot; x=&quot;680&quot; y=&quot;20&quot;/&gt;
@@ -963,14 +971,6 @@
         &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;NETWORK LAYER&quot; x=&quot;380&quot; y=&quot;20&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;PRESENTATION LAYER&quot; x=&quot;163&quot; y=&quot;160&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;TRANSPORT LAYER&quot; x=&quot;200&quot; y=&quot;20&quot;/&gt;
-      &lt;/ElementPositions&gt;
-    &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;8&quot; id=&quot;APPLICATION LAYER&quot;&gt;
-      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
-        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipDhcp&quot; x=&quot;320&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipDns&quot; x=&quot;460&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;tcpipHttpNet&quot; x=&quot;620&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;tcpip_apps_config&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
   &lt;/UserData&gt;
@@ -5232,6 +5232,9 @@
         &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;SYS_FS_MEDIA_TYPE_NVM&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/drv_memory_0&gt;
 &lt;/drv_memory_0&gt;
 </value>
@@ -6025,6 +6028,28 @@
          <value>__ROOTVIEW</value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sys_fs" name="SYS_FS_FAT"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_fs&gt;
+  &lt;sys_fs dnOrder=&quot;0&quot; id=&quot;SYS_FS_FAT&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;false&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/sys_fs&gt;
+&lt;/sys_fs&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sys_fs" name="SYS_FS_MPFS"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_fs&gt;
+  &lt;sys_fs dnOrder=&quot;0&quot; id=&quot;SYS_FS_MPFS&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/sys_fs&gt;
+&lt;/sys_fs&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sys_time" name="!@#harmonyAttachmentState"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_time&gt;
   &lt;sys_time dnOrder=&quot;0&quot;&gt;
@@ -6195,7 +6220,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipHttpNet&gt;
   &lt;tcpipHttpNet dnOrder=&quot;0&quot; id=&quot;TCPIP_HTTP_NET_CUSTOM_TEMPLATE_SL&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipHttpNet&quot; value=&quot;false&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipHttpNet&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
   &lt;/tcpipHttpNet&gt;
 &lt;/tcpipHttpNet&gt;
@@ -7470,7 +7495,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\initialization.c</file>
-         <hash>9c3b66536c9fcce636922b95dac8778accab5b0b34873a64b37820d0f5a1e05d</hash>
+         <hash>f0f6a6e99c79f31e7fbc44cdc4ba09adcbbccf05ba2655db76830263153e57e3</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\driver\memory\src\drv_memory_nvm.c</file>
@@ -7541,20 +7566,12 @@
          <hash>dfdb2d3a29604cded344124da7def6a6feb001786e430e1c72922d5f20bcec6b</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_ef_sk_encx24j600\system\fs\sys_fs_fat_interface.h</file>
-         <hash>47379030a7b158d0db57e79d9ee9d056b9bbad70e13152b6ea603f1cbf37a459</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\system\int\sys_int_mapping.h</file>
          <hash>771b853250bfb05ceac0f525749007ca1d4478e660c13f6a7b7e8fe28eefcf75</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\driver\encx24j600\src\dynamic\initialization_state\drv_encx24j600_configure_state.h</file>
          <hash>33be8f381363893dd116b8f1747206cc92366c082fdbfa0b7b9d52f7d753c9ab</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_ef_sk_encx24j600\system\fs\fat_fs\file_system\ffconf.h</file>
-         <hash>8f1f7779dc16a7bd079a602581b243349faf4ee755b799656fac84133fd01cac</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\driver\ethmac\drv_ethmac.h</file>
@@ -7574,7 +7591,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\definitions.h</file>
-         <hash>483ee6b9b774d817a17c46118a44517e0024cfe33fd196b324b5bc1b25be4b7e</hash>
+         <hash>14e67d5b2f86b296b628bc447613c181ea30b1dcc1cc0c0fb2abd66413b4a197</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\library\tcpip\src\icmpv6_manager.h</file>
@@ -7634,7 +7651,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\system\fs\src\sys_fs.c</file>
-         <hash>ca021c42833ef8d927a2165d42b8cf0d14ba0739eae48591dbd65b03f6166993</hash>
+         <hash>eb92f8667a2330efcebfe7d775c81089e7ef05d0cbe9e457b8812333fb0ea3b4</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\system\time\sys_time_definitions.h</file>
@@ -7774,7 +7791,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\system\fs\src\sys_fs_media_manager.c</file>
-         <hash>0095a6e18a387cf6162ad5cbb04975f73c652f9651cb92f15a9acbbb19e1c4e2</hash>
+         <hash>2a886e401e71027042e7020123291bfb6ea803f3cb96d67ffe914f087211de05</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\library\tcpip\src\tcpip_commands_manager.h</file>
@@ -8061,6 +8078,10 @@
          <hash>461db7f0b8c8a501769971a2ec777a8b83693149aee28b02c2e1d9096ea200bb</hash>
       </entry>
       <entry>
+         <file>..\src\mpfs_net_img.c</file>
+         <hash>f1e8288d6d4b24a9d4fb14d517a4c2433bce711af60add80e8f2cc4a363d2a8c</hash>
+      </entry>
+      <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\driver\encx24j600\src\dynamic\bus\spi\drv_encx24j600_spi_bus.h</file>
          <hash>f7d80b1cc2bd9fc75289b38de87c07f6cf98d97f1c1579954115c32f68aa009a</hash>
       </entry>
@@ -8091,10 +8112,6 @@
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\library\tcpip\src\dnss_manager.h</file>
          <hash>4027183ef9a5ca636f622b7eed3f472c28b1dda776ab32f676ddddc921aaaf53</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_ef_sk_encx24j600\system\fs\fat_fs\file_system\ffunicode.c</file>
-         <hash>b519b20a6de1ceea6ae01421480d0137d03abe788b4e6553b2153d2a8591b840</hash>
       </entry>
       <entry>
          <file>..\src\web_pages\footer.htm</file>
@@ -8229,6 +8246,10 @@
          <hash>0022ac2831987cd67061d3d8f3b5ea8442e17ee750679b7a2f82fe8ab10ad4df</hash>
       </entry>
       <entry>
+         <file>..\src\config\pic32mz_ef_sk_encx24j600\system\fs\mpfs\mpfs.c</file>
+         <hash>43e5fc12888209dbb072de4f51dfb2da44bb137ba93ffa09974f1418296296b4</hash>
+      </entry>
+      <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\library\tcpip\src\tcpip_packet.c</file>
          <hash>cf1cf4bf1be140c984989207f57cff8629483f07573b48d99e514730076c64e1</hash>
       </entry>
@@ -8241,20 +8262,16 @@
          <hash>340beda822c47dd9f8f20ad38434e331098e8b627767319f2c84a72c20f42cf2</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_ef_sk_encx24j600\system\fs\fat_fs\hardware_access\diskio.h</file>
-         <hash>eabe00adfe80de32df0b75244c230f3a04dbc27cb29b1d418cef549e3e7a9ec2</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\library\tcpip\src\tcpip_manager.c</file>
          <hash>1159559e437c574a27256913c02c4a242369eedde85b8957a79a30647c9d5801</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_ef_sk_encx24j600\system\fs\fat_fs\hardware_access\diskio.c</file>
-         <hash>2756c6018e44cb21f6fdad23a82d80c44c6a6ae6cf9456504404789493bb4973</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\library\tcpip\src\udp_private.h</file>
          <hash>5473b909c7f844b5362b8651704c651a5064e4df66f1cbf1ba67b8f727717f2e</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32mz_ef_sk_encx24j600\system\fs\mpfs\mpfs.h</file>
+         <hash>5a5c03658aecea816f7717a1124d6c61bebe2f9a28d5f4f82475fa87ff788e2a</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\library\tcpip\zero_conf_link_local.h</file>
@@ -8311,10 +8328,6 @@
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\stdio\xc32_monitor.c</file>
          <hash>26e5749db654ed433fd94f6c732ef8600d0cbf5196493374cf111877c02b694e</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_ef_sk_encx24j600\system\fs\fat_fs\file_system\ff.c</file>
-         <hash>89210dcb75cae2c2c9cf5e835ccd0b5a8dd5860ac9f79661207076b9a4d709e0</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\library\tcpip\src\dhcp_manager.h</file>
@@ -8382,7 +8395,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\system\fs\sys_fs.h</file>
-         <hash>46a5946f727b22530f0e0945a33cad93077c7b92c1bb2811959709ba7be60e9c</hash>
+         <hash>54912cad1d68a1b057116e5b4f70a5a047d51e6ff222fb77925e3f1eaa19d005</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\library\tcpip\icmpv6.h</file>
@@ -8415,10 +8428,6 @@
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\library\tcpip\src\lldp_tlv.h</file>
          <hash>ccc9cf6ccc106199db897ca01efbaafcce59e4baf8cb5e4cfd1a47a86df97803</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_ef_sk_encx24j600\system\fs\fat_fs\file_system\ff.h</file>
-         <hash>910fa58ceb264c7e03edce224b6484fc2fba3c8d6656975e3c01cd45cdc5d4b3</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\driver\encx24j600\src\dynamic\running_state\drv_encx24j600_change_duplex_state.c</file>
@@ -8713,6 +8722,10 @@
          <hash>faec288c8e65db59b321bcdad51287cae1d1ef4e6ed049f1e36fbafe670c8c49</hash>
       </entry>
       <entry>
+         <file>..\src\config\pic32mz_ef_sk_encx24j600\system\fs\mpfs\mpfs_local.h</file>
+         <hash>fff4643530a57bab8bb04816cd7b91f95d5459251d8747f6e8ef836cc3705765</hash>
+      </entry>
+      <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\tasks.c</file>
          <hash>c35aa1770235763bfed0a82c59a77a4f6d45c2bb78dd021a02c6fe6a723ebfff</hash>
       </entry>
@@ -8770,7 +8783,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\configuration.h</file>
-         <hash>66e610ad95f7be5b6c94145b4ae165ab5bc4d4a18d47121c14528da573b5f913</hash>
+         <hash>b3f46e70ad19c283d001e293d6bee6d4538488361d4b0dfecfe34a8ffe6b6d2f</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\library\tcpip\telnet.h</file>
@@ -8779,10 +8792,6 @@
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\library\tcpip\src\tftpc_private.h</file>
          <hash>46bee186d791a325745d3325d7a171a3c0b98b01ef657a7f718784928ba647fa</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_ef_sk_encx24j600\system\fs\src\sys_fs_fat_interface.c</file>
-         <hash>581a4c11a2e6c4aa4aa2c64742b276d5d4b3bd1dbdbed1983aab17f162f4c47b</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\library\tcpip\src\tcpip_heap_alloc.c</file>

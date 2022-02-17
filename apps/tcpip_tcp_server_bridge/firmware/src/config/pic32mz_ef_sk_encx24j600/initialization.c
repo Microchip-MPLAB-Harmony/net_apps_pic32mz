@@ -149,7 +149,7 @@ const DRV_MEMORY_INIT drvMemory0InitData =
     .memoryDevice               = &drvMemory0DeviceAPI,
     .isMemDevInterruptEnabled   = true,
     .isFsEnabled                = true,
-    .deviceMediaType            = (uint8_t)SYS_FS_MEDIA_TYPE_SPIFLASH,
+    .deviceMediaType            = (uint8_t)SYS_FS_MEDIA_TYPE_NVM,
     .ewBuffer                   = &gDrvMemory0EraseBuffer[0],
     .clientObjPool              = (uintptr_t)&gDrvMemory0ClientObject[0],
     .bufferObj                  = (uintptr_t)&gDrvMemory0BufferObject[0],
@@ -405,16 +405,16 @@ const TCPIP_IPV4_MODULE_CONFIG  tcpipIPv4InitData =
 
 TCPIP_MAC_BRIDGE_ENTRY_BIN tcpipMacbridgeTable[2] = 
 {
-	{0},
-	{1},
+    {0},
+    {1},
 };
 
 /*** TCPIP MAC Bridge Initialization Data ***/
 const TCPIP_MAC_BRIDGE_CONFIG  tcpipBridgeInitData = 
 {
-	.purgeTimeout = TCPIP_MAC_BRIDGE_ENTRY_TIMEOUT,
+    .purgeTimeout = TCPIP_MAC_BRIDGE_ENTRY_TIMEOUT,
     .transitDelay = TCPIP_MAC_BRIDGE_MAX_TRANSIT_DELAY,
-	.fdbEntries = TCPIP_MAC_BRIDGE_FDB_TABLE_ENTRIES,
+    .fdbEntries = TCPIP_MAC_BRIDGE_FDB_TABLE_ENTRIES,
     .pktPoolSize = TCPIP_MAC_BRIDGE_PACKET_POOL_SIZE,
     .pktSize = TCPIP_MAC_BRIDGE_PACKET_SIZE,
     .dcptPoolSize = TCPIP_MAC_BRIDGE_DCPT_POOL_SIZE,
@@ -424,7 +424,7 @@ const TCPIP_MAC_BRIDGE_CONFIG  tcpipBridgeInitData =
     .bridgeTableSize = 2,
     .bridgeTable = (const TCPIP_MAC_BRIDGE_ENTRY*)tcpipMacbridgeTable,
     // advanced
-	.bridgePermTableSize = 0,
+    .bridgePermTableSize = 0,
     .bridgePermTable = 0,
 
 };
@@ -691,51 +691,51 @@ const SYS_FS_MEDIA_MOUNT_DATA sysfsMountTable[SYS_FS_VOLUME_NUMBER] =
     {NULL}
 };
 
-const SYS_FS_FUNCTIONS FatFsFunctions =
-{
-    .mount             = FATFS_mount,
-    .unmount           = FATFS_unmount,
-    .open              = FATFS_open,
-    .read              = FATFS_read,
-    .close             = FATFS_close,
-    .seek              = FATFS_lseek,
-    .fstat             = FATFS_stat,
-    .getlabel          = FATFS_getlabel,
-    .currWD            = FATFS_getcwd,
-    .getstrn           = FATFS_gets,
-    .openDir           = FATFS_opendir,
-    .readDir           = FATFS_readdir,
-    .closeDir          = FATFS_closedir,
-    .chdir             = FATFS_chdir,
-    .chdrive           = FATFS_chdrive,
-    .write             = FATFS_write,
-    .tell              = FATFS_tell,
-    .eof               = FATFS_eof,
-    .size              = FATFS_size,
-    .mkdir             = FATFS_mkdir,
-    .remove            = FATFS_unlink,
-    .setlabel          = FATFS_setlabel,
-    .truncate          = FATFS_truncate,
-    .chmode            = FATFS_chmod,
-    .chtime            = FATFS_utime,
-    .rename            = FATFS_rename,
-    .sync              = FATFS_sync,
-    .putchr            = FATFS_putc,
-    .putstrn           = FATFS_puts,
-    .formattedprint    = FATFS_printf,
-    .testerror         = FATFS_error,
-    .formatDisk        = (FORMAT_DISK)FATFS_mkfs,
-    .partitionDisk     = FATFS_fdisk,
-    .getCluster        = FATFS_getclusters
-};
 
+const SYS_FS_FUNCTIONS MPFSFunctions =
+{
+    .mount             = MPFS_Mount,
+    .unmount           = MPFS_Unmount,
+    .open              = MPFS_Open,
+    .read              = MPFS_Read,
+    .close             = MPFS_Close,
+    .seek              = MPFS_Seek,
+    .fstat             = MPFS_Stat,
+    .tell              = MPFS_GetPosition,
+    .eof               = MPFS_EOF,
+    .size              = MPFS_GetSize,
+    .openDir           = MPFS_DirOpen,
+    .readDir           = MPFS_DirRead,
+    .closeDir          = MPFS_DirClose,
+    .getlabel          = NULL,
+    .currWD            = NULL,
+    .getstrn           = NULL,
+    .write             = NULL,
+    .mkdir             = NULL,
+    .chdir             = NULL,
+    .remove            = NULL,
+    .setlabel          = NULL,
+    .truncate          = NULL,
+    .chdrive           = NULL,
+    .chmode            = NULL,
+    .chtime            = NULL,
+    .rename            = NULL,
+    .sync              = NULL,
+    .putchr            = NULL,
+    .putstrn           = NULL,
+    .formattedprint    = NULL,
+    .testerror         = NULL,
+    .formatDisk        = NULL,
+    .partitionDisk     = NULL,
+    .getCluster        = NULL
+};
 
 
 const SYS_FS_REGISTRATION_TABLE sysFSInit [ SYS_FS_MAX_FILE_SYSTEM_TYPE ] =
 {
     {
-        .nativeFileSystemType = FAT,
-        .nativeFileSystemFunctions = &FatFsFunctions
+        .nativeFileSystemType = MPFS2,
+        .nativeFileSystemFunctions = &MPFSFunctions
     },
 };
 
