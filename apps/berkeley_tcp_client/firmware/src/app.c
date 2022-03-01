@@ -56,7 +56,6 @@
 #include "tcpip/tcpip.h"
 
 #include "app_commands.h"
-#include <sys/errno.h>
 #include <errno.h>
 int32_t _APP_ParseUrl(char *uri, char **host, char **path, uint16_t * port);
 int8_t _APP_PumpDNS(const char * hostname, IPV4_ADDR *ipv4Addr);
