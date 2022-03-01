@@ -55,7 +55,6 @@
 #include "tcpip/tcpip.h"
 
 #include <errno.h>
-#include <sys/errno.h>
 
 #define SERVER_PORT 9760
 // *****************************************************************************
