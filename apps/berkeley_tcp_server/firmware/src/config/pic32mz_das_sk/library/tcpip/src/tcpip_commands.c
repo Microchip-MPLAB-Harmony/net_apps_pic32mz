@@ -909,12 +909,12 @@ static void _Command_DHCPsLeaseList(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char*
     // dhcps interface list
     
     char   addrBuff[20];
-    char   idBuff[48];  // TODO aa: should be TCPIP_DHCPS_CLIENT_ID_MAX_SIZE * 3
+    char   idBuff[TCPIP_DHCPS_CLIENT_ID_MAX_SIZE * 3];
 
     union
     {
         TCPIP_DHCPS_LEASE_INFO leaseInfo;
-        uint8_t id_space[sizeof(TCPIP_DHCPS_LEASE_INFO) + 16 /*TCPIP_DHCPS_CLIENT_ID_MAX_SIZE*/];   // TODO aa 
+        uint8_t id_space[sizeof(TCPIP_DHCPS_LEASE_INFO) + TCPIP_DHCPS_CLIENT_ID_MAX_SIZE];
     }extLeaseInfo;
 
     const void* cmdIoParam = pCmdIO->cmdIoParam;
@@ -2589,7 +2589,7 @@ static int _Command_TFTPServerOnOff(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char*
     int  opCode = 0;        // 0- none; 1 - start; 2 - stop
     bool opRes;
     IP_ADDRESS_TYPE ipType = IP_ADDRESS_TYPE_ANY;
-    TCPIP_NET_HANDLE netH;
+    TCPIP_NET_HANDLE netH = 0;
     const void* cmdIoParam = pCmdIO->cmdIoParam;
     bool printUsage = true;
 
