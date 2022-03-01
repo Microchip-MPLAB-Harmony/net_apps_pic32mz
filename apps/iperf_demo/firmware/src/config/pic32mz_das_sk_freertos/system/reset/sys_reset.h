@@ -1,22 +1,21 @@
 /*******************************************************************************
-  Device Header File
+  RESET Service
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    device.h
+    sys_reset.h
 
   Summary:
-    This file includes the selected device from within the project.
-    The device will provide access to respective device packs.
+    RESET Service Header File
 
   Description:
-    None
+    This library provides an interface to control and interact with RESET
+    System Service.
 
 *******************************************************************************/
 
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
@@ -39,13 +38,53 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
+
+#ifndef SYS_RESET_H
+#define SYS_RESET_H
+
+// DOM-IGNORE-BEGIN
+#ifdef __cplusplus  // Provide C++ Compatibility
+
+    extern "C" {
+
+#endif
 // DOM-IGNORE-END
 
-#ifndef DEVICE_H
-#define DEVICE_H
+// *****************************************************************************
+/* Function:
+    void SYS_RESET_SoftwareReset( void )
 
-#include <xc.h>
-#include <sys/attribs.h>
-#include "toolchain_specifics.h"
+  Summary:
+    Triggers a software reset.
 
-#endif //DEVICE_H
+  Description:
+    This function triggers a software Reset.
+
+  PreCondition:
+    None.
+
+  Parameters:
+    None.
+
+  Returns:
+    None.
+
+  Example:
+    <code>
+    
+    SYS_RESET_SoftwareReset();
+    </code>
+
+  Remarks:
+    None.
+*/
+void SYS_RESET_SoftwareReset( void );
+
+// DOM-IGNORE-BEGIN
+#ifdef __cplusplus  // Provide C++ Compatibility
+
+    }
+
+#endif
+// DOM-IGNORE-END
+#endif // SYS_RESET_H
