@@ -499,6 +499,7 @@
       </logicalFolder>
       <itemPath>Makefile</itemPath>
       <itemPath>../src/config/pic32mz_das_sk_freertos/harmony-manifest-success.yml</itemPath>
+      <itemPath>berkeley_udp_server_freertos.mc3</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
