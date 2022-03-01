@@ -57,7 +57,6 @@
 #include "app_commands.h"
 #include "system_config.h"
 #include <errno.h>
-#include <sys/errno.h>
 // *****************************************************************************
 // *****************************************************************************
 // Section: Global Data Definitions
