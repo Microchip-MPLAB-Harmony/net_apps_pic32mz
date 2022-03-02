@@ -111,9 +111,9 @@ void _APP_Commands_SetOptions(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv
     strcpy(APP_Message_Buffer, argv[3]);
 }
 
-static char buffer1[160];
-static char buffer2[160];
-static char buffer3[160];
+static char buffer1[MAX_URL_SIZE + 20];
+static char buffer2[MAX_URL_SIZE + 20];
+static char buffer3[MAX_URL_SIZE + 20];
 void _APP_Commands_GetOptions(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
 {
     const void* cmdIoParam = pCmdIO->cmdIoParam;
@@ -126,11 +126,11 @@ void _APP_Commands_GetOptions(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv
     }
 
      (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Current UDP Options:\r\n");
-     sprintf(buffer1, "\thostname: '%s'\r\n", APP_Hostname_Buffer);
+     snprintf(buffer1, sizeof(buffer1), "\thostname: '%s'\r\n", APP_Hostname_Buffer);
      (*pCmdIO->pCmdApi->msg)(cmdIoParam, buffer1);
-     sprintf(buffer2, "\tport: '%s'\r\n", APP_Port_Buffer);
+     snprintf(buffer2, sizeof(buffer2), "\tport: '%s'\r\n", APP_Port_Buffer);
      (*pCmdIO->pCmdApi->msg)(cmdIoParam, buffer2);
-     sprintf(buffer3, "\tmessage: '%s'\r\n", APP_Message_Buffer);
+     snprintf(buffer3, sizeof(buffer3), "\tmessage: '%s'\r\n", APP_Message_Buffer);
      (*pCmdIO->pCmdApi->msg)(cmdIoParam, buffer3);
 
 }
