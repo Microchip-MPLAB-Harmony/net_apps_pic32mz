@@ -5,7 +5,7 @@ frameworkPath: D:\11_Repo\01_H3\h3
 processor: PIC32MZ2064DAS169
 projectName: ''
 settings:
-  PackageFilter: audio;azure-rtos-threadx;azure_rtos;bsp;core;core_apps_sam_d5x_e5x;crypto;csp;dev_packs;dummy_package;gfx;net;net_apps_pic32mx;net_apps_pic32mz;net_apps_sam_9x60;net_apps_sam_a5d2;net_apps_sam_e5x;net_apps_sam_e70_v71;net_apps_sam_rh71;quick_docs;touch;usb;wireless;wireless_wifi
+  PackageFilter: audio;azure_rtos;bsp;bt;core;crypto;cryptoauthlib;crypto_for_4.8.1;csp;csp_apps_sam_9x60;csp_apps_sam_a5d2;Devices;dev_packs;gfx;motor_control;net;net_apps_pic32mx;net_apps_pic32mz;net_apps_sam_9x60;net_apps_sam_a5d2;net_apps_sam_e5x;net_apps_sam_e70_v71;net_apps_sam_rh71;quick_docs;usb;wireless;wireless_wifi;zzz_expresslogic_threadx
   FORCE_OPTIMIZATION: 'false'
   GENERATE_BACKUP: 'true'
   CMSISPath: .\dev_packs\arm\CMSIS\5.8.0
