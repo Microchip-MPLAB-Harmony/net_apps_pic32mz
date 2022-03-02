@@ -84,5 +84,14 @@ children:
       children:
       - type: Dynamic
         attributes: {id: tcpipStack, value: 'true'}
+  - type: File
+    attributes: {id: TCPIP_SYS_RTOS_TASK}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: enabled}
+        children:
+        - {type: Value, value: 'false'}
 - type: ElementPosition
   attributes: {x: '20', y: '20', id: tcpipStack}
