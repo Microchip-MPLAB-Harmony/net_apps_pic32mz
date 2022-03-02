@@ -60,7 +60,7 @@ THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 #define _TCPIP_COMMAND_PING4_DEBUG      0   // enable/disable extra ping debugging messages
 #endif
 
-#if defined(TCPIP_STACK_USE_IPV6) && defined(TCPIP_STACK_USE_ICMPV6_CLIENT) && defined(TCPIP_ICMPV6_CLIENT_USER_NOTIFICATION) && (TCPIP_ICMPV6_CLIENT_USER_NOTIFICATION != 0)
+#if defined(TCPIP_STACK_USE_IPV6) && defined(TCPIP_STACK_USE_ICMPV6_CLIENT) && defined(TCPIP_ICMPV6_CLIENT_CONSOLE_CMD) && (TCPIP_ICMPV6_CLIENT_CONSOLE_CMD != 0)
 #define _TCPIP_COMMAND_PING6
 #endif
 
@@ -909,12 +909,12 @@ static void _Command_DHCPsLeaseList(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char*
     // dhcps interface list
     
     char   addrBuff[20];
-    char   idBuff[48];  // TODO aa: should be TCPIP_DHCPS_CLIENT_ID_MAX_SIZE * 3
+    char   idBuff[TCPIP_DHCPS_CLIENT_ID_MAX_SIZE * 3];
 
     union
     {
         TCPIP_DHCPS_LEASE_INFO leaseInfo;
-        uint8_t id_space[sizeof(TCPIP_DHCPS_LEASE_INFO) + 16 /*TCPIP_DHCPS_CLIENT_ID_MAX_SIZE*/];   // TODO aa 
+        uint8_t id_space[sizeof(TCPIP_DHCPS_LEASE_INFO) + TCPIP_DHCPS_CLIENT_ID_MAX_SIZE];
     }extLeaseInfo;
 
     const void* cmdIoParam = pCmdIO->cmdIoParam;
@@ -2589,7 +2589,7 @@ static int _Command_TFTPServerOnOff(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char*
     int  opCode = 0;        // 0- none; 1 - start; 2 - stop
     bool opRes;
     IP_ADDRESS_TYPE ipType = IP_ADDRESS_TYPE_ANY;
-    TCPIP_NET_HANDLE netH;
+    TCPIP_NET_HANDLE netH = 0;
     const void* cmdIoParam = pCmdIO->cmdIoParam;
     bool printUsage = true;
 
