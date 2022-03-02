@@ -128,13 +128,16 @@
 // Section: Driver Initialization Data
 // *****************************************************************************
 // *****************************************************************************
+/* Forward declaration of MIIM initialization data */
+static const DRV_MIIM_INIT drvMiimInitData;
 
 
-/* MIIM Driver Configuration */
-static const DRV_MIIM_INIT drvMiimInitData =
-{
-    .ethphyId = DRV_MIIM_ETH_MODULE_ID,
-};
+/* Forward declaration of PHY initialization data */
+const DRV_ETHPHY_INIT tcpipPhyInitData_LAN8740;
+
+/* Forward declaration of MAC initialization data */
+const TCPIP_MODULE_MAC_PIC32INT_CONFIG tcpipMACPIC32INTInitData;
+
 
 // <editor-fold defaultstate="collapsed" desc="DRV_MEMORY Instance 0 Initialization Data">
 
@@ -234,6 +237,29 @@ SYSTEM_OBJECTS sysObj;
 // Section: Library/Stack Initialization Data
 // *****************************************************************************
 // *****************************************************************************
+/* MIIM Driver Configuration */
+static const DRV_MIIM_INIT drvMiimInitData =
+{
+	.ethphyId = DRV_MIIM_ETH_MODULE_ID,
+};
+
+
+    
+    
+
+/*** ETH PHY Initialization Data ***/
+const DRV_ETHPHY_INIT tcpipPhyInitData_LAN8740 =
+{    
+    .ethphyId               = TCPIP_INTMAC_MODULE_ID,
+    .phyAddress             = TCPIP_INTMAC_PHY_ADDRESS,
+    .phyFlags               = TCPIP_INTMAC_PHY_CONFIG_FLAGS,
+    .pPhyObject             = &DRV_ETHPHY_OBJECT_LAN8740,
+    .resetFunction          = 0,
+    .pMiimObject            = &DRV_MIIM_OBJECT_BASE_Default,
+    .pMiimInit              = &drvMiimInitData,
+    .miimIndex              = DRV_MIIM_DRIVER_INDEX,
+};
+
 /* Net Presentation Layer Data Definitions */
 #include "net_pres/pres/net_pres_enc_glue.h"
 
@@ -442,6 +468,7 @@ const SYS_FS_FUNCTIONS MPFSFunctions =
     .getCluster        = NULL
 };
 
+
 const SYS_FS_REGISTRATION_TABLE sysFSInit [ SYS_FS_MAX_FILE_SYSTEM_TYPE ] =
 {
     {
@@ -454,7 +481,27 @@ const SYS_FS_REGISTRATION_TABLE sysFSInit [ SYS_FS_MAX_FILE_SYSTEM_TYPE ] =
     }
 };
 
+
 // </editor-fold>
+
+/*** ETH MAC Initialization Data ***/
+const TCPIP_MODULE_MAC_PIC32INT_CONFIG tcpipMACPIC32INTInitData =
+{ 
+    .nTxDescriptors         = TCPIP_EMAC_TX_DESCRIPTORS,
+    .rxBuffSize             = TCPIP_EMAC_RX_BUFF_SIZE,
+    .nRxDescriptors         = TCPIP_EMAC_RX_DESCRIPTORS,
+    .nRxDedicatedBuffers    = TCPIP_EMAC_RX_DEDICATED_BUFFERS,
+    .nRxInitBuffers         = TCPIP_EMAC_RX_INIT_BUFFERS,
+    .rxLowThreshold         = TCPIP_EMAC_RX_LOW_THRESHOLD,
+    .rxLowFill              = TCPIP_EMAC_RX_LOW_FILL,
+    .linkInitDelay          = TCPIP_INTMAC_PHY_LINK_INIT_DELAY,
+    .ethFlags               = TCPIP_EMAC_ETH_OPEN_FLAGS,
+    .ethModuleId            = TCPIP_INTMAC_MODULE_ID,
+    .pPhyBase               = &DRV_ETHPHY_OBJECT_BASE_Default,
+    .pPhyInit               = &tcpipPhyInitData_LAN8740,
+};
+
+
 
 
 // <editor-fold defaultstate="collapsed" desc="TCP/IP Stack Initialization Data">
@@ -577,44 +624,6 @@ const TCPIP_NBNS_MODULE_CONFIG tcpipNBNSInitData =
 
 
 
-/*** ETH PHY Initialization Data ***/
-
-
-
-const DRV_ETHPHY_INIT tcpipPhyInitData =
-{    
-    .ethphyId               = TCPIP_INTMAC_MODULE_ID,
-    .phyAddress             = TCPIP_INTMAC_PHY_ADDRESS,
-    .phyFlags               = TCPIP_INTMAC_PHY_CONFIG_FLAGS,
-    .pPhyObject             = &DRV_ETHPHY_OBJECT_SMSC_LAN8740,
-    .resetFunction          = 0,
-    .pMiimObject            = &DRV_MIIM_OBJECT_BASE_Default,
-    .pMiimInit              = &drvMiimInitData,
-    .miimIndex              = DRV_MIIM_DRIVER_INDEX,
-
-};
-
-/*** ETH MAC Initialization Data ***/
-const TCPIP_MODULE_MAC_PIC32INT_CONFIG tcpipMACPIC32INTInitData =
-{ 
-    .nTxDescriptors         = TCPIP_EMAC_TX_DESCRIPTORS,
-    .rxBuffSize             = TCPIP_EMAC_RX_BUFF_SIZE,
-    .nRxDescriptors         = TCPIP_EMAC_RX_DESCRIPTORS,
-    .nRxDedicatedBuffers    = TCPIP_EMAC_RX_DEDICATED_BUFFERS,
-    .nRxInitBuffers         = TCPIP_EMAC_RX_INIT_BUFFERS,
-    .rxLowThreshold         = TCPIP_EMAC_RX_LOW_THRESHOLD,
-    .rxLowFill              = TCPIP_EMAC_RX_LOW_FILL,
-    .linkInitDelay          = TCPIP_INTMAC_PHY_LINK_INIT_DELAY,
-    .ethFlags               = TCPIP_EMAC_ETH_OPEN_FLAGS,
-    .ethModuleId            = TCPIP_INTMAC_MODULE_ID,
-    .pPhyBase               = &DRV_ETHPHY_OBJECT_BASE_Default,
-    .pPhyInit               = &tcpipPhyInitData,
-};
-
-
-
-
-
 
 
 
@@ -650,6 +659,7 @@ const TCPIP_IPV6_MODULE_CONFIG  tcpipIPv6InitData =
     .fragmentPktRxTimeout   = TCPIP_IPV6_FRAGMENT_PKT_TIMEOUT,
 };
 
+
 /*** IPv4 Initialization Data ***/
 
 
@@ -679,17 +689,17 @@ const TCPIP_NETWORK_CONFIG __attribute__((unused))  TCPIP_HOSTS_CONFIGURATION[] 
 {
     /*** Network Configuration Index 0 ***/
     {
-        TCPIP_NETWORK_DEFAULT_INTERFACE_NAME_IDX0,       // interface
-        TCPIP_NETWORK_DEFAULT_HOST_NAME_IDX0,            // hostName
-        TCPIP_NETWORK_DEFAULT_MAC_ADDR_IDX0,             // macAddr
-        TCPIP_NETWORK_DEFAULT_IP_ADDRESS_IDX0,           // ipAddr
-        TCPIP_NETWORK_DEFAULT_IP_MASK_IDX0,              // ipMask
-        TCPIP_NETWORK_DEFAULT_GATEWAY_IDX0,              // gateway
-        TCPIP_NETWORK_DEFAULT_DNS_IDX0,                  // priDNS
-        TCPIP_NETWORK_DEFAULT_SECOND_DNS_IDX0,           // secondDNS
-        TCPIP_NETWORK_DEFAULT_POWER_MODE_IDX0,           // powerMode
-        TCPIP_NETWORK_DEFAULT_INTERFACE_FLAGS_IDX0,      // startFlags
-       &TCPIP_NETWORK_DEFAULT_MAC_DRIVER_IDX0,           // pMacObject
+        .interface = TCPIP_NETWORK_DEFAULT_INTERFACE_NAME_IDX0,
+        .hostName = TCPIP_NETWORK_DEFAULT_HOST_NAME_IDX0,
+        .macAddr = TCPIP_NETWORK_DEFAULT_MAC_ADDR_IDX0,
+        .ipAddr = TCPIP_NETWORK_DEFAULT_IP_ADDRESS_IDX0,
+        .ipMask = TCPIP_NETWORK_DEFAULT_IP_MASK_IDX0,
+        .gateway = TCPIP_NETWORK_DEFAULT_GATEWAY_IDX0,
+        .priDNS = TCPIP_NETWORK_DEFAULT_DNS_IDX0,
+        .secondDNS = TCPIP_NETWORK_DEFAULT_SECOND_DNS_IDX0,
+        .powerMode = TCPIP_NETWORK_DEFAULT_POWER_MODE_IDX0,
+        .startFlags = TCPIP_NETWORK_DEFAULT_INTERFACE_FLAGS_IDX0,
+        .pMacObject = &TCPIP_NETWORK_DEFAULT_MAC_DRIVER_IDX0,
     },
 };
 
@@ -864,7 +874,6 @@ void SYS_Initialize ( void* data )
 
   
     CLK_Initialize();
-    
     /* Configure Prefetch, Wait States and ECC */
     PRECONbits.PREFEN = 3;
     PRECONbits.PFMWS = 2;
@@ -906,11 +915,11 @@ void SYS_Initialize ( void* data )
     SYS_FS_Initialize( (const void *) sysFSInit );
 
 
-	/* Network Presentation Layer Initialization */
-	sysObj.netPres = NET_PRES_Initialize(0, (SYS_MODULE_INIT*)&netPresInitData);
-    /* TCPIP Stack Initialization */
-    sysObj.tcpip = TCPIP_STACK_Init();
-    SYS_ASSERT(sysObj.tcpip != SYS_MODULE_OBJ_INVALID, "TCPIP_STACK_Init Failed" );
+/* Network Presentation Layer Initialization */
+sysObj.netPres = NET_PRES_Initialize(0, (SYS_MODULE_INIT*)&netPresInitData);
+/* TCPIP Stack Initialization */
+sysObj.tcpip = TCPIP_STACK_Init();
+SYS_ASSERT(sysObj.tcpip != SYS_MODULE_OBJ_INVALID, "TCPIP_STACK_Init Failed" );
 
 
     CRYPT_WCCB_Initialize();
