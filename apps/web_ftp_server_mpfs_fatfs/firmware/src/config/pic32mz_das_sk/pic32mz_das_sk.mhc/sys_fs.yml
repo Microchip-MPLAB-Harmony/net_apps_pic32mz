@@ -115,8 +115,8 @@ children:
     - type: TargetAttachments
       children:
       - type: TargetAttachment
-        attributes: {targetComponentID: drv_memory_0, targetAttachmentID: drv_media}
-      - type: TargetAttachment
         attributes: {targetComponentID: drv_sdmmc_0, targetAttachmentID: drv_media}
+      - type: TargetAttachment
+        attributes: {targetComponentID: drv_memory_0, targetAttachmentID: drv_media}
 - type: ElementPosition
   attributes: {x: '387', y: '340', id: sys_fs}
