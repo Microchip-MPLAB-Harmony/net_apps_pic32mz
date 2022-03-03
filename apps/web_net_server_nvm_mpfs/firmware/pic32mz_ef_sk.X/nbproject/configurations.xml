@@ -446,7 +446,6 @@
             <itemPath>../src/config/pic32mz_ef_sk/pic32mz_ef_sk.mhc/TCP_IP_STACK/APPLICATION_LAYER/APPLICATION_LAYER.yml</itemPath>
             <itemPath>../src/config/pic32mz_ef_sk/pic32mz_ef_sk.mhc/TCP_IP_STACK/APPLICATION_LAYER/tcpipAnnounce.yml</itemPath>
             <itemPath>../src/config/pic32mz_ef_sk/pic32mz_ef_sk.mhc/TCP_IP_STACK/APPLICATION_LAYER/tcpipDhcp.yml</itemPath>
-            <itemPath>../src/config/pic32mz_ef_sk/pic32mz_ef_sk.mhc/TCP_IP_STACK/APPLICATION_LAYER/tcpipDhcpServer.yml</itemPath>
             <itemPath>../src/config/pic32mz_ef_sk/pic32mz_ef_sk.mhc/TCP_IP_STACK/APPLICATION_LAYER/tcpipDns.yml</itemPath>
             <itemPath>../src/config/pic32mz_ef_sk/pic32mz_ef_sk.mhc/TCP_IP_STACK/APPLICATION_LAYER/tcpipHttpNet.yml</itemPath>
             <itemPath>../src/config/pic32mz_ef_sk/pic32mz_ef_sk.mhc/TCP_IP_STACK/APPLICATION_LAYER/tcpipNbns.yml</itemPath>
@@ -516,6 +515,7 @@
       </logicalFolder>
       <itemPath>Makefile</itemPath>
       <itemPath>../src/config/pic32mz_ef_sk/harmony-manifest-success.yml</itemPath>
+      <itemPath>web_net_server_nvm_mpfs.mc3</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -600,7 +600,6 @@
                 <itemPath>../src/config/pic32mz_ef_sk/library/tcpip/src/sntp.c</itemPath>
                 <itemPath>../src/config/pic32mz_ef_sk/library/tcpip/src/tcpip_announce.c</itemPath>
                 <itemPath>../src/config/pic32mz_ef_sk/library/tcpip/src/udp.c</itemPath>
-                <itemPath>../src/config/pic32mz_ef_sk/library/tcpip/src/dhcp_server.c</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
@@ -686,18 +685,26 @@
       </logicalFolder>
       <logicalFolder name="f1" displayName="web_pages" projectFiles="true">
         <logicalFolder name="f1" displayName="dyndns" projectFiles="true">
+          <logicalFolder name="dyndns" displayName="dyndns" projectFiles="true">
+          </logicalFolder>
           <itemPath>../src/web_pages/dyndns/index.htm</itemPath>
         </logicalFolder>
         <logicalFolder name="f2" displayName="email" projectFiles="true">
+          <logicalFolder name="email" displayName="email" projectFiles="true">
+          </logicalFolder>
           <itemPath>../src/web_pages/email/index.htm</itemPath>
         </logicalFolder>
         <logicalFolder name="f3" displayName="protect" projectFiles="true">
+          <logicalFolder name="protect" displayName="protect" projectFiles="true">
+          </logicalFolder>
           <itemPath>../src/web_pages/protect/config.htm</itemPath>
           <itemPath>../src/web_pages/protect/index.htm</itemPath>
           <itemPath>../src/web_pages/protect/reboot.cgi</itemPath>
           <itemPath>../src/web_pages/protect/reboot.htm</itemPath>
         </logicalFolder>
         <logicalFolder name="f4" displayName="snmp" projectFiles="true">
+          <logicalFolder name="snmp" displayName="snmp" projectFiles="true">
+          </logicalFolder>
           <itemPath>../src/web_pages/snmp/snmpconfig.htm</itemPath>
         </logicalFolder>
         <itemPath>../src/web_pages/auth.htm</itemPath>
@@ -841,7 +848,7 @@
         <targetDevice>PIC32MZ2048EFM144</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool>ICD4Tool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>4.00</languageToolchainVersion>
         <platform>3</platform>
@@ -879,6 +886,7 @@
       <C32>
         <property key="additional-warnings" value="true"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
@@ -936,6 +944,7 @@
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
         <property key="allocate-dinit" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="code-dinit" value="false"/>
         <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
@@ -975,6 +984,7 @@
       <C32CPP>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>

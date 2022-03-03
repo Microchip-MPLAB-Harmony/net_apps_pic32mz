@@ -324,56 +324,6 @@ const TCPIP_NBNS_MODULE_CONFIG tcpipNBNSInitData =
 
 
 
-/*** DHCP Server v2 initialization data ***/
-
-TCPIP_DHCPS_CLIENT_OPTION_CONFIG dhcpsOptions0[] =
-{
-    {
-        .optType = TCPIP_DHCPS_CLIENT_OPTION_ROUTER,
-        .ipStr = TCPIP_DHCPS_ROUTER_IP_ADDR_IDX0,
-    },
-    {
-        .optType = TCPIP_DHCPS_CLIENT_OPTION_DNS,
-        .ipStr = TCPIP_DHCPS_DNS_IP_ADDR_IDX0,
-    },
-    {
-        .optType = TCPIP_DHCPS_CLIENT_OPTION_T1_RENEWAL,
-        .mult = TCPIP_DHCPS_T1RENEW_MULT_FACT_IDX0,
-        .div = TCPIP_DHCPS_T1RENEW_DIV_FACT_IDX0,
-    },
-    {
-        .optType = TCPIP_DHCPS_CLIENT_OPTION_T2_REBINDING,
-        .mult = TCPIP_DHCPS_T2REBIND_MULT_FACT_IDX0,
-        .div = TCPIP_DHCPS_T2REBIND_DIV_FACT_IDX0,
-    },
-
-};
-
-TCPIP_DHCPS_INTERFACE_CONFIG dhcpsIfConfig[] = 
-{
-    {
-        .ifIndex    = TCPIP_DHCPS_INTERFACE_INDEX_IDX0,
-        .configFlags = TCPIP_DHCPS_CONFIG_FLAG_IDX0,
-        .leaseEntries = TCPIP_DHCPS_MAX_LEASE_NUM_IDX0,
-        .leaseDuration = TCPIP_DHCPS_LEASEDURATION_DFLT_IDX0,
-        .minLeaseDuration = TCPIP_DHCPS_LEASEDURATION_MIN_IDX0,
-        .maxLeaseDuration = TCPIP_DHCPS_LEASEDURATION_MAX_IDX0,
-        .unreqOfferTmo = TCPIP_DHCPS_UNREQ_TMO_IDX0,
-        .serverIPAddress = TCPIP_DHCPS_SERVER_IP_ADDRESS_IDX0,
-        .startIPAddress = TCPIP_DHCPS_START_IP_ADDR_IDX0,
-        .prefixLen = TCPIP_DHCPS_MASK_PREFIX_NUM_IDX0,
-        .pOptConfig = dhcpsOptions0,
-        .nOptConfigs = sizeof(dhcpsOptions0) / sizeof(*dhcpsOptions0),
-    },
-};
-
-const TCPIP_DHCPS_MODULE_CONFIG tcpipDHCPSInitData =
-{
-    .pIfConfig          = dhcpsIfConfig,
-    .nConfigs           = sizeof(dhcpsIfConfig) / sizeof(*dhcpsIfConfig),
-    .nProbes            = TCPIP_DHCPS_ICMP_PROBES,
-    .conflictAttempts   = TCPIP_DHCPS_CONFLICT_ATTEMPTS,
-};
 
 
 /*** DNS Client Initialization Data ***/
@@ -454,7 +404,6 @@ const TCPIP_STACK_MODULE_CONFIG TCPIP_STACK_MODULE_CONFIG_TBL [] =
     {TCPIP_MODULE_UDP,              &tcpipUDPInitData},             // TCPIP_MODULE_UDP
     {TCPIP_MODULE_TCP,              &tcpipTCPInitData},             // TCPIP_MODULE_TCP
     {TCPIP_MODULE_DHCP_CLIENT,      &tcpipDHCPInitData},            // TCPIP_MODULE_DHCP_CLIENT
-    {TCPIP_MODULE_DHCP_SERVER,      &tcpipDHCPSInitData},           // TCPIP_MODULE_DHCP_SERVER
     {TCPIP_MODULE_ANNOUNCE,         &tcpipAnnounceInitData},        // TCPIP_MODULE_ANNOUNCE
     {TCPIP_MODULE_DNS_CLIENT,       &tcpipDNSClientInitData},       // TCPIP_MODULE_DNS_CLIENT
     {TCPIP_MODULE_NBNS,             &tcpipNBNSInitData},            // TCPIP_MODULE_NBNS
