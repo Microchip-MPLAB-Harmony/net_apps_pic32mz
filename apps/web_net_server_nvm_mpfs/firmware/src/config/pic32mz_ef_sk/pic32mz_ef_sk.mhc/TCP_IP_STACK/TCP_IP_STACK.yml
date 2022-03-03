@@ -7,6 +7,6 @@ children:
 - type: Attachments
   children:
   - type: Attachment
-    attributes: {namespace: BASIC CONFIGURATION, id: 'tcpipStack:Core_SysConsole_Dependency'}
-  - type: Attachment
     attributes: {namespace: PRESENTATION LAYER, id: 'net_Pres:Net_Pres_Crypto_Dependency'}
+  - type: Attachment
+    attributes: {namespace: BASIC CONFIGURATION, id: 'tcpipStack:Core_SysConsole_Dependency'}

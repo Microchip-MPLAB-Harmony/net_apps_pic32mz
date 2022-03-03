@@ -71,9 +71,9 @@ THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 
 // TCP/IP stack version
 #define TCPIP_STACK_VERSION_MAJOR         8
-#define TCPIP_STACK_VERSION_MINOR         0
+#define TCPIP_STACK_VERSION_MINOR         1
 #define TCPIP_STACK_VERSION_PATCH         0
-#define TCPIP_STACK_VERSION_STR           "8.00 - H3"
+#define TCPIP_STACK_VERSION_STR           "8.10 - H3"
 
 
 // *****************************************************************************
@@ -97,7 +97,7 @@ THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
     None.
 */
 
-typedef union __attribute__((aligned(2), packed))
+typedef union
 {
     uint32_t Val;
     uint16_t w[2];
@@ -133,7 +133,7 @@ typedef IPV4_ADDR   IP_ADDR;
     None.
 */
 
-typedef union __attribute__((aligned(2), packed))
+typedef union
 {
     uint8_t  v[16];
     uint16_t w[8];
@@ -177,7 +177,7 @@ typedef enum
     None.
 */
 
-typedef union __attribute__((aligned(2), packed))
+typedef union
 {
     IPV4_ADDR v4Add;
     IPV6_ADDR v6Add;
@@ -513,7 +513,8 @@ struct TCPIP_MAC_OBJECT_TYPE;
     For an IPv4 alias interface .powerMode ==  TCPIP_STACK_IF_POWER_DOWN can be used to prevent
     the alias to be started when the stack is initialized and the primary interfaces go up.
  
-    A primary interface currently supports only the TCPIP_STACK_IF_POWER_FULL power mode.
+    A primary interface currently supports only the
+    TCPIP_STACK_IF_POWER_FULL and TCPIP_STACK_IF_POWER_DOWN power modes.
 
     Alias interfaces are not currently supported on IPv6.
 
@@ -707,6 +708,7 @@ typedef struct TCPIP_STACK_INIT
 #include "tcpip/arp.h"
 #include "tcpip/tcp.h"
 #include "tcpip/udp.h"
+#include "tcpip/dhcp_server.h"
 #include "tcpip/icmp.h"
 #include "tcpip/nbns.h"
 #include "tcpip/sntp.h"
