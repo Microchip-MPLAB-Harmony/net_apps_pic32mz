@@ -100,7 +100,7 @@ int FATFS_printf (uintptr_t handle, const char* str, va_list argList);
 
 bool FATFS_error(uintptr_t handle);
 
-int FATFS_mkfs (uint8_t vol, uint8_t sfd, uint32_t au);
+int FATFS_mkfs (uint8_t vol, const MKFS_PARM* opt, void* work, uint32_t len);
 
 int FATFS_fdisk (uint8_t pdrv, const uint32_t szt[], void* work);
 

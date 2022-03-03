@@ -94,7 +94,7 @@ int FATFS_mount ( uint8_t vol )
 
     res = f_mount(fs, (const TCHAR *)&path, opt);
 
-    if (res == FR_OK)
+    if ((res == FR_OK) || (res == FR_NO_FILESYSTEM))
     {
         FATFSVolume[vol].inUse = true;
     }
@@ -119,41 +119,44 @@ int FATFS_unmount ( uint8_t vol )
     {
         return FR_INVALID_DRIVE;
     }
-    
-    // free the volume
-    FATFSVolume[vol].inUse = false;
-
-    for(hFATfs = 0; hFATfs < SYS_FS_MAX_FILES; hFATfs++)
-    {
-        if(FATFSFileObject[hFATfs].inUse)
-        {
-            if (FATFSFileObject[hFATfs].fileObj.fs == NULL)
-            {
-                FATFSFileObject[hFATfs].inUse = false;
-            }
-            else if(VolToPart[vol].pd == FATFSFileObject[hFATfs].fileObj.fs->drv)
-            {
-                FATFSFileObject[hFATfs].inUse = false;
-            }
-        }
-        if(FATFSDirObject[hFATfs].inUse)
-        {
-            if (FATFSDirObject[hFATfs].dirObj.fs == NULL)
-            {
-                FATFSDirObject[hFATfs].inUse = false;
-            }
-            else if(VolToPart[vol].pd == FATFSDirObject[hFATfs].dirObj.fs->drv)
-            {
-                FATFSDirObject[hFATfs].inUse = false;
-            }
-        }
-    }
 
     path[0] = '0' + vol;
     path[1] = ':';
     path[2] = '\0';
 
     res = f_mount(NULL, (const TCHAR *)&path, opt);
+
+    if (res == FR_OK)
+    {
+        // free the volume
+        FATFSVolume[vol].inUse = false;
+
+        for(hFATfs = 0; hFATfs < SYS_FS_MAX_FILES; hFATfs++)
+        {
+            if(FATFSFileObject[hFATfs].inUse)
+            {
+                if (FATFSFileObject[hFATfs].fileObj.obj.fs == NULL)
+                {
+                    FATFSFileObject[hFATfs].inUse = false;
+                }
+                else if(VolToPart[vol].pd == FATFSFileObject[hFATfs].fileObj.obj.fs->pdrv)
+                {
+                    FATFSFileObject[hFATfs].inUse = false;
+                }
+            }
+            if(FATFSDirObject[hFATfs].inUse)
+            {
+                if (FATFSDirObject[hFATfs].dirObj.obj.fs == NULL)
+                {
+                    FATFSDirObject[hFATfs].inUse = false;
+                }
+                else if(VolToPart[vol].pd == FATFSDirObject[hFATfs].dirObj.obj.fs->pdrv)
+                {
+                    FATFSDirObject[hFATfs].inUse = false;
+                }
+            }
+        }
+    }
 
     return ((int)res);
 }
@@ -175,19 +178,19 @@ int FATFS_open (
             mode = FA_READ;
             break;
         case SYS_FS_FILE_OPEN_WRITE:
-            mode = FA_WRITE | FA_OPEN_ALWAYS | FA_CREATE_ALWAYS;
+            mode = FA_WRITE | FA_CREATE_ALWAYS;
             break;
         case SYS_FS_FILE_OPEN_APPEND:
-            mode = FA_WRITE | FA_OPEN_ALWAYS;
+            mode = FA_WRITE | FA_OPEN_APPEND;
             break;
         case SYS_FS_FILE_OPEN_READ_PLUS:
             mode = FA_READ | FA_WRITE;
             break;
         case SYS_FS_FILE_OPEN_WRITE_PLUS:
-            mode = FA_READ | FA_WRITE | FA_OPEN_ALWAYS;
+            mode = FA_READ | FA_WRITE | FA_CREATE_ALWAYS;
             break;
         case SYS_FS_FILE_OPEN_APPEND_PLUS:
-            mode = FA_READ | FA_WRITE | FA_OPEN_ALWAYS;
+            mode = FA_READ | FA_WRITE | FA_OPEN_APPEND;
             break;
         default:
             return ((int)res);
@@ -277,6 +280,16 @@ int FATFS_stat (
 
     res = f_stat((const TCHAR *)path, finfo);
 
+    if (finfo != NULL)
+    {
+        SYS_FS_FSTAT *fileStat = (SYS_FS_FSTAT *)fileInfo;
+
+        if ((res == FR_OK) && (fileStat->lfname != NULL))
+        {
+            /* Use fileStat->fname instead */
+            fileStat->lfname[0] = '\0';
+        }
+    }
 
     return ((int)res);
 }
@@ -365,6 +378,16 @@ int FATFS_readdir (
 
     res = f_readdir(dp, finfo);
 
+    if (finfo != NULL)
+    {
+        SYS_FS_FSTAT *fileStat = (SYS_FS_FSTAT *)fileInfo;
+
+        if ((res == FR_OK) && (fileStat->lfname != NULL))
+        {
+            /* Use fileStat->fname instead */
+            fileStat->lfname[0] = '\0';
+        }
+    }
 
     return ((int)res);
 }
@@ -602,9 +625,10 @@ bool FATFS_error(uintptr_t handle)
 }
 
 int FATFS_mkfs (
-    uint8_t vol,        /* Logical drive number */
-    uint8_t sfd,        /* Partitioning rule 0:FDISK, 1:SFD */
-    uint32_t au         /* Size of allocation unit in unit of byte or sector */
+    uint8_t vol,            /* Logical drive number */
+    const MKFS_PARM* opt,   /* Format options */
+    void* work,             /* Pointer to working buffer (null: use heap memory) */
+    uint32_t len            /* Size of working buffer [byte] */
 )
 {
     FRESULT res;
@@ -620,10 +644,11 @@ int FATFS_mkfs (
     path[1] = ':';
     path[2] = '\0';
 
-    res = f_mkfs((const TCHAR *)&path, (BYTE)sfd, (DWORD)au);
+    res = f_mkfs((const TCHAR *)&path, opt, work, (UINT)len);
 
     return ((int)res);
 }
+
 
 int FATFS_fdisk (
     uint8_t pdrv,           /* Physical drive number */
