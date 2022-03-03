@@ -166,7 +166,7 @@ static bool lastFailure = false;
 // processing the HTTP buffer acknowledgment
 void TCPIP_HTTP_NET_DynAcknowledge(TCPIP_HTTP_NET_CONN_HANDLE connHandle, const void *buffer, const struct _tag_TCPIP_HTTP_NET_USER_CALLBACK *pCBack)
 {
-    HTTP_APP_DYNVAR_BUFFER *pDynBuffer = (HTTP_APP_DYNVAR_BUFFER*)((const uint8_t *)buffer - offsetof(HTTP_APP_DYNVAR_BUFFER, data));
+    HTTP_APP_DYNVAR_BUFFER *pDynBuffer = (HTTP_APP_DYNVAR_BUFFER*)((const uint8_t *)buffer - offsetof(struct HTTP_APP_DYNVAR_BUFFER, data));
 
     pDynBuffer->busy = 0;
 }
@@ -249,6 +249,7 @@ TCPIP_HTTP_NET_IO_RESULT TCPIP_HTTP_NET_ConnectionGetExecute(TCPIP_HTTP_NET_CONN
 
     // Load the file name
     // Make sure uint8_t filename[] above is large enough for your longest name
+    filename[0] = 0;
     SYS_FS_FileNameGet(TCPIP_HTTP_NET_ConnectionFileGet(connHandle), filename, 20);
 
     httpDataBuff = TCPIP_HTTP_NET_ConnectionDataBufferGet(connHandle);
@@ -301,16 +302,20 @@ TCPIP_HTTP_NET_IO_RESULT TCPIP_HTTP_NET_ConnectionGetExecute(TCPIP_HTTP_NET_CONN
         ptr = TCPIP_HTTP_NET_ArgGet(httpDataBuff, (const uint8_t *)"led");
 
         // Toggle the specified LED
-        switch(*ptr) {
-            case '0':
-                APP_LED_1StateToggle();
-                break;
-            case '1':
-                APP_LED_2StateToggle();
-                break;
-            case '2':
-                APP_LED_3StateToggle();
-                break;
+        if(ptr)
+        {
+            switch(*ptr)
+            {
+                case '0':
+                    APP_LED_1StateToggle();
+                    break;
+                case '1':
+                    APP_LED_2StateToggle();
+                    break;
+                case '2':
+                    APP_LED_3StateToggle();
+                    break;
+            }
         }
     }
 
@@ -337,6 +342,7 @@ TCPIP_HTTP_NET_IO_RESULT TCPIP_HTTP_NET_ConnectionPostExecute(TCPIP_HTTP_NET_CON
 
     // Load the file name
     // Make sure uint8_t filename[] above is large enough for your longest name
+    filename[0] = 0;
     SYS_FS_FileNameGet(TCPIP_HTTP_NET_ConnectionFileGet(connHandle), filename, sizeof(filename));
 
 #if defined(SYS_OUT_ENABLE)
@@ -717,7 +723,8 @@ static TCPIP_HTTP_NET_IO_RESULT HTTPPostConfig(TCPIP_HTTP_NET_CONN_HANDLE connHa
                 bConfigFailure = true;
                 break;
             }
-            strncpy(httpNetData.ipAddr, (char *)httpDataBuff + 6, sizeof(httpNetData.ipAddr));
+            strncpy(httpNetData.ipAddr, (char *)httpDataBuff + 6, sizeof(httpNetData.ipAddr) - 1);
+            httpNetData.ipAddr[sizeof(httpNetData.ipAddr) - 1] = 0;
         }
         else if(!strcmp((char *)httpDataBuff, (const char *)"gw"))
         {// Read new gateway address
@@ -726,7 +733,8 @@ static TCPIP_HTTP_NET_IO_RESULT HTTPPostConfig(TCPIP_HTTP_NET_CONN_HANDLE connHa
                 bConfigFailure = true;
                 break;
             }
-            strncpy(httpNetData.gwIP, (char *)httpDataBuff + 6, sizeof(httpNetData.gwIP));
+            strncpy(httpNetData.gwIP, (char *)httpDataBuff + 6, sizeof(httpNetData.gwIP) - 1);
+            httpNetData.gwIP[sizeof(httpNetData.gwIP) - 1] = 0;
         }
         else if(!strcmp((char *)httpDataBuff, (const char *)"sub"))
         {// Read new static subnet
@@ -735,7 +743,8 @@ static TCPIP_HTTP_NET_IO_RESULT HTTPPostConfig(TCPIP_HTTP_NET_CONN_HANDLE connHa
                 bConfigFailure = true;
                 break;
             }
-            strncpy(httpNetData.ipMask, (char *)httpDataBuff + 6, sizeof(httpNetData.ipMask));
+            strncpy(httpNetData.ipMask, (char *)httpDataBuff + 6, sizeof(httpNetData.ipMask) - 1);
+            httpNetData.ipMask[sizeof(httpNetData.ipMask) - 1] = 0;
         }
         else if(!strcmp((char *)httpDataBuff, (const char *)"dns1"))
         {// Read new primary DNS server
@@ -744,7 +753,8 @@ static TCPIP_HTTP_NET_IO_RESULT HTTPPostConfig(TCPIP_HTTP_NET_CONN_HANDLE connHa
                 bConfigFailure = true;
                 break;
             }
-            strncpy(httpNetData.dns1IP, (char *)httpDataBuff + 6, sizeof(httpNetData.dns1IP));
+            strncpy(httpNetData.dns1IP, (char *)httpDataBuff + 6, sizeof(httpNetData.dns1IP) - 1);
+            httpNetData.dns1IP[sizeof(httpNetData.dns1IP) - 1] = 0;
         }
         else if(!strcmp((char *)httpDataBuff, (const char *)"dns2"))
         {// Read new secondary DNS server
@@ -753,7 +763,8 @@ static TCPIP_HTTP_NET_IO_RESULT HTTPPostConfig(TCPIP_HTTP_NET_CONN_HANDLE connHa
                 bConfigFailure = true;
                 break;
             }
-            strncpy(httpNetData.dns2IP, (char *)httpDataBuff + 6, sizeof(httpNetData.dns2IP));
+            strncpy(httpNetData.dns2IP, (char *)httpDataBuff + 6, sizeof(httpNetData.dns2IP) - 1);
+            httpNetData.dns2IP[sizeof(httpNetData.dns2IP) - 1] = 0;
         }
         else if(!strcmp((char *)httpDataBuff, (const char *)"mac"))
         {   // read the new MAC address
@@ -762,11 +773,13 @@ static TCPIP_HTTP_NET_IO_RESULT HTTPPostConfig(TCPIP_HTTP_NET_CONN_HANDLE connHa
                 bConfigFailure = true;
                 break;
             }
-            strncpy(httpNetData.ifMacAddr, (char *)httpDataBuff + 6, sizeof(httpNetData.ifMacAddr));
+            strncpy(httpNetData.ifMacAddr, (char *)httpDataBuff + 6, sizeof(httpNetData.ifMacAddr) - 1);
+            httpNetData.ifMacAddr[sizeof(httpNetData.ifMacAddr) - 1] = 0;
         }
         else if(!strcmp((char *)httpDataBuff, (const char *)"host"))
         {   // Read new hostname
-            strncpy(httpNetData.nbnsName, (char *)httpDataBuff + 6, sizeof(httpNetData.nbnsName));
+            strncpy(httpNetData.nbnsName, (char *)httpDataBuff + 6, sizeof(httpNetData.nbnsName) - 1);
+            httpNetData.nbnsName[sizeof(httpNetData.nbnsName) - 1] = 0;
         }
         else if(!strcmp((char *)httpDataBuff, (const char *)"dhcp"))
         {// Read new DHCP Enabled flag
@@ -789,7 +802,8 @@ static TCPIP_HTTP_NET_IO_RESULT HTTPPostConfig(TCPIP_HTTP_NET_CONN_HANDLE connHa
         }
         // save current interface and mark as valid
         httpNetData.currNet = TCPIP_HTTP_NET_ConnectionNetHandle(connHandle);
-        strncpy(httpNetData.ifName, TCPIP_STACK_NetNameGet(httpNetData.currNet), sizeof(httpNetData.ifName));
+        strncpy(httpNetData.ifName, TCPIP_STACK_NetNameGet(httpNetData.currNet), sizeof(httpNetData.ifName) - 1);
+        httpNetData.ifName[sizeof(httpNetData.ifName) - 1] = 0;
     }
     else
     {   // Configuration error
@@ -1600,7 +1614,8 @@ TCPIP_HTTP_DYN_PRINT_RES TCPIP_HTTP_Print_config_hostname(TCPIP_HTTP_NET_CONN_HA
         {   // failed to get a buffer; retry
             return TCPIP_HTTP_DYN_PRINT_RES_AGAIN;
         }
-        strncpy(pDynBuffer->data, nbnsName, HTTP_APP_DYNVAR_BUFFER_SIZE);
+        strncpy(pDynBuffer->data, nbnsName, sizeof(pDynBuffer->data) - 1);
+        pDynBuffer->data[sizeof(pDynBuffer->data) - 1] = 0;
         TCPIP_HTTP_NET_DynamicWriteString(vDcpt, pDynBuffer->data, true);
     }
 
@@ -1722,7 +1737,7 @@ TCPIP_HTTP_DYN_PRINT_RES TCPIP_HTTP_Print_config_mac(TCPIP_HTTP_NET_CONN_HANDLE 
 
     hNet = TCPIP_HTTP_NET_ConnectionNetHandle(connHandle);
     pMacAdd = (const TCPIP_MAC_ADDR*)TCPIP_STACK_NetAddressMac(hNet);
-    if(pMacAdd)
+    if(pMacAdd && sizeof(pDynBuffer->data) > sizeof(macAddStr))
     {
         TCPIP_Helper_MACAddressToString(pMacAdd, macAddStr, sizeof(macAddStr));
         pDynBuffer = HTTP_APP_GetDynamicBuffer();
@@ -1730,7 +1745,8 @@ TCPIP_HTTP_DYN_PRINT_RES TCPIP_HTTP_Print_config_mac(TCPIP_HTTP_NET_CONN_HANDLE 
         {   // failed to get a buffer; retry
             return TCPIP_HTTP_DYN_PRINT_RES_AGAIN;
         }
-        strncpy(pDynBuffer->data, macAddStr, HTTP_APP_DYNVAR_BUFFER_SIZE);
+        strncpy(pDynBuffer->data, macAddStr, sizeof(macAddStr) - 1);
+        pDynBuffer->data[sizeof(macAddStr) - 1] = 0;
         TCPIP_HTTP_NET_DynamicWriteString(vDcpt, pDynBuffer->data, true);
     }
     else
@@ -1921,7 +1937,8 @@ TCPIP_HTTP_DYN_PRINT_RES TCPIP_HTTP_Print_rebootaddr(TCPIP_HTTP_NET_CONN_HANDLE 
     {   // failed to get a buffer; retry
         return TCPIP_HTTP_DYN_PRINT_RES_AGAIN;
     }
-    strncpy(pDynBuffer->data, rebootAddr, HTTP_APP_DYNVAR_BUFFER_SIZE);
+    strncpy(pDynBuffer->data, rebootAddr, sizeof(pDynBuffer->data) - 1);
+    pDynBuffer->data[sizeof(pDynBuffer->data) - 1] = 0;
     TCPIP_HTTP_NET_DynamicWriteString(vDcpt, pDynBuffer->data, true);
     return TCPIP_HTTP_DYN_PRINT_RES_DONE;
 }
