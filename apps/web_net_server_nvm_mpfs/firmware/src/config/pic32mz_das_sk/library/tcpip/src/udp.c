@@ -93,6 +93,47 @@ static const void* udpPktHandlerParam;
 	Function Prototypes
   ***************************************************************************/
 
+#if ((TCPIP_UDP_DEBUG_LEVEL & TCPIP_UDP_DEBUG_MASK_RX_CHECK) != 0)
+// check ports: 0 - irrelevant; otherwise it's considered in match
+static uint16_t checkUdpSrcPort = 0; 
+static uint16_t checkUdpDstPort = 80;
+
+static bool checkStrict = false;    // if 0, then any match, src or dest will do
+                                    // else both source and dest must match
+static uint32_t checkUdpBkptCnt = 0;
+
+static bool TCPIP_UDP_CheckRxPkt(UDP_HEADER* pHdr)
+{
+    UDP_PORT srcPort = pHdr->SourcePort;
+    UDP_PORT destPort = pHdr->DestinationPort;
+
+    bool srcMatch = (srcPort == 0 || srcPort == checkUdpSrcPort);
+    bool destMatch = (destPort == 0 || destPort == checkUdpDstPort);
+
+    bool match = 0;
+
+    if(checkStrict)
+    {
+        match = srcMatch && destMatch;
+    }
+    else
+    {
+        match = srcMatch || destMatch;
+    }
+
+    if(match)
+    {
+        checkUdpBkptCnt++;
+        return true;
+    }
+
+    return false;
+}
+#else
+#define TCPIP_UDP_CheckRxPkt(pHdr)
+#endif // ((TCPIP_UDP_DEBUG_LEVEL & TCPIP_UDP_DEBUG_MASK_RX_CHECK) != 0)
+
+
 // The User threads protection
 // For efficiency reasons, there is NO PROTECTION for each API call except Open and Close sockets
 // What it means is that:
@@ -118,14 +159,14 @@ static __inline__ void  __attribute__((always_inline))          _UserGblLockDele
 static __inline__ void  __attribute__((always_inline))          _UserGblLock(void)
 {
     // Shared Data Lock
-    OSAL_SEM_Pend(&userSem, OSAL_WAIT_FOREVER);
+    (void)OSAL_SEM_Pend(&userSem, OSAL_WAIT_FOREVER);
 }    
 
 // unlocks access to shared resources
 static __inline__ void  __attribute__((always_inline))          _UserGblUnlock(void)
 {
     // Shared Data unlock
-    OSAL_SEM_Post(&userSem);
+    (void)OSAL_SEM_Post(&userSem);
 }
 
 // following is the implementation for the RX thread lock
@@ -424,7 +465,7 @@ static bool             _UDPSetSourceAddress(UDP_SOCKET_DCPT* pSkt, IP_ADDRESS_T
 
 static  bool _UDPSocketBind(UDP_SOCKET_DCPT* pSkt, TCPIP_NET_IF* pNet, IP_MULTI_ADDRESS* srcAddress)
 {
-    if((pSkt->pSktNet = pNet) != 0)
+    if((pSkt->pSktNet = pNet) != 0 && pSkt->extFlags.noNetStrict == 0)
     {   // specific bind requested
         pSkt->flags.looseNetIf = 0;
     }
@@ -649,56 +690,62 @@ void TCPIP_UDP_Deinitialize(const TCPIP_STACK_MODULE_CTRL* const stackCtrl)
 {
     UDP_SOCKET_DCPT*    pSkt;
     int ix;
+
+    if(udpInitCount == 0)
+    {   // not properly initialized
+        return;
+    }
+
+    // we're up and running
     bool    killSem = false;
 
     _UserGblLock();     // make sure no one is opening/closing sockets now
-    if(udpInitCount > 0)
-    {   // we're up and running
-        // interface is going down
-        _UDPAbortSockets(1 << stackCtrl->netIx, TCPIP_UDP_SIGNAL_IF_DOWN); 
 
-        if(stackCtrl->stackAction == TCPIP_STACK_ACTION_DEINIT)
-        {   // stack shut down
-            if(--udpInitCount == 0)
-            {   // all closed
-                // release resources
-                // just in case there are any not bound sockets
-                for(ix = 0; ix < nUdpSockets; ix++)
+    // interface is going down
+    _UDPAbortSockets(1 << stackCtrl->netIx, TCPIP_UDP_SIGNAL_IF_DOWN); 
+
+    if(stackCtrl->stackAction == TCPIP_STACK_ACTION_DEINIT)
+    {   // stack shut down
+        if(--udpInitCount == 0)
+        {   // all closed
+            // release resources
+            // just in case there are any not bound sockets
+            for(ix = 0; ix < nUdpSockets; ix++)
+            {
+                pSkt = UDPSocketDcpt[ix];
+                if(pSkt) 
                 {
-                    pSkt = UDPSocketDcpt[ix];
-                    if(pSkt) 
-                    {
-                        _UDPClose(pSkt);
-                    }
+                    _UDPClose(pSkt);
                 }
+            }
 
-                TCPIP_HEAP_Free(udpMemH, UDPSocketDcpt);
+            TCPIP_HEAP_Free(udpMemH, UDPSocketDcpt);
 
-                UDPSocketDcpt = 0;
+            UDPSocketDcpt = 0;
 
 #if (TCPIP_UDP_USE_POOL_BUFFERS != 0)
-                // Note: no protection for this access
-                TCPIP_MAC_PACKET*   pPkt;
-                while((pPkt = (TCPIP_MAC_PACKET*)TCPIP_Helper_SingleListHeadRemove(&udpPacketPool)) != 0)
-                {
-                    TCPIP_PKT_PacketFree(pPkt);
-                }
-                udpPacketsInPool = 0;
-                udpPoolPacketSize = 0;
+            // Note: no protection for this access
+            TCPIP_MAC_PACKET*   pPkt;
+            while((pPkt = (TCPIP_MAC_PACKET*)TCPIP_Helper_SingleListHeadRemove(&udpPacketPool)) != 0)
+            {
+                TCPIP_PKT_PacketFree(pPkt);
+            }
+            udpPacketsInPool = 0;
+            udpPoolPacketSize = 0;
 #endif  // (TCPIP_UDP_USE_POOL_BUFFERS != 0)
 
-                if(signalHandle)
-                {
-                    _TCPIPStackSignalHandlerDeregister(signalHandle);
-                    signalHandle = 0;
-                }
-
-                udpMemH = 0;
-                nUdpSockets = 0;
-                killSem = true;
+            if(signalHandle)
+            {
+                _TCPIPStackSignalHandlerDeregister(signalHandle);
+                signalHandle = 0;
             }
+
+            udpMemH = 0;
+            nUdpSockets = 0;
+            killSem = true;
         }
     }
+    
     if(killSem)
     {
         _UserGblLockDelete();
@@ -713,9 +760,9 @@ void TCPIP_UDP_Deinitialize(const TCPIP_STACK_MODULE_CTRL* const stackCtrl)
 #if (TCPIP_STACK_DOWN_OPERATION != 0) || (_TCPIP_STACK_INTERFACE_CHANGE_SIGNALING != 0)
 static void _UDPAbortSockets(uint32_t netMask, TCPIP_UDP_SIGNAL_TYPE sigType)
 {
-    int ix;
-    TCPIP_NET_HANDLE sktNet;
+    int ix, sktIfIx;
     UDP_SOCKET_DCPT* pSkt;
+    TCPIP_NET_IF* sktIf;
 
     TCPIP_UDP_SIGNAL_FUNCTION sigHandler;
     const void*     sigParam;
@@ -726,22 +773,26 @@ static void _UDPAbortSockets(uint32_t netMask, TCPIP_UDP_SIGNAL_TYPE sigType)
     {
         if((pSkt = UDPSocketDcpt[ix]) != 0)  
         {
-            uint32_t sktIfMask = 1 << TCPIP_STACK_NetIxGet(pSkt->pSktNet);
-            if((sktIfMask & netMask) != 0)
-            {   // match
-                sktNet = pSkt->pSktNet; 
-                // just disconnect, don't kill sockets
-                TCPIP_UDP_Disconnect(pSkt->sktIx, true);
-                // get a consistent reading
-                OSAL_CRITSECT_DATA_TYPE status = OSAL_CRIT_Enter(OSAL_CRIT_TYPE_LOW);
-                sigHandler = pSkt->sigHandler;
-                sigParam = pSkt->sigParam;
-                sigMask = pSkt->sigMask;
-                OSAL_CRIT_Leave(OSAL_CRIT_TYPE_LOW, status);
+            sktIf = pSkt->pSktNet;
+            sktIfIx = TCPIP_STACK_NetIxGet(sktIf); 
+            if(sktIfIx >= 0)
+            {
+                uint32_t sktIfMask = 1 << sktIfIx;
+                if((sktIfMask & netMask) != 0)
+                {   // match
+                    // just disconnect, don't kill sockets
+                    TCPIP_UDP_Disconnect(pSkt->sktIx, true);
+                    // get a consistent reading
+                    OSAL_CRITSECT_DATA_TYPE status = OSAL_CRIT_Enter(OSAL_CRIT_TYPE_LOW);
+                    sigHandler = pSkt->sigHandler;
+                    sigParam = pSkt->sigParam;
+                    sigMask = pSkt->sigMask;
+                    OSAL_CRIT_Leave(OSAL_CRIT_TYPE_LOW, status);
 
-                if(sigHandler != 0 && (sigMask & sigType) != 0)
-                {
-                    (*sigHandler)(pSkt->sktIx, sktNet, sigType, sigParam);
+                    if(sigHandler != 0 && (sigMask & sigType) != 0)
+                    {
+                        (*sigHandler)(pSkt->sktIx, (TCPIP_NET_HANDLE)sktIf, sigType, sigParam);
+                    }
                 }
             }
         }
@@ -1505,6 +1556,8 @@ static TCPIP_MAC_PKT_ACK_RES TCPIP_UDP_ProcessIPv4(TCPIP_MAC_PACKET* pRxPkt)
     pUDPHdr->SourcePort = TCPIP_Helper_ntohs(pUDPHdr->SourcePort);
     pUDPHdr->DestinationPort = TCPIP_Helper_ntohs(pUDPHdr->DestinationPort);
     pUDPHdr->Length = udpTotLength - sizeof(UDP_HEADER);    
+
+    TCPIP_UDP_CheckRxPkt(pUDPHdr);
 
     while(true)
     {
@@ -2911,7 +2964,7 @@ bool TCPIP_UDP_SocketNetSet(UDP_SOCKET s, TCPIP_NET_HANDLE hNet)
         // user can clear the assigned interface
 
         _RxSktLock(pSkt);
-        if((pSkt->pSktNet = pIf) != 0)
+        if((pSkt->pSktNet = pIf) != 0 && pSkt->extFlags.noNetStrict == 0)
         {   // specific bind requested
             pSkt->flags.looseNetIf = 0;
         }
@@ -3241,8 +3294,9 @@ bool TCPIP_UDP_OptionsSet(UDP_SOCKET hUDP, UDP_SOCKET_OPTION option, void* optPa
 
                         return true;
                     }
+
+                    return false;
                 }
-                return false;
 
             case UDP_OPTION_TOS:
                 pSkt->extFlags.tos = (uint8_t)(unsigned int)optParam;
@@ -3250,6 +3304,10 @@ bool TCPIP_UDP_OptionsSet(UDP_SOCKET hUDP, UDP_SOCKET_OPTION option, void* optPa
                 
             case UDP_OPTION_DF:
                 pSkt->extFlags.df = (optParam != 0);
+                return true;
+                
+            case UDP_OPTION_ENFORCE_STRICT_NET:
+                pSkt->extFlags.noNetStrict = (optParam == 0);
                 return true;
                 
             default:
@@ -3344,9 +3402,10 @@ bool TCPIP_UDP_OptionsGet(UDP_SOCKET hUDP, UDP_SOCKET_OPTION option, void* optPa
                         *pMcFlags = mcFlags;
                         return true;
                     }
+
+                    return false;
                 }
 
-                return false;
 
              case UDP_OPTION_TOS:
                 *(uint8_t*)optParam = pSkt->extFlags.tos;
@@ -3354,6 +3413,10 @@ bool TCPIP_UDP_OptionsGet(UDP_SOCKET hUDP, UDP_SOCKET_OPTION option, void* optPa
                 
              case UDP_OPTION_DF:
                 *(bool*)optParam = pSkt->extFlags.df != 0;
+                return true;
+                
+             case UDP_OPTION_ENFORCE_STRICT_NET:
+                *(bool*)optParam = pSkt->extFlags.noNetStrict == 0;
                 return true;
                 
            default:
