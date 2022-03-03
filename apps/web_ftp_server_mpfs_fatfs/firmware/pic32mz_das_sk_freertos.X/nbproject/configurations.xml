@@ -571,6 +571,31 @@
       </logicalFolder>
       <itemPath>../src/config/pic32mz_das_sk_freertos/harmony-manifest-success.yml</itemPath>
     </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="true">
+      <logicalFolder name="f2"
+                     displayName="pic32mz_das_sk_freertos.mhc"
+                     projectFiles="true">
+        <logicalFolder name="f1" displayName="TCP_IP_STACK" projectFiles="true">
+          <logicalFolder name="f1" displayName="APPLICATION_LAYER" projectFiles="true">
+          </logicalFolder>
+          <logicalFolder name="f2" displayName="BASIC_CONFIGURATION" projectFiles="true">
+          </logicalFolder>
+          <logicalFolder name="f3" displayName="DRIVER_LAYER" projectFiles="true">
+          </logicalFolder>
+          <logicalFolder name="f4" displayName="NETWORK_LAYER" projectFiles="true">
+          </logicalFolder>
+          <logicalFolder name="f5" displayName="PRESENTATION_LAYER" projectFiles="true">
+          </logicalFolder>
+          <logicalFolder name="f6" displayName="TRANSPORT_LAYER" projectFiles="true">
+          </logicalFolder>
+        </logicalFolder>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="wolfcrypt" projectFiles="true">
+      </logicalFolder>
+      <itemPath>web_ftp_server_mpfs_fatfs_freertos.mc3</itemPath>
+    </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
                    projectFiles="true">
@@ -788,18 +813,26 @@
       </logicalFolder>
       <logicalFolder name="f4" displayName="web_pages" projectFiles="true">
         <logicalFolder name="f1" displayName="dyndns" projectFiles="true">
+          <logicalFolder name="dyndns" displayName="dyndns" projectFiles="true">
+          </logicalFolder>
           <itemPath>../src/web_pages/dyndns/index.htm</itemPath>
         </logicalFolder>
         <logicalFolder name="f2" displayName="email" projectFiles="true">
+          <logicalFolder name="email" displayName="email" projectFiles="true">
+          </logicalFolder>
           <itemPath>../src/web_pages/email/index.htm</itemPath>
         </logicalFolder>
         <logicalFolder name="f3" displayName="protect" projectFiles="true">
+          <logicalFolder name="protect" displayName="protect" projectFiles="true">
+          </logicalFolder>
           <itemPath>../src/web_pages/protect/config.htm</itemPath>
           <itemPath>../src/web_pages/protect/index.htm</itemPath>
           <itemPath>../src/web_pages/protect/reboot.cgi</itemPath>
           <itemPath>../src/web_pages/protect/reboot.htm</itemPath>
         </logicalFolder>
         <logicalFolder name="f4" displayName="snmp" projectFiles="true">
+          <logicalFolder name="snmp" displayName="snmp" projectFiles="true">
+          </logicalFolder>
           <itemPath>../src/web_pages/snmp/snmpconfig.htm</itemPath>
         </logicalFolder>
         <itemPath>../src/web_pages/auth.htm</itemPath>
@@ -979,8 +1012,9 @@
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <C32>
-        <property key="additional-warnings" value="true"/>
+        <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
@@ -990,9 +1024,9 @@
                   value="../src;../src/config/pic32mz_das_sk_freertos;../src/config/pic32mz_das_sk_freertos/library;../src/config/pic32mz_das_sk_freertos/library/tcpip/src;../src/config/pic32mz_das_sk_freertos/library/tcpip/src/common;../src/config/pic32mz_das_sk_freertos/system/fs/fat_fs/file_system;../src/config/pic32mz_das_sk_freertos/system/fs/fat_fs/hardware_access;../src/third_party/rtos/FreeRTOS/Source/include;../src/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../src/third_party/wolfssl;../src/third_party/wolfssl/wolfssl"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
-        <property key="isolate-each-function" value="true"/>
-        <property key="make-warnings-into-errors" value="true"/>
-        <property key="optimization-level" value="-O1"/>
+        <property key="isolate-each-function" value="false"/>
+        <property key="make-warnings-into-errors" value="false"/>
+        <property key="optimization-level" value=""/>
         <property key="place-data-into-section" value="false"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
@@ -1000,7 +1034,7 @@
                   value="HAVE_CONFIG_H;WOLFSSL_IGNORE_FILE_WARN"/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
-        <property key="tentative-definitions" value=""/>
+        <property key="tentative-definitions" value="-fno-common"/>
         <property key="toplevel-reordering" value=""/>
         <property key="unaligned-access" value=""/>
         <property key="use-cci" value="false"/>
@@ -1011,6 +1045,7 @@
         <property key="additional-options-chop-files" value="false"/>
       </C32-AR>
       <C32-AS>
+        <property key="appendMe" value=""/>
         <property key="assembler-symbols" value=""/>
         <property key="enable-symbols" value="true"/>
         <property key="exclude-floating-point-library" value="false"/>
@@ -1040,6 +1075,7 @@
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
         <property key="allocate-dinit" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="code-dinit" value="false"/>
         <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
@@ -1079,6 +1115,7 @@
       <C32CPP>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
