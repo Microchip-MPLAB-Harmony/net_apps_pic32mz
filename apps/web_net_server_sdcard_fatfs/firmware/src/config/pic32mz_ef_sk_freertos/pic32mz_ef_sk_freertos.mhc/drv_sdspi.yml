@@ -18,6 +18,15 @@ children:
       children:
       - type: Dynamic
         attributes: {id: drv_sdspi, value: Synchronous}
+  - type: File
+    attributes: {id: DRV_SDSPI_FS_SOURCE}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: enabled}
+        children:
+        - {type: Value, value: 'true'}
 - type: Instances
   children:
   - type: InstanceComponent
@@ -25,6 +34,24 @@ children:
     children:
     - type: Symbols
       children:
+      - type: File
+        attributes: {id: DRV_SDSPI_ASYNC_HEADER_LOCAL}
+        children:
+        - type: Attributes
+          children:
+          - type: Boolean
+            attributes: {id: enabled}
+            children:
+            - {type: Value, value: 'false'}
+      - type: File
+        attributes: {id: DRV_SDSPI_ASYNC_SOURCE}
+        children:
+        - type: Attributes
+          children:
+          - type: Boolean
+            attributes: {id: enabled}
+            children:
+            - {type: Value, value: 'false'}
       - type: KeyValueSet
         attributes: {id: DRV_SDSPI_CHIP_SELECT_PIN}
         children:
@@ -49,6 +76,12 @@ children:
       - type: String
         attributes: {id: DRV_SDSPI_PLIB}
         children:
+        - type: Attributes
+          children:
+          - type: Boolean
+            attributes: {id: visible}
+            children:
+            - {type: Value, value: 'true'}
         - type: Values
           children:
           - type: Dynamic
@@ -62,6 +95,15 @@ children:
             attributes: {id: visible}
             children:
             - {type: Value, value: 'false'}
+      - type: Menu
+        attributes: {id: DRV_SDSPI_RTOS_MENU}
+        children:
+        - type: Attributes
+          children:
+          - type: Boolean
+            attributes: {id: visible}
+            children:
+            - {type: Value, value: 'true'}
       - type: Integer
         attributes: {id: DRV_SDSPI_RTOS_STACK_SIZE}
         children:
@@ -83,6 +125,42 @@ children:
           children:
           - type: User
             attributes: {value: '10000000'}
+      - type: File
+        attributes: {id: DRV_SDSPI_SYNC_HEADER_LOCAL}
+        children:
+        - type: Attributes
+          children:
+          - type: Boolean
+            attributes: {id: enabled}
+            children:
+            - {type: Value, value: 'true'}
+      - type: File
+        attributes: {id: DRV_SDSPI_SYNC_PLIB_INTERFACE_HEADER}
+        children:
+        - type: Attributes
+          children:
+          - type: Boolean
+            attributes: {id: enabled}
+            children:
+            - {type: Value, value: 'true'}
+      - type: File
+        attributes: {id: DRV_SDSPI_SYNC_PLIB_INTERFACE_SOURCE}
+        children:
+        - type: Attributes
+          children:
+          - type: Boolean
+            attributes: {id: enabled}
+            children:
+            - {type: Value, value: 'true'}
+      - type: File
+        attributes: {id: DRV_SDSPI_SYNC_SOURCE}
+        children:
+        - type: Attributes
+          children:
+          - type: Boolean
+            attributes: {id: enabled}
+            children:
+            - {type: Value, value: 'true'}
       - type: Integer
         attributes: {id: DRV_SDSPI_TX_DMA_CHANNEL}
         children:
@@ -90,6 +168,19 @@ children:
           children:
           - type: Dynamic
             attributes: {id: drv_sdspi_0, value: '-1'}
+      - type: Boolean
+        attributes: {id: DRV_SDSPI_TX_RX_DMA}
+        children:
+        - type: Attributes
+          children:
+          - type: Boolean
+            attributes: {id: readOnly}
+            children:
+            - {type: Value, value: 'false'}
+          - type: Boolean
+            attributes: {id: visible}
+            children:
+            - {type: Value, value: 'true'}
     - type: Attachments
       children:
       - type: DirectDependency

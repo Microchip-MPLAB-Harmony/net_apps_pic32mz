@@ -1,23 +1,23 @@
 /*******************************************************************************
-  SPI PLIB
+  Reset System Service Source File
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    plib_spi1_master.h
+    sys_reset.c
 
   Summary:
-    SPI1 Master PLIB Header File
+    Reset System Service source file.
 
   Description:
-    This file has prototype of all the interfaces provided for particular
-    SPI peripheral.
-
+    This source file contains the function implementations of the APIs
+    supported by the module.
 *******************************************************************************/
 
-/*******************************************************************************
-* Copyright (C) 2018-2019 Microchip Technology Inc. and its subsidiaries.
+//DOM-IGNORE-BEGIN
+/******************************************************************************
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -38,44 +38,29 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-
-#ifndef PLIB_SPI1_MASTER_H
-#define PLIB_SPI1_MASTER_H
+//DOM-IGNORE-END
 
 #include "device.h"
-#include "plib_spi_master_common.h"
+#include "system/reset/sys_reset.h"
 
-/* Provide C++ Compatibility */
-#ifdef __cplusplus
+void __attribute__((noreturn)) SYS_RESET_SoftwareReset(void)
+{
+    __builtin_disable_interrupts();
 
-    extern "C" {
+    /* Unlock System */
+    SYSKEY = 0x00000000;
+    SYSKEY = 0xAA996655;
+    SYSKEY = 0x556699AA;
 
-#endif
+    RSWRSTSET = _RSWRST_SWRST_MASK;
 
+    /* Read RSWRST register to trigger reset */
+    (void) RSWRST;
 
-/****************************** SPI1 Interface *********************************/
+    /* Prevent any unwanted code execution until reset occurs */
+    while(1);
+}
 
-void SPI1_Initialize ( void );
-
-bool SPI1_WriteRead (void* pTransmitData, size_t txSize, void* pReceiveData, size_t rxSize);
-
-bool SPI1_Write(void* pTransmitData, size_t txSize);
-
-bool SPI1_Read(void* pReceiveData, size_t rxSize);
-
-bool SPI1_TransferSetup (SPI_TRANSFER_SETUP *setup, uint32_t spiSourceClock);
-
-bool SPI1_IsTransmitterBusy (void);
-
-bool SPI1_IsBusy(void);
-
-void SPI1_CallbackRegister(SPI_CALLBACK callback, uintptr_t context);
-
-/* Provide C++ Compatibility */
-#ifdef __cplusplus
-
-    }
-
-#endif
-
-#endif // PLIB_SPI1_MASTER_H
+/*******************************************************************************
+ End of File
+*/

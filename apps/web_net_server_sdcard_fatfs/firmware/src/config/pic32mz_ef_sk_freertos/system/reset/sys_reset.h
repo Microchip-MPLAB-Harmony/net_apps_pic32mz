@@ -1,23 +1,23 @@
 /*******************************************************************************
-  SPI PLIB
+  RESET Service
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    plib_spi1_master.h
+    sys_reset.h
 
   Summary:
-    SPI1 Master PLIB Header File
+    RESET Service Header File
 
   Description:
-    This file has prototype of all the interfaces provided for particular
-    SPI peripheral.
+    This library provides an interface to control and interact with RESET
+    System Service.
 
 *******************************************************************************/
 
 /*******************************************************************************
-* Copyright (C) 2018-2019 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -39,43 +39,52 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 
-#ifndef PLIB_SPI1_MASTER_H
-#define PLIB_SPI1_MASTER_H
+#ifndef SYS_RESET_H
+#define SYS_RESET_H
 
-#include "device.h"
-#include "plib_spi_master_common.h"
-
-/* Provide C++ Compatibility */
-#ifdef __cplusplus
+// DOM-IGNORE-BEGIN
+#ifdef __cplusplus  // Provide C++ Compatibility
 
     extern "C" {
 
 #endif
+// DOM-IGNORE-END
 
+// *****************************************************************************
+/* Function:
+    void SYS_RESET_SoftwareReset( void )
 
-/****************************** SPI1 Interface *********************************/
+  Summary:
+    Triggers a software reset.
 
-void SPI1_Initialize ( void );
+  Description:
+    This function triggers a software Reset.
 
-bool SPI1_WriteRead (void* pTransmitData, size_t txSize, void* pReceiveData, size_t rxSize);
+  PreCondition:
+    None.
 
-bool SPI1_Write(void* pTransmitData, size_t txSize);
+  Parameters:
+    None.
 
-bool SPI1_Read(void* pReceiveData, size_t rxSize);
+  Returns:
+    None.
 
-bool SPI1_TransferSetup (SPI_TRANSFER_SETUP *setup, uint32_t spiSourceClock);
+  Example:
+    <code>
+    
+    SYS_RESET_SoftwareReset();
+    </code>
 
-bool SPI1_IsTransmitterBusy (void);
+  Remarks:
+    None.
+*/
+void SYS_RESET_SoftwareReset( void );
 
-bool SPI1_IsBusy(void);
-
-void SPI1_CallbackRegister(SPI_CALLBACK callback, uintptr_t context);
-
-/* Provide C++ Compatibility */
-#ifdef __cplusplus
+// DOM-IGNORE-BEGIN
+#ifdef __cplusplus  // Provide C++ Compatibility
 
     }
 
 #endif
-
-#endif // PLIB_SPI1_MASTER_H
+// DOM-IGNORE-END
+#endif // SYS_RESET_H

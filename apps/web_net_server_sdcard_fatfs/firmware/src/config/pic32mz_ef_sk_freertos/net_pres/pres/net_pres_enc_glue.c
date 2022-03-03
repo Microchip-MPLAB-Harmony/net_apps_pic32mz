@@ -170,6 +170,9 @@ bool NET_PRES_EncProviderStreamServerInit0(NET_PRES_TransportObject * transObjec
     {
         return false;
     }
+    // Turn off verification, because SNTP is usually blocked by a firewall
+    wolfSSL_CTX_set_verify(net_pres_wolfSSLInfoStreamServer0.context, SSL_VERIFY_NONE, 0);
+	
     wolfSSL_SetIORecv(net_pres_wolfSSLInfoStreamServer0.context, (CallbackIORecv)&NET_PRES_EncGlue_StreamServerReceiveCb0);
     wolfSSL_SetIOSend(net_pres_wolfSSLInfoStreamServer0.context, (CallbackIOSend)&NET_PRES_EncGlue_StreamServerSendCb0);
     if (wolfSSL_CTX_use_certificate_buffer(net_pres_wolfSSLInfoStreamServer0.context, serverCertPtr, serverCertLen, SSL_FILETYPE_ASN1) != SSL_SUCCESS)
@@ -182,13 +185,11 @@ bool NET_PRES_EncProviderStreamServerInit0(NET_PRES_TransportObject * transObjec
         wolfSSL_CTX_free(net_pres_wolfSSLInfoStreamServer0.context);
         return false;
     }
-    // Turn off verification, because SNTP is usually blocked by a firewall
-    wolfSSL_CTX_set_verify(net_pres_wolfSSLInfoStreamServer0.context, SSL_VERIFY_NONE, 0);
     net_pres_wolfSSLInfoStreamServer0.isInited = true;
     return true;
 }
 bool NET_PRES_EncProviderStreamServerDeinit0(void)
-{	
+{
     wolfSSL_CTX_free(net_pres_wolfSSLInfoStreamServer0.context);
     net_pres_wolfSSLInfoStreamServer0.isInited = false;
     _net_pres_wolfsslUsers--;
@@ -238,6 +239,9 @@ bool NET_PRES_EncProviderStreamClientInit0(NET_PRES_TransportObject * transObjec
     {
         return false;
     }
+    // Turn off verification, because SNTP is usually blocked by a firewall
+    wolfSSL_CTX_set_verify(net_pres_wolfSSLInfoStreamClient0.context, SSL_VERIFY_NONE, 0);
+	
     wolfSSL_SetIORecv(net_pres_wolfSSLInfoStreamClient0.context, (CallbackIORecv)&NET_PRES_EncGlue_StreamClientReceiveCb0);
     wolfSSL_SetIOSend(net_pres_wolfSSLInfoStreamClient0.context, (CallbackIOSend)&NET_PRES_EncGlue_StreamClientSendCb0);
     if (wolfSSL_CTX_load_verify_buffer(net_pres_wolfSSLInfoStreamClient0.context, caCertsPtr, caCertsLen, SSL_FILETYPE_ASN1) != SSL_SUCCESS)
@@ -247,13 +251,11 @@ bool NET_PRES_EncProviderStreamClientInit0(NET_PRES_TransportObject * transObjec
         wolfSSL_CTX_free(net_pres_wolfSSLInfoStreamClient0.context);
         return false;
     }
-    // Turn off verification, because SNTP is usually blocked by a firewall
-    wolfSSL_CTX_set_verify(net_pres_wolfSSLInfoStreamClient0.context, SSL_VERIFY_NONE, 0);
     net_pres_wolfSSLInfoStreamClient0.isInited = true;
     return true;
 }
 bool NET_PRES_EncProviderStreamClientDeinit0(void)
-{	
+{
     wolfSSL_CTX_free(net_pres_wolfSSLInfoStreamClient0.context);
     net_pres_wolfSSLInfoStreamClient0.isInited = false;
     _net_pres_wolfsslUsers--;
