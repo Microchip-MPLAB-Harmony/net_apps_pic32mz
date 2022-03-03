@@ -6,10 +6,10 @@
                    projectFiles="true">
       <logicalFolder name="f1" displayName="config" projectFiles="true">
         <logicalFolder name="f1" displayName="pic32mz_das_sk" projectFiles="true">
-          <logicalFolder name="f6" displayName="bsp" projectFiles="true">
+          <logicalFolder name="f7" displayName="bsp" projectFiles="true">
             <itemPath>../src/config/pic32mz_das_sk/bsp/bsp.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f7" displayName="crypto" projectFiles="true">
+          <logicalFolder name="f8" displayName="crypto" projectFiles="true">
             <itemPath>../src/config/pic32mz_das_sk/crypto/crypto.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f2" displayName="driver" projectFiles="true">
@@ -57,7 +57,7 @@
             <itemPath>../src/config/pic32mz_das_sk/driver/driver.h</itemPath>
             <itemPath>../src/config/pic32mz_das_sk/driver/driver_common.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f5" displayName="library" projectFiles="true">
+          <logicalFolder name="f6" displayName="library" projectFiles="true">
             <logicalFolder name="f1" displayName="tcpip" projectFiles="true">
               <logicalFolder name="f1" displayName="src" projectFiles="true">
                 <logicalFolder name="f1" displayName="common" projectFiles="true">
@@ -83,6 +83,8 @@
                 <itemPath>../src/config/pic32mz_das_sk/library/tcpip/src/dhcp_private.h</itemPath>
                 <itemPath>../src/config/pic32mz_das_sk/library/tcpip/src/dhcps_manager.h</itemPath>
                 <itemPath>../src/config/pic32mz_das_sk/library/tcpip/src/dhcps_private.h</itemPath>
+                <itemPath>../src/config/pic32mz_das_sk/library/tcpip/src/dhcp_server_manager.h</itemPath>
+                <itemPath>../src/config/pic32mz_das_sk/library/tcpip/src/dhcp_server_private.h</itemPath>
                 <itemPath>../src/config/pic32mz_das_sk/library/tcpip/src/zero_conf_helper.h</itemPath>
                 <itemPath>../src/config/pic32mz_das_sk/library/tcpip/src/zero_conf_link_local_private.h</itemPath>
                 <itemPath>../src/config/pic32mz_das_sk/library/tcpip/src/zero_conf_manager.h</itemPath>
@@ -136,8 +138,6 @@
                 <itemPath>../src/config/pic32mz_das_sk/library/tcpip/src/lldp_tlv.h</itemPath>
                 <itemPath>../src/config/pic32mz_das_sk/library/tcpip/src/tcpip_mac_bridge_manager.h</itemPath>
                 <itemPath>../src/config/pic32mz_das_sk/library/tcpip/src/tcpip_mac_bridge_private.h</itemPath>
-                <itemPath>../src/config/pic32mz_das_sk/library/tcpip/src/dhcp_server_manager.h</itemPath>
-                <itemPath>../src/config/pic32mz_das_sk/library/tcpip/src/dhcp_server_private.h</itemPath>
               </logicalFolder>
               <itemPath>../src/config/pic32mz_das_sk/library/tcpip/tcpip_common_ports.h</itemPath>
               <itemPath>../src/config/pic32mz_das_sk/library/tcpip/tcpip_mac.h</itemPath>
@@ -156,6 +156,7 @@
               <itemPath>../src/config/pic32mz_das_sk/library/tcpip/berkeley_api.h</itemPath>
               <itemPath>../src/config/pic32mz_das_sk/library/tcpip/dhcp.h</itemPath>
               <itemPath>../src/config/pic32mz_das_sk/library/tcpip/dhcps.h</itemPath>
+              <itemPath>../src/config/pic32mz_das_sk/library/tcpip/dhcp_server.h</itemPath>
               <itemPath>../src/config/pic32mz_das_sk/library/tcpip/zero_conf_link_local.h</itemPath>
               <itemPath>../src/config/pic32mz_das_sk/library/tcpip/zero_conf_multicast_dns.h</itemPath>
               <itemPath>../src/config/pic32mz_das_sk/library/tcpip/dns.h</itemPath>
@@ -182,12 +183,11 @@
               <itemPath>../src/config/pic32mz_das_sk/library/tcpip/iperf.h</itemPath>
               <itemPath>../src/config/pic32mz_das_sk/library/tcpip/tcpip_commands.h</itemPath>
               <itemPath>../src/config/pic32mz_das_sk/library/tcpip/tcpip.h</itemPath>
-              <itemPath>../src/config/pic32mz_das_sk/library/tcpip/tcpip_ethernet.h</itemPath>
               <itemPath>../src/config/pic32mz_das_sk/library/tcpip/tcpip_mac_bridge.h</itemPath>
-              <itemPath>../src/config/pic32mz_das_sk/library/tcpip/dhcp_server.h</itemPath>
+              <itemPath>../src/config/pic32mz_das_sk/library/tcpip/tcpip_ethernet.h</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f4" displayName="net_pres" projectFiles="true">
+          <logicalFolder name="f5" displayName="net_pres" projectFiles="true">
             <logicalFolder name="f1" displayName="pres" projectFiles="true">
               <logicalFolder name="f1" displayName="src" projectFiles="true">
                 <itemPath>../src/config/pic32mz_das_sk/net_pres/pres/src/net_pres_local.h</itemPath>
@@ -201,7 +201,7 @@
               <itemPath>../src/config/pic32mz_das_sk/net_pres/pres/net_pres_enc_glue.h</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f8" displayName="osal" projectFiles="true">
+          <logicalFolder name="f4" displayName="osal" projectFiles="true">
             <itemPath>../src/config/pic32mz_das_sk/osal/osal.h</itemPath>
             <itemPath>../src/config/pic32mz_das_sk/osal/osal_definitions.h</itemPath>
             <itemPath>../src/config/pic32mz_das_sk/osal/osal_impl_basic.h</itemPath>
@@ -239,16 +239,16 @@
             <logicalFolder name="f4" displayName="cache" projectFiles="true">
               <itemPath>../src/config/pic32mz_das_sk/system/cache/sys_cache.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f7" displayName="command" projectFiles="true">
+            <logicalFolder name="f8" displayName="command" projectFiles="true">
               <itemPath>../src/config/pic32mz_das_sk/system/command/sys_command.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f8" displayName="console" projectFiles="true">
+            <logicalFolder name="f9" displayName="console" projectFiles="true">
               <itemPath>../src/config/pic32mz_das_sk/system/console/sys_console.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="debug" projectFiles="true">
+            <logicalFolder name="f6" displayName="debug" projectFiles="true">
               <itemPath>../src/config/pic32mz_das_sk/system/debug/sys_debug.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="fs" projectFiles="true">
+            <logicalFolder name="f7" displayName="fs" projectFiles="true">
               <logicalFolder name="f1" displayName="fat_fs" projectFiles="true">
                 <logicalFolder name="f1" displayName="file_system" projectFiles="true">
                   <itemPath>../src/config/pic32mz_das_sk/system/fs/fat_fs/file_system/ff.h</itemPath>
@@ -276,7 +276,7 @@
               <itemPath>../src/config/pic32mz_das_sk/system/ports/sys_ports.h</itemPath>
               <itemPath>../src/config/pic32mz_das_sk/system/ports/sys_ports_mapping.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f9" displayName="reset" projectFiles="true">
+            <logicalFolder name="f5" displayName="reset" projectFiles="true">
               <itemPath>../src/config/pic32mz_das_sk/system/reset/sys_reset.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="time" projectFiles="true">
@@ -293,17 +293,17 @@
           </logicalFolder>
           <itemPath>../src/config/pic32mz_das_sk/user.h</itemPath>
           <itemPath>../src/config/pic32mz_das_sk/configuration.h</itemPath>
+          <itemPath>../src/config/pic32mz_das_sk/device.h</itemPath>
           <itemPath>../src/config/pic32mz_das_sk/system_config.h</itemPath>
           <itemPath>../src/config/pic32mz_das_sk/system_definitions.h</itemPath>
           <itemPath>../src/config/pic32mz_das_sk/device_cache.h</itemPath>
           <itemPath>../src/config/pic32mz_das_sk/toolchain_specifics.h</itemPath>
           <itemPath>../src/config/pic32mz_das_sk/definitions.h</itemPath>
-          <itemPath>../src/config/pic32mz_das_sk/config.h</itemPath>
-          <itemPath>../src/config/pic32mz_das_sk/device.h</itemPath>
           <itemPath>../src/config/pic32mz_das_sk/interrupts.h</itemPath>
+          <itemPath>../src/config/pic32mz_das_sk/config.h</itemPath>
         </logicalFolder>
       </logicalFolder>
-      <logicalFolder name="f5" displayName="wolfcrypt" projectFiles="true">
+      <logicalFolder name="f3" displayName="wolfcrypt" projectFiles="true">
         <logicalFolder name="f1" displayName="port" projectFiles="true">
           <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/port/pic32/pic32mz-crypt.h</itemPath>
           <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/port/pic32/CryptoLib_cf_pb.h</itemPath>
@@ -382,14 +382,17 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/cpuid.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/cryptocb.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/curve25519.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/curve448.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/des3.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/dh.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/dsa.h</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/ecc.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/ed25519.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/ed448.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/error-crypt.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/fe_448.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/fe_operations.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/fips_test.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/ge_448.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/ge_operations.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/hash.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/hc128.h</itemPath>
@@ -412,6 +415,7 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/pwdbased.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/rabbit.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/random.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/rc2.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/ripemd.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/rsa.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/selftest.h</itemPath>
@@ -421,7 +425,6 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/sp_int.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/srp.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/tfm.h</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/types.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/visibility.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/wc_encrypt.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/wc_pkcs11.h</itemPath>
@@ -433,11 +436,8 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/sha256.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/sha512.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/wc_port.h</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/curve448.h</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/ed448.h</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/fe_448.h</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/ge_448.h</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/rc2.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/ecc.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/types.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="wolfssl" projectFiles="true">
         <itemPath>../src/third_party/wolfssl/wolfssl/callbacks.h</itemPath>
@@ -457,7 +457,11 @@
       <itemPath>../src/http_net_print.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f1" displayName="Important Files" projectFiles="true">
-      <logicalFolder name="f2" displayName="pic32mz_das_sk.mhc" projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="true">
+      <logicalFolder name="f1" displayName="pic32mz_das_sk.mhc" projectFiles="true">
         <logicalFolder name="f1" displayName="TCP_IP_STACK" projectFiles="true">
           <logicalFolder name="f1" displayName="APPLICATION_LAYER" projectFiles="true">
             <itemPath>../src/config/pic32mz_das_sk/pic32mz_das_sk.mhc/TCP_IP_STACK/APPLICATION_LAYER/APPLICATION_LAYER.yml</itemPath>
@@ -529,11 +533,12 @@
         <itemPath>../src/config/pic32mz_das_sk/pic32mz_das_sk.mhc/sys_time.yml</itemPath>
         <itemPath>../src/config/pic32mz_das_sk/pic32mz_das_sk.mhc/uart2.yml</itemPath>
       </logicalFolder>
-      <logicalFolder name="f1" displayName="wolfcrypt" projectFiles="true">
+      <logicalFolder name="f2" displayName="wolfcrypt" projectFiles="true">
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/misc.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/evp.c</itemPath>
       </logicalFolder>
       <itemPath>../src/config/pic32mz_das_sk/harmony-manifest-success.yml</itemPath>
+      <itemPath>web_ftp_server_mpfs_fatfs.mc3</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -670,7 +675,7 @@
             <logicalFolder name="f4" displayName="cache" projectFiles="true">
               <itemPath>../src/config/pic32mz_das_sk/system/cache/sys_cache.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="command" projectFiles="true">
+            <logicalFolder name="f7" displayName="command" projectFiles="true">
               <itemPath>../src/config/pic32mz_das_sk/system/command/src/sys_command.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f2" displayName="console" projectFiles="true">
@@ -680,11 +685,11 @@
               <itemPath>../src/config/pic32mz_das_sk/system/console/src/sys_console.c</itemPath>
               <itemPath>../src/config/pic32mz_das_sk/system/console/src/sys_console_local.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f7" displayName="debug" projectFiles="true">
+            <logicalFolder name="f8" displayName="debug" projectFiles="true">
               <itemPath>../src/config/pic32mz_das_sk/system/debug/src/sys_debug_local.h</itemPath>
               <itemPath>../src/config/pic32mz_das_sk/system/debug/src/sys_debug.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="fs" projectFiles="true">
+            <logicalFolder name="f6" displayName="fs" projectFiles="true">
               <logicalFolder name="f1" displayName="fat_fs" projectFiles="true">
                 <logicalFolder name="f1" displayName="file_system" projectFiles="true">
                   <itemPath>../src/config/pic32mz_das_sk/system/fs/fat_fs/file_system/ff.c</itemPath>
@@ -704,7 +709,7 @@
             <logicalFolder name="f3" displayName="int" projectFiles="true">
               <itemPath>../src/config/pic32mz_das_sk/system/int/src/sys_int.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f8" displayName="reset" projectFiles="true">
+            <logicalFolder name="f5" displayName="reset" projectFiles="true">
               <itemPath>../src/config/pic32mz_das_sk/system/reset/sys_reset.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="time" projectFiles="true">
@@ -721,18 +726,26 @@
       </logicalFolder>
       <logicalFolder name="f2" displayName="web_pages" projectFiles="true">
         <logicalFolder name="f1" displayName="dyndns" projectFiles="true">
+          <logicalFolder name="dyndns" displayName="dyndns" projectFiles="true">
+          </logicalFolder>
           <itemPath>../src/web_pages/dyndns/index.htm</itemPath>
         </logicalFolder>
         <logicalFolder name="f2" displayName="email" projectFiles="true">
+          <logicalFolder name="email" displayName="email" projectFiles="true">
+          </logicalFolder>
           <itemPath>../src/web_pages/email/index.htm</itemPath>
         </logicalFolder>
         <logicalFolder name="f3" displayName="protect" projectFiles="true">
+          <logicalFolder name="protect" displayName="protect" projectFiles="true">
+          </logicalFolder>
           <itemPath>../src/web_pages/protect/config.htm</itemPath>
           <itemPath>../src/web_pages/protect/index.htm</itemPath>
           <itemPath>../src/web_pages/protect/reboot.cgi</itemPath>
           <itemPath>../src/web_pages/protect/reboot.htm</itemPath>
         </logicalFolder>
         <logicalFolder name="f4" displayName="snmp" projectFiles="true">
+          <logicalFolder name="snmp" displayName="snmp" projectFiles="true">
+          </logicalFolder>
           <itemPath>../src/web_pages/snmp/snmpconfig.htm</itemPath>
         </logicalFolder>
         <itemPath>../src/web_pages/auth.htm</itemPath>
@@ -789,14 +802,17 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/cpuid.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/cryptocb.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/curve25519.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/curve448.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/dh.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/dsa.c</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/ecc.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/ecc_fp.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/ed25519.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/ed448.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/error.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/fe_448.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/fe_low_mem.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/fe_operations.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/ge_448.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/ge_low_mem.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/ge_operations.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/hash.c</itemPath>
@@ -814,6 +830,7 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/poly1305.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/pwdbased.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/rabbit.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/rc2.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/ripemd.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/rsa.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sha3.c</itemPath>
@@ -824,10 +841,12 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sp_c32.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sp_c64.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sp_cortexm.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sp_dsp32.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sp_int.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sp_x86_64.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/srp.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/tfm.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/wc_dsp.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/wc_encrypt.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/wc_pkcs11.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/wc_port.c</itemPath>
@@ -839,13 +858,7 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sha.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sha256.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sha512.c</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/curve448.c</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/ed448.c</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/fe_448.c</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/ge_448.c</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sp_dsp32.c</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/wc_dsp.c</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/rc2.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/ecc.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="wolfssl" projectFiles="true">
         <itemPath>../src/third_party/wolfssl/src/crl.c</itemPath>
@@ -914,6 +927,7 @@
       <C32>
         <property key="additional-warnings" value="true"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
@@ -971,6 +985,7 @@
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
         <property key="allocate-dinit" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="code-dinit" value="false"/>
         <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
@@ -1010,6 +1025,7 @@
       <C32CPP>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
