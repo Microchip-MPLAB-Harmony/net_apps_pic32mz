@@ -5,9 +5,9 @@ frameworkPath: ../../..
 processor: PIC32MZ2048EFM144
 projectName: ''
 settings:
-  PackageFilter: audio;bsp;bt;core;crypto;cryptoauthlib;csp;csp_apps_sam_9x60;expresslogic_threadx;gfx;motor_control;net;net;net;net;net;net;net;net;net;usb;wireless;
+  PackageFilter: audio;azure_rtos;bsp;bt;core;crypto;cryptoauthlib;crypto_for_4.8.1;csp;csp_apps_sam_9x60;csp_apps_sam_a5d2;Devices;dev_packs;gfx;motor_control;net;net_apps_pic32mx;net_apps_pic32mz;net_apps_sam_9x60;net_apps_sam_a5d2;net_apps_sam_e5x;net_apps_sam_e70_v71;net_apps_sam_rh71;quick_docs;usb;wireless;wireless_wifi;zzz_expresslogic_threadx
   FORCE_OPTIMIZATION: 'false'
   GENERATE_BACKUP: 'true'
-  CMSISPath: .\dev_packs\arm\CMSIS\5.7.0
-  MERGE_STRATEGY: ALL
-  DFPPath: .\dev_packs\Microchip\PIC32MZ-EF_DFP\1.3.57\atdf\PIC32MZ2048EFM144.atdf
+  CMSISPath: .\dev_packs\arm\CMSIS\5.8.0
+  MERGE_STRATEGY: OVERWRITE
+  DFPPath: .\dev_packs\Microchip\PIC32MZ-EF_DFP\1.3.58\atdf\PIC32MZ2048EFM144.atdf
