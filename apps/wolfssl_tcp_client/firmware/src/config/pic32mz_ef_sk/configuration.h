@@ -108,7 +108,7 @@ extern "C" {
 
 
 #define SYS_CONSOLE_DEVICE_MAX_INSTANCES   			1
-#define SYS_CONSOLE_UART_MAX_INSTANCES 	   			1
+#define SYS_CONSOLE_UART_MAX_INSTANCES 	   			2
 #define SYS_CONSOLE_USB_CDC_MAX_INSTANCES 	   		0
 #define SYS_CONSOLE_PRINT_BUFFER_SIZE        		200
 
@@ -451,12 +451,14 @@ extern "C" {
 #define NO_PWDBASED
 #define HAVE_MCAPI
 #define WOLF_CRYPTO_CB  // provide call-back support
-#define WOLFSSL_MICROCHIP_PIC32MZ
+#if (__XC32_VERSION > 100000000)
+#define WOLFSSL_HAVE_MIN
+#define WOLFSSL_HAVE_MAX
+#endif
 // ---------- FUNCTIONAL CONFIGURATION START ----------
 #define WOLFSSL_AES_SMALL_TABLES
 #define NO_MD4
-#define WOLFSSL_PIC32MZ_HASH
-#define WOLFSSL_PIC32MZ_HASH
+#define WOLFSSL_SHA224
 #define WOLFSSL_SHA384
 #define WOLFSSL_SHA512
 #define HAVE_SHA512
