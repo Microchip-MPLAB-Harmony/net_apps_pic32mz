@@ -35,6 +35,15 @@ children:
       children:
       - type: Dynamic
         attributes: {id: sys_time, value: core_timer}
+  - type: Boolean
+    attributes: {id: SYS_TIME_USE_SYSTICK}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'true'}
 - type: Attachments
   children:
   - type: DirectDependency
