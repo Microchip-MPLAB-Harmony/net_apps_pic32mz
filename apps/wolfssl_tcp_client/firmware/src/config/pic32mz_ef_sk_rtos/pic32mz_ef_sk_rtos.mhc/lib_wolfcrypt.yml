@@ -40,7 +40,7 @@ children:
       - type: Boolean
         attributes: {id: visible}
         children:
-        - {type: Value, value: 'true'}
+        - {type: Value, value: 'false'}
   - type: Boolean
     attributes: {id: wolfcrypt_aes_hw}
     children:
@@ -49,7 +49,7 @@ children:
       - type: Boolean
         attributes: {id: visible}
         children:
-        - {type: Value, value: 'true'}
+        - {type: Value, value: 'false'}
     - type: Values
       children:
       - type: User
@@ -61,6 +61,15 @@ children:
       children:
       - type: User
         attributes: {value: 'true'}
+  - type: Boolean
+    attributes: {id: wolfcrypt_hashdrng}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'true'}
   - type: Boolean
     attributes: {id: wolfcrypt_hkdf}
     children:
@@ -93,7 +102,7 @@ children:
     - type: Values
       children:
       - type: User
-        attributes: {value: 'true'}
+        attributes: {value: 'false'}
   - type: Boolean
     attributes: {id: wolfcrypt_md5_hw}
     children:
@@ -102,9 +111,31 @@ children:
       - type: Boolean
         attributes: {id: visible}
         children:
-        - {type: Value, value: 'true'}
+        - {type: Value, value: 'false'}
+  - type: Boolean
+    attributes: {id: wolfcrypt_random}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: readOnly}
+        children:
+        - {type: Value, value: 'false'}
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: lib_wolfcrypt, value: 'true'}
   - type: Boolean
     attributes: {id: wolfcrypt_random_hw}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'false'}
+  - type: Boolean
+    attributes: {id: wolfcrypt_randomtest}
     children:
     - type: Attributes
       children:
@@ -127,6 +158,15 @@ children:
       - type: Boolean
         attributes: {id: visible}
         children:
+        - {type: Value, value: 'false'}
+  - type: Boolean
+    attributes: {id: wolfcrypt_sha224}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
         - {type: Value, value: 'true'}
   - type: Boolean
     attributes: {id: wolfcrypt_sha264_hw}
@@ -136,7 +176,7 @@ children:
       - type: Boolean
         attributes: {id: visible}
         children:
-        - {type: Value, value: 'true'}
+        - {type: Value, value: 'false'}
     - type: Values
       children:
       - type: User
@@ -163,7 +203,7 @@ children:
       - type: Boolean
         attributes: {id: visible}
         children:
-        - {type: Value, value: 'true'}
+        - {type: Value, value: 'false'}
     - type: Values
       children:
       - type: User
@@ -176,4 +216,4 @@ children:
       - type: Dynamic
         attributes: {id: lib_wolfcrypt, value: 'true'}
 - type: ElementPosition
-  attributes: {x: '603', y: '252', id: lib_wolfcrypt}
+  attributes: {x: '624', y: '240', id: lib_wolfcrypt}
