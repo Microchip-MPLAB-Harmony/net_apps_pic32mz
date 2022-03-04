@@ -288,9 +288,8 @@ typedef struct _TCPIP_STACK_MODULE_CTRL
     // i.e., across StackInit() -> StackDeInit() calls
     // 
     //
-    // number of the interfaces supported in this session
-    int     nIfs;         
-    int     nAliases;       // number of alias interfaces in this session         
+    uint16_t    nIfs;       // number of the interfaces supported in this session
+    uint16_t    nAliases;   // number of alias interfaces in this session         
 	// number of the modules enabled in this session
 	int 	nModules;
     // allocation parameters
@@ -403,11 +402,6 @@ int         TCPIP_STACK_MacToNetIndex(TCPIP_MAC_HANDLE hMac);
 
 const uint8_t*  TCPIP_STACK_NetUpMACAddressGet(TCPIP_NET_IF* pNetIf);
 
-static __inline__ const uint8_t*  __attribute__((always_inline)) _TCPIPStackNetMACAddress(TCPIP_NET_IF* pNetIf)
-{
-    return pNetIf->netMACAddr.v;
-}
-
 static __inline__ uint32_t  __attribute__((always_inline)) _TCPIPStackNetAddress(TCPIP_NET_IF* pNetIf)
 {
     return pNetIf->netIPAddr.Val;
@@ -416,6 +410,16 @@ static __inline__ uint32_t  __attribute__((always_inline)) _TCPIPStackNetAddress
 static __inline__ uint32_t  __attribute__((always_inline)) _TCPIPStackNetMask(TCPIP_NET_IF* pNetIf)
 {
     return pNetIf->netMask.Val;
+}
+
+static __inline__ uint32_t  __attribute__((always_inline)) _TCPIPStackNetGateway(TCPIP_NET_IF* pNetIf)
+{
+    return pNetIf->netGateway.Val;
+}
+
+static __inline__ uint32_t  __attribute__((always_inline)) _TCPIPStackNetNetwork(TCPIP_NET_IF* pNetIf)
+{
+    return (pNetIf->netIPAddr.Val & pNetIf->netMask.Val);
 }
 
 // returns the host part of an IPv4 address
@@ -441,6 +445,10 @@ static __inline__ TCPIP_NET_IF*  __attribute__((always_inline)) _TCPIPStackHandl
     // if #debug enabled, etc
     return (TCPIP_NET_IF*)hNet; 
 }
+
+// more checking, for user passed handles
+TCPIP_NET_IF*  TCPIP_Stack_UserHandleToNet(TCPIP_NET_HANDLE hNet);
+
 
 static __inline__ bool  __attribute__((always_inline)) TCPIP_STACK_NetworkIsUp(TCPIP_NET_IF* pNetIf)
 {
@@ -522,7 +530,7 @@ static __inline__ bool __attribute__((always_inline)) _TCPIPStackIsConfig(TCPIP_
 }
 
 
-void  _TCPIPStackSetConfigAddress(TCPIP_NET_IF* pNetIf, IPV4_ADDR* ipAddress, IPV4_ADDR* mask, bool config);
+void  _TCPIPStackSetConfigAddress(TCPIP_NET_IF* pNetIf, const IPV4_ADDR* ipAddress, const IPV4_ADDR* mask, const IPV4_ADDR* gw, bool config);
 
 // finds an interface that has the IPv6 address
 TCPIP_NET_IF* _TCPIPStackIPv6AddToNet(IPV6_ADDR* pIPv6Address, IPV6_ADDR_TYPE addType, bool useDefault);
