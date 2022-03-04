@@ -451,14 +451,12 @@ extern "C" {
 #define NO_PWDBASED
 #define HAVE_MCAPI
 #define WOLF_CRYPTO_CB  // provide call-back support
-#if (__XC32_VERSION > 100000000)
-#define WOLFSSL_HAVE_MIN
-#define WOLFSSL_HAVE_MAX
-#endif
+#define WOLFSSL_MICROCHIP_PIC32MZ
 // ---------- FUNCTIONAL CONFIGURATION START ----------
 #define WOLFSSL_AES_SMALL_TABLES
 #define NO_MD4
-#define WOLFSSL_SHA224
+#define WOLFSSL_PIC32MZ_HASH
+#define WOLFSSL_PIC32MZ_HASH
 #define WOLFSSL_SHA384
 #define WOLFSSL_SHA512
 #define HAVE_SHA512
