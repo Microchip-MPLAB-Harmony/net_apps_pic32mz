@@ -17,7 +17,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: tcpipStack, value: '47'}
+        attributes: {id: tcpipStack, value: '53'}
   - type: Boolean
     attributes: {id: TCPIP_STACK_INTERFACE_CHANGE_SIGNALING}
     children:
@@ -27,6 +27,47 @@ children:
         attributes: {id: visible}
         children:
         - {type: Value, value: 'true'}
+  - type: Boolean
+    attributes: {id: TCPIP_STACK_INTERRUPT_EN_IDX0}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tcpipStack, value: 'true'}
+  - type: Boolean
+    attributes: {id: TCPIP_STACK_INT_MAC_IDX0}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tcpipStack, value: 'true'}
+  - type: Integer
+    attributes: {id: TCPIP_STACK_MAC_CLOCK}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tcpipStack, value: '100000000'}
+  - type: String
+    attributes: {id: TCPIP_STACK_MII_MODE_IDX0}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'true'}
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tcpipStack, value: RMII}
+  - type: String
+    attributes: {id: TCPIP_STACK_NET_INTERFACE_NAME_IDX0}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tcpipStack, value: ETHMAC}
   - type: Boolean
     attributes: {id: TCPIP_STACK_SYS_RANDOM_H2_ADAPTER}
     children:

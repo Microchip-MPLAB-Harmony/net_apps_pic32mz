@@ -5,6 +5,13 @@ children:
 - type: Symbols
   children:
   - type: Boolean
+    attributes: {id: TCPIP_AUTOCONFIG_ENABLE_ETHMAC}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 'true'}
+  - type: Boolean
     attributes: {id: TCPIP_AUTOCONFIG_ENABLE_LAN8740}
     children:
     - type: Values

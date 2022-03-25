@@ -2201,20 +2201,6 @@ children:
       - type: Dynamic
         attributes: {id: drvPic32mEthmac, value: 'OFF'}
   - type: Combo
-    attributes: {id: CONFIG_FPLLICLK}
-    children:
-    - type: Values
-      children:
-      - type: User
-        attributes: {value: PLL_POSC}
-  - type: Combo
-    attributes: {id: CONFIG_FPLLIDIV}
-    children:
-    - type: Values
-      children:
-      - type: User
-        attributes: {value: DIV_3}
-  - type: Combo
     attributes: {id: CONFIG_ICESEL}
     children:
     - type: Values
@@ -3830,7 +3816,7 @@ children:
       - type: String
         attributes: {id: value}
         children:
-        - {type: Value, value: '200960'}
+        - {type: Value, value: '220960'}
   - type: Integer
     attributes: {id: XC32_HEAP_SIZE}
     children:
@@ -3839,7 +3825,7 @@ children:
       - type: Dynamic
         attributes: {id: core, value: '1024'}
       - type: User
-        attributes: {value: '200960'}
+        attributes: {value: '220960'}
   - type: KeyValueSet
     attributes: {id: clkSvcMode}
     children:

@@ -194,8 +194,10 @@ children:
     children:
     - type: Values
       children:
+      - type: Dynamic
+        attributes: {id: net_Pres, value: '32768'}
       - type: User
-        attributes: {value: '16384'}
+        attributes: {value: '49152'}
   - type: Boolean
     attributes: {id: NET_PRES_SUPPORT_CLIENT_ENC}
     children:
