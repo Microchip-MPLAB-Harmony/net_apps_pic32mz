@@ -212,18 +212,12 @@ static DRV_SPI_CLIENT_OBJ * _DRV_SPI_DriverHandleValidate(DRV_HANDLE handle)
 
 static DRV_SPI_TRANSFER_OBJ* _DRV_SPI_FreeTransferObjGet(DRV_SPI_CLIENT_OBJ* clientObj)
 {
-	static uint32_t lastUsedIndex = 0;
-	uint32_t i;
-	uint32_t index;
+    uint32_t index;
     DRV_SPI_OBJ* dObj = (DRV_SPI_OBJ* )&gDrvSPIObj[clientObj->drvIndex];
     DRV_SPI_TRANSFER_OBJ* pTransferObj = (DRV_SPI_TRANSFER_OBJ*)dObj->transferObjPool;
 
-    for (i = 0, index = lastUsedIndex; i < dObj->transferObjPoolSize; i++, index++)
+    for (index = 0; index < dObj->transferObjPoolSize; index++)
     {
-		if (index >= dObj->transferObjPoolSize)
-		{
-			index = 0;
-		}
         if (pTransferObj[index].inUse == false)
         {
             pTransferObj[index].inUse = true;
@@ -237,8 +231,6 @@ static DRV_SPI_TRANSFER_OBJ* _DRV_SPI_FreeTransferObjGet(DRV_SPI_CLIENT_OBJ* cli
 
             /* Update the token for next time */
             dObj->spiTokenCount = _DRV_SPI_UPDATE_TOKEN(dObj->spiTokenCount);
-			
-			lastUsedIndex = index + 1;
 
             return &pTransferObj[index];
         }
@@ -1012,7 +1004,7 @@ DRV_SPI_TRANSFER_EVENT DRV_SPI_TransferStatusGet(const DRV_SPI_TRANSFER_HANDLE t
     }
     else if(transferHandle != dObj->transferObjPool[transferIndex].transferHandle)
     {
-        //SYS_DEBUG_MESSAGE(SYS_ERROR_ERROR, "Transfer Handle Expired");
+        SYS_DEBUG_MESSAGE(SYS_ERROR_ERROR, "Transfer Handle Expired");
         return DRV_SPI_TRANSFER_EVENT_HANDLE_EXPIRED;
     }
     else

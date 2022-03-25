@@ -58,6 +58,7 @@ void EVIC_Initialize( void )
     IPC0SET = 0x4 | 0x0;  /* CORE_TIMER:  Priority 1 / Subpriority 0 */
     IPC27SET = 0x40000 | 0x0;  /* SPI1_RX:  Priority 1 / Subpriority 0 */
     IPC27SET = 0x4000000 | 0x0;  /* SPI1_TX:  Priority 1 / Subpriority 0 */
+    IPC31SET = 0x400 | 0x0;  /* CHANGE_NOTICE_H:  Priority 1 / Subpriority 0 */
     IPC36SET = 0x400 | 0x0;  /* UART2_FAULT:  Priority 1 / Subpriority 0 */
     IPC36SET = 0x40000 | 0x0;  /* UART2_RX:  Priority 1 / Subpriority 0 */
     IPC36SET = 0x4000000 | 0x0;  /* UART2_TX:  Priority 1 / Subpriority 0 */

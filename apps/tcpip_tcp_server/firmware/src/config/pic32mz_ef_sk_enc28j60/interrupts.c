@@ -64,6 +64,7 @@
 void CORE_TIMER_InterruptHandler( void );
 void SPI1_RX_InterruptHandler( void );
 void SPI1_TX_InterruptHandler( void );
+void CHANGE_NOTICE_H_InterruptHandler( void );
 void UART2_FAULT_InterruptHandler( void );
 void UART2_RX_InterruptHandler( void );
 void UART2_TX_InterruptHandler( void );
@@ -85,6 +86,11 @@ void __ISR(_SPI1_RX_VECTOR, ipl1SRS) SPI1_RX_Handler (void)
 void __ISR(_SPI1_TX_VECTOR, ipl1SRS) SPI1_TX_Handler (void)
 {
     SPI1_TX_InterruptHandler();
+}
+
+void __ISR(_CHANGE_NOTICE_H_VECTOR, ipl1SRS) CHANGE_NOTICE_H_Handler (void)
+{
+    CHANGE_NOTICE_H_InterruptHandler();
 }
 
 void __ISR(_UART2_FAULT_VECTOR, ipl1SRS) UART2_FAULT_Handler (void)
