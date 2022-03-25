@@ -12,6 +12,13 @@ children:
       - type: Dynamic
         attributes: {id: net_Pres, value: 'true'}
   - type: Boolean
+    attributes: {id: wolfsslDTLS}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 'false'}
+  - type: Boolean
     attributes: {id: wolfsslOsalHeapKeys}
     children:
     - type: Attributes
@@ -24,6 +31,13 @@ children:
         attributes: {id: visible}
         children:
         - {type: Value, value: 'true'}
+  - type: Boolean
+    attributes: {id: wolfsslTlsEccCurvesExt}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 'true'}
 - type: Attachments
   children:
   - type: DirectDependency

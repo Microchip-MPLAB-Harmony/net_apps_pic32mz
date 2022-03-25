@@ -262,8 +262,8 @@ extern "C" {
 #define TCPIP_HTTP_NET_SSI_VARIABLE_STRING_MAX_LENGTH   20
 #define TCPIP_HTTP_NET_SSI_ECHO_NOT_FOUND_MESSAGE       "SSI Echo - Not Found: "
 #define TCPIP_HTTP_NET_CONNECTION_TIMEOUT          	0
-#define TCPIP_HTTP_NET_MALLOC_FUNC                  malloc
-#define TCPIP_HTTP_NET_FREE_FUNC                    free
+#define TCPIP_HTTP_NET_MALLOC_FUNC                  pvPortMalloc
+#define TCPIP_HTTP_NET_FREE_FUNC                    vPortFree
 #define TCPIP_HTTP_NET_CONSOLE_CMD           		false
 
 
@@ -289,8 +289,9 @@ extern "C" {
 #define WOLFSSL_USER_IO
 #define NO_WRITEV
 #define MICROCHIP_TCPIP
-#define WOLFSSL_DTLS
 #define NO_PWDBASED
+#define HAVE_TLS_EXTENSIONS
+#define HAVE_SUPPORTED_CURVES
 #define NO_ERROR_STRINGS
 #define NO_OLD_TLS
 
@@ -550,7 +551,7 @@ extern "C" {
 
 
 /* TCP/IP RTOS Configurations*/
-#define TCPIP_RTOS_STACK_SIZE                1024
+#define TCPIP_RTOS_STACK_SIZE                2048
 #define TCPIP_RTOS_PRIORITY             1
 
 
@@ -653,7 +654,7 @@ extern "C" {
 #define NO_DEV_RANDOM
 #define HAVE_HASHDRBG
 #define WC_NO_HARDEN
-#define SINGLE_THREADED
+#define FREERTOS
 #define NO_SIG_WRAPPER
 #define NO_ERROR_STRINGS
 #define NO_WOLFSSL_MEMORY
@@ -664,7 +665,7 @@ extern "C" {
 #define NET_PRES_NUM_SOCKETS 10
 
 /* Net Pres RTOS Configurations*/
-#define NET_PRES_RTOS_STACK_SIZE                8192
+#define NET_PRES_RTOS_STACK_SIZE                12288
 #define NET_PRES_RTOS_TASK_PRIORITY             1
 	
 #define FREERTOS
