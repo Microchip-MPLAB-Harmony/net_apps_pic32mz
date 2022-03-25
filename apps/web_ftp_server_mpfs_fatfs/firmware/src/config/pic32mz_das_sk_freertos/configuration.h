@@ -238,8 +238,9 @@ extern "C" {
 #define XMALLOC_OVERRIDE
 #define XMALLOC(s, h, type)  OSAL_Malloc((s))
 #define XFREE(p, h, type)    OSAL_Free((p))
-#define WOLFSSL_DTLS
 #define NO_PWDBASED
+#define HAVE_TLS_EXTENSIONS
+#define HAVE_SUPPORTED_CURVES
 #define NO_ERROR_STRINGS
 #define NO_OLD_TLS
 
@@ -439,7 +440,7 @@ extern "C" {
 #define NET_PRES_NUM_SOCKETS 10
 
 /* Net Pres RTOS Configurations*/
-#define NET_PRES_RTOS_STACK_SIZE                8192
+#define NET_PRES_RTOS_STACK_SIZE                12288
 #define NET_PRES_RTOS_TASK_PRIORITY             1
 	
 #define FREERTOS
@@ -591,7 +592,7 @@ extern "C" {
 
 /*** TCPIP Heap Configuration ***/
 #define TCPIP_STACK_USE_INTERNAL_HEAP
-#define TCPIP_STACK_DRAM_SIZE                       69960
+#define TCPIP_STACK_DRAM_SIZE                       75960
 #define TCPIP_STACK_DRAM_RUN_LIMIT                  2048
 
 #define TCPIP_STACK_MALLOC_FUNC                     malloc
@@ -643,7 +644,7 @@ extern "C" {
 
 
 /* TCP/IP RTOS Configurations*/
-#define TCPIP_RTOS_STACK_SIZE                1024
+#define TCPIP_RTOS_STACK_SIZE                2048
 #define TCPIP_RTOS_PRIORITY             1
 
 
