@@ -447,6 +447,7 @@ extern "C" {
 
 	/*** tcpip_cmd Configuration ***/
 	#define TCPIP_STACK_COMMAND_ENABLE
+	#define TCPIP_STACK_COMMANDS_STORAGE_ENABLE
 
 
 
