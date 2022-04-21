@@ -4,7 +4,7 @@
 
 
 project: berkeley_udp_client
-creation_date: 2022-04-18T10:36:57.500+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2022-04-21T23:04:31.718+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mhc_mode: Standalone            # [IDE|Standalone|Headless]
 mhc_version: v3.8.3
@@ -15,9 +15,9 @@ compiler: xc32
 modules:
     - {name: "csp", version: "v3.11.1"}
     - {name: "core", version: "v3.10.1"}
-    - {name: "dev_packs", version: "v3.11.0"}
+    - {name: "dev_packs", version: "v3.11.1"}
     - {name: "wolfssl", version: "v4.7.0"}
     - {name: "net", version: "unknown"}
     - {name: "bsp", version: "v3.11.1"}
-    - {name: "crypto", version: "v3.7.5"}
+    - {name: "crypto", version: "unknown"}
 
