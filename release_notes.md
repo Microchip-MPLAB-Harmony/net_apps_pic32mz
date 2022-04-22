@@ -35,6 +35,8 @@ The current known issues are as follows:
 - [MPLAB® XC32 C/C++ Compiler v4.00](https://www.microchip.com/mplab/compilers) or later
 - [Harmony net repository, 3.8.0](https://github.com/Microchip-MPLAB-Harmony/net/tree/v3.8.0)
 - [Harmony net_apps_pic32mz demo apps repositories, 3.8.0](https://github.com/Microchip-MPLAB-Harmony/net_apps_pic32mz/tree/v3.8.0)
+- MPLAB Code Configurator (MCC), 5.1.2
+- MCC Harmony Core, 1.1.0
 
 #### Development Kit Support
 
