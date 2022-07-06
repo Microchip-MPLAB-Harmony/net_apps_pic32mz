@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE11" /><meta name="copyright" content="(C) Copyright 2022" />
+<meta name="DC.rights.owner" content="(C) Copyright 2022" />
+<meta name="DC.type" content="topic" />
+<meta name="DC.title" content="TCP/IP Berkeley TCP Server" />
+<meta name="DC.relation" scheme="URI" content="GUID-E3619664-D1A4-427D-A50A-7CBF1634F410.html" />
+<meta name="DC.format" content="XHTML" />
+<meta name="DC.identifier" content="tcpip-berkeley-tcp-server" />
+<link rel="stylesheet" type="text/css" href="stylesheets/commonltr.css" />
+<link rel="stylesheet" type="text/css" href="stylesheets/atmel.css" />
+<link rel="stylesheet" type="text/css" href="./stylesheets/common-extended.css" /><title>TCP/IP Berkeley TCP Server</title>
+<meta name="Microsoft.Help.Id" content="GUID-BCD81BDF-C95E-4AE9-9BD2-480503C8438E-tcpip-berkeley-tcp-server" />
+<meta name="Microsoft.Help.TocParent" content="GUID-BCD81BDF-C95E-4AE9-9BD2-480503C8438E" />
+<meta name="Microsoft.Help.TocOrder" content="0" />
+<meta name="Microsoft.Help.Locale" content="en-US" />
+<meta name="Microsoft.Help.TopicLocale" content="en-US" />
+<meta name="Microsoft.Help.DisplayVersion" content="MPLAB® Harmony TCP/IP Application for PIC32MZ Family Reference A 11/2021" />
+<script language="javascript">
+       
+       if (window.parent.location.protocol != 'file:') {
+				document.addEventListener('click', function(e) {
+				    if (e.target) {
+               if (e.target.nodeName == "A" ) {
+                    if (!e.target.target) {
+                      e.preventDefault();
+                      e.stopPropagation();
+                              
+                      var origUrl = window.parent.location.href.substr(0, window.parent.location.href.indexOf("?"));
+                      if (origUrl.length === 0) {
+                          origUrl = window.parent.location.href;
+                      }
+                      var href= e.target.getAttribute("href");
+                      var parts = href.split("#");
+          
+                      var url = "";
+                      if (parts.length == 2 ) {
+                        if (!parts[0].length) {
+                            url = window.parent.location.search.replace('?','')
+                        } else {
+                            url = parts[0].replace('.html','');
+                        }
+                      } else {
+                        url = parts[0].replace('.html','');
+                      }
+
+                      if (parts.length == 2) {
+                          url += "#" + parts[1];
+                      }
+    
+                      window.parent.location.href = origUrl + "?" + url;
+
+                      return false;
+                    }
+               }
+            }
+				});
+			}
+
+		</script><script language="javascript">
+        function cpy(id, button) {
+        
+            var element = document.getElementById(id);
+            var content = element.getAttribute("content");
+            var textArea = document.createElement("textarea");
+            
+            // Place in the top-left corner of screen regardless of scroll position.
+            textArea.style.position = 'fixed';
+            textArea.style.top = 0;
+            textArea.style.left = 0;
+            
+            // Ensure it has a small width and height. Setting to 1px / 1em
+            // doesn't work as this gives a negative w/h on some browsers.
+            textArea.style.width = '2em';
+            textArea.style.height = '2em';
+            
+            // We don't need padding, reducing the size if it does flash render.
+            textArea.style.padding = 0;
+            
+            // Clean up any borders.
+            textArea.style.border = 'none';
+            textArea.style.outline = 'none';
+            textArea.style.boxShadow = 'none';
+            
+            // Avoid flash of the white box if rendered for any reason.
+            textArea.style.background = 'transparent';
+            
+            
+            textArea.value = content;
+            
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+               var successful = document.execCommand('copy');
+               var msg = successful ? 'successful' : 'unsuccessful';
+               if (!button.classList.contains("copied")){
+                  button.textContent = "Copied";
+                  button.classList.add("copied");
+                  setTimeout(function(){
+                    button.textContent = "Copy";
+                    button.classList.remove("copied");
+                  },1000);
+               }
+            } catch (err) {
+              console.log('Oops, unable to copy');
+            }
+            
+            document.body.removeChild(textArea);
+        }
+      </script><script language="javascript">
+          
+          // Add the MathML namespace to html
+          var html = document.getElementsByTagName("html")[0],
+          head = document.getElementsByTagName("head")[0];
+          
+          var mathJax = document.createElement("script");
+          mathJax.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML";
+          head.appendChild(mathJax);
+          
+          html.setAttribute("xmlns:m","http://www.w3.org/1998/Math/MathML");
+          
+          function inIframe() { try { return window.self !== window.top; } catch (e) { return true; } }
+          
+          if (!inIframe()) { 
+          
+          var Default = "index.html?GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0"; 
+          
+          var displaylocation = "value" + window.location.href;
+          
+          var GUIDS = displaylocation.split('GUID');          
+          
+          if (displaylocation.indexOf('#GUID') != -1) {            
+          var First = GUIDS[1].split('.html');  
+          if (GUIDS[3]){First = GUIDS[2].split('.html');}
+          if (GUIDS[4]){First = GUIDS[3].split('.html');}
+          if (GUIDS[5]){First = GUIDS[4].split('.html');}
+          
+          var Second = GUIDS[2].split('#');   
+          if (GUIDS[3]){Second = GUIDS[3].split('#');}
+          if (GUIDS[4]){Second = GUIDS[4].split('#');}
+          if (GUIDS[5]){Second = GUIDS[5].split('#');}
+          
+          Default = "index.html?" + "GUID" + First[0] + "GUID" + Second[0];     
+          }                    
+          window.top.location = Default;
+          }       
+          
+        </script><style xml:space="">
+        
+          button.copy-code{
+            display:none;
+            padding:0.7em 1.4em;
+            margin:0 0.3em 0.3em 0;
+            border-radius:0.15em;
+            box-sizing: border-box;
+            text-decoration:none;
+            font-family:'Roboto',sans-serif;
+            text-transform:uppercase;
+            font-weight:400;
+            color:#FFFFFF;
+            background-color:#9c9c9c;
+            box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+            text-align:center;
+            position:relative;
+            border: 0;
+            float: right;
+            border-radius: .5em;
+            cursor: pointer;
+          }
+          button.copy-code:active{
+            top:0.1em;
+          }
+          
+          pre:hover button.copy-code{
+            display: inline-block !important;
+          }
+          button.copy-code.copied {
+            cursor: default !important;
+          }
+          
+          
+          @media all and (max-width:30em){
+            button.copy-code{
+              display:block;
+              margin:0.4em auto;
+            }
+          }
+        
+        
+      </style></head>
+<body id="tcpip-berkeley-tcp-server">
+<h1 class="title topictitle1" id="ariaid-title1">TCP/IP Berkeley TCP Server</h1><div class="body"><p class="p">The Berkeley TCP Server configuration demonstrates creating a  creating a network server that uses the Berkeley API to create a TCP/IP echo server on port 9760.</p>
+<p class="p"><strong class="ph b">TCP/IP Berkeley TCP Server MHC Configuration</strong></p>
+<p class="p">The following Project Graph diagram shows the Harmony components included in the TCP Server application demonstration.</p>
+<ul class="ul"><li class="li with-image"><p class="p">MHC is launched by selecting <strong class="ph b">Tools &gt; Embedded &gt; MPLAB® Harmony 3 Configurator</strong> from the MPLAB X IDE and after successful database migration , TCP/IP demo project is ready to be configured and regenerated.</p>
+<br /><img class="image" src="GUID-9B937DEB-C777-4C34-A7F8-2996E32EE5E1-low.png" alt="tcpip_pic32mz_project" /><br /></li>
+<li class="li with-image"><p class="p"><strong class="ph b">TCP/IP Root Layer Project Graph</strong></p>
+<p class="p">The root layer project shows that UART2 peripheral is selected to do read and write operation for TCP/IP commands.</p>
+<p class="p">This is the basic configuration with SYS_CONSOLE, SYS_DEBUG and SYS_COMMAND modules. These modules are required for TCP/IP command execution.</p>
+<br /><img class="image" src="GUID-A3F03F6D-ABD4-4BFA-822D-248EEFEAADD7-low.png" alt="tcpip_pic32mz_project" /><br /><p class="p"><strong class="ph b">FreeRTOS</strong> component is required for RTOS application. For bare-metal (non-RTOS) <strong class="ph b">FreeRTOS</strong> component should not be selected.</p>
+<p class="p"><strong class="ph b">NOTE</strong> - The above diagram contains <strong class="ph b">FreeRTOS</strong> component  and that is required for RTOS application. For bare-metal(non-RTOS) <strong class="ph b">FreeRTOS</strong> component shouldn't be selected.</p>
+<br /><img class="image" src="GUID-3D4D5D22-47FC-43D8-B74A-E055541ACA72-low.png" alt="tcpip_pic32mz_project" /><br /><p class="p">TCP sockets calculate the ISN using the wolfSSL crypto library.</p>
+</li>
+<li class="li with-image"><p class="p"><strong class="ph b">TCP/IP Required Application</strong></p>
+<p class="p">TCP/IP demo use these application module components for this demo.</p>
+<p class="p"><strong class="ph b">Announce</strong> module to discover the Microchip devices within a local network.</p>
+<p class="p"><strong class="ph b">DHCP Client</strong> module to discover the IPv4 address from the nearest DHCP Server.</p>
+<p class="p"><strong class="ph b">DNS Client</strong> provides DNS resolution capabilities to the stack.</p>
+<p class="p"><strong class="ph b">Berkeley API</strong>  module provides the Berkeley_Socket_Distribution (BSD) wrapper to the native Microchip TCP/IP Stack APIs. During this component selection, the required transport and network modules are also selected.</p>
+<br /><img class="image" src="GUID-4553439F-6CFF-4657-82EE-7CD532F1B8B9-low.png" alt="tcpip_pic32mz_project" /><br /></li>
+<li class="li with-image"><p class="p"><strong class="ph b">TCPIP Driver Layer</strong></p>
+<p class="p"><strong class="ph b">Internal ethernet driver(ethmac)</strong> is enabled with the external <strong class="ph b">LAN8740 PHY driver</strong> library. The MIIM Driver supports asynchronous read/write and scan operations for accessing the external PHY registers and notification when MIIM operations have completed.</p>
+<br /><img class="image" src="GUID-060D07A9-FE8E-4381-9550-8D0F45A95323-low.png" alt="tcpip_pic32mz_project" /><br /></li>
+</ul>
+<p class="p"><strong class="ph b">TCP/IP Berkeley TCP Server Hardware Configuration</strong></p>
+<p class="p">This is the following section describes the hardware configurations for both PIC32MZ EF and DA devices. One of the configuration can be used for this application demonstration as per the microcontroller.</p>
+<ol class="ol"><li class="li"><span class="indent-level-default">1.</span><p class="p">This section describes the PIC32MZ EF device default hardware configuration use USB device as <strong class="ph b">on board debugger and programmer</strong> for this application demonstration.</p>
+<ul class="ul"><li class="li with-image"><p class="p">Refer to the PIC32MZ EF Ethernet Starter Kit <a class="xref" href="http://ww1.microchip.com/downloads/en/devicedoc/70005230b.pdf" target="_blank">User Guide</a></p>
+<br /><img class="image" src="GUID-D271A617-441D-4CA4-B92C-BCD1DF80C669-low.png" alt="reuired_hardware" /><br /></li>
+<li class="li"><p class="p">No hardware related configuration or jumper setting changes are necessary.
+Connect the mini USB cable from the computer to the USB DEBUG connector on the PIC32MZ EF Ethernet Starter Kit</p>
+</li>
+<li class="li"><p class="p">Connect the mini USB cable from the computer to the USB-UART connector on the PIC32MZ EF Starter Kit</p>
+</li>
+<li class="li"><p class="p">Establish a connection between the router/switch with the PIC32MZ EF Starter Kit through the RJ45 connector on PHY daughter board</p>
+</li>
+</ul>
+</li>
+<li class="li"><span class="indent-level-default">2.</span><p class="p">This section describes the PIC32MZ EF device hardware configuration with the combination of <strong class="ph b">RealICE, or ICD4</strong> and the Starter Kit I/O Expansion Board for debugging and programming for this application demonstration.</p>
+<br /><img class="image" src="GUID-3E034137-03DA-4203-92E9-90F1A606DE82-low.png" alt="reuired_hardware" /><br /><ul class="ul"><li class="li"><p class="p">Connect the 168 pin to 132 pin Starter Kit Adapter board to the Starter Kit I/O Expansion Board, optionally use a nylon nut and bolt to secure the two boards together</p>
+</li>
+<li class="li"><p class="p">Connect the PIC32MZ Extended Connectivity w/FPU (EF) Starter kit to the 168 pin to 132 pin Starter Kit Adapter board, optionally use a nylon nut and bolt to secure the two boards together</p>
+</li>
+<li class="li"><p class="p">Connect the RealICE, or ICD to the RJ-11 port on the Starter Kit I/O Expansion Board</p>
+</li>
+<li class="li"><p class="p">Connect a USB Mini-b (5 pin) cable to the DEBUG USB port
+connect an Ethernet cable to the Ethernet Port</p>
+</li>
+<li class="li"><p class="p">Connect the 9V power supply to the Starter Kit I/O Expansion Board</p>
+</li>
+</ul>
+</li>
+<li class="li"><span class="indent-level-default">3.</span><p class="p">This section describes the PIC32MZ DA device default hardware configuration use USB device as <strong class="ph b">on board debugger and programmer</strong> for this application demonstration.</p>
+<ul class="ul"><li class="li with-image"><p class="p">Refer to the PIC32MZ DA Ethernet Starter Kit <a class="xref" href="http://ww1.microchip.com/downloads/en/DeviceDoc/70005311A.pdf" target="_blank">User Guide</a> for the programming/debugging options supported.</p>
+<br /><img class="image" src="GUID-28BB3160-D05D-474F-9FC5-12320C46252A-low.png" alt="reuired_hardware" /><br /></li>
+<li class="li"><p class="p">No hardware related configuration or jumper setting changes are necessary.
+Connect the mini USB cable from the computer to the USB DEBUG connector on the PIC32MZ DA Ethernet Starter Kit</p>
+</li>
+<li class="li"><p class="p">Connect micro USB cable from the computer to the USB connector(J4) on the PIC32MZ DA Starter Kit</p>
+</li>
+<li class="li"><p class="p">Connect micro USB cable from the computer to the USB-UART connector(J5) on the PIC32MZ DA Starter Kit</p>
+</li>
+<li class="li"><p class="p">Establish a connection between the router/switch with the PIC32MZ DA Starter Kit through the RJ45 connector on PHY daughter board</p>
+</li>
+</ul>
+</li>
+</ol>
+<p class="p"><strong class="ph b">TCP/IP Berkeley TCP Server Running Application</strong></p>
+<p class="p">This table list the name and location of the MPLAB X IDE project folder for the demonstration.</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><col style="width:" /><col style="width:" /><col style="width:" /><col style="width:" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d5303e197"><span>Project Name</span></th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d5303e199"><span>Target Device</span></th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d5303e201"><span>Target Development Board</span></th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d5303e203"><span>Description</span></th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e197 "><span>pic32mz_ef_sk_freertos.X</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e199 "><span>PIC32MZ2048EFH144</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e201 "><span>PIC32MZ EF Starter Kit</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e203 "><span>Demonstrates the Berkeley TCP Server on development board with PIC32MZ2048EFH144 device and LAN8740 PHY daughter board. This implementation is based on FreeRTOS.</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e197 "><span>pic32mz_da_sk</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e199 "><span>PIC32MZ2064DAS169</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e201 "><span>PIC32MZ DA Starter Kit</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e203 "><span>Demonstrates the Berkeley TCP Server on development board with PIC32MZ2064DAS169 device and LAN8740 PHY daughter board. This implementation is based on bare-metal(non-RTOS).</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e197 "><span>pic32mz_da_sk_freertos.X</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e199 "><span>PIC32MZ2064DAS169</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e201 "><span>PIC32MZ DA Starter Kit</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e203 "><span>Demonstrates the Berkeley TCP Server on development board with PIC32MZ2064DAS169 device and LAN8740 PHY daughter board. This implementation is based on FreeRTOS.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p"><strong class="ph b">Running Demonstration Steps</strong></p>
+<ol class="ol"><li class="li"><span class="indent-level-default">1.</span><p class="p">Build and download the demonstration project on the target board.</p>
+</li>
+<li class="li"><span class="indent-level-default">2.</span><p class="p">If the board has a UART connection:</p>
+<ol class="ol" type="a"><li class="li"><span class="indent-level-default">a.</span><p class="p">A virtual COM port will be detected on the computer, when the USB cable is connected to USB-UART connector.</p>
+</li>
+<li class="li"><span class="indent-level-default">b.</span><p class="p">Open a standard terminal application on the computer (like Hyper-terminal or Tera Term) and configure the virtual COM port.</p>
+</li>
+<li class="li"><span class="indent-level-default">c.</span><p class="p">Set the serial baud rate to 115200 baud in the terminal application.</p>
+</li>
+<li class="li"><span class="indent-level-default">d.</span><p class="p">See that the initialization prints on the serial port terminal.</p>
+</li>
+<li class="li"><span class="indent-level-default">e.</span><p class="p">When the DHCP client is enabled in the demonstration, wait for the DHCP server to assign an IP address for the development board. This will be printed on the serial port terminal.</p>
+<ul class="ul"><li class="li"><p class="p">Alternatively: Use the Announce service or ping to get the IP address of the board.</p>
+</li>
+<li class="li"><p class="p">Run <strong class="ph b">tcpip_discoverer.jar</strong> to discover the IPv4 and IPv6 address for the board.</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li class="li"><span class="indent-level-default">3.</span><p class="p">Execution :</p>
+<ol class="ol" type="a"><li class="li"><span class="indent-level-default">a.</span><p class="p">As soon as a valid IP address is assigned through the DHCP to the demonstration, it is ready to accept a TCP/IP connection on port 9760.</p>
+</li>
+<li class="li"><span class="indent-level-default">b.</span><p class="p">Send a TCP packet to the IP address of the hardware board using port 9760 from any TCP Client application running on the computer.</p>
+</li>
+<li class="li"><span class="indent-level-default">c.</span><p class="p">The TCP Server demonstration running on the evaluation kit will echo back everything it receives along the connection.</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="GUID-E3619664-D1A4-427D-A50A-7CBF1634F410.html">MPLAB® Harmony 3 TCP/IP Application for PIC32MZ Family</a></div>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE11" /><meta name="copyright" content="(C) Copyright 2022" />
+<meta name="DC.rights.owner" content="(C) Copyright 2022" />
+<meta name="DC.type" content="topic" />
+<meta name="DC.title" content="TCP/IP WEB &amp; FTP SERVER Application with MPFS &amp; FATF FS" />
+<meta name="DC.relation" scheme="URI" content="GUID-E3619664-D1A4-427D-A50A-7CBF1634F410.html" />
+<meta name="DC.format" content="XHTML" />
+<meta name="DC.identifier" content="tcpip-web--ftp-server-application-with-mpfs--fatf-fs" />
+<link rel="stylesheet" type="text/css" href="stylesheets/commonltr.css" />
+<link rel="stylesheet" type="text/css" href="stylesheets/atmel.css" />
+<link rel="stylesheet" type="text/css" href="./stylesheets/common-extended.css" /><title>TCP/IP WEB &amp; FTP SERVER Application with MPFS &amp; FATF FS</title>
+<meta name="Microsoft.Help.Id" content="GUID-BCD81BDF-C95E-4AE9-9BD2-480503C8438E-tcpip-web--ftp-server-application-with-mpfs--fatf-fs" />
+<meta name="Microsoft.Help.TocParent" content="GUID-BCD81BDF-C95E-4AE9-9BD2-480503C8438E" />
+<meta name="Microsoft.Help.TocOrder" content="0" />
+<meta name="Microsoft.Help.Locale" content="en-US" />
+<meta name="Microsoft.Help.TopicLocale" content="en-US" />
+<meta name="Microsoft.Help.DisplayVersion" content="MPLAB® Harmony TCP/IP Application for PIC32MZ Family Reference A 11/2021" />
+<script language="javascript">
+       
+       if (window.parent.location.protocol != 'file:') {
+				document.addEventListener('click', function(e) {
+				    if (e.target) {
+               if (e.target.nodeName == "A" ) {
+                    if (!e.target.target) {
+                      e.preventDefault();
+                      e.stopPropagation();
+                              
+                      var origUrl = window.parent.location.href.substr(0, window.parent.location.href.indexOf("?"));
+                      if (origUrl.length === 0) {
+                          origUrl = window.parent.location.href;
+                      }
+                      var href= e.target.getAttribute("href");
+                      var parts = href.split("#");
+          
+                      var url = "";
+                      if (parts.length == 2 ) {
+                        if (!parts[0].length) {
+                            url = window.parent.location.search.replace('?','')
+                        } else {
+                            url = parts[0].replace('.html','');
+                        }
+                      } else {
+                        url = parts[0].replace('.html','');
+                      }
+
+                      if (parts.length == 2) {
+                          url += "#" + parts[1];
+                      }
+    
+                      window.parent.location.href = origUrl + "?" + url;
+
+                      return false;
+                    }
+               }
+            }
+				});
+			}
+
+		</script><script language="javascript">
+        function cpy(id, button) {
+        
+            var element = document.getElementById(id);
+            var content = element.getAttribute("content");
+            var textArea = document.createElement("textarea");
+            
+            // Place in the top-left corner of screen regardless of scroll position.
+            textArea.style.position = 'fixed';
+            textArea.style.top = 0;
+            textArea.style.left = 0;
+            
+            // Ensure it has a small width and height. Setting to 1px / 1em
+            // doesn't work as this gives a negative w/h on some browsers.
+            textArea.style.width = '2em';
+            textArea.style.height = '2em';
+            
+            // We don't need padding, reducing the size if it does flash render.
+            textArea.style.padding = 0;
+            
+            // Clean up any borders.
+            textArea.style.border = 'none';
+            textArea.style.outline = 'none';
+            textArea.style.boxShadow = 'none';
+            
+            // Avoid flash of the white box if rendered for any reason.
+            textArea.style.background = 'transparent';
+            
+            
+            textArea.value = content;
+            
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+               var successful = document.execCommand('copy');
+               var msg = successful ? 'successful' : 'unsuccessful';
+               if (!button.classList.contains("copied")){
+                  button.textContent = "Copied";
+                  button.classList.add("copied");
+                  setTimeout(function(){
+                    button.textContent = "Copy";
+                    button.classList.remove("copied");
+                  },1000);
+               }
+            } catch (err) {
+              console.log('Oops, unable to copy');
+            }
+            
+            document.body.removeChild(textArea);
+        }
+      </script><script language="javascript">
+          
+          // Add the MathML namespace to html
+          var html = document.getElementsByTagName("html")[0],
+          head = document.getElementsByTagName("head")[0];
+          
+          var mathJax = document.createElement("script");
+          mathJax.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML";
+          head.appendChild(mathJax);
+          
+          html.setAttribute("xmlns:m","http://www.w3.org/1998/Math/MathML");
+          
+          function inIframe() { try { return window.self !== window.top; } catch (e) { return true; } }
+          
+          if (!inIframe()) { 
+          
+          var Default = "index.html?GUID-5964AB33-E2C1-444C-BD8B-B3564F198731"; 
+          
+          var displaylocation = "value" + window.location.href;
+          
+          var GUIDS = displaylocation.split('GUID');          
+          
+          if (displaylocation.indexOf('#GUID') != -1) {            
+          var First = GUIDS[1].split('.html');  
+          if (GUIDS[3]){First = GUIDS[2].split('.html');}
+          if (GUIDS[4]){First = GUIDS[3].split('.html');}
+          if (GUIDS[5]){First = GUIDS[4].split('.html');}
+          
+          var Second = GUIDS[2].split('#');   
+          if (GUIDS[3]){Second = GUIDS[3].split('#');}
+          if (GUIDS[4]){Second = GUIDS[4].split('#');}
+          if (GUIDS[5]){Second = GUIDS[5].split('#');}
+          
+          Default = "index.html?" + "GUID" + First[0] + "GUID" + Second[0];     
+          }                    
+          window.top.location = Default;
+          }       
+          
+        </script><style xml:space="">
+        
+          button.copy-code{
+            display:none;
+            padding:0.7em 1.4em;
+            margin:0 0.3em 0.3em 0;
+            border-radius:0.15em;
+            box-sizing: border-box;
+            text-decoration:none;
+            font-family:'Roboto',sans-serif;
+            text-transform:uppercase;
+            font-weight:400;
+            color:#FFFFFF;
+            background-color:#9c9c9c;
+            box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+            text-align:center;
+            position:relative;
+            border: 0;
+            float: right;
+            border-radius: .5em;
+            cursor: pointer;
+          }
+          button.copy-code:active{
+            top:0.1em;
+          }
+          
+          pre:hover button.copy-code{
+            display: inline-block !important;
+          }
+          button.copy-code.copied {
+            cursor: default !important;
+          }
+          
+          
+          @media all and (max-width:30em){
+            button.copy-code{
+              display:block;
+              margin:0.4em auto;
+            }
+          }
+        
+        
+      </style></head>
+<body id="tcpip-web--ftp-server-application-with-mpfs--fatf-fs">
+<h1 class="title topictitle1" id="ariaid-title1">TCP/IP WEB &amp; FTP SERVER Application with MPFS &amp; FATF FS</h1><div class="body"><p class="p">The Web and FTP Server configuration demonstrates creating an application where HTTP web server will use MPFS FS with NVM media and FTP server will use FAT FS with SDCARD as media.</p>
+<p class="p">The Non-Volatile Memory (NVM) Microchip Proprietary File System (MPFS) is used for storing the web pages in the internal Flash.</p>
+<p class="p">The FAT FS File System is used for storing any type of files and FTP server will read from and write to this FS.</p>
+<p class="p"><strong class="ph b">TCP/IP WEB-NET &amp; FTP Server MHC Configuration</strong></p>
+<p class="p">The following Project Graph diagram shows the Harmony components included in the application demonstration.</p>
+<ul class="ul"><li class="li with-image"><p class="p">MHC is launched by selecting <strong class="ph b">Tools &gt; Embedded &gt; MPLAB® Harmony 3 Configurator</strong> from the MPLAB X IDE and after successful database migration , TCP/IP demo project is ready to be configured and regenerated.</p>
+<br /><img class="image" src="GUID-9B937DEB-C777-4C34-A7F8-2996E32EE5E1-low.png" alt="tcpip_pic32mz_project" /><br /></li>
+<li class="li"><p class="p"><strong class="ph b">TCP/IP Root Layer Project Graph</strong></p>
+<ul class="ul"><li class="li with-image"><p class="p">PIC32MZ EF Device performs read/write to an SD card using SDSPI Module</p>
+<p class="p">SDSPI module is selected with SPI peripheral.</p>
+<p class="p">SDSPI driver uses an instance of the SPI driver to communicate to the SD card over the SPI bus.</p>
+<p class="p">The TCP/IP application demonstrates FAT file system to read/write to an SD card using SDSPI driver. FTP application use SPI peripheral to read/write from SDMMC module.</p>
+<br /><img class="image" src="GUID-61EBBD50-2643-4532-B3CD-8B6F173CF776-low.png" alt="tcpip_pic32mz_project" /><br /></li>
+<li class="li with-image"><p class="p">PIC32MZ DA device performs read/write to an SD card using SDMMC driver. FTP application use SDMMC driver to read/write from SDHC peripheral module.</p>
+<br /><img class="image" src="GUID-B92E28CB-42F4-4FEF-ABA4-2126FFC71F35-low.png" alt="tcpip_pic32mzda_project" /><br /><p class="p">Wolfssl crypto module enabled with MD5,SHA authentication. Wolfssl library used a open a secured socket.</p>
+<br /><img class="image" src="GUID-EDFCC477-0CE1-47CE-AC8E-9FC2483C7CF1-low.png" alt="tcpip_pic32mz_project" /><br /><p class="p"><strong class="ph b">FreeRTOS</strong> component is required for RTOS application. For bare-metal (non-RTOS) <strong class="ph b">FreeRTOS</strong> component should not be selected.</p>
+<p class="p">Both MPFS and FAT File System Configuration</p>
+<br /><img class="image" src="GUID-E2723335-92DF-4586-A0FA-B3B4FFDC0671-low.png" alt="tcpip_pic32mz_project" /><br /><p class="p">TCP sockets calculate the ISN using the wolfSSL crypto library.</p>
+</li>
+</ul>
+</li>
+<li class="li with-image"><p class="p"><strong class="ph b">TCP/IP Required Application</strong></p>
+<p class="p">TCP/IP demo use these application module components for this demo.</p>
+<p class="p"><strong class="ph b">Announce</strong> module to discover the Microchip devices within a local network.</p>
+<p class="p"><strong class="ph b">DHCP Client</strong> module to discover the IPv4 address from the nearest DHCP Server.</p>
+<p class="p"><strong class="ph b">HTTPNET</strong> module is selected to run the web_server for the port number <strong class="ph b">443</strong>.</p>
+<p class="p"><strong class="ph b">FTP SERVER</strong> an application layer protocol that facilitates uploading of files to, and downloading of files from, an embedded device.</p>
+<br /><img class="image" src="GUID-1C670AB5-63C8-44B4-82CA-7B618C4EB32B-low.png" alt="tcpip_pic32mz_project" /><br /><ul class="ul"><li class="li with-image"><p class="p">HTTPNET server with Web directory Mount path and Security port number configuration:</p>
+<br /><img class="image" src="GUID-D228B073-9B70-46E5-9DA8-B9BEB696282E-low.png" alt="tcpip_web_ftp_server_project" /><br /><p class="p">Http Server module use the NVM mount path with MPFS files system. Also HTTP server module use the secured port number 443.</p>
+</li>
+<li class="li with-image"><p class="p">FTP server use the FAT FS to access files from SDCARD.</p>
+<br /><img class="image" src="GUID-961246DA-91D3-4DDB-94B1-9D9DE30A44DA-low.png" alt="tcpip_web_ftp_server_project" /><br /></li>
+</ul>
+</li>
+<li class="li with-image"><p class="p"><strong class="ph b">TCPIP Driver Layer</strong></p>
+<p class="p"><strong class="ph b">Internal ethernet driver(ethmac)</strong> is enabled with the external <strong class="ph b">LAN8740 PHY driver</strong> library. The MIIM Driver supports asynchronous read/write and scan operations for accessing the external PHY registers and notification when MIIM operations have completed.</p>
+<br /><img class="image" src="GUID-060D07A9-FE8E-4381-9550-8D0F45A95323-low.png" alt="tcpip_pic32mz_project" /><br /></li>
+</ul>
+<p class="p"><strong class="ph b">TCP/IP WEB-NET and FTP Server Hardware Configuration</strong></p>
+<p class="p">This is the following section describes the hardware configuration and one of the configuration can be used for this application demonstration.</p>
+<ol class="ol"><li class="li"><span class="indent-level-default">1.</span><p class="p">This section describes the PIC32MZ EF Device hardware configuration with  <strong class="ph b">SDMMC(Secure Digital/ MultiMediaCard interface)</strong> interface.</p>
+<br /><img class="image" src="GUID-9E516971-B4DD-43D6-AC71-DD0C5BD57BBE-low.png" alt="required_hardware" /><br /><ul class="ul"><li class="li"><p class="p">Refer to the PIC32MZ EF Starter Kit User Guide</p>
+</li>
+<li class="li"><p class="p">Refer to the Starter Kit I/O Expansion Board - <a class="xref" href="https://www.microchip.com/developmenttools/ProductDetails/DM320002" target="_blank">DM320002 User Guide</a></p>
+</li>
+<li class="li"><p class="p">Refer to the SDMMC PICtail daughter board - <a class="xref" href="https://www.microchip.com/developmenttools/ProductDetails/AC164122" target="_blank">AC164122 User Guide</a></p>
+</li>
+<li class="li"><p class="p">Insert the SDMMC PICtail daughter board (AC164122) into the SPI1 slot of the I/O Expansion Board (DM320002)</p>
+</li>
+<li class="li"><p class="p">Insert the PIC32MZ EF Starter Kit into the I/O Expansion Board (DM320002)</p>
+</li>
+<li class="li"><p class="p">Establish a connection between the router/switch with the PIC32MZ Starter Kit through the RJ45 connector on PHY daughter board. Power the board using the 9V power adapter</p>
+</li>
+<li class="li"><p class="p">The demo application is configured for the SPI1 slot, using the following I/O pins:</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><col style="width:" /><col style="width:" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d16415e179"><span>SPI 1</span></th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d16415e181"><span>Pin Selection</span></th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d16415e179 "><span>SCK1 - SPI clock</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d16415e181 "><span>RD1</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d16415e179 "><span>SDI1 - SPI Data Input</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d16415e181 "><span>RD14</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d16415e179 "><span>SDO1 -  SPI Data Output</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d16415e181 "><span>RD10</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d16415e179 "><span>SPI Chip Select</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d16415e181 "><span>RB1</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</li>
+<li class="li"><span class="indent-level-default">2.</span><p class="p">This section describes the PIC32MZ DA device default hardware configuration use USB device as <strong class="ph b">on board debugger and programmer</strong> for this application demonstration.</p>
+<ul class="ul"><li class="li with-image"><p class="p">Refer to the PIC32MZ DA Ethernet Starter Kit <a class="xref" href="http://ww1.microchip.com/downloads/en/DeviceDoc/70005311A.pdf" target="_blank">User Guide</a> for the programming/debugging options supported.</p>
+<br /><img class="image" src="GUID-28BB3160-D05D-474F-9FC5-12320C46252A-low.png" alt="reuired_hardware" /><br /></li>
+<li class="li"><p class="p">No hardware related configuration or jumper setting changes are necessary.
+Connect the mini USB cable from the computer to the USB DEBUG connector on the PIC32MZ DA Ethernet Starter Kit</p>
+</li>
+<li class="li"><p class="p">Connect micro USB cable from the computer to the USB connector(J4) on the PIC32MZ DA Starter Kit</p>
+</li>
+<li class="li"><p class="p">Connect micro USB cable from the computer to the USB-UART connector(J5) on the PIC32MZ DA Starter Kit</p>
+</li>
+<li class="li"><p class="p">Establish a connection between the router/switch with the PIC32MZ DA Starter Kit through the RJ45 connector on PHY daughter board.</p>
+</li>
+<li class="li"><p class="p">Insert MicroSD Card in the MicroSD Card slot (J10) on the development board</p>
+</li>
+</ul>
+</li>
+</ol>
+<p class="p"><strong class="ph b">TCP/IP WEB-NET &amp; FTP SERVER Running Application</strong></p>
+<p class="p">This application uses more than one FS for the TCP/IP application demonstration.
+Here HTTP Net server uses Microchip Proprietary File System (MPFS) as a read only FS. Here MPFS FS reads web pages from Non-Volatile Memory (NVM) media which is used to store the web server pages.</p>
+<p class="p">The FAT FS File System read and writes  to SDCard memory media which is used for storing any type of files. FTP server will read from and write to this SDcard media using FAT FS.</p>
+<p class="p">This table list the name and location of the MPLAB X IDE project folder for the demonstration.</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><col style="width:" /><col style="width:" /><col style="width:" /><col style="width:" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d16415e254"><span>Project Name</span></th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d16415e256"><span>Target Device</span></th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d16415e258"><span>Target Development Board</span></th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d16415e260"><span>Description</span></th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d16415e254 "><span>pic32mz_ef_sk_freertos.X</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d16415e256 "><span>PIC32MZ2048EFH144</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d16415e258 "><span>PIC32MZ EF Starter Kit</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d16415e260 "><span>Demonstrates the TCP/IP Web Server with more than one FS on a development board with PIC32MZ2048EFH144 device and on-board KSZ8091 PHY. This implementation is based on FreeRTOS.</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d16415e254 "><span>pic32mz_da_sk.X</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d16415e256 "><span>PIC32MZ2064DAS169</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d16415e258 "><span>PIC32MZ DA Starter Kit</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d16415e260 "><span>Demonstrates the TCP/IP Web Server with more than one FS on a development board with PIC32MZ2064DAS169 device and on-board LAN8740 PHY. This implementation is based on bare-metal(non-RTOS).</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d16415e254 "><span>pic32mz_da_sk_freertos.X</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d16415e256 "><span>PIC32MZ2064DAS169</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d16415e258 "><span>PIC32MZ DA Starter Kit</span></td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d16415e260 "><span>Demonstrates the TCP/IP Web Server with more than one FS on a development board with PIC32MZ2064DAS169 device and on-board LAN8740 PHY. This implementation is based on FreeRTOS.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol class="ol"><li class="li"><span class="indent-level-default">1.</span><p class="p">Ensure a microSD/SD card is formatted and loaded with the web pages provided within the &lt; install-dir &gt;/net/apps/web_ftp_server_mpfs_fatfs/firmware/src/web_pages directory.</p>
+</li>
+</ol>
+<p class="p"><strong class="ph b">Running Demonstration Steps</strong></p>
+<ol class="ol"><li class="li"><span class="indent-level-default">1.</span><p class="p">Build and download the demonstration project on the target board.</p>
+</li>
+<li class="li"><span class="indent-level-default">2.</span><p class="p">If the board has a UART connection:</p>
+<ol class="ol" type="a"><li class="li"><span class="indent-level-default">a.</span><p class="p">A virtual COM port will be detected on the computer, when the USB cable is connected to USB-UART connector.</p>
+</li>
+<li class="li"><span class="indent-level-default">b.</span><p class="p">Open a standard terminal application on the computer (like Hyper-terminal or Tera Term) and configure the virtual COM port.</p>
+</li>
+<li class="li"><span class="indent-level-default">c.</span><p class="p">Set the serial baud rate to 115200 baud in the terminal application.</p>
+</li>
+<li class="li"><span class="indent-level-default">d.</span><p class="p">See that the initialization prints on the serial port terminal.</p>
+</li>
+<li class="li"><span class="indent-level-default">e.</span><p class="p">When the DHCP client is enabled in the demonstration, wait for the DHCP server to assign an IP address for the development board. This will be printed on the serial port terminal.</p>
+<ul class="ul"><li class="li"><p class="p">Alternatively: Use the Announce service or ping to get the IP address of the board.</p>
+</li>
+<li class="li"><p class="p">Run <strong class="ph b">tcpip_discoverer.jar</strong> to discover the IPv4 and IPv6 address for the board.</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li class="li"><span class="indent-level-default">3.</span><p class="p">Execution:</p>
+<p class="p">An HTTP server is hosted by the demonstration application. Open a web browser and direct it to the board running the HTTP server by typing the URL in the address bar (for example, https://mchpboard_c), and then pressing Enter.</p>
+<p class="p">The demonstration application features following:</p>
+<p class="p">Real-time Hardware Control and Dynamic Variables - On the Overview page the LEDs can be clicked to toggle the LEDs on the Microchip hardware development board. The SWITCHes on the Microchip hardware development board can be pressed to toggle the Buttons on the web page. The dynamic variables can be updated in real-time on the HTTP server.</p>
+<p class="p"><strong class="ph b">Note:</strong>  For the LED and SWITCH functionality portion of the demonstration, configure the GPIOs connected to LEDs and Switches on Microchip hardware development board, through the Pin Configuration manager in MPLAB® Harmony Configurator (MHC).</p>
+<ol class="ol" type="a"><li class="li"><span class="indent-level-default">a.</span><p class="p"><strong class="ph b">Form Processing</strong> - Input can be handled from the client by using the GET and POST methods (this functionality controls the on-board LEDs and is operational only on the Explorer 16 Development Board)</p>
+</li>
+<li class="li"><span class="indent-level-default">b.</span><p class="p"><strong class="ph b">Authentication</strong> - Shows an example of the commonly used restricted access feature</p>
+</li>
+<li class="li"><span class="indent-level-default">c.</span><p class="p"><strong class="ph b">Cookies</strong> - Shows an example of storing small text strings on the client side</p>
+</li>
+<li class="li"><span class="indent-level-default">d.</span><p class="p"><strong class="ph b">Server Side Includes</strong> - An example of how SSI can be used to support dynamic content</p>
+</li>
+<li class="li"><span class="indent-level-default">e.</span><p class="p"><strong class="ph b">File Uploads</strong> - Shows an example of a file upload using the POST method. The HTTP server can_accept_a user-defined MPFS/MPFS2 image file for web pages.</p>
+</li>
+<li class="li"><span class="indent-level-default">f.</span><p class="p"><strong class="ph b">Send E-mail</strong> - Shows simple SMTP POST methods</p>
+</li>
+<li class="li"><span class="indent-level-default">g.</span><p class="p"><strong class="ph b">Dynamic DNS</strong> - Exercises Dynamic DNS capabilities</p>
+</li>
+<li class="li"><span class="indent-level-default">h.</span><p class="p"><strong class="ph b">Network Configuration</strong> - The MAC address, host name, and IP address of the evaluation kit can be viewed in the Network Configuration page and some configurations can be updated</p>
+</li>
+<li class="li"><span class="indent-level-default">i.</span><p class="p"><strong class="ph b">MPFS Upload</strong> - A new set of web pages can be uploaded to the web server using this feature, which is accessed through http://mchpboard_c/mpfsupload</p>
+</li>
+</ol>
+<p class="p"><strong class="ph b">Notes:</strong>  The location of the MPFS image is fixed at the beginning of the Flash page specified by DRV_MEMORY_DEVICE_START_ADDRESS. The size of the MPFS upload is limited to DRV_MEMORY_DEVICE_MEDIA_SIZE in the demonstration.
+The HTTP File Upload functionality has to be enabled when the project is generated.</p>
+<br /><img class="image" src="GUID-7BEC9D45-3234-4E68-B0F4-1032364F7D19-low.png" alt="tcpip_web_ftp_server_project" /><br /></li>
+<li class="li"><span class="indent-level-default">4.</span><p class="p">FTP Server output -</p>
+<p class="p">Also to transfer file , FTP output –</p>
+<p class="p">Open windows command console and enter FTP server IP address (here FTP server IP address - 192.168.100.11) to access the FTP SERVER</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><col style="width:" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="vertical-align:middle;" id="d16415e408"><span>FTP OUTPUT</span></th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>C:&gt;ftp 192.168.100.11</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>Connected to 192.168.100.11.</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>220 Ready</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>User (192.168.100.11:(none)): Microchip</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>331 Password required</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>Password:</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>230 Logged in</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>ftp&gt; pwd</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>257 "/" is cwd</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>ftp&gt; dir</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>200 Command Ok</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>125 File status okay; about to open data connection</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 36 Aug 09 2013 file.txt</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 12 Aug 09 2013 file1.txt</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>drwx------ 0 0 0 0 Feb 25 2019 System Volume Information</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 24 Aug 09 2013 file_hs.txt</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 12 Aug 09 2013 file_hs3.txt</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 468 Aug 09 2013 file_hs5.txt</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 42077 Aug 09 2013 Presentation1.pptx</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>drwx------ 0 0 0 0 Jul 16 2019 ATE_EtherCAT_Demo</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 9287357 Jul 17 2019 ATE_EtherCAT_Demo.7z</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>drwx------ 0 0 0 0 Jul 17 2019 Dell_Laptop_bakcup</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 979594 Dec 03 2019 IoT Demo.pptx</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>drwx------ 0 0 0 0 Dec 10 2019 wifi_rgb_easy_configuration</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>drwx------ 0 0 0 0 Nov 14 2019 wireless</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>drwx------ 0 0 0 0 Nov 26 2019 test_bypass_http_net_server</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 8186726 Nov 27 2019 test_bypass_http_server_1.zip</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>drwx------ 0 0 0 0 Jan 30 2020 FOE_BinFIle</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>drwx------ 0 0 0 0 Jan 31 2020 FoE_Hex_imagefiles</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>drwx------ 0 0 0 0 Mar 16 2020 exam</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>drwx------ 0 0 0 0 Jun 02 2020 webpages</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 525 Jun 09 2020 New Volume (D) - Shortcut.lnk</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>226 Closing data connection. Requested file action successful.</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>ftp: 1424 bytes received in 0.20Seconds 7.19Kbytes/sec.</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>ftp&gt; cd webpages</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>250 /webpages/ is new cwd</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>ftp&gt; dir</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>200 Command Ok</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>125 File status okay; about to open data connection</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>drwx------ 0 0 0 0 Jun 02 2020 dyndns</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>drwx------ 0 0 0 0 Jun 02 2020 email</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>drwx------ 0 0 0 0 Jun 02 2020 protect</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>drwx------ 0 0 0 0 Jun 02 2020 snmp</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 1388 May 03 2019 auth.htm</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 2104 Feb 11 2020 cookies.htm</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 1986 Feb 11 2020 dynvars.htm</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 161 Feb 11 2020 footer.htm</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 2068 Feb 11 2020 forms.htm</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 2150 Feb 11 2020 harmony.gif</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 1232 Feb 11 2020 header.htm</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 3798 Feb 11 2020 index.htm</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 21 Feb 11 2020 leds.cgi</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 3183 Feb 11 2020 mchp.css</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 1263 Feb 11 2020 mchp.gif</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 3721 Feb 11 2020 mchp.js</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 512 Feb 11 2020 snmp.bib</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 2032 Feb 11 2020 ssi.htm</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 183 Feb 11 2020 status.xml</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>-rwx------ 0 0 0 970 Feb 11 2020 upload.htm</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>226 Closing data connection. Requested file action successful.</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>ftp: 1267 bytes received in 0.17Seconds 7.45Kbytes/sec.</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>ftp&gt; get mchp.css</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>200 Command Ok</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>150 File status okay; about to open data connection</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>226 Transfer Complete</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>ftp: 3183 bytes received in 1.42Seconds 2.24Kbytes/sec.</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>ftp&gt; put ActivityLog.xml</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>200 Command Ok</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>150 File status okay; about to open data connection</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>226 Transfer Complete</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>ftp: 86262 bytes sent in 0.56Seconds 152.68Kbytes/sec.</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>ftp&gt; ls</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>200 Command Ok</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>125 File status okay; about to open data connection</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>Date Type FileSize filename</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>05-03-2019 11:54:24 file 1388 auth.htm</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>02-11-2020 16:47:38 file 2104 cookies.htm</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>02-11-2020 16:47:38 file 1986 dynvars.htm</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>02-11-2020 16:47:38 file 161 footer.htm</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>02-11-2020 16:47:40 file 2068 forms.htm</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>02-11-2020 16:47:40 file 2150 harmony.gif</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>02-11-2020 16:47:40 file 1232 header.htm</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>02-11-2020 16:47:40 file 3798 index.htm</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>02-11-2020 16:47:42 file 21 leds.cgi</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>02-11-2020 16:47:42 file 3183 mchp.css</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>02-11-2020 16:47:42 file 1263 mchp.gif</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>02-11-2020 16:47:42 file 3721 mchp.js</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>02-11-2020 16:47:44 file 512 snmp.bib</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>02-11-2020 16:47:46 file 2032 ssi.htm</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>02-11-2020 16:47:46 file 183 status.xml</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>02-11-2020 16:47:46 file 970 upload.htm</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>08-09-2013 15:06:00 file 86262 ActivityLog.xml</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>226 Closing data connection. Requested file action successful.</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>ftp: 799 bytes received in 0.16Seconds 4.99Kbytes/sec.</span></td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="vertical-align:middle;" headers="d16415e408 "><span>ftp&gt;</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="GUID-E3619664-D1A4-427D-A50A-7CBF1634F410.html">MPLAB® Harmony 3 TCP/IP Application for PIC32MZ Family</a></div>
+</div>
+</div></body>
+</html>

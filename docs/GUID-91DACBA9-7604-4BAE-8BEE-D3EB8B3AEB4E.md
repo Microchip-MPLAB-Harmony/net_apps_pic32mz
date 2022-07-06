@@ -1,6 +1,6 @@
 # TCP/IP Web NET Server NVM MPFS Application
 
-The Web Net Server Non-volatile Memory \(NVM\) MPFS configuration demonstrates creating an HTTP web server on a Microchip evaluation board. The Non-Volatile Memory \(NVM\) Microchip Proprietary File System \(MPFS\) is used for storing the web pages in the internal Flash. This demonstration uses the HTTP\_NET server which supports encrypted communication through the NET\_PRES layer and an external service provider for TLS support.
+The Web Net Server Non-volatile Memory \(NVM\) MPFS configuration demonstrates creating an HTTP web server on a Microchip evaluation board.<br />The Non-Volatile Memory \(NVM\) Microchip Proprietary File System \(MPFS\) is used for storing the web pages in the internal Flash.<br />This demonstration uses the HTTP\_NET server which supports encrypted communication through the NET\_PRES layer and an external service provider for TLS support.
 
 **TCP/IP Web NET Server NVM MPFS MHC Configuration**
 
@@ -59,7 +59,7 @@ This is the following section describes the hardware configurations and one of t
 
         ![required_hardware](GUID-D271A617-441D-4CA4-B92C-BCD1DF80C669-low.png)
 
-    -   No hardware related configuration or jumper setting changes are necessary. Connect the mini USB cable from the computer to the USB DEBUG connector on the PIC32MZ EF Ethernet Starter Kit
+    -   No hardware related configuration or jumper setting changes are necessary.<br />Connect the mini USB cable from the computer to the USB DEBUG connector on the PIC32MZ EF Ethernet Starter Kit
 
     -   Connect the mini USB cable from the computer to the USB-UART connector on the PIC32MZ EF Starter Kit
 
@@ -75,7 +75,7 @@ This is the following section describes the hardware configurations and one of t
 
     -   Connect the RealICE, or ICD to the RJ-11 port on the Starter Kit I/O Expansion Board
 
-    -   Connect a USB Mini-b \(5 pin\) cable to the DEBUG USB port connect an Ethernet cable to the Ethernet Port
+    -   Connect a USB Mini-b \(5 pin\) cable to the DEBUG USB port<br />connect an Ethernet cable to the Ethernet Port
 
     -   Connect the 9V power supply to the Starter Kit I/O Expansion Board
 
@@ -85,7 +85,7 @@ This is the following section describes the hardware configurations and one of t
 
         ![required_hardware](GUID-28BB3160-D05D-474F-9FC5-12320C46252A-low.png)
 
-    -   No hardware related configuration or jumper setting changes are necessary. Connect the mini USB cable from the computer to the USB DEBUG connector on the PIC32MZ DA Ethernet Starter Kit
+    -   No hardware related configuration or jumper setting changes are necessary.<br />Connect the mini USB cable from the computer to the USB DEBUG connector on the PIC32MZ DA Ethernet Starter Kit
 
     -   Connect micro USB cable from the computer to the USB connector\(J4\) on the PIC32MZ DA Starter Kit
 
@@ -155,7 +155,7 @@ This table list the name and location of the MPLAB X IDE project folder for the 
 
     9.  **MPFS Upload** - A new set of web pages can be uploaded to the web server using this feature, which is accessed through http://mchpboard\_c/mpfsupload
 
-    **Notes:** The location of the MPFS image is fixed at the beginning of the Flash page specified by DRV\_MEMORY\_DEVICE\_START\_ADDRESS. The size of the MPFS upload is limited to DRV\_MEMORY\_DEVICE\_MEDIA\_SIZE in the demonstration. The HTTP File Upload functionality has to be enabled when the project is generated.
+    **Notes:** The location of the MPFS image is fixed at the beginning of the Flash page specified by DRV\_MEMORY\_DEVICE\_START\_ADDRESS. The size of the MPFS upload is limited to DRV\_MEMORY\_DEVICE\_MEDIA\_SIZE in the demonstration.<br />The HTTP File Upload functionality has to be enabled when the project is generated.
 
     ![tcpip_web_net_server_project](GUID-7BEC9D45-3234-4E68-B0F4-1032364F7D19-low.png)
 
