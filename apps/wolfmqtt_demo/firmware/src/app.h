@@ -85,6 +85,9 @@ typedef enum
     /* In this state, the application initializes its own modules, performs registrations, etc */
     APP_TCPIP_READY,
 
+    /* In this state the application waits for the networks to be ready */
+    APP_TCPIP_WAIT_FOR_IP,
+
     /* In this state, the application can do TCP/IP transactions. */
     APP_TCPIP_TRANSACT,
 

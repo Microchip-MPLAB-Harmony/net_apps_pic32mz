@@ -171,6 +171,22 @@ void APP_Tasks ( void )
                 (void)netBiosName;      // if SYS_CONSOLE_PRINT is null macro
 
             }
+            appData.state = APP_TCPIP_WAIT_FOR_IP;
+            break;
+
+        case APP_TCPIP_WAIT_FOR_IP:
+
+            // wait for the interfaces to be ready
+            nNets = TCPIP_STACK_NumberOfNetworksGet();
+
+            for (i = 0; i < nNets; i++)
+            {
+                netH = TCPIP_STACK_IndexToNet(i);
+                if(!TCPIP_STACK_NetIsReady(netH))
+                {
+                    return;    // interface not ready yet!
+                }
+            }
 
             // initialize the MQTT example application
             if(!APP_MQTT_Init())
