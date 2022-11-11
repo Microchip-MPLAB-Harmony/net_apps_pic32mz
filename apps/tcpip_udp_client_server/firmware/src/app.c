@@ -334,12 +334,7 @@ void _APP_ServerTasks( void )
                 {
                     char i;
                     i = AppBuffer[w2];
-                    if(i >= 'a' && i <= 'z')
-                    {
-                            i -= ('a' - 'A');
-                            AppBuffer[w2] = i;
-                    }
-                    else if(i == '\x1b')   // escape
+                    if(i == '\x1b')   // escape
                     {
                         SYS_CONSOLE_MESSAGE("Server Connection was closed\r\n");
                     }

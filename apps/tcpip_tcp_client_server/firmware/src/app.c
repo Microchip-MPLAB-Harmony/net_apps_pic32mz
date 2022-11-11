@@ -332,12 +332,7 @@ void _APP_ServerTasks()
                 for(w2 = 0; w2 < wCurrentChunk; w2++)
                 {
                     char i = AppBuffer[w2];
-                    if(i >= 'a' && i <= 'z')
-                    {
-                            i -= ('a' - 'A');
-                            AppBuffer[w2] = i;
-                    }
-                    else if(i == '\x1b')   //escape
+                    if(i == '\x1b')   //escape
                     {
                         appData.serverState = APP_TCPIP_CLOSING_CONNECTION;
                         SYS_CONSOLE_MESSAGE("Connection was closed\r\n");
