@@ -4,14 +4,14 @@
 
 
 project: web_net_server_ppp
-creation_date: 2023-10-05T08:57:46.605-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2023-10-05T11:26:47.808-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mcc_mode: IDE            # [IDE|Standalone|Headless]
 mcc_version: v5.3.7
 mcc_core_version: v5.5.7
 mplabx_version: v6.15        # if MPLAB X plugin only
 harmony_version: v1.2.0
-compiler: XC32 (v4.20) 
+compiler: XC32 (v4.35) 
 
 modules:
     - {name: "core", version: "v3.13.1"}
