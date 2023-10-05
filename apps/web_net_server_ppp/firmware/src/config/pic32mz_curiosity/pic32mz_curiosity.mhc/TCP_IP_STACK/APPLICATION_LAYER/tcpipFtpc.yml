@@ -1,0 +1,15 @@
+format_version: v1.0
+type: UniqueComponent
+attributes: {id: tcpipFtpc}
+children:
+- type: Symbols
+  children:
+  - type: Integer
+    attributes: {id: TCPIP_FTPC_HEAP_SIZE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tcpipFtpc, value: '9756'}
+- type: ElementPosition
+  attributes: {x: '350', y: '300', id: tcpipFtpc}
