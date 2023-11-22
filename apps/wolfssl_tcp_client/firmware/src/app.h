@@ -39,7 +39,7 @@
 // Section: Type Definitions
 // *****************************************************************************
 // *****************************************************************************
-
+#define MAX_URL_SIZE 255
 
 #define APP_HTTP_FNV  0xc96448a5
 #define APP_HTTPS_FNV 0xdedea8e2
@@ -99,7 +99,7 @@ typedef struct
     TCP_PORT port;
     void* ctx;
     void* ssl;
-    char urlBuffer[256];
+    char urlBuffer[MAX_URL_SIZE+1];
     char * host;
     char * path;
     uint8_t ipMode;

@@ -68,7 +68,7 @@ bool APP_Commands_Init()
     return true;
 }
 
-char APP_URL_Buffer[MAX_URL_SIZE];
+char APP_URL_Buffer[MAX_URL_SIZE+1];
 
 void _APP_Commands_OpenURL(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
 {

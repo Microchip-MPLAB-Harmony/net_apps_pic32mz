@@ -92,7 +92,7 @@ void _APP_Commands_OpenURL(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Demo is in the wrong state to take this command");
     }
     appData.state = APP_TCPIP_PROCESS_COMMAND;
-    strncpy(appData.urlBuffer, argv[1], sizeof(appData.urlBuffer));
+    strncpy(appData.urlBuffer, argv[1], MAX_URL_SIZE);
 }
 
 extern APP_DATA appData;
