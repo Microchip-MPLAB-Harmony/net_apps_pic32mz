@@ -1,32 +1,23 @@
 /*******************************************************************************
-  SYS CLK Static Functions for Clock System Service
-
-  Company:
-    Microchip Technology Inc.
+ System Tasks Header File
 
   File Name:
-    plib_clk.h
+    sys_tasks.h
 
   Summary:
-    SYS CLK static function interface for the Clock System Service.
+    This file contains declarations for task handles.
 
   Description:
-    The Clock System Service provides a simple interface to manage the
-    oscillators on Microchip microcontrollers. This file defines the static
-    implementation for the Clock System Service.
+    Task handles declared in this header file can be used by the application
+    to control the behavior of the tasks.
 
   Remarks:
-    Static functions incorporate all system clock configuration settings as
-    determined by the user via the Microchip Harmony Configurator GUI.
-    It provides static version of the routines, eliminating the need for an
-    object ID or object handle.
+    None
+ *******************************************************************************/
 
-    Static single-open interfaces also eliminate the need for the open handle.
-
-*******************************************************************************/
-
+// DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2023 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -46,10 +37,11 @@
 * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
-*******************************************************************************/
+ *******************************************************************************/
+// DOM-IGNORE-END
 
-#ifndef PLIB_CLK_H
-#define PLIB_CLK_H
+#ifndef SYS_TASKS_H
+#define SYS_TASKS_H
 
 // *****************************************************************************
 // *****************************************************************************
@@ -57,62 +49,21 @@
 // *****************************************************************************
 // *****************************************************************************
 
-#include <stddef.h>
-#include <stdbool.h>  
-
-// DOM-IGNORE-BEGIN
-#ifdef __cplusplus // Provide C++ Compatibility
-
-	extern "C" {
-
-#endif
-// DOM-IGNORE-END
- 
-// *****************************************************************************
-// *****************************************************************************
-// Section: CLK Module System Interface Routines
-// *****************************************************************************
-// *****************************************************************************
+#include "configuration.h"
+#include "definitions.h"
 
 // *****************************************************************************
-/* Function:
-    void CLK_Initialize( void )
+// *****************************************************************************
+// Section: RTOS "Tasks" Handles
+// *****************************************************************************
+// *****************************************************************************
+/* Declaration of  APP_Tasks task handle */
+extern TaskHandle_t xAPP_Tasks;
 
-  Summary:
-    Initializes hardware of the System Clock and Peripheral Clock.
-    
-  Description:
-    This function initializes the hardware of System Clock and Peripheral Clocks.
 
-  Precondition:
-    None.
+/* Declaration of SYS_COMMAND task handle */
+extern TaskHandle_t xSYS_CMD_Tasks;
 
-  Parameters:
-    None.
 
-  Returns:
-    None.
 
-  Example:
-    <code>
-    Example 1: Do not alter the configuration bit settings
-    CLK_Initialize ( );
-
-    </code>
-
-  Remarks:
-    None.
-*/
-
-void CLK_Initialize( void );
-
-// DOM-IGNORE-BEGIN
-#ifdef __cplusplus  // Provide C++ Compatibility
-
-    }
-
-#endif
-// DOM-IGNORE-END
-
-#endif //PLIB_CLK_H
-
+#endif //SYS_TASKS_H

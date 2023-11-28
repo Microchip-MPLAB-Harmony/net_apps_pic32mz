@@ -2,30 +2,28 @@
   MAC Module (Microchip PIC32MX5-7) for Microchip TCP/IP Stack
 *******************************************************************************/
 
-/*****************************************************************************
- Copyright (C) 2012-2020 Microchip Technology Inc. and its subsidiaries.
+/*
+Copyright (C) 2012-2023, Microchip Technology Inc., and its subsidiaries. All rights reserved.
 
-Microchip Technology Inc. and its subsidiaries.
+The software and documentation is provided by microchip and its contributors
+"as is" and any express, implied or statutory warranties, including, but not
+limited to, the implied warranties of merchantability, fitness for a particular
+purpose and non-infringement of third party intellectual property rights are
+disclaimed to the fullest extent permitted by law. In no event shall microchip
+or its contributors be liable for any direct, indirect, incidental, special,
+exemplary, or consequential damages (including, but not limited to, procurement
+of substitute goods or services; loss of use, data, or profits; or business
+interruption) however caused and on any theory of liability, whether in contract,
+strict liability, or tort (including negligence or otherwise) arising in any way
+out of the use of the software and documentation, even if advised of the
+possibility of such damage.
 
-Subject to your compliance with these terms, you may use Microchip software 
-and any derivatives exclusively with Microchip products. It is your 
-responsibility to comply with third party license terms applicable to your 
-use of third party software (including open source software) that may 
-accompany Microchip software.
-
-THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
-EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED 
-WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A PARTICULAR 
-PURPOSE.
-
-IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
-INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
-WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS 
-BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE 
-FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN 
-ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY, 
-THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
-*****************************************************************************/
+Except as expressly permitted hereunder and subject to the applicable license terms
+for any third-party software incorporated in the software and any applicable open
+source software license terms, no license or other rights, whether express or
+implied, are granted under any patent or other intellectual property rights of
+Microchip or any third party.
+*/
 
 
 #include "driver/ethmac/src/dynamic/drv_ethmac_lib.h"
@@ -95,11 +93,11 @@ static void     _MACDeinit(DRV_ETHMAC_INSTANCE_DCPT* pMacD );
 static TCPIP_MAC_RES    _MACTxPacket(DRV_ETHMAC_INSTANCE_DCPT* pMacD, TCPIP_MAC_PACKET * ptrPacket);
 static void             _MACTxAcknowledgeEth(DRV_ETHMAC_INSTANCE_DCPT* pMacD);
 static void             _MACTxPacketAckCallback(void* pPktBuff, void* fParam);
-static TCPIP_MAC_RES    _MacTxPendingPackets(DRV_ETHMAC_INSTANCE_DCPT* pMacD);
+static void             _MacTxPendingPackets(DRV_ETHMAC_INSTANCE_DCPT* pMacD, TCPIP_MAC_PACKET* pPkt);
 
 static void             _MacTxDiscardQueues(DRV_ETHMAC_INSTANCE_DCPT* pMacD, TCPIP_MAC_PKT_ACK_RES ackRes, bool synch);
 
-static bool             _MacRxPacketAck(TCPIP_MAC_PACKET* pkt,  const void* param);
+static void             _MacRxPacketAck(TCPIP_MAC_PACKET* pkt,  const void* param);
 
 static TCPIP_MAC_RES    DRV_ETHMAC_PIC32MACEventInit(DRV_HANDLE hMac, TCPIP_MAC_EventF eventF, const void* eventParam);
 #if (TCPIP_STACK_MAC_DOWN_OPERATION != 0)
@@ -740,7 +738,6 @@ void DRV_ETHMAC_PIC32MACClose( DRV_HANDLE hMac )
 
 TCPIP_MAC_RES DRV_ETHMAC_PIC32MACPacketTx(DRV_HANDLE hMac, TCPIP_MAC_PACKET * ptrPacket)
 {
-    TCPIP_MAC_RES       macRes;
     TCPIP_MAC_PACKET*   pPkt;
     TCPIP_MAC_DATA_SEGMENT* pSeg;
     DRV_ETHMAC_INSTANCE_DCPT* pMacD = _PIC32HandleToMacInst(hMac);
@@ -751,9 +748,6 @@ TCPIP_MAC_RES DRV_ETHMAC_PIC32MACPacketTx(DRV_HANDLE hMac, TCPIP_MAC_PACKET * pt
     }
 
     _MACTxAcknowledgeEth(pMacD);
-
-    // transmit the pending packets...don't transmit out of order
-    macRes = _MacTxPendingPackets(pMacD);
 
     pPkt = ptrPacket;
 
@@ -770,38 +764,12 @@ TCPIP_MAC_RES DRV_ETHMAC_PIC32MACPacketTx(DRV_HANDLE hMac, TCPIP_MAC_PACKET * pt
         pPkt = pPkt->next;
     }
 
-    _DRV_ETHMAC_TxLock(pMacD);
-    while(ptrPacket && macRes == TCPIP_MAC_RES_OK)
-    {   // can schedule some packets
-        // set the queue flag; avoid race condition if MACTx is really fast;
-        ptrPacket->pktFlags |= TCPIP_MAC_PKT_FLAG_QUEUED;
-        macRes = _MACTxPacket(pMacD, ptrPacket);
-        
-        if(macRes == TCPIP_MAC_RES_PACKET_ERR)
-        {   // no longer in our queue
-            ptrPacket->pktFlags &= ~TCPIP_MAC_PKT_FLAG_QUEUED;
-            _DRV_ETHMAC_TxUnlock(pMacD);
-            return TCPIP_MAC_RES_PACKET_ERR;
-        }
+    // pkt OK; add it and transmit the pending packets
+    // don't transmit out of order
+    _MacTxPendingPackets(pMacD, ptrPacket);
 
-        if(macRes == TCPIP_MAC_RES_PENDING)
-        {   // no more room into the hw queue
-            break;
-        }
-        ptrPacket = ptrPacket->next;
-    }
-
-    // queue what's left
-    while(ptrPacket)
-    {
-        DRV_ETHMAC_SingleListTailAdd(&pMacD->mData._TxQueue, (DRV_ETHMAC_SGL_LIST_NODE*)ptrPacket);
-        ptrPacket->pktFlags |= TCPIP_MAC_PKT_FLAG_QUEUED;
-        ptrPacket = ptrPacket->next;
-    }
-
-    _DRV_ETHMAC_TxUnlock(pMacD);
-
-    return TCPIP_MAC_RES_OK;
+    // it's been scheduled...somehow
+    return TCPIP_MAC_RES_PENDING;
 }
 
 /**************************
@@ -1374,7 +1342,7 @@ TCPIP_MAC_RES DRV_ETHMAC_PIC32MACProcess(DRV_HANDLE hMac)
 
     _MACTxAcknowledgeEth(pMacD);
 
-    _MacTxPendingPackets(pMacD);
+    _MacTxPendingPackets(pMacD, 0);
 
     // replenish RX buffers
     if((rxLowThreshold = pMacD->mData.macConfig.rxLowThreshold) != 0)
@@ -1536,53 +1504,64 @@ static void _MACTxPacketAckCallback(void* pBuff, void* fParam)
 
 // transmits pending packets, if any
 // if the link is down the TX queued packets are discarded
-// returns:
-//      - TCPIP_MAC_RES_OK if the queue is empty and another packet can be scheduled for TX
-//      - TCPIP_MAC_RES_PENDING if MAC descriptor queue is full and no packet can be scheduled for TX
-//
-static TCPIP_MAC_RES _MacTxPendingPackets(DRV_ETHMAC_INSTANCE_DCPT* pMacD)
+static void _MacTxPendingPackets(DRV_ETHMAC_INSTANCE_DCPT* pMacD, TCPIP_MAC_PACKET* pPkt)
 {
-    TCPIP_MAC_PACKET* pPkt;
     TCPIP_MAC_RES     pktRes;
+
+    TCPIP_MAC_PACKET* pNext;
+    // add the packets to the TX queue
+    if(pPkt)
+    {
+        _DRV_ETHMAC_TxLock(pMacD);
+        for(; pPkt != 0; pPkt = pNext)
+        {
+            pNext = pPkt->next;
+            pPkt->pktFlags |= TCPIP_MAC_PKT_FLAG_QUEUED;
+            DRV_ETHMAC_SingleListTailAdd(&pMacD->mData._TxQueue, (DRV_ETHMAC_SGL_LIST_NODE*)pPkt);
+        }
+        _DRV_ETHMAC_TxUnlock(pMacD);
+    }
+
 
     if((pMacD->mData._controlFlags & TCPIP_MAC_CONTROL_NO_LINK_CHECK) == 0 && pMacD->mData._macFlags._linkPrev == false)
     {   // discard the TX queues
         _MacTxDiscardQueues(pMacD, TCPIP_MAC_PKT_ACK_LINK_DOWN, true); 
         // no need to try to schedule for TX
-        return TCPIP_MAC_RES_PENDING;
+        return;
     }
 
 
-    DRV_ETHMAC_SGL_LIST failedList;
-    DRV_ETHMAC_SingleListInitialize(&failedList);
-
+    // transmit the pending packets
+    // the _MACTxPacket() operation is lengthy: to avoid keeping the system locked for too long
+    // we make our own copy of packets to TX:
+    DRV_ETHMAC_SGL_LIST txList;
+    DRV_ETHMAC_SingleListInitialize(&txList);
+    
     _DRV_ETHMAC_TxLock(pMacD);
-    while( (pPkt = (TCPIP_MAC_PACKET*)(pMacD->mData._TxQueue.head)) != 0)
+    while((pPkt = (TCPIP_MAC_PACKET*)DRV_ETHMAC_SingleListHeadRemove(&pMacD->mData._TxQueue)) != 0)
+    {
+        DRV_ETHMAC_SingleListTailAdd(&txList, (DRV_ETHMAC_SGL_LIST_NODE*)pPkt);
+    }
+    _DRV_ETHMAC_TxUnlock(pMacD);
+
+    // now transmit the packets from the list
+    while( (pPkt = (TCPIP_MAC_PACKET*)(txList.head)) != 0)
     {
         pktRes = _MACTxPacket(pMacD, pPkt);
         if(pktRes == TCPIP_MAC_RES_PENDING)
         {   // not enough room in the hw queue
-            _DRV_ETHMAC_TxUnlock(pMacD);
-            return TCPIP_MAC_RES_PENDING;
+            break;
         }
 
-        // on way or another we're done with this packet
-        DRV_ETHMAC_SingleListHeadRemove(&pMacD->mData._TxQueue);
-        if(pktRes != TCPIP_MAC_RES_OK)
-        {   // not transmitted
-            DRV_ETHMAC_SingleListTailAdd(&failedList, (DRV_ETHMAC_SGL_LIST_NODE*)pPkt);
-        }
+        // packet done
+        DRV_ETHMAC_SingleListHeadRemove(&txList);
     }
 
+    // what's left in txList needs to be added back to the _TxQueue
+    // preferrably in the same order
+    _DRV_ETHMAC_TxLock(pMacD);
+    DRV_ETHMAC_SingleListAppend(&pMacD->mData._TxQueue, &txList);
     _DRV_ETHMAC_TxUnlock(pMacD);
-
-    // acknowledge the failed list
-    while( (pPkt = (TCPIP_MAC_PACKET*)DRV_ETHMAC_SingleListHeadRemove(&failedList)) != 0)
-    {
-        (*pMacD->mData.pktAckF)(pPkt, TCPIP_MAC_PKT_ACK_BUFFER_ERR, TCPIP_THIS_MODULE_ID);
-    }
-
-    return TCPIP_MAC_RES_OK;
 }
 
 /*********************************************************************
@@ -1769,7 +1748,7 @@ static void _MacTxDiscardQueues(DRV_ETHMAC_INSTANCE_DCPT* pMacD, TCPIP_MAC_PKT_A
 }
 
 // a RX packet has been done with 
-static bool _MacRxPacketAck(TCPIP_MAC_PACKET* pRxPkt,  const void* param)
+static void _MacRxPacketAck(TCPIP_MAC_PACKET* pRxPkt,  const void* param)
 {
     TCPIP_MAC_PACKET* pCurrPkt;
     TCPIP_MAC_DATA_SEGMENT* pSeg, *pNSeg;
@@ -1809,7 +1788,6 @@ static bool _MacRxPacketAck(TCPIP_MAC_PACKET* pRxPkt,  const void* param)
         }
     }
 
-    return false;
 }
 
 

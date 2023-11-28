@@ -1,81 +1,78 @@
 /*******************************************************************************
-  SMSC LAN8740 definitions
+  LAN8740 definitions
 
   Company:
     Microchip Technology Inc.
     
   File Name:
-    eth_pic32_ext_phy_smsc8740.h
+    eth_pic32_ext_phy_lan8740.h
 
   Summary:
-    SMSC LAN8740 definitions
+    LAN8740 definitions
 
   Description:
-    This file provides the SMSC LAN8740 definitions.
+    This file provides the LAN8740 definitions.
 *******************************************************************************/
 // DOM-IGNORE-BEGIN
-/*****************************************************************************
- Copyright (C) 2012-2018 Microchip Technology Inc. and its subsidiaries.
+/*
+Copyright (C) 2012-2023, Microchip Technology Inc., and its subsidiaries. All rights reserved.
 
-Microchip Technology Inc. and its subsidiaries.
+The software and documentation is provided by microchip and its contributors
+"as is" and any express, implied or statutory warranties, including, but not
+limited to, the implied warranties of merchantability, fitness for a particular
+purpose and non-infringement of third party intellectual property rights are
+disclaimed to the fullest extent permitted by law. In no event shall microchip
+or its contributors be liable for any direct, indirect, incidental, special,
+exemplary, or consequential damages (including, but not limited to, procurement
+of substitute goods or services; loss of use, data, or profits; or business
+interruption) however caused and on any theory of liability, whether in contract,
+strict liability, or tort (including negligence or otherwise) arising in any way
+out of the use of the software and documentation, even if advised of the
+possibility of such damage.
 
-Subject to your compliance with these terms, you may use Microchip software 
-and any derivatives exclusively with Microchip products. It is your 
-responsibility to comply with third party license terms applicable to your 
-use of third party software (including open source software) that may 
-accompany Microchip software.
-
-THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
-EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED 
-WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A PARTICULAR 
-PURPOSE.
-
-IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
-INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
-WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS 
-BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE 
-FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN 
-ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY, 
-THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
-*****************************************************************************/
+Except as expressly permitted hereunder and subject to the applicable license terms
+for any third-party software incorporated in the software and any applicable open
+source software license terms, no license or other rights, whether express or
+implied, are granted under any patent or other intellectual property rights of
+Microchip or any third party.
+*/
 
 // DOM-IGNORE-END
 
-#ifndef _SMSC_8700_H_
+#ifndef _LAN_8700_H_
 
-#define _SMSC_8700_H_
+#define _LAN_8700_H_
 
 typedef enum
 {
-	/*
-	// basic registers, accross all registers: 0-1
-	PHY_REG_BMCON		= 0,
-	PHY_REG_BMSTAT		= 1,
-	// extended registers: 2-15
-	PHY_REG_PHYID1		= 2,
-	PHY_REG_PHYID2		= 3,
-	PHY_REG_ANAD		= 4,
-	PHY_REG_ANLPAD		= 5,
-	PHY_REG_ANLPADNP	= 5,
-	PHY_REG_ANEXP		= 6,
-	PHY_REG_ANNPTR		= 7,
-	PHY_REG_ANLPRNP		= 8,
-	*/
-	// specific vendor registers: 16-31
-	PHY_REG_SILICON_REV	= 16,
-	PHY_REG_MODE_CTRL	= 17,
-	PHY_REG_SPECIAL_MODE	= 18,
-	PHY_REG_SYMBOL_ERR_CNT	= 26,
-	PHY_REG_SPECIAL_CTRL	= 27,
-	PHY_REG_INT_SOURCE	= 29,
-	PHY_REG_INT_MASK	= 30,
-	PHY_REG_PHY_CTRL	= 31,
-	PHY_MMD_ACCESS_CONTROL = 13,
-	PHY_MMD_ACCESS_DATA_ADDR = 14,
-	//
-	//PHY_REGISTERS		= 32	// total number of registers
-}ePHY_VENDOR_REG;
-// updated version of ePHY_REG
+    /*
+    // basic registers, accross all registers: 0-1
+    PHY_REG_BMCON       = 0,
+    PHY_REG_BMSTAT      = 1,
+    // extended registers: 2-15
+    PHY_REG_PHYID1      = 2,
+    PHY_REG_PHYID2      = 3,
+    PHY_REG_ANAD        = 4,
+    PHY_REG_ANLPAD      = 5,
+    PHY_REG_ANLPADNP    = 5,
+    PHY_REG_ANEXP       = 6,
+    PHY_REG_ANNPTR      = 7,
+    PHY_REG_ANLPRNP     = 8,
+    */
+    // specific vendor registers: 16-31
+    PHY_REG_SILICON_REV = 16,
+    PHY_REG_MODE_CTRL   = 17,
+    PHY_REG_SPECIAL_MODE    = 18,
+    PHY_REG_SYMBOL_ERR_CNT  = 26,
+    PHY_REG_SPECIAL_CTRL    = 27,
+    PHY_REG_INT_SOURCE  = 29,
+    PHY_REG_INT_MASK    = 30,
+    PHY_REG_PHY_CTRL    = 31,
+    PHY_MMD_ACCESS_CONTROL = 13,
+    PHY_MMD_ACCESS_DATA_ADDR = 14,
+    //
+    //PHY_REGISTERS     = 32    // total number of registers
+}LAN8740_VENDOR_REG;
 
 
 // vendor registers
@@ -89,8 +86,8 @@ typedef union {
   struct {
     unsigned short w:16;
   };
-} __SILICONREVbits_t;	// reg 16: PHY_REG_SILICON_REV 
-#define	_SILICONREV_SILICON_REV_MASK		0x03c0
+} __SILICONREVbits_t;   // reg 16: PHY_REG_SILICON_REV 
+#define _SILICONREV_SILICON_REV_MASK        0x03c0
 
 
 typedef union {
@@ -112,15 +109,15 @@ typedef union {
   struct {
     unsigned short w:16;
   };
-} __MODECTRLbits_t;	// reg 17: PHY_REG_MODE_CTRL
-#define	_MODECTRL_ENERGYON_MASK		0x0002
-#define	_MODECTRL_FORCE_GOOD_LINK_MASK	0x0004
-#define	_MODECTRL_PHYADPB_MASK		0x0008
-#define	_MODECTRL_ALTINT_MASK		0x0040
-#define	_MODECTRL_FAR_LOOPBACK_MASK	0x0200
-#define	_MODECTRL_MDPREPB_MASK		0x0400
-#define	_MODECTRL_LOWSQEN_MASK		0x0800
-#define	_MODECTRL_EDPWRDOWN_MASK	0x2000
+} __MODECTRLbits_t; // reg 17: PHY_REG_MODE_CTRL
+#define _MODECTRL_ENERGYON_MASK     0x0002
+#define _MODECTRL_FORCE_GOOD_LINK_MASK  0x0004
+#define _MODECTRL_PHYADPB_MASK      0x0008
+#define _MODECTRL_ALTINT_MASK       0x0040
+#define _MODECTRL_FAR_LOOPBACK_MASK 0x0200
+#define _MODECTRL_MDPREPB_MASK      0x0400
+#define _MODECTRL_LOWSQEN_MASK      0x0800
+#define _MODECTRL_EDPWRDOWN_MASK    0x2000
 
 
 typedef union {
@@ -134,10 +131,10 @@ typedef union {
   struct {
     unsigned short w:16;
   };
-} __SPECIALMODEbits_t;	// reg 18: PHY_REG_SPECIAL_MODE
-#define	_SPECIALMODE_PHYAD_MASK		0x001f
-#define	_SPECIALMODE_MODE_MASK		0x00e0
-#define	_SPECIALMODE_MIIMODE_MASK	0x4000
+} __SPECIALMODEbits_t;  // reg 18: PHY_REG_SPECIAL_MODE
+#define _SPECIALMODE_PHYAD_MASK     0x001f
+#define _SPECIALMODE_MODE_MASK      0x00e0
+#define _SPECIALMODE_MIIMODE_MASK   0x4000
 
 
 
@@ -149,7 +146,7 @@ typedef union {
   struct {
     unsigned short w:16;
   };
-} __SYMBOLERRCNTbits_t;	// reg 26: PHY_REG_SYMBOL_ERR_CNT
+} __SYMBOLERRCNTbits_t; // reg 26: PHY_REG_SYMBOL_ERR_CNT
 
 
 typedef union {
@@ -166,11 +163,11 @@ typedef union {
   struct {
     unsigned short w:16;
   };
-} __SPECIALCTRLbits_t;	// reg 27: PHY_REG_SPECIAL_CTRL
-#define	_SPECIALCTRL_XPOL_MASK		0x0010
-#define	_SPECIALCTRL_SQEOFF_MASK	0x0800
-#define	_SPECIALCTRL_CH_SELECT_MASK	0x2000    // Manual MDIX
-#define	_SPECIALCTRL_AMDIXCTRL_MASK	0x8000
+} __SPECIALCTRLbits_t;  // reg 27: PHY_REG_SPECIAL_CTRL
+#define _SPECIALCTRL_XPOL_MASK      0x0010
+#define _SPECIALCTRL_SQEOFF_MASK    0x0800
+#define _SPECIALCTRL_CH_SELECT_MASK 0x2000    // Manual MDIX
+#define _SPECIALCTRL_AMDIXCTRL_MASK 0x8000
 
 
 
@@ -191,7 +188,7 @@ typedef union {
   struct {
     unsigned short w:16;
   };
-} __INTSOURCEbits_t;	// reg 29: PHY_REG_INT_SOURCE
+} __INTSOURCEbits_t;    // reg 29: PHY_REG_INT_SOURCE
 
 typedef union {
   struct {
@@ -209,15 +206,15 @@ typedef union {
   struct {
     unsigned short w:16;
   };
-} __INTMASKbits_t;	// reg 30: PHY_REG_INT_MASK
+} __INTMASKbits_t;  // reg 30: PHY_REG_INT_MASK
 
 #define WOL_INT8_EN 0x0100
 
 typedef union {
-  struct {	      
+  struct {        
     unsigned SCRMBL_DISBL:1;
     unsigned :1;
-    unsigned SPEED:3;	// 1: 10MbpsHD; 5:10MbpsFD; 2: 100MbpsHD; 6: 100MbpsFD; 
+    unsigned SPEED:3;   // 1: 10MbpsHD; 5:10MbpsFD; 2: 100MbpsHD; 6: 100MbpsFD; 
     unsigned :1;
     unsigned ENABLE_4B5B:1;
     unsigned GPO:3;
@@ -228,19 +225,19 @@ typedef union {
   struct {
     unsigned short w:16;
   };
-} __PHYCTRLbits_t;	// reg 31: PHY_REG_PHY_CTRL
-#define	_PHYCTRL_SCRMBL_DISBL_MASK	0x0001
-#define	_PHYCTRL_SPEED_MASK		0x001c
-#define	_PHYCTRL_SPEED_FDUPLX_MASK	0x0010
-#define	_PHYCTRL_SPEED_100_10_MASK	0x000c
-#define	_PHYCTRL_SPEED_100_MASK		0x0008
-#define	_PHYCTRL_ENABLE_4B5B_MASK	0x0040
-#define	_PHYCTRL_GPO_MASK		0x0380
-#define	_PHYCTRL_AUTODONE_MASK		0x1000
+} __PHYCTRLbits_t;  // reg 31: PHY_REG_PHY_CTRL
+#define _PHYCTRL_SCRMBL_DISBL_MASK  0x0001
+#define _PHYCTRL_SPEED_MASK     0x001c
+#define _PHYCTRL_SPEED_FDUPLX_MASK  0x0010
+#define _PHYCTRL_SPEED_100_10_MASK  0x000c
+#define _PHYCTRL_SPEED_100_MASK     0x0008
+#define _PHYCTRL_ENABLE_4B5B_MASK   0x0040
+#define _PHYCTRL_GPO_MASK       0x0380
+#define _PHYCTRL_AUTODONE_MASK      0x1000
 
 // MMD ( MDIO Managable Devices )
 typedef union {
-  struct {	      
+  struct {        
     unsigned MMD_DEV_ADDR:5;
     unsigned :9;
     unsigned MMD_FUNCTION:2;
@@ -248,7 +245,7 @@ typedef union {
   struct {
     unsigned short w:16;
   };
-} __MMDACCESSCONTROLbits_t;	// Index 13: 
+} __MMDACCESSCONTROLbits_t; // Index 13: 
 
 
 #define _PHY_MMD_CNTL_ACCESS_ADDRESS_MASK  0x0000 // 15 and 14th is 00
@@ -283,7 +280,7 @@ typedef union {
   struct {
     unsigned short w:16;
   };
-} __WOL_CNTL_STATUS_bits_t;	// Index 3.32784: 
+} __WOL_CNTL_STATUS_bits_t; // Index 3.32784: 
 
 #define _MII_RMII_INTF_MASK                     0x8000
 #define _LED1_FUNCTION_LINKACTIVITY_MASK        0x0000
@@ -322,7 +319,7 @@ typedef union {
   struct {
     unsigned short w:16;
   };
-} __WOL_FILTER_CONFIG_bits_t;	// Index 3.32785: 
+} __WOL_FILTER_CONFIG_bits_t;   // Index 3.32785: 
 
 #define _WOL_WAKEUP_FILTER_ENABLE           0x8000
 #define _WOL_WAKEUP_FILTER_TRIGGERED        0x4000
@@ -406,5 +403,5 @@ typedef enum
 #define WOL_WAKEUP_BYTEMASK_REG6 0x0000
 #define WOL_WAKEUP_BYTEMASK_REG7 0x0000
 
-#endif	// _SMSC_8700_H_
+#endif  // _LAN_8700_H_
 
