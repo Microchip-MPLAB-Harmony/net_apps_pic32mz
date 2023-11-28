@@ -1,22 +1,23 @@
 /*******************************************************************************
-  Board Support Package Implementation
-
-  Company:
-    Microchip Technology Inc.
+ System Tasks Header File
 
   File Name:
-    bsp.c
+    sys_tasks.h
 
   Summary:
-    Board Support Package implementation.
+    This file contains declarations for task handles.
 
   Description:
-    This file contains routines that implement the board support package
-*******************************************************************************/
+    Task handles declared in this header file can be used by the application
+    to control the behavior of the tasks.
+
+  Remarks:
+    None
+ *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2023 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -36,8 +37,11 @@
 * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
-*******************************************************************************/
+ *******************************************************************************/
 // DOM-IGNORE-END
+
+#ifndef SYS_TASKS_H
+#define SYS_TASKS_H
 
 // *****************************************************************************
 // *****************************************************************************
@@ -45,43 +49,8 @@
 // *****************************************************************************
 // *****************************************************************************
 
-#include "bsp.h"
-
-// *****************************************************************************
-// *****************************************************************************
-// *****************************************************************************
-// Section: Interface Routines
-// *****************************************************************************
-// *****************************************************************************
-
-// *****************************************************************************
-/* Function:
-    void BSP_Initialize(void)
-
-  Summary:
-    Performs the necessary actions to initialize a board
-
-  Description:
-    This function initializes the LED, Switch and other ports on the board.
-    This function must be called by the user before using any APIs present in
-    this BSP.
-
-  Remarks:
-    Refer to bsp.h for usage information.
-*/
-
-void BSP_Initialize(void )
-{
+#include "configuration.h"
+#include "definitions.h"
 
 
-    /* Switch off LEDs */
-		LED1_Off();
-		LED2_Off();
-		LED3_Off();
-
-
-}
-
-/*******************************************************************************
- End of File
-*/
+#endif //SYS_TASKS_H
