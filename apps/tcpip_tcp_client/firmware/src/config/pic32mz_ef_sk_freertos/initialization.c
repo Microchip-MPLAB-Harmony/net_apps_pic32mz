@@ -197,6 +197,13 @@ const TCPIP_UDP_MODULE_CONFIG tcpipUDPInitData =
     .sktTxBuffSize  = TCPIP_UDP_SOCKET_DEFAULT_TX_SIZE, 
 };
 
+/*** TCP Sockets Initialization Data ***/
+const TCPIP_TCP_MODULE_CONFIG tcpipTCPInitData =
+{
+    .nSockets       = TCPIP_TCP_MAX_SOCKETS,
+    .sktTxBuffSize  = TCPIP_TCP_SOCKET_DEFAULT_TX_SIZE, 
+    .sktRxBuffSize  = TCPIP_TCP_SOCKET_DEFAULT_RX_SIZE,
+};
 
 
 
@@ -296,6 +303,7 @@ const TCPIP_STACK_MODULE_CONFIG TCPIP_STACK_MODULE_CONFIG_TBL [] =
 
     {TCPIP_MODULE_ARP,              &tcpipARPInitData},             // TCPIP_MODULE_ARP
     {TCPIP_MODULE_UDP,              &tcpipUDPInitData},             // TCPIP_MODULE_UDP
+    {TCPIP_MODULE_TCP,              &tcpipTCPInitData},             // TCPIP_MODULE_TCP
     {TCPIP_MODULE_DHCP_CLIENT,      &tcpipDHCPInitData},            // TCPIP_MODULE_DHCP_CLIENT
     {TCPIP_MODULE_DNS_CLIENT,       &tcpipDNSClientInitData},       // TCPIP_MODULE_DNS_CLIENT
 
@@ -529,6 +537,7 @@ void SYS_Initialize ( void* data )
    SYS_ASSERT(sysObj.tcpip != SYS_MODULE_OBJ_INVALID, "TCPIP_STACK_Init Failed" );
 
 
+    CRYPT_WCCB_Initialize();
 
     /* MISRAC 2012 deviation block end */
     APP_Initialize();
