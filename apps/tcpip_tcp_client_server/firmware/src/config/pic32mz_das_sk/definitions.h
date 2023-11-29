@@ -82,6 +82,12 @@ extern "C" {
 #endif
 // DOM-IGNORE-END
 
+/* Device Information */
+#define DEVICE_NAME			 "PIC32MZ2064DAS169"
+#define DEVICE_ARCH			 "MIPS"
+#define DEVICE_FAMILY		 "PIC32MZDA"
+#define DEVICE_SERIES		 "PIC32MZ"
+
 /* CPU clock frequency */
 #define CPU_CLOCK_FREQUENCY 200000000
 
@@ -200,8 +206,8 @@ typedef struct
 
 
     SYS_MODULE_OBJ  tcpip;
+   SYS_MODULE_OBJ  drvMiim_0;
 
-    SYS_MODULE_OBJ  drvMiim;
     SYS_MODULE_OBJ  sysDebug;
 
 
