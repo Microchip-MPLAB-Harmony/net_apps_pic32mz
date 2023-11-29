@@ -252,6 +252,7 @@
         </logicalFolder>
       </logicalFolder>
       <itemPath>../src/app.h</itemPath>
+      <itemPath>../src/app_commands.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -379,6 +380,7 @@
       </logicalFolder>
       <itemPath>../src/main.c</itemPath>
       <itemPath>../src/app.c</itemPath>
+      <itemPath>../src/app_commands.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -388,6 +390,9 @@
       <itemPath>../src/config/pic32mz_das_sk/harmony-manifest-success.yml</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>../src</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="pic32mz_das_sk" type="2">
@@ -396,7 +401,7 @@
         <targetDevice>PIC32MZ2064DAS169</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PKOBSKDEPlatformTool</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>4.35</languageToolchainVersion>
         <platform>3</platform>

@@ -17,7 +17,7 @@ modules:
     - {name: "core", version: "v3.13.1"}
     - {name: "csp", version: "v3.18.0"}
     - {name: "dev_packs", version: "v3.18.1"}
-    - {name: "net", version: "v3.10.1-23-gab8d279"}
+    - {name: "net", version: "v3.11.0"}
     - {name: "bsp", version: "v3.17.0"}
     - {name: "CMSIS-FreeRTOS", version: "v10.5.1"}
 
