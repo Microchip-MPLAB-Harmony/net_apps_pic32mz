@@ -5,9 +5,9 @@
 		"metaDataVersion": "1.1.0",
 		"name": "com.microchip.mcu32.mplabx.project.net_apps_pic32mz_tcpip_udp_client_pic32mz_das_sk_freertos",
 		"version": "3.9.0",
-		"displayName": "TCP/IP UDP Server Example for PIC32MZ DA Family",
+		"displayName": "TCP/IP UDP Client Example for PIC32MZ DA Family",
 		"projectName": "tcpip_udp_client_freertos",
-		"shortDescription": "The UDP  Server configuration demonstrates creating a network server that uses the MPLAB Harmony UDP API to create a UDP/IP echo server on port 9760.",
+		"shortDescription": "The UDP  Client configuration demonstrates creating a network client that uses the MPLAB Harmony UDP API to create a UDP/IP client connection to an UDP server port.",
 		"ide": {
 			"name": "MPLABX",
 			"semverRange": ">=6.15.0"
@@ -42,10 +42,10 @@
 				"Development Kit", "PIC32MZ Embedded Graphics with Stacked DRAM (DA) Starter Kit (Crypto)"
 			],
 			[
-				"Harmony", "Middleware", "TCP/IP", "TCPIP_UDP_SERVER"
+				"Harmony", "Middleware", "TCP/IP", "TCPIP_UDP_CLIENT"
 			],
 			[
-				"Middleware", "TCP/IP", "TCPIP_UDP_SERVER"
+				"Middleware", "TCP/IP", "TCPIP_UDP_CLIENT"
 			]
 		],
 		"peripherals": [
