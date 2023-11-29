@@ -732,6 +732,19 @@
   &lt;FreeRTOS dnOrder=&quot;0&quot; id=&quot;FREERTOS_HEAP_2_C&quot;&gt;
     &lt;Attributes dnOrder=&quot;0&quot;&gt;
       &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;false&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/FreeRTOS&gt;
+&lt;/FreeRTOS&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="FreeRTOS" name="FREERTOS_HEAP_3_C"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;FreeRTOS&gt;
+  &lt;FreeRTOS dnOrder=&quot;0&quot; id=&quot;FREERTOS_HEAP_3_C&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
         &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
@@ -978,7 +991,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;FreeRTOS&gt;
   &lt;FreeRTOS dnOrder=&quot;0&quot; id=&quot;FREERTOS_MEMORY_MANAGEMENT_CHOICE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;Heap_2&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;Heap_3&quot;/&gt;
     &lt;/Values&gt;
   &lt;/FreeRTOS&gt;
 &lt;/FreeRTOS&gt;
@@ -4420,7 +4433,7 @@
     &lt;ComponentGraph dnOrder=&quot;7&quot; id=&quot;__ROOTVIEW&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;BSP_PIC32MZ_EF_Starter_Kit&quot; x=&quot;11&quot; y=&quot;29&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;FreeRTOS&quot; x=&quot;456&quot; y=&quot;57&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;FreeRTOS&quot; x=&quot;456&quot; y=&quot;56&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;HarmonyCore&quot; x=&quot;9&quot; y=&quot;119&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;TCP/IP STACK&quot; x=&quot;462&quot; y=&quot;270&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;core&quot; x=&quot;10&quot; y=&quot;85&quot;/&gt;
@@ -13101,6 +13114,10 @@
          <hash>7ad9faa903d8587bab9490660328f134b8e027f9c24bca47201f3f96f3b99474</hash>
       </entry>
       <entry>
+         <file>..\src\third_party\rtos\FreeRTOS\Source\portable\MemMang\heap_3.c</file>
+         <hash>e2d5dbb3f3ccbadd8e7ae778f30c18d28b0532ebfe81b03aa6a20e3f75242853</hash>
+      </entry>
+      <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\src\telnet_manager.h</file>
          <hash>261058ce6621821d0b4c15a1336e03f1bbaedd4dc5cb26c7ad32c11999b9a763</hash>
       </entry>
@@ -13461,10 +13478,6 @@
          <hash>858f8710d4287200a5ee7f3b3ad7c24f505aed9c05c16956ab0ff9f7bb162a6a</hash>
       </entry>
       <entry>
-         <file>..\src\third_party\rtos\FreeRTOS\Source\portable\MemMang\heap_2.c</file>
-         <hash>a7b035b9ed786593143c8317acfb49de21b6450f246036a72331593577e5408b</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\tcpip_mac_object.h</file>
          <hash>a2165601d592aace23bfc05e3b4d0df59517e4663cfe9821eba6f2b37a4465f9</hash>
       </entry>
@@ -13658,7 +13671,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\definitions.h</file>
-         <hash>1a9f6306a05eeab6a949aff04e88681057cea52897113a24a63873ad71ead666</hash>
+         <hash>d0a671987daec7bbc16ac6c88ccb4d2e9370c893fb0203ed15a59969f8c421b7</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\driver\ethmac\src\dynamic\drv_eth_pic32_lib.c</file>
