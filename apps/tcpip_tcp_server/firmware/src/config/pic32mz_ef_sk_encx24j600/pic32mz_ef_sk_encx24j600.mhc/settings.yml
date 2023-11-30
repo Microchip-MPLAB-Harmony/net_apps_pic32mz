@@ -1,9 +1,9 @@
 format_version: v1.0
-configName: pic32mz_ef_sk_enc28j60
-folderName: pic32mz_ef_sk_enc28j60
+configName: pic32mz_ef_sk_encx24j600
+folderName: pic32mz_ef_sk_encx24j600
 frameworkPath: C:\harmony\h3
 processor: PIC32MZ2048EFH144
-projectName: pic32mz_ef_sk_enc28j60
+projectName: pic32mz_ef_sk_encx24j600
 settings:
   PackageFilter: ''
   FORCE_OPTIMIZATION: 'false'
