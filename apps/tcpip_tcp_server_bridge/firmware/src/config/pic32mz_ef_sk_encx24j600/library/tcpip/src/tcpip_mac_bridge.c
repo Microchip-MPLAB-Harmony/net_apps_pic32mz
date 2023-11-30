@@ -8,30 +8,28 @@
     Implementation of a simple transparent Layer 2 bridge 
 *******************************************************************************/
 
-/*****************************************************************************
- Copyright (C) 2012-2020 Microchip Technology Inc. and its subsidiaries.
+/*
+Copyright (C) 2012-2023, Microchip Technology Inc., and its subsidiaries. All rights reserved.
 
-Microchip Technology Inc. and its subsidiaries.
+The software and documentation is provided by microchip and its contributors
+"as is" and any express, implied or statutory warranties, including, but not
+limited to, the implied warranties of merchantability, fitness for a particular
+purpose and non-infringement of third party intellectual property rights are
+disclaimed to the fullest extent permitted by law. In no event shall microchip
+or its contributors be liable for any direct, indirect, incidental, special,
+exemplary, or consequential damages (including, but not limited to, procurement
+of substitute goods or services; loss of use, data, or profits; or business
+interruption) however caused and on any theory of liability, whether in contract,
+strict liability, or tort (including negligence or otherwise) arising in any way
+out of the use of the software and documentation, even if advised of the
+possibility of such damage.
 
-Subject to your compliance with these terms, you may use Microchip software 
-and any derivatives exclusively with Microchip products. It is your 
-responsibility to comply with third party license terms applicable to your 
-use of third party software (including open source software) that may 
-accompany Microchip software.
-
-THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
-EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED 
-WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A PARTICULAR 
-PURPOSE.
-
-IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
-INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
-WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS 
-BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE 
-FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN 
-ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY, 
-THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
-*****************************************************************************/
+Except as expressly permitted hereunder and subject to the applicable license terms
+for any third-party software incorporated in the software and any applicable open
+source software license terms, no license or other rights, whether express or
+implied, are granted under any patent or other intellectual property rights of
+Microchip or any third party.
+*/
 
 
 
@@ -59,7 +57,7 @@ static TCPIP_MAC_BRIDGE_RESULT      _MAC_Bridge_SetFDBFromPerm(MAC_BRIDGE_DCPT* 
 static void     _MAC_Bridge_ForwardPacket(TCPIP_MAC_PACKET* pFwdPkt, MAC_BRIDGE_HASH_ENTRY* hEntry);
 
 static void     _MAC_Bridge_PacketCopy(TCPIP_MAC_PACKET* pSrcPkt, TCPIP_MAC_PACKET* pFwdPkt, uint16_t pktLen, MAC_BRIDGE_HASH_ENTRY* hEntry);
-static bool     _MAC_Bridge_PacketAck(TCPIP_MAC_PACKET* pkt,  const void* param);
+static void     _MAC_Bridge_PacketAck(TCPIP_MAC_PACKET* pkt,  const void* param);
 
 static void     _MAC_Bridge_SetHashDynamicEntry(MAC_BRIDGE_HASH_ENTRY* hE, uint8_t port, MAC_BRIDGE_HASH_FLAGS clrFlags, MAC_BRIDGE_HASH_FLAGS setFlags);
 static void     _MAC_Bridge_SetHashStaticEntry(MAC_BRIDGE_HASH_ENTRY* hE, MAC_BRIDGE_HASH_FLAGS flags, bool clearOutMap);
@@ -380,24 +378,24 @@ static __inline__ MAC_BRIDGE_DCPT* __attribute__((always_inline)) _MAC_Bridge_Va
 
 // sets the flags of the packet
 // since this is either the bridge copy or the host does not process it
-// we use the pktClientData[0] for flags
+// we use the pktClientData16[0] for flags
 static __inline__ void __attribute__((always_inline)) _MAC_Bridge_SetPktFlags(TCPIP_MAC_PACKET* pPkt, uint16_t flags)
 {
-    pPkt->pktClientData[0] = flags;
+    pPkt->pktClientData16[0] = flags;
 }
 
 // returns the flags of the packet
 static __inline__ uint16_t __attribute__((always_inline)) _MAC_Bridge_GetPktFlags(TCPIP_MAC_PACKET* pPkt)
 {
-    return pPkt->pktClientData[0];
+    return pPkt->pktClientData16[0];
 }
 
 // stores the forward descriptor in the packet
 // since this is either the bridge copy or the host does not process it
-// we use the pktClientData[1:2] for storing the descriptor
+// we use the pktClientData16[1:2] for storing the descriptor
 static __inline__ void __attribute__((always_inline)) _MAC_Bridge_StorePktFwdDcpt(TCPIP_MAC_PACKET* pPkt, MAC_BRIDGE_FWD_DCPT* pFwdDcpt)
 {
-    MAC_BRIDGE_FWD_DCPT** pStoreDcpt = (MAC_BRIDGE_FWD_DCPT**)(pPkt->pktClientData + 1);
+    MAC_BRIDGE_FWD_DCPT** pStoreDcpt = (MAC_BRIDGE_FWD_DCPT**)(pPkt->pktClientData16 + 1);
     // should be properly aligned
     _Mac_Bridge_AssertCond( ((uintptr_t)pStoreDcpt & (sizeof(uintptr_t) - 1)) == 0, __func__, __LINE__);
     
@@ -407,7 +405,7 @@ static __inline__ void __attribute__((always_inline)) _MAC_Bridge_StorePktFwdDcp
 // returns the forward descriptor of the packet
 static __inline__ MAC_BRIDGE_FWD_DCPT* __attribute__((always_inline)) _MAC_Bridge_GetPktFwdDcpt(TCPIP_MAC_PACKET* pPkt)
 {
-    MAC_BRIDGE_FWD_DCPT** pStoreDcpt = (MAC_BRIDGE_FWD_DCPT**)(pPkt->pktClientData + 1);
+    MAC_BRIDGE_FWD_DCPT** pStoreDcpt = (MAC_BRIDGE_FWD_DCPT**)(pPkt->pktClientData16 + 1);
     // should be properly aligned
     _Mac_Bridge_AssertCond( ((uintptr_t)pStoreDcpt & (sizeof(uintptr_t) - 1)) == 0, __func__, __LINE__);
     
@@ -1660,13 +1658,12 @@ static void _MAC_Bridge_PacketCopy(TCPIP_MAC_PACKET* pSrcPkt, TCPIP_MAC_PACKET* 
 }
 
 // acknowledges a bridge packet once it's been transmitted
-static bool _MAC_Bridge_PacketAck(TCPIP_MAC_PACKET* pkt,  const void* param)
+static void _MAC_Bridge_PacketAck(TCPIP_MAC_PACKET* pkt,  const void* param)
 {
     _MAC_Bridge_StatUpdate(gBridgeDcpt, MAC_BRIDGE_STAT_TYPE_ACK_PKTS, 1);
 
     // keep forwarding to the other interfaces
     _MAC_Bridge_ForwardPacket(pkt, (MAC_BRIDGE_HASH_ENTRY*)param);
-    return false;
 }
 
 // returns the number of the ports that are part of the bridge and their port map

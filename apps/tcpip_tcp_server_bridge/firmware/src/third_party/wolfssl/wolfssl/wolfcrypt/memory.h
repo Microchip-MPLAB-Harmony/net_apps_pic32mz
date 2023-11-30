@@ -1,6 +1,6 @@
 /* memory.h
  *
- * Copyright (C) 2006-2019 wolfSSL Inc.
+ * Copyright (C) 2006-2021 wolfSSL Inc.
  *
  * This file is part of wolfSSL.
  *
@@ -29,10 +29,13 @@
 #ifndef WOLFSSL_MEMORY_H
 #define WOLFSSL_MEMORY_H
 
-#ifndef STRING_USER
+#if !defined(STRING_USER) && !defined(WOLFSSL_LINUXKM)
 #include <stdlib.h>
 #endif
+
+#ifndef WOLF_CRYPT_TYPES_H
 #include <wolfssl/wolfcrypt/types.h>
+#endif
 
 #ifdef __cplusplus
     extern "C" {
@@ -41,6 +44,12 @@
 #ifdef WOLFSSL_FORCE_MALLOC_FAIL_TEST
     WOLFSSL_API void wolfSSL_SetMemFailCount(int memFailCount);
 #endif
+
+#ifdef OPENSSL_EXTRA
+    typedef void *(*wolfSSL_OSSL_Malloc_cb)(size_t, const char *, int);
+    typedef void  (*wolfSSL_OSSL_Free_cb)(void *, const char *, int);
+    typedef void *(*wolfSSL_OSSL_Realloc_cb)(void *, size_t, const char *, int);
+#endif /* OPENSSL_EXTRA */
 
 #ifdef WOLFSSL_STATIC_MEMORY
     #ifdef WOLFSSL_DEBUG_MEMORY
@@ -80,12 +89,12 @@
 #endif /* WOLFSSL_STATIC_MEMORY */
 
 /* Public get/set functions */
-WOLFSSL_API int wolfSSL_SetAllocators(wolfSSL_Malloc_cb,
-                                      wolfSSL_Free_cb,
-                                      wolfSSL_Realloc_cb);
-WOLFSSL_API int wolfSSL_GetAllocators(wolfSSL_Malloc_cb*,
-                                      wolfSSL_Free_cb*,
-                                      wolfSSL_Realloc_cb*);
+WOLFSSL_API int wolfSSL_SetAllocators(wolfSSL_Malloc_cb mf,
+                                      wolfSSL_Free_cb ff,
+                                      wolfSSL_Realloc_cb rf);
+WOLFSSL_API int wolfSSL_GetAllocators(wolfSSL_Malloc_cb* mf,
+                                      wolfSSL_Free_cb* ff,
+                                      wolfSSL_Realloc_cb* rf);
 
 #ifdef WOLFSSL_STATIC_MEMORY
     #define WOLFSSL_STATIC_TIMEOUT 1
@@ -110,7 +119,11 @@ WOLFSSL_API int wolfSSL_GetAllocators(wolfSSL_Malloc_cb*,
         #elif defined (OPENSSL_EXTRA)
             /* extra storage in structs for multiple attributes and order */
             #ifndef LARGEST_MEM_BUCKET
-                #define LARGEST_MEM_BUCKET 25536
+                #ifdef WOLFSSL_TLS13
+                    #define LARGEST_MEM_BUCKET 30400
+                #else
+                    #define LARGEST_MEM_BUCKET 25600
+                #endif
             #endif
             #define WOLFMEM_BUCKETS 64,128,256,512,1024,2432,3360,4480,\
                                     LARGEST_MEM_BUCKET
@@ -166,8 +179,8 @@ WOLFSSL_API int wolfSSL_GetAllocators(wolfSSL_Malloc_cb*,
         word32 totalFr;   /* total frees for lifetime */
         word32 totalUse;  /* total amount of memory used in blocks */
         word32 avaIO;     /* available IO specific pools */
-        word32 maxHa;     /* max number of concurent handshakes allowed */
-        word32 maxIO;     /* max number of concurent IO connections allowed */
+        word32 maxHa;     /* max number of concurrent handshakes allowed */
+        word32 maxIO;     /* max number of concurrent IO connections allowed */
         word32 blockSz[WOLFMEM_MAX_BUCKETS]; /* block sizes in stacks */
         word32 avaBlock[WOLFMEM_MAX_BUCKETS];/* ava block sizes */
         word32 usedBlock[WOLFMEM_MAX_BUCKETS];
@@ -178,7 +191,7 @@ WOLFSSL_API int wolfSSL_GetAllocators(wolfSSL_Malloc_cb*,
     typedef struct WOLFSSL_HEAP {
         wc_Memory* ava[WOLFMEM_MAX_BUCKETS];
         wc_Memory* io;                  /* list of buffers to use for IO */
-        word32     maxHa;               /* max concurent handshakes */
+        word32     maxHa;               /* max concurrent handshakes */
         word32     curHa;
         word32     maxIO;               /* max concurrent IO connections */
         word32     curIO;
@@ -224,6 +237,14 @@ WOLFSSL_API int wolfSSL_GetAllocators(wolfSSL_Malloc_cb*,
     WOLFSSL_API void __attribute__((no_instrument_function))
             __cyg_profile_func_exit(void *func, void *caller);
 #endif /* WOLFSSL_STACK_LOG */
+
+#ifdef WOLFSSL_CHECK_MEM_ZERO
+WOLFSSL_LOCAL void wc_MemZero_Init(void);
+WOLFSSL_LOCAL void wc_MemZero_Free(void);
+WOLFSSL_LOCAL void wc_MemZero_Add(const char* name, const void* addr,
+    size_t len);
+WOLFSSL_LOCAL void wc_MemZero_Check(void* addr, size_t len);
+#endif
 
 #ifdef __cplusplus
     }  /* extern "C" */

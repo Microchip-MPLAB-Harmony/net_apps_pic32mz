@@ -1,6 +1,6 @@
 /* chacha.c
  *
- * Copyright (C) 2006-2019 wolfSSL Inc.
+ * Copyright (C) 2006-2021 wolfSSL Inc.
  *
  * This file is part of wolfSSL.
  *
@@ -18,15 +18,16 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1335, USA
  */
-
 /*
- *  based from
- *  chacha-ref.c version 20080118
- *  D. J. Bernstein
- *  Public domain.
- */
 
+DESCRIPTION
+This library contains implementation for the ChaCha20 stream cipher.
 
+Based from chacha-ref.c version 20080118
+D. J. Bernstein
+Public domain.
+
+*/
 #ifdef WOLFSSL_ARMASM
     /* implementation is located in wolfcrypt/src/port/arm/armv8-chacha.c */
 
@@ -37,7 +38,7 @@
 
 #include <wolfssl/wolfcrypt/settings.h>
 
-#ifdef HAVE_CHACHA
+#if defined(HAVE_CHACHA) && !defined(WOLFSSL_ARMASM)
 
 #include <wolfssl/wolfcrypt/chacha.h>
 #include <wolfssl/wolfcrypt/error-crypt.h>
@@ -112,24 +113,17 @@ int wc_Chacha_SetIV(ChaCha* ctx, const byte* inIv, word32 counter)
 {
     word32 temp[CHACHA_IV_WORDS];/* used for alignment of memory */
 
-#ifdef CHACHA_AEAD_TEST
-    word32 i;
-    printf("NONCE : ");
-    for (i = 0; i < CHACHA_IV_BYTES; i++) {
-        printf("%02x", inIv[i]);
-    }
-    printf("\n\n");
-#endif
 
-    if (ctx == NULL)
+    if (ctx == NULL || inIv == NULL)
         return BAD_FUNC_ARG;
 
     XMEMCPY(temp, inIv, CHACHA_IV_BYTES);
 
-    ctx->X[CHACHA_IV_BYTES+0] = counter;           /* block counter */
-    ctx->X[CHACHA_IV_BYTES+1] = LITTLE32(temp[0]); /* fixed variable from nonce */
-    ctx->X[CHACHA_IV_BYTES+2] = LITTLE32(temp[1]); /* counter from nonce */
-    ctx->X[CHACHA_IV_BYTES+3] = LITTLE32(temp[2]); /* counter from nonce */
+    ctx->left = 0; /* resets state */
+    ctx->X[CHACHA_MATRIX_CNT_IV+0] = counter;           /* block counter */
+    ctx->X[CHACHA_MATRIX_CNT_IV+1] = LITTLE32(temp[0]); /* fixed variable from nonce */
+    ctx->X[CHACHA_MATRIX_CNT_IV+2] = LITTLE32(temp[1]); /* counter from nonce */
+    ctx->X[CHACHA_MATRIX_CNT_IV+3] = LITTLE32(temp[2]); /* counter from nonce */
 
     return 0;
 }
@@ -151,14 +145,14 @@ int wc_Chacha_SetKey(ChaCha* ctx, const byte* key, word32 keySz)
     word32 alignKey[8];
 #endif
 
-    if (ctx == NULL)
+    if (ctx == NULL || key == NULL)
         return BAD_FUNC_ARG;
 
     if (keySz != (CHACHA_MAX_KEY_SZ/2) && keySz != CHACHA_MAX_KEY_SZ)
         return BAD_FUNC_ARG;
 
 #ifdef XSTREAM_ALIGN
-    if ((wolfssl_word)key % 4) {
+    if ((wc_ptr_t)key % 4) {
         WOLFSSL_MSG("wc_ChachaSetKey unaligned key");
         XMEMCPY(alignKey, key, keySz);
         k = (byte*)alignKey;
@@ -200,6 +194,7 @@ int wc_Chacha_SetKey(ChaCha* ctx, const byte* key, word32 keySz)
     ctx->X[ 1] = constants[1];
     ctx->X[ 2] = constants[2];
     ctx->X[ 3] = constants[3];
+    ctx->left = 0; /* resets state */
 
     return 0;
 }
@@ -237,6 +232,86 @@ static WC_INLINE void wc_Chacha_wordtobyte(word32 output[CHACHA_CHUNK_WORDS],
     }
 }
 
+
+#ifdef HAVE_XCHACHA
+
+/*
+ * wc_HChacha_block - half a ChaCha block, for XChaCha
+ *
+ * see https://tools.ietf.org/html/draft-arciszewski-xchacha-03
+ */
+static WC_INLINE void wc_HChacha_block(ChaCha* ctx, word32 stream[CHACHA_CHUNK_WORDS/2], int nrounds)
+{
+    word32 x[CHACHA_CHUNK_WORDS];
+    word32 i;
+
+    for (i = 0; i < CHACHA_CHUNK_WORDS; i++) {
+        x[i] = ctx->X[i];
+    }
+
+    for (i = nrounds; i > 0; i -= 2) {
+        QUARTERROUND(0, 4,  8, 12)
+        QUARTERROUND(1, 5,  9, 13)
+        QUARTERROUND(2, 6, 10, 14)
+        QUARTERROUND(3, 7, 11, 15)
+        QUARTERROUND(0, 5, 10, 15)
+        QUARTERROUND(1, 6, 11, 12)
+        QUARTERROUND(2, 7,  8, 13)
+        QUARTERROUND(3, 4,  9, 14)
+    }
+
+    for (i = 0; i < CHACHA_CHUNK_WORDS/4; ++i)
+        stream[i] = x[i];
+    for (i = CHACHA_CHUNK_WORDS/4; i < CHACHA_CHUNK_WORDS/2; ++i)
+        stream[i] = x[i + CHACHA_CHUNK_WORDS/2];
+}
+
+/* XChaCha -- https://tools.ietf.org/html/draft-arciszewski-xchacha-03 */
+int wc_XChacha_SetKey(ChaCha *ctx,
+                      const byte *key, word32 keySz,
+                      const byte *nonce, word32 nonceSz,
+                      word32 counter) {
+    word32 k[CHACHA_MAX_KEY_SZ];
+    byte iv[CHACHA_IV_BYTES];
+    int ret;
+
+    if (nonceSz != XCHACHA_NONCE_BYTES)
+        return BAD_FUNC_ARG;
+
+    if ((ret = wc_Chacha_SetKey(ctx, key, keySz)) < 0)
+        return ret;
+
+    /* form a first chacha IV from the first 16 bytes of the nonce.
+     * the first word is supplied in the "counter" arg, and
+     * the result is a full 128 bit nonceful IV for the one-time block
+     * crypto op that follows.
+     */
+    if ((ret = wc_Chacha_SetIV(ctx, nonce + 4, U8TO32_LITTLE(nonce))) < 0)
+        return ret;
+
+    wc_HChacha_block(ctx, k, 20); /* 20 rounds, but keeping half the output. */
+
+    /* the HChacha output is used as a 256 bit key for the main cipher. */
+    XMEMCPY(&ctx->X[4], k, 8 * sizeof(word32));
+
+    /* use 8 bytes from the end of the 24 byte nonce, padded up to 12 bytes,
+     * to form the IV for the main cipher.
+     */
+    XMEMSET(iv, 0, 4);
+    XMEMCPY(iv + 4, nonce + 16, 8);
+
+    if ((ret = wc_Chacha_SetIV(ctx, iv, counter)) < 0)
+        return ret;
+
+    ForceZero(k, sizeof k);
+    ForceZero(iv, sizeof iv);
+
+    return 0;
+}
+
+#endif /* HAVE_XCHACHA */
+
+
 #ifdef __cplusplus
     extern "C" {
 #endif
@@ -263,23 +338,46 @@ static void wc_Chacha_encrypt_bytes(ChaCha* ctx, const byte* m, byte* c,
     word32 temp[CHACHA_CHUNK_WORDS]; /* used to make sure aligned */
     word32 i;
 
-    output = (byte*)temp;
-
-    for (; bytes > 0;) {
-        wc_Chacha_wordtobyte(temp, ctx->X);
-        ctx->X[CHACHA_IV_BYTES] = PLUSONE(ctx->X[CHACHA_IV_BYTES]);
-        if (bytes <= CHACHA_CHUNK_BYTES) {
-            for (i = 0; i < bytes; ++i) {
-                c[i] = m[i] ^ output[i];
-            }
-            return;
+    /* handle left overs */
+    if (bytes > 0 && ctx->left > 0) {
+        wc_Chacha_wordtobyte(temp, ctx->X); /* recreate the stream */
+        output = (byte*)temp + CHACHA_CHUNK_BYTES - ctx->left;
+        for (i = 0; i < bytes && i < ctx->left; i++) {
+            c[i] = (byte)(m[i] ^ output[i]);
         }
+        ctx->left -= i;
+
+        /* Used up all of the stream that was left, increment the counter */
+        if (ctx->left == 0) {
+            ctx->X[CHACHA_MATRIX_CNT_IV] =
+                                          PLUSONE(ctx->X[CHACHA_MATRIX_CNT_IV]);
+        }
+        bytes -= i;
+        c += i;
+        m += i;
+    }
+
+    output = (byte*)temp;
+    while (bytes >= CHACHA_CHUNK_BYTES) {
+        wc_Chacha_wordtobyte(temp, ctx->X);
+        ctx->X[CHACHA_MATRIX_CNT_IV] = PLUSONE(ctx->X[CHACHA_MATRIX_CNT_IV]);
         for (i = 0; i < CHACHA_CHUNK_BYTES; ++i) {
-            c[i] = m[i] ^ output[i];
+            c[i] = (byte)(m[i] ^ output[i]);
         }
         bytes -= CHACHA_CHUNK_BYTES;
         c += CHACHA_CHUNK_BYTES;
         m += CHACHA_CHUNK_BYTES;
+    }
+
+    if (bytes) {
+        /* in this case there will always be some left over since bytes is less
+         * than CHACHA_CHUNK_BYTES, so do not increment counter after getting
+         * stream in order for the stream to be recreated on next call */
+        wc_Chacha_wordtobyte(temp, ctx->X);
+        for (i = 0; i < bytes; ++i) {
+            c[i] = m[i] ^ output[i];
+        }
+        ctx->left = CHACHA_CHUNK_BYTES - i;
     }
 }
 
@@ -289,10 +387,30 @@ static void wc_Chacha_encrypt_bytes(ChaCha* ctx, const byte* m, byte* c,
 int wc_Chacha_Process(ChaCha* ctx, byte* output, const byte* input,
                       word32 msglen)
 {
-    if (ctx == NULL)
+    if (ctx == NULL || input == NULL || output == NULL)
         return BAD_FUNC_ARG;
 
 #ifdef USE_INTEL_CHACHA_SPEEDUP
+    /* handle left overs */
+    if (msglen > 0 && ctx->left > 0) {
+        byte*  out;
+        word32 i;
+
+        out = (byte*)ctx->over + CHACHA_CHUNK_BYTES - ctx->left;
+        for (i = 0; i < msglen && i < ctx->left; i++) {
+            output[i] = (byte)(input[i] ^ out[i]);
+        }
+        ctx->left -= i;
+
+        msglen -= i;
+        output += i;
+        input += i;
+    }
+
+    if (msglen == 0) {
+        return 0;
+    }
+
     if (!cpuidFlagsSet) {
         cpuidFlags = cpuid_get_flags();
         cpuidFlagsSet = 1;
@@ -300,12 +418,16 @@ int wc_Chacha_Process(ChaCha* ctx, byte* output, const byte* input,
 
     #ifdef HAVE_INTEL_AVX2
     if (IS_INTEL_AVX2(cpuidFlags)) {
+        SAVE_VECTOR_REGISTERS(return _svr_ret;);
         chacha_encrypt_avx2(ctx, input, output, msglen);
+        RESTORE_VECTOR_REGISTERS();
         return 0;
     }
     #endif
     if (IS_INTEL_AVX1(cpuidFlags)) {
+        SAVE_VECTOR_REGISTERS(return _svr_ret;);
         chacha_encrypt_avx1(ctx, input, output, msglen);
+        RESTORE_VECTOR_REGISTERS();
         return 0;
     }
     else {
@@ -316,6 +438,14 @@ int wc_Chacha_Process(ChaCha* ctx, byte* output, const byte* input,
     wc_Chacha_encrypt_bytes(ctx, input, output, msglen);
 
     return 0;
+}
+
+void wc_Chacha_purge_current_block(ChaCha* ctx) {
+    if (ctx->left > 0) {
+        byte scratch[CHACHA_CHUNK_BYTES];
+        XMEMSET(scratch, 0, sizeof(scratch));
+        (void)wc_Chacha_Process(ctx, scratch, scratch, CHACHA_CHUNK_BYTES - ctx->left);
+    }
 }
 
 #endif /* HAVE_CHACHA*/

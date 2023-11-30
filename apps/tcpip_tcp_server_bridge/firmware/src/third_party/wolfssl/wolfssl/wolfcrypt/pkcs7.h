@@ -1,6 +1,6 @@
 /* pkcs7.h
  *
- * Copyright (C) 2006-2019 wolfSSL Inc.
+ * Copyright (C) 2006-2021 wolfSSL Inc.
  *
  * This file is part of wolfSSL.
  *
@@ -41,6 +41,7 @@
 #ifndef NO_DES3
     #include <wolfssl/wolfcrypt/des3.h>
 #endif
+#include <wolfssl/wolfcrypt/wc_encrypt.h>
 
 #ifdef __cplusplus
     extern "C" {
@@ -48,7 +49,11 @@
 
 /* Max number of certificates that PKCS7 structure can parse */
 #ifndef MAX_PKCS7_CERTS
+#ifdef OPENSSL_ALL
+    #define MAX_PKCS7_CERTS 15
+#else
     #define MAX_PKCS7_CERTS 4
+#endif
 #endif
 
 #ifndef MAX_ORI_TYPE_SZ
@@ -151,16 +156,8 @@ enum Pkcs7_Misc {
     MAX_CONTENT_BLOCK_LEN = DES_BLOCK_SIZE,
 #endif
     MAX_RECIP_SZ          = MAX_VERSION_SZ +
-                            MAX_SEQ_SZ + ASN_NAME_MAX + MAX_SN_SZ +
+                            MAX_SEQ_SZ + WC_ASN_NAME_MAX + MAX_SN_SZ +
                             MAX_SEQ_SZ + MAX_ALGO_SZ + 1 + MAX_ENCRYPTED_KEY_SZ,
-#if (defined(HAVE_FIPS) && defined(HAVE_FIPS_VERSION) && \
-     (HAVE_FIPS_VERSION >= 2)) || defined(HAVE_SELFTEST)
-    /* In the event of fips cert 3389 or CAVP selftest build, these enums are
-     * not in aes.h for use with pkcs7 so enumerate it here outside the fips
-     * boundary */
-    GCM_NONCE_MID_SZ = 12, /* The usual default nonce size for AES-GCM. */
-    CCM_NONCE_MIN_SZ = 7,
-#endif
 };
 
 enum Cms_Options {
@@ -244,7 +241,9 @@ struct PKCS7 {
     byte*  der;                   /* DER encoded version of message       */
     word32 derSz;
 #endif
-    byte*  cert[MAX_PKCS7_CERTS];
+    byte*  cert[MAX_PKCS7_CERTS]; /* array of certs parsed from bundle */
+    byte*  verifyCert;            /* cert from array used for verify */
+    word32 verifyCertSz;
 
     /* Encrypted-data Content Type */
     byte*        encryptionKey;         /* block cipher encryption key */
@@ -330,6 +329,11 @@ struct PKCS7 {
 #if defined(HAVE_PKCS7_RSA_RAW_SIGN_CALLBACK) && !defined(NO_RSA)
     CallbackRsaSignRawDigest rsaSignRawDigestCb;
 #endif
+
+    /* used by DecodeEnvelopedData with multiple encrypted contents */
+    byte*  cachedEncryptedContent;
+    word32 cachedEncryptedContentSz;
+    word16 contentCRLF:1; /* have content line endings been converted to CRLF */
     /* !! NEW DATA MEMBERS MUST BE ADDED AT END !! */
 };
 

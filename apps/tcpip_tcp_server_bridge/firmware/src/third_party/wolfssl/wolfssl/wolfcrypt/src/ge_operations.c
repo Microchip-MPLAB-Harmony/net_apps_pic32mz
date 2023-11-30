@@ -1,6 +1,6 @@
 /* ge_operations.c
  *
- * Copyright (C) 2006-2019 wolfSSL Inc.
+ * Copyright (C) 2006-2021 wolfSSL Inc.
  *
  * This file is part of wolfSSL.
  *
@@ -56,21 +56,21 @@
 #endif
 
 
-static void ge_p2_0(ge_p2 *);
+static void ge_p2_0(ge_p2 *h);
 #ifndef CURVED25519_ASM
-static void ge_precomp_0(ge_precomp *);
+static void ge_precomp_0(ge_precomp *h);
+static void ge_p3_to_p2(ge_p2 *r,const ge_p3 *p);
 #endif
-static void ge_p3_to_p2(ge_p2 *,const ge_p3 *);
-static void ge_p3_to_cached(ge_cached *,const ge_p3 *);
-static void ge_p1p1_to_p2(ge_p2 *,const ge_p1p1 *);
-static void ge_p1p1_to_p3(ge_p3 *,const ge_p1p1 *);
-static void ge_p2_dbl(ge_p1p1 *,const ge_p2 *);
-static void ge_p3_dbl(ge_p1p1 *,const ge_p3 *);
+static WC_INLINE void ge_p3_to_cached(ge_cached *r,const ge_p3 *p);
+static void ge_p1p1_to_p2(ge_p2 *r,const ge_p1p1 *p);
+static WC_INLINE void ge_p1p1_to_p3(ge_p3 *r,const ge_p1p1 *p);
+static WC_INLINE void ge_p2_dbl(ge_p1p1 *r,const ge_p2 *p);
+static void ge_p3_dbl(ge_p1p1 *r,const ge_p3 *p);
 
-static void ge_madd(ge_p1p1 *,const ge_p3 *,const ge_precomp *);
-static void ge_msub(ge_p1p1 *,const ge_p3 *,const ge_precomp *);
-static void ge_add(ge_p1p1 *,const ge_p3 *,const ge_cached *);
-static void ge_sub(ge_p1p1 *,const ge_p3 *,const ge_cached *);
+static WC_INLINE void ge_madd(ge_p1p1 *r,const ge_p3 *p,const ge_precomp *q);
+static WC_INLINE void ge_msub(ge_p1p1 *r,const ge_p3 *p,const ge_precomp *q);
+static WC_INLINE void ge_add(ge_p1p1 *r,const ge_p3 *p,const ge_cached *q);
+static WC_INLINE void ge_sub(ge_p1p1 *r,const ge_p3 *p,const ge_cached *q);
 
 /*
 ge means group element.
@@ -96,23 +96,23 @@ Representations:
 #define ORDER_5     0xa6f7c
 
 #ifdef CURVED25519_ASM_32BIT
-uint64_t load_3(const unsigned char *in)
+word64 load_3(const unsigned char *in)
 {
-  uint64_t result;
-  result = (uint64_t) in[0];
-  result |= ((uint64_t) in[1]) << 8;
-  result |= ((uint64_t) in[2]) << 16;
+  word64 result;
+  result = (word64) in[0];
+  result |= ((word64) in[1]) << 8;
+  result |= ((word64) in[2]) << 16;
   return result;
 }
 
 
-uint64_t load_4(const unsigned char *in)
+word64 load_4(const unsigned char *in)
 {
-  uint64_t result;
-  result = (uint64_t) in[0];
-  result |= ((uint64_t) in[1]) << 8;
-  result |= ((uint64_t) in[2]) << 16;
-  result |= ((uint64_t) in[3]) << 24;
+  word64 result;
+  result = (word64) in[0];
+  result |= ((word64) in[1]) << 8;
+  result |= ((word64) in[2]) << 16;
+  result |= ((word64) in[3]) << 24;
   return result;
 }
 #endif
@@ -128,8 +128,8 @@ Output:
 */
 void sc_reduce(byte* s)
 {
-    int64_t t[24];
-    int64_t carry;
+    sword64 t[24];
+    sword64 carry;
 
     t[ 0] = MASK_21 & (load_3(s +  0) >> 0);
     t[ 1] = MASK_21 & (load_4(s +  2) >> 5);
@@ -331,9 +331,9 @@ Output:
 */
 void sc_muladd(byte* s, const byte* a, const byte* b, const byte* c)
 {
-    uint32_t ad[12], bd[12], cd[12];
-    int64_t t[24];
-    int64_t carry;
+    word32 ad[12], bd[12], cd[12];
+    sword64 t[24];
+    sword64 carry;
 
     ad[ 0] = MASK_21 & (load_3(a +  0) >> 0);
     ad[ 1] = MASK_21 & (load_4(a +  2) >> 5);
@@ -346,7 +346,7 @@ void sc_muladd(byte* s, const byte* a, const byte* b, const byte* c)
     ad[ 8] = MASK_21 & (load_3(a + 21) >> 0);
     ad[ 9] = MASK_21 & (load_4(a + 23) >> 5);
     ad[10] = MASK_21 & (load_3(a + 26) >> 2);
-    ad[11] = (uint32_t)(load_4(a + 28) >> 7);
+    ad[11] = (word32)(load_4(a + 28) >> 7);
     bd[ 0] = MASK_21 & (load_3(b +  0) >> 0);
     bd[ 1] = MASK_21 & (load_4(b +  2) >> 5);
     bd[ 2] = MASK_21 & (load_3(b +  5) >> 2);
@@ -358,7 +358,7 @@ void sc_muladd(byte* s, const byte* a, const byte* b, const byte* c)
     bd[ 8] = MASK_21 & (load_3(b + 21) >> 0);
     bd[ 9] = MASK_21 & (load_4(b + 23) >> 5);
     bd[10] = MASK_21 & (load_3(b + 26) >> 2);
-    bd[11] = (uint32_t)(load_4(b + 28) >> 7);
+    bd[11] = (word32)(load_4(b + 28) >> 7);
     cd[ 0] = MASK_21 & (load_3(c +  0) >> 0);
     cd[ 1] = MASK_21 & (load_4(c +  2) >> 5);
     cd[ 2] = MASK_21 & (load_3(c +  5) >> 2);
@@ -370,86 +370,86 @@ void sc_muladd(byte* s, const byte* a, const byte* b, const byte* c)
     cd[ 8] = MASK_21 & (load_3(c + 21) >> 0);
     cd[ 9] = MASK_21 & (load_4(c + 23) >> 5);
     cd[10] = MASK_21 & (load_3(c + 26) >> 2);
-    cd[11] = (uint32_t)(load_4(c + 28) >> 7);
+    cd[11] = (word32)(load_4(c + 28) >> 7);
 
-    t[ 0] = cd[ 0] + (int64_t)ad[ 0] * bd[ 0];
-    t[ 1] = cd[ 1] + (int64_t)ad[ 0] * bd[ 1] + (int64_t)ad[ 1] * bd[ 0];
-    t[ 2] = cd[ 2] + (int64_t)ad[ 0] * bd[ 2] + (int64_t)ad[ 1] * bd[ 1] +
-                     (int64_t)ad[ 2] * bd[ 0];
-    t[ 3] = cd[ 3] + (int64_t)ad[ 0] * bd[ 3] + (int64_t)ad[ 1] * bd[ 2] +
-                     (int64_t)ad[ 2] * bd[ 1] + (int64_t)ad[ 3] * bd[ 0];
-    t[ 4] = cd[ 4] + (int64_t)ad[ 0] * bd[ 4] + (int64_t)ad[ 1] * bd[ 3] +
-                     (int64_t)ad[ 2] * bd[ 2] + (int64_t)ad[ 3] * bd[ 1] +
-                     (int64_t)ad[ 4] * bd[ 0];
-    t[ 5] = cd[ 5] + (int64_t)ad[ 0] * bd[ 5] + (int64_t)ad[ 1] * bd[ 4] +
-                     (int64_t)ad[ 2] * bd[ 3] + (int64_t)ad[ 3] * bd[ 2] +
-                     (int64_t)ad[ 4] * bd[ 1] + (int64_t)ad[ 5] * bd[ 0];
-    t[ 6] = cd[ 6] + (int64_t)ad[ 0] * bd[ 6] + (int64_t)ad[ 1] * bd[ 5] +
-                     (int64_t)ad[ 2] * bd[ 4] + (int64_t)ad[ 3] * bd[ 3] +
-                     (int64_t)ad[ 4] * bd[ 2] + (int64_t)ad[ 5] * bd[ 1] +
-                     (int64_t)ad[ 6] * bd[ 0];
-    t[ 7] = cd[ 7] + (int64_t)ad[ 0] * bd[ 7] + (int64_t)ad[ 1] * bd[ 6] +
-                     (int64_t)ad[ 2] * bd[ 5] + (int64_t)ad[ 3] * bd[ 4] +
-                     (int64_t)ad[ 4] * bd[ 3] + (int64_t)ad[ 5] * bd[ 2] +
-                     (int64_t)ad[ 6] * bd[ 1] + (int64_t)ad[ 7] * bd[ 0];
-    t[ 8] = cd[ 8] + (int64_t)ad[ 0] * bd[ 8] + (int64_t)ad[ 1] * bd[ 7] +
-                     (int64_t)ad[ 2] * bd[ 6] + (int64_t)ad[ 3] * bd[ 5] +
-                     (int64_t)ad[ 4] * bd[ 4] + (int64_t)ad[ 5] * bd[ 3] +
-                     (int64_t)ad[ 6] * bd[ 2] + (int64_t)ad[ 7] * bd[ 1] +
-                     (int64_t)ad[ 8] * bd[ 0];
-    t[ 9] = cd[ 9] + (int64_t)ad[ 0] * bd[ 9] + (int64_t)ad[ 1] * bd[ 8] +
-                     (int64_t)ad[ 2] * bd[ 7] + (int64_t)ad[ 3] * bd[ 6] +
-                     (int64_t)ad[ 4] * bd[ 5] + (int64_t)ad[ 5] * bd[ 4] +
-                     (int64_t)ad[ 6] * bd[ 3] + (int64_t)ad[ 7] * bd[ 2] +
-                     (int64_t)ad[ 8] * bd[ 1] + (int64_t)ad[ 9] * bd[ 0];
-    t[10] = cd[10] + (int64_t)ad[ 0] * bd[10] + (int64_t)ad[ 1] * bd[ 9] +
-                     (int64_t)ad[ 2] * bd[ 8] + (int64_t)ad[ 3] * bd[ 7] +
-                     (int64_t)ad[ 4] * bd[ 6] + (int64_t)ad[ 5] * bd[ 5] +
-                     (int64_t)ad[ 6] * bd[ 4] + (int64_t)ad[ 7] * bd[ 3] +
-                     (int64_t)ad[ 8] * bd[ 2] + (int64_t)ad[ 9] * bd[ 1] +
-                     (int64_t)ad[10] * bd[ 0];
-    t[11] = cd[11] + (int64_t)ad[ 0] * bd[11] + (int64_t)ad[ 1] * bd[10] +
-                     (int64_t)ad[ 2] * bd[ 9] + (int64_t)ad[ 3] * bd[ 8] +
-                     (int64_t)ad[ 4] * bd[ 7] + (int64_t)ad[ 5] * bd[ 6] +
-                     (int64_t)ad[ 6] * bd[ 5] + (int64_t)ad[ 7] * bd[ 4] +
-                     (int64_t)ad[ 8] * bd[ 3] + (int64_t)ad[ 9] * bd[ 2] +
-                     (int64_t)ad[10] * bd[ 1] + (int64_t)ad[11] * bd[ 0];
-    t[12] =          (int64_t)ad[ 1] * bd[11] + (int64_t)ad[ 2] * bd[10] +
-                     (int64_t)ad[ 3] * bd[ 9] + (int64_t)ad[ 4] * bd[ 8] +
-                     (int64_t)ad[ 5] * bd[ 7] + (int64_t)ad[ 6] * bd[ 6] +
-                     (int64_t)ad[ 7] * bd[ 5] + (int64_t)ad[ 8] * bd[ 4] +
-                     (int64_t)ad[ 9] * bd[ 3] + (int64_t)ad[10] * bd[ 2] +
-                     (int64_t)ad[11] * bd[ 1];
-    t[13] =          (int64_t)ad[ 2] * bd[11] + (int64_t)ad[ 3] * bd[10] +
-                     (int64_t)ad[ 4] * bd[ 9] + (int64_t)ad[ 5] * bd[ 8] +
-                     (int64_t)ad[ 6] * bd[ 7] + (int64_t)ad[ 7] * bd[ 6] +
-                     (int64_t)ad[ 8] * bd[ 5] + (int64_t)ad[ 9] * bd[ 4] +
-                     (int64_t)ad[10] * bd[ 3] + (int64_t)ad[11] * bd[ 2];
-    t[14] =          (int64_t)ad[ 3] * bd[11] + (int64_t)ad[ 4] * bd[10] +
-                     (int64_t)ad[ 5] * bd[ 9] + (int64_t)ad[ 6] * bd[ 8] +
-                     (int64_t)ad[ 7] * bd[ 7] + (int64_t)ad[ 8] * bd[ 6] +
-                     (int64_t)ad[ 9] * bd[ 5] + (int64_t)ad[10] * bd[ 4] +
-                     (int64_t)ad[11] * bd[ 3];
-    t[15] =          (int64_t)ad[ 4] * bd[11] + (int64_t)ad[ 5] * bd[10] +
-                     (int64_t)ad[ 6] * bd[ 9] + (int64_t)ad[ 7] * bd[ 8] +
-                     (int64_t)ad[ 8] * bd[ 7] + (int64_t)ad[ 9] * bd[ 6] +
-                     (int64_t)ad[10] * bd[ 5] + (int64_t)ad[11] * bd[ 4];
-    t[16] =          (int64_t)ad[ 5] * bd[11] + (int64_t)ad[ 6] * bd[10] +
-                     (int64_t)ad[ 7] * bd[ 9] + (int64_t)ad[ 8] * bd[ 8] +
-                     (int64_t)ad[ 9] * bd[ 7] + (int64_t)ad[10] * bd[ 6] +
-                     (int64_t)ad[11] * bd[ 5];
-    t[17] =          (int64_t)ad[ 6] * bd[11] + (int64_t)ad[ 7] * bd[10] +
-                     (int64_t)ad[ 8] * bd[ 9] + (int64_t)ad[ 9] * bd[ 8] +
-                     (int64_t)ad[10] * bd[ 7] + (int64_t)ad[11] * bd[ 6];
-    t[18] =          (int64_t)ad[ 7] * bd[11] + (int64_t)ad[ 8] * bd[10] +
-                     (int64_t)ad[ 9] * bd[ 9] + (int64_t)ad[10] * bd[ 8] +
-                     (int64_t)ad[11] * bd[ 7];
-    t[19] =          (int64_t)ad[ 8] * bd[11] + (int64_t)ad[ 9] * bd[10] +
-                     (int64_t)ad[10] * bd[ 9] + (int64_t)ad[11] * bd[ 8];
-    t[20] =          (int64_t)ad[ 9] * bd[11] + (int64_t)ad[10] * bd[10] +
-                     (int64_t)ad[11] * bd[ 9];
-    t[21] =          (int64_t)ad[10] * bd[11] + (int64_t)ad[11] * bd[10];
-    t[22] =          (int64_t)ad[11] * bd[11];
+    t[ 0] = cd[ 0] + (sword64)ad[ 0] * bd[ 0];
+    t[ 1] = cd[ 1] + (sword64)ad[ 0] * bd[ 1] + (sword64)ad[ 1] * bd[ 0];
+    t[ 2] = cd[ 2] + (sword64)ad[ 0] * bd[ 2] + (sword64)ad[ 1] * bd[ 1] +
+                     (sword64)ad[ 2] * bd[ 0];
+    t[ 3] = cd[ 3] + (sword64)ad[ 0] * bd[ 3] + (sword64)ad[ 1] * bd[ 2] +
+                     (sword64)ad[ 2] * bd[ 1] + (sword64)ad[ 3] * bd[ 0];
+    t[ 4] = cd[ 4] + (sword64)ad[ 0] * bd[ 4] + (sword64)ad[ 1] * bd[ 3] +
+                     (sword64)ad[ 2] * bd[ 2] + (sword64)ad[ 3] * bd[ 1] +
+                     (sword64)ad[ 4] * bd[ 0];
+    t[ 5] = cd[ 5] + (sword64)ad[ 0] * bd[ 5] + (sword64)ad[ 1] * bd[ 4] +
+                     (sword64)ad[ 2] * bd[ 3] + (sword64)ad[ 3] * bd[ 2] +
+                     (sword64)ad[ 4] * bd[ 1] + (sword64)ad[ 5] * bd[ 0];
+    t[ 6] = cd[ 6] + (sword64)ad[ 0] * bd[ 6] + (sword64)ad[ 1] * bd[ 5] +
+                     (sword64)ad[ 2] * bd[ 4] + (sword64)ad[ 3] * bd[ 3] +
+                     (sword64)ad[ 4] * bd[ 2] + (sword64)ad[ 5] * bd[ 1] +
+                     (sword64)ad[ 6] * bd[ 0];
+    t[ 7] = cd[ 7] + (sword64)ad[ 0] * bd[ 7] + (sword64)ad[ 1] * bd[ 6] +
+                     (sword64)ad[ 2] * bd[ 5] + (sword64)ad[ 3] * bd[ 4] +
+                     (sword64)ad[ 4] * bd[ 3] + (sword64)ad[ 5] * bd[ 2] +
+                     (sword64)ad[ 6] * bd[ 1] + (sword64)ad[ 7] * bd[ 0];
+    t[ 8] = cd[ 8] + (sword64)ad[ 0] * bd[ 8] + (sword64)ad[ 1] * bd[ 7] +
+                     (sword64)ad[ 2] * bd[ 6] + (sword64)ad[ 3] * bd[ 5] +
+                     (sword64)ad[ 4] * bd[ 4] + (sword64)ad[ 5] * bd[ 3] +
+                     (sword64)ad[ 6] * bd[ 2] + (sword64)ad[ 7] * bd[ 1] +
+                     (sword64)ad[ 8] * bd[ 0];
+    t[ 9] = cd[ 9] + (sword64)ad[ 0] * bd[ 9] + (sword64)ad[ 1] * bd[ 8] +
+                     (sword64)ad[ 2] * bd[ 7] + (sword64)ad[ 3] * bd[ 6] +
+                     (sword64)ad[ 4] * bd[ 5] + (sword64)ad[ 5] * bd[ 4] +
+                     (sword64)ad[ 6] * bd[ 3] + (sword64)ad[ 7] * bd[ 2] +
+                     (sword64)ad[ 8] * bd[ 1] + (sword64)ad[ 9] * bd[ 0];
+    t[10] = cd[10] + (sword64)ad[ 0] * bd[10] + (sword64)ad[ 1] * bd[ 9] +
+                     (sword64)ad[ 2] * bd[ 8] + (sword64)ad[ 3] * bd[ 7] +
+                     (sword64)ad[ 4] * bd[ 6] + (sword64)ad[ 5] * bd[ 5] +
+                     (sword64)ad[ 6] * bd[ 4] + (sword64)ad[ 7] * bd[ 3] +
+                     (sword64)ad[ 8] * bd[ 2] + (sword64)ad[ 9] * bd[ 1] +
+                     (sword64)ad[10] * bd[ 0];
+    t[11] = cd[11] + (sword64)ad[ 0] * bd[11] + (sword64)ad[ 1] * bd[10] +
+                     (sword64)ad[ 2] * bd[ 9] + (sword64)ad[ 3] * bd[ 8] +
+                     (sword64)ad[ 4] * bd[ 7] + (sword64)ad[ 5] * bd[ 6] +
+                     (sword64)ad[ 6] * bd[ 5] + (sword64)ad[ 7] * bd[ 4] +
+                     (sword64)ad[ 8] * bd[ 3] + (sword64)ad[ 9] * bd[ 2] +
+                     (sword64)ad[10] * bd[ 1] + (sword64)ad[11] * bd[ 0];
+    t[12] =          (sword64)ad[ 1] * bd[11] + (sword64)ad[ 2] * bd[10] +
+                     (sword64)ad[ 3] * bd[ 9] + (sword64)ad[ 4] * bd[ 8] +
+                     (sword64)ad[ 5] * bd[ 7] + (sword64)ad[ 6] * bd[ 6] +
+                     (sword64)ad[ 7] * bd[ 5] + (sword64)ad[ 8] * bd[ 4] +
+                     (sword64)ad[ 9] * bd[ 3] + (sword64)ad[10] * bd[ 2] +
+                     (sword64)ad[11] * bd[ 1];
+    t[13] =          (sword64)ad[ 2] * bd[11] + (sword64)ad[ 3] * bd[10] +
+                     (sword64)ad[ 4] * bd[ 9] + (sword64)ad[ 5] * bd[ 8] +
+                     (sword64)ad[ 6] * bd[ 7] + (sword64)ad[ 7] * bd[ 6] +
+                     (sword64)ad[ 8] * bd[ 5] + (sword64)ad[ 9] * bd[ 4] +
+                     (sword64)ad[10] * bd[ 3] + (sword64)ad[11] * bd[ 2];
+    t[14] =          (sword64)ad[ 3] * bd[11] + (sword64)ad[ 4] * bd[10] +
+                     (sword64)ad[ 5] * bd[ 9] + (sword64)ad[ 6] * bd[ 8] +
+                     (sword64)ad[ 7] * bd[ 7] + (sword64)ad[ 8] * bd[ 6] +
+                     (sword64)ad[ 9] * bd[ 5] + (sword64)ad[10] * bd[ 4] +
+                     (sword64)ad[11] * bd[ 3];
+    t[15] =          (sword64)ad[ 4] * bd[11] + (sword64)ad[ 5] * bd[10] +
+                     (sword64)ad[ 6] * bd[ 9] + (sword64)ad[ 7] * bd[ 8] +
+                     (sword64)ad[ 8] * bd[ 7] + (sword64)ad[ 9] * bd[ 6] +
+                     (sword64)ad[10] * bd[ 5] + (sword64)ad[11] * bd[ 4];
+    t[16] =          (sword64)ad[ 5] * bd[11] + (sword64)ad[ 6] * bd[10] +
+                     (sword64)ad[ 7] * bd[ 9] + (sword64)ad[ 8] * bd[ 8] +
+                     (sword64)ad[ 9] * bd[ 7] + (sword64)ad[10] * bd[ 6] +
+                     (sword64)ad[11] * bd[ 5];
+    t[17] =          (sword64)ad[ 6] * bd[11] + (sword64)ad[ 7] * bd[10] +
+                     (sword64)ad[ 8] * bd[ 9] + (sword64)ad[ 9] * bd[ 8] +
+                     (sword64)ad[10] * bd[ 7] + (sword64)ad[11] * bd[ 6];
+    t[18] =          (sword64)ad[ 7] * bd[11] + (sword64)ad[ 8] * bd[10] +
+                     (sword64)ad[ 9] * bd[ 9] + (sword64)ad[10] * bd[ 8] +
+                     (sword64)ad[11] * bd[ 7];
+    t[19] =          (sword64)ad[ 8] * bd[11] + (sword64)ad[ 9] * bd[10] +
+                     (sword64)ad[10] * bd[ 9] + (sword64)ad[11] * bd[ 8];
+    t[20] =          (sword64)ad[ 9] * bd[11] + (sword64)ad[10] * bd[10] +
+                     (sword64)ad[11] * bd[ 9];
+    t[21] =          (sword64)ad[10] * bd[11] + (sword64)ad[11] * bd[10];
+    t[22] =          (sword64)ad[11] * bd[11];
     t[23] = 0;
 
     carry = t[ 0] >> 21; t[ 1] += carry; t[ 0] &= MASK_21;
@@ -639,28 +639,28 @@ void sc_muladd(byte* s, const byte* a, const byte* b, const byte* c)
     s[31] = (byte)(t[11] >> 17);
 }
 #else
-static uint64_t load_6(const byte* a)
+static word64 load_6(const byte* a)
 {
-    uint64_t n;
-    n = ((uint64_t)a[0] <<  0) |
-        ((uint64_t)a[1] <<  8) |
-        ((uint64_t)a[2] << 16) |
-        ((uint64_t)a[3] << 24) |
-        ((uint64_t)a[4] << 32) |
-        ((uint64_t)a[5] << 40);
+    word64 n;
+    n = ((word64)a[0] <<  0) |
+        ((word64)a[1] <<  8) |
+        ((word64)a[2] << 16) |
+        ((word64)a[3] << 24) |
+        ((word64)a[4] << 32) |
+        ((word64)a[5] << 40);
     return n;
 }
 
-static uint64_t load_7(const byte* a)
+static word64 load_7(const byte* a)
 {
-    uint64_t n;
-    n = ((uint64_t)a[0] <<  0) |
-        ((uint64_t)a[1] <<  8) |
-        ((uint64_t)a[2] << 16) |
-        ((uint64_t)a[3] << 24) |
-        ((uint64_t)a[4] << 32) |
-        ((uint64_t)a[5] << 40) |
-        ((uint64_t)a[6] << 48);
+    word64 n;
+    n = ((word64)a[0] <<  0) |
+        ((word64)a[1] <<  8) |
+        ((word64)a[2] << 16) |
+        ((word64)a[3] << 24) |
+        ((word64)a[4] << 32) |
+        ((word64)a[5] << 40) |
+        ((word64)a[6] << 48);
     return n;
 }
 
@@ -790,7 +790,7 @@ Output:
 */
 void sc_muladd(byte* s, const byte* a, const byte* b, const byte* c)
 {
-    uint64_t ad[6], bd[6], cd[6];
+    word64 ad[6], bd[6], cd[6];
     __int128_t t[12];
     __int128_t carry;
 
@@ -990,7 +990,7 @@ static unsigned char equal(signed char b,signed char c)
   unsigned char ub = b;
   unsigned char uc = c;
   unsigned char x = ub ^ uc; /* 0: yes; 1..255: no */
-  uint32_t y = x; /* 0: yes; 1..255: no */
+  word32 y = x; /* 0: yes; 1..255: no */
   y -= 1; /* 4294967295: yes; 0..254: no */
   y >>= 31; /* 1: yes; 0: no */
   return (unsigned char)y;
@@ -9192,6 +9192,8 @@ void ge_scalarmult_base(ge_p3 *h,const unsigned char *a)
 }
 
 
+#define SLIDE_SIZE 256
+
 /* ge double scalar mult */
 static void slide(signed char *r,const unsigned char *a)
 {
@@ -9199,18 +9201,18 @@ static void slide(signed char *r,const unsigned char *a)
   int b;
   int k;
 
-  for (i = 0;i < 256;++i)
+  for (i = 0;i < SLIDE_SIZE;++i)
     r[i] = 1 & (a[i >> 3] >> (i & 7));
 
-  for (i = 0;i < 256;++i)
+  for (i = 0;i < SLIDE_SIZE;++i)
     if (r[i]) {
-      for (b = 1;b <= 6 && i + b < 256;++b) {
+      for (b = 1;b <= 6 && i + b < SLIDE_SIZE;++b) {
         if (r[i + b]) {
           if (r[i] + (r[i + b] << b) <= 15) {
             r[i] += r[i + b] << b; r[i + b] = 0;
           } else if (r[i] - (r[i + b] << b) >= -15) {
             r[i] -= r[i + b] << b;
-            for (k = i + b;k < 256;++k) {
+            for (k = i + b;k < SLIDE_SIZE;++k) {
               if (!r[k]) {
                 r[k] = 1;
                 break;
@@ -9408,26 +9410,53 @@ B is the Ed25519 base point (x,4/5) with x positive.
 int ge_double_scalarmult_vartime(ge_p2 *r, const unsigned char *a,
                                  const ge_p3 *A, const unsigned char *b)
 {
-  signed char aslide[256];
-  signed char bslide[256];
+#if defined(WOLFSSL_SMALL_STACK) && !defined(WOLFSSL_SP_NO_MALLOC)
+  signed char *aslide = NULL;
+  signed char *bslide = NULL;
+  ge_cached *Ai = NULL; /* A,3A,5A,7A,9A,11A,13A,15A */
+
+  ge_p1p1 *t = NULL;
+  ge_p3 *u = NULL;
+  ge_p3 *A2 = NULL;
+
+  int ret;
+#else
+  signed char aslide[SLIDE_SIZE];
+  signed char bslide[SLIDE_SIZE];
   ge_cached Ai[8]; /* A,3A,5A,7A,9A,11A,13A,15A */
-  ge_p1p1 t;
-  ge_p3 u;
-  ge_p3 A2;
+
+  ge_p1p1 t[1];
+  ge_p3 u[1];
+  ge_p3 A2[1];
+#endif
   int i;
+
+#if defined(WOLFSSL_SMALL_STACK) && !defined(WOLFSSL_SP_NO_MALLOC)
+  if (((aslide = (signed char *)XMALLOC(SLIDE_SIZE, NULL, DYNAMIC_TYPE_TMP_BUFFER))== NULL) ||
+      ((bslide = (signed char *)XMALLOC(SLIDE_SIZE, NULL, DYNAMIC_TYPE_TMP_BUFFER))== NULL) ||
+      ((Ai = (ge_cached *)XMALLOC(8 * sizeof(*Ai), NULL, DYNAMIC_TYPE_TMP_BUFFER))== NULL) ||
+      ((t = (ge_p1p1 *)XMALLOC(sizeof(*t), NULL, DYNAMIC_TYPE_TMP_BUFFER))== NULL) ||
+      ((u = (ge_p3 *)XMALLOC(sizeof(*u), NULL, DYNAMIC_TYPE_TMP_BUFFER))== NULL) ||
+      ((A2 = (ge_p3 *)XMALLOC(sizeof(*A2), NULL, DYNAMIC_TYPE_TMP_BUFFER))== NULL))
+  {
+      ret = MEMORY_E;
+      goto out;
+  } else
+      ret = 0;
+#endif
 
   slide(aslide,a);
   slide(bslide,b);
 
   ge_p3_to_cached(&Ai[0],A);
-  ge_p3_dbl(&t,A); ge_p1p1_to_p3(&A2,&t);
-  ge_add(&t,&A2,&Ai[0]); ge_p1p1_to_p3(&u,&t); ge_p3_to_cached(&Ai[1],&u);
-  ge_add(&t,&A2,&Ai[1]); ge_p1p1_to_p3(&u,&t); ge_p3_to_cached(&Ai[2],&u);
-  ge_add(&t,&A2,&Ai[2]); ge_p1p1_to_p3(&u,&t); ge_p3_to_cached(&Ai[3],&u);
-  ge_add(&t,&A2,&Ai[3]); ge_p1p1_to_p3(&u,&t); ge_p3_to_cached(&Ai[4],&u);
-  ge_add(&t,&A2,&Ai[4]); ge_p1p1_to_p3(&u,&t); ge_p3_to_cached(&Ai[5],&u);
-  ge_add(&t,&A2,&Ai[5]); ge_p1p1_to_p3(&u,&t); ge_p3_to_cached(&Ai[6],&u);
-  ge_add(&t,&A2,&Ai[6]); ge_p1p1_to_p3(&u,&t); ge_p3_to_cached(&Ai[7],&u);
+  ge_p3_dbl(t,A); ge_p1p1_to_p3(A2,t);
+  ge_add(t,A2,&Ai[0]); ge_p1p1_to_p3(u,t); ge_p3_to_cached(&Ai[1],u);
+  ge_add(t,A2,&Ai[1]); ge_p1p1_to_p3(u,t); ge_p3_to_cached(&Ai[2],u);
+  ge_add(t,A2,&Ai[2]); ge_p1p1_to_p3(u,t); ge_p3_to_cached(&Ai[3],u);
+  ge_add(t,A2,&Ai[3]); ge_p1p1_to_p3(u,t); ge_p3_to_cached(&Ai[4],u);
+  ge_add(t,A2,&Ai[4]); ge_p1p1_to_p3(u,t); ge_p3_to_cached(&Ai[5],u);
+  ge_add(t,A2,&Ai[5]); ge_p1p1_to_p3(u,t); ge_p3_to_cached(&Ai[6],u);
+  ge_add(t,A2,&Ai[6]); ge_p1p1_to_p3(u,t); ge_p3_to_cached(&Ai[7],u);
 
   ge_p2_0(r);
 
@@ -9436,28 +9465,47 @@ int ge_double_scalarmult_vartime(ge_p2 *r, const unsigned char *a,
   }
 
   for (;i >= 0;--i) {
-    ge_p2_dbl(&t,r);
+    ge_p2_dbl(t,r);
 
     if (aslide[i] > 0) {
-      ge_p1p1_to_p3(&u,&t);
-      ge_add(&t,&u,&Ai[aslide[i]/2]);
+      ge_p1p1_to_p3(u,t);
+      ge_add(t,u,&Ai[aslide[i]/2]);
     } else if (aslide[i] < 0) {
-      ge_p1p1_to_p3(&u,&t);
-      ge_sub(&t,&u,&Ai[(-aslide[i])/2]);
+      ge_p1p1_to_p3(u,t);
+      ge_sub(t,u,&Ai[(-aslide[i])/2]);
     }
 
     if (bslide[i] > 0) {
-      ge_p1p1_to_p3(&u,&t);
-      ge_madd(&t,&u,&Bi[bslide[i]/2]);
+      ge_p1p1_to_p3(u,t);
+      ge_madd(t,u,&Bi[bslide[i]/2]);
     } else if (bslide[i] < 0) {
-      ge_p1p1_to_p3(&u,&t);
-      ge_msub(&t,&u,&Bi[(-bslide[i])/2]);
+      ge_p1p1_to_p3(u,t);
+      ge_msub(t,u,&Bi[(-bslide[i])/2]);
     }
 
-    ge_p1p1_to_p2(r,&t);
+    ge_p1p1_to_p2(r,t);
   }
 
+#if defined(WOLFSSL_SMALL_STACK) && !defined(WOLFSSL_SP_NO_MALLOC)
+  out:
+
+  if (aslide != NULL)
+      XFREE(aslide, NULL, DYNAMIC_TYPE_TMP_BUFFER);
+  if (bslide != NULL)
+      XFREE(bslide, NULL, DYNAMIC_TYPE_TMP_BUFFER);
+  if (Ai != NULL)
+      XFREE(Ai, NULL, DYNAMIC_TYPE_TMP_BUFFER);
+  if (t != NULL)
+      XFREE(t, NULL, DYNAMIC_TYPE_TMP_BUFFER);
+  if (u != NULL)
+      XFREE(u, NULL, DYNAMIC_TYPE_TMP_BUFFER);
+  if (A2 != NULL)
+      XFREE(A2, NULL, DYNAMIC_TYPE_TMP_BUFFER);
+
+  return ret;
+#else
   return 0;
+#endif
 }
 
 #ifdef CURVED25519_ASM_64BIT
@@ -9677,9 +9725,13 @@ r = 2 * p
 
 static void ge_p3_dbl(ge_p1p1 *r,const ge_p3 *p)
 {
-  ge_p2 q;
-  ge_p3_to_p2(&q,p);
-  ge_p2_dbl(r,&q);
+#ifndef CURVED25519_ASM
+    ge_p2 q;
+    ge_p3_to_p2(&q,p);
+    ge_p2_dbl(r,&q);
+#else
+    fe_ge_dbl(r->X, r->Y, r->Z, r->T, p->X, p->Y, p->Z);
+#endif
 }
 
 
@@ -9724,12 +9776,14 @@ static WC_INLINE void ge_p3_to_cached(ge_cached *r,const ge_p3 *p)
 r = p
 */
 
+#ifndef CURVED25519_ASM
 static void ge_p3_to_p2(ge_p2 *r,const ge_p3 *p)
 {
   fe_copy(r->X,p->X);
   fe_copy(r->Y,p->Y);
   fe_copy(r->Z,p->Z);
 }
+#endif
 
 
 /* ge p3 tobytes */

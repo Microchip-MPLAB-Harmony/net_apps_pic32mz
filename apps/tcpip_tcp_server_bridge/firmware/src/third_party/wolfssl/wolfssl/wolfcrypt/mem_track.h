@@ -1,6 +1,6 @@
 /* mem_track.h
  *
- * Copyright (C) 2006-2019 wolfSSL Inc.
+ * Copyright (C) 2006-2021 wolfSSL Inc.
  *
  * This file is part of wolfSSL.
  *
@@ -76,6 +76,15 @@
         long totalBytes;      /* total number of bytes allocated */
         long peakBytes;       /* concurrent max bytes */
         long currentBytes;    /* total current bytes in use */
+#ifdef WOLFSSL_TRACK_MEMORY_VERBOSE
+        long peakAllocsTripOdometer; /* peak number of concurrent allocations,
+                                      * subject to reset by
+                                      * wolfCrypt_heap_peak_checkpoint()
+                                      */
+        long peakBytesTripOdometer; /* peak concurrent bytes, subject to reset
+                                     * by wolfCrypt_heap_peak_checkpoint()
+                                     */
+#endif
     } memoryStats;
 
     typedef struct memHint {
@@ -122,15 +131,15 @@
     /* if defined to not using inline then declare function prototypes */
     #ifdef NO_INLINE
         #define WC_STATIC
-		#ifdef WOLFSSL_DEBUG_MEMORY
-			WOLFSSL_LOCAL void* TrackMalloc(size_t sz, const char* func, unsigned int line);
-			WOLFSSL_LOCAL void TrackFree(void* ptr, const char* func, unsigned int line);
-			WOLFSSL_LOCAL void* TrackRealloc(void* ptr, size_t sz, const char* func, unsigned int line);
-		#else
-			WOLFSSL_LOCAL void* TrackMalloc(size_t sz);
-			WOLFSSL_LOCAL void TrackFree(void* ptr);
-			WOLFSSL_LOCAL void* TrackRealloc(void* ptr, size_t sz);
-		#endif
+        #ifdef WOLFSSL_DEBUG_MEMORY
+             WOLFSSL_LOCAL void* TrackMalloc(size_t sz, const char* func, unsigned int line);
+             WOLFSSL_LOCAL void TrackFree(void* ptr, const char* func, unsigned int line);
+             WOLFSSL_LOCAL void* TrackRealloc(void* ptr, size_t sz, const char* func, unsigned int line);
+        #else
+             WOLFSSL_LOCAL void* TrackMalloc(size_t sz);
+             WOLFSSL_LOCAL void TrackFree(void* ptr);
+             WOLFSSL_LOCAL void* TrackRealloc(void* ptr, size_t sz);
+        #endif
         WOLFSSL_LOCAL int InitMemoryTracker(void);
         WOLFSSL_LOCAL void ShowMemoryTracker(void);
     #else
@@ -149,7 +158,11 @@
         if (sz == 0)
             return NULL;
 
+    #ifdef FREERTOS
+        mt = (memoryTrack*)pvPortMalloc(sizeof(memoryTrack) + sz);
+    #else
         mt = (memoryTrack*)malloc(sizeof(memoryTrack) + sz);
+    #endif
         if (mt == NULL)
             return NULL;
 
@@ -159,7 +172,7 @@
 
     #ifdef WOLFSSL_DEBUG_MEMORY
     #ifdef WOLFSSL_DEBUG_MEMORY_PRINT
-        printf("Alloc: %p -> %u at %s:%d\n", header->thisMemory, (word32)sz, func, line);
+        fprintf(stderr, "Alloc: %p -> %u at %s:%d\n", header->thisMemory, (word32)sz, func, line);
     #else
         (void)func;
         (void)line;
@@ -170,8 +183,17 @@
         ourMemStats.totalAllocs++;
         ourMemStats.totalBytes   += sz;
         ourMemStats.currentBytes += sz;
-        if (ourMemStats.currentBytes > ourMemStats.peakBytes)
-            ourMemStats.peakBytes = ourMemStats.currentBytes;
+        #ifdef WOLFSSL_TRACK_MEMORY_VERBOSE
+        if (ourMemStats.peakAllocsTripOdometer < ourMemStats.totalAllocs - ourMemStats.totalDeallocs)
+            ourMemStats.peakAllocsTripOdometer = ourMemStats.totalAllocs - ourMemStats.totalDeallocs;
+        if (ourMemStats.peakBytesTripOdometer < ourMemStats.currentBytes) {
+            ourMemStats.peakBytesTripOdometer = ourMemStats.currentBytes;
+        #endif
+            if (ourMemStats.currentBytes > ourMemStats.peakBytes)
+                ourMemStats.peakBytes = ourMemStats.currentBytes;
+        #ifdef WOLFSSL_TRACK_MEMORY_VERBOSE
+        }
+        #endif
     #endif
     #ifdef DO_MEM_LIST
         if (pthread_mutex_lock(&memLock) == 0) {
@@ -220,7 +242,7 @@
         sz = header->thisSize;
 
     #ifdef DO_MEM_LIST
-        if (pthread_mutex_lock(&memLock) == 0) 
+        if (pthread_mutex_lock(&memLock) == 0)
         {
     #endif
 
@@ -258,7 +280,7 @@
 
 #ifdef WOLFSSL_DEBUG_MEMORY
 #ifdef WOLFSSL_DEBUG_MEMORY_PRINT
-        printf("Free: %p -> %u at %s:%d\n", ptr, (word32)sz, func, line);
+        fprintf(stderr, "Free: %p -> %u at %s:%d\n", ptr, (word32)sz, func, line);
 #else
         (void)func;
         (void)line;
@@ -266,7 +288,11 @@
 #endif
         (void)sz;
 
+    #ifdef FREERTOS
+        vPortFree(mt);
+    #else
         free(mt);
+    #endif
     }
 
 
@@ -319,11 +345,11 @@
 
         ret = wolfSSL_GetAllocators(&mfDefault, &ffDefault, &rfDefault);
         if (ret < 0) {
-            printf("wolfSSL GetAllocators failed to get the defaults\n");
+            fprintf(stderr, "wolfSSL GetAllocators failed to get the defaults\n");
         }
         ret = wolfSSL_SetAllocators(TrackMalloc, TrackFree, TrackRealloc);
         if (ret < 0) {
-            printf("wolfSSL SetAllocators failed for track memory\n");
+            fprintf(stderr, "wolfSSL SetAllocators failed for track memory\n");
             return ret;
         }
 
@@ -338,8 +364,12 @@
         ourMemStats.totalBytes   = 0;
         ourMemStats.peakBytes    = 0;
         ourMemStats.currentBytes = 0;
+#ifdef WOLFSSL_TRACK_MEMORY_VERBOSE
+        ourMemStats.peakAllocsTripOdometer = 0;
+        ourMemStats.peakBytesTripOdometer    = 0;
+#endif
     #endif
-    
+
     #ifdef DO_MEM_LIST
         XMEMSET(&ourMemList, 0, sizeof(ourMemList));
 
@@ -358,11 +388,11 @@
     #endif
 
     #ifdef DO_MEM_STATS
-        printf("total   Allocs   = %9ld\n", ourMemStats.totalAllocs);
-        printf("total   Deallocs = %9ld\n", ourMemStats.totalDeallocs);
-        printf("total   Bytes    = %9ld\n", ourMemStats.totalBytes);
-        printf("peak    Bytes    = %9ld\n", ourMemStats.peakBytes);
-        printf("current Bytes    = %9ld\n", ourMemStats.currentBytes);
+        fprintf(stderr, "total   Allocs   = %9ld\n", ourMemStats.totalAllocs);
+        fprintf(stderr, "total   Deallocs = %9ld\n", ourMemStats.totalDeallocs);
+        fprintf(stderr, "total   Bytes    = %9ld\n", ourMemStats.totalBytes);
+        fprintf(stderr, "peak    Bytes    = %9ld\n", ourMemStats.peakBytes);
+        fprintf(stderr, "current Bytes    = %9ld\n", ourMemStats.currentBytes);
     #endif
 
     #ifdef DO_MEM_LIST
@@ -370,7 +400,7 @@
             /* print list of allocations */
             memHint* header;
             for (header = ourMemList.head; header != NULL; header = header->next) {
-                printf("Leak: Ptr %p, Size %u"
+                fprintf(stderr, "Leak: Ptr %p, Size %u"
                 #ifdef WOLFSSL_DEBUG_MEMORY
                     ", Func %s, Line %d"
                 #endif
