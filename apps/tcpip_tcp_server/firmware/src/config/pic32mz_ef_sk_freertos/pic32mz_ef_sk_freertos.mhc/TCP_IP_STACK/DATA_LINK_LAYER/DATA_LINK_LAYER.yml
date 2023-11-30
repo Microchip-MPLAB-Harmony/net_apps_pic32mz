@@ -1,6 +1,0 @@
-format_version: v1.0
-type: GroupComponent
-attributes: {displayName: DATA LINK LAYER, id: DATA LINK LAYER}
-children:
-- type: ElementPosition
-  attributes: {x: '220', y: '20', id: DATA LINK LAYER}
