@@ -10,30 +10,28 @@
   Description:
 *******************************************************************************/
 // DOM-IGNORE-BEGIN
-/*****************************************************************************
- Copyright (C) 2014-2018 Microchip Technology Inc. and its subsidiaries.
+/*
+Copyright (C) 2014-2023, Microchip Technology Inc., and its subsidiaries. All rights reserved.
 
-Microchip Technology Inc. and its subsidiaries.
+The software and documentation is provided by microchip and its contributors
+"as is" and any express, implied or statutory warranties, including, but not
+limited to, the implied warranties of merchantability, fitness for a particular
+purpose and non-infringement of third party intellectual property rights are
+disclaimed to the fullest extent permitted by law. In no event shall microchip
+or its contributors be liable for any direct, indirect, incidental, special,
+exemplary, or consequential damages (including, but not limited to, procurement
+of substitute goods or services; loss of use, data, or profits; or business
+interruption) however caused and on any theory of liability, whether in contract,
+strict liability, or tort (including negligence or otherwise) arising in any way
+out of the use of the software and documentation, even if advised of the
+possibility of such damage.
 
-Subject to your compliance with these terms, you may use Microchip software 
-and any derivatives exclusively with Microchip products. It is your 
-responsibility to comply with third party license terms applicable to your 
-use of third party software (including open source software) that may 
-accompany Microchip software.
-
-THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
-EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED 
-WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A PARTICULAR 
-PURPOSE.
-
-IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
-INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
-WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS 
-BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE 
-FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN 
-ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY, 
-THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
-*****************************************************************************/
+Except as expressly permitted hereunder and subject to the applicable license terms
+for any third-party software incorporated in the software and any applicable open
+source software license terms, no license or other rights, whether express or
+implied, are granted under any patent or other intellectual property rights of
+Microchip or any third party.
+*/
 
 // DOM-IGNORE-END
 
@@ -77,111 +75,111 @@ static DRV_ENCX24J600_SPI_SFR_MAP _DRV_ENCX24J600_MapSfrToSpi(DRV_ENCX24J600_SFR
     {
     case DRV_ENCX24J600_SFR_ETXS:
         return DRV_ENCX24J600_SPI_SFR_ETXST;
-	case DRV_ENCX24J600_SFR_ETXLEN:
+    case DRV_ENCX24J600_SFR_ETXLEN:
             return DRV_ENCX24J600_SPI_SFR_ETXLEN;
-	case DRV_ENCX24J600_SFR_ERXST:
+    case DRV_ENCX24J600_SFR_ERXST:
             return DRV_ENCX24J600_SPI_SFR_ERXST;
-	case DRV_ENCX24J600_SFR_ERXTAIL:
+    case DRV_ENCX24J600_SFR_ERXTAIL:
             return DRV_ENCX24J600_SPI_SFR_ERXTAIL;
-	case DRV_ENCX24J600_SFR_ERXHEAD:
+    case DRV_ENCX24J600_SFR_ERXHEAD:
             return DRV_ENCX24J600_SPI_SFR_ERXHEAD;
-	case DRV_ENCX24J600_SFR_EDMAST:
+    case DRV_ENCX24J600_SFR_EDMAST:
             return DRV_ENCX24J600_SPI_SFR_EDMAST;
-	case DRV_ENCX24J600_SFR_EDMALEN:
+    case DRV_ENCX24J600_SFR_EDMALEN:
             return DRV_ENCX24J600_SPI_SFR_EDMALEN;
-	case DRV_ENCX24J600_SFR_EDMADST:
+    case DRV_ENCX24J600_SFR_EDMADST:
             return DRV_ENCX24J600_SPI_SFR_EDMADST;
-	case DRV_ENCX24J600_SFR_EDMACS:
+    case DRV_ENCX24J600_SFR_EDMACS:
             return DRV_ENCX24J600_SPI_SFR_EDMACS;
-	case DRV_ENCX24J600_SFR_ETXSTAT:
+    case DRV_ENCX24J600_SFR_ETXSTAT:
             return DRV_ENCX24J600_SPI_SFR_ETXSTAT;
-	case DRV_ENCX24J600_SFR_ETXWIRE:
+    case DRV_ENCX24J600_SFR_ETXWIRE:
             return DRV_ENCX24J600_SPI_SFR_ETXWIRE;
-	case DRV_ENCX24J600_SFR_EUDAST:
+    case DRV_ENCX24J600_SFR_EUDAST:
             return DRV_ENCX24J600_SPI_SFR_EUDAST + (0x20 * bank);
-	case DRV_ENCX24J600_SFR_EUDAND:
+    case DRV_ENCX24J600_SFR_EUDAND:
             return DRV_ENCX24J600_SPI_SFR_EUDAND + (0x20 * bank);
-	case DRV_ENCX24J600_SFR_ESTAT:
+    case DRV_ENCX24J600_SFR_ESTAT:
             return DRV_ENCX24J600_SPI_SFR_ESTAT + (0x20 * bank);
-	case DRV_ENCX24J600_SFR_EIR:
+    case DRV_ENCX24J600_SFR_EIR:
             return DRV_ENCX24J600_SPI_SFR_EIR + (0x20 * bank);
-	case DRV_ENCX24J600_SFR_ECON1:
+    case DRV_ENCX24J600_SFR_ECON1:
             return DRV_ENCX24J600_SPI_SFR_ECON1 + (0x20 * bank);
-	case DRV_ENCX24J600_SFR_EHT1:
+    case DRV_ENCX24J600_SFR_EHT1:
             return DRV_ENCX24J600_SPI_SFR_EHT1;
-	case DRV_ENCX24J600_SFR_EHT2:
+    case DRV_ENCX24J600_SFR_EHT2:
             return DRV_ENCX24J600_SPI_SFR_EHT2;
-	case DRV_ENCX24J600_SFR_EHT3:
+    case DRV_ENCX24J600_SFR_EHT3:
             return DRV_ENCX24J600_SPI_SFR_EHT3;
-	case DRV_ENCX24J600_SFR_EHT4:
+    case DRV_ENCX24J600_SFR_EHT4:
             return DRV_ENCX24J600_SPI_SFR_EHT4;
-	case DRV_ENCX24J600_SFR_EPMM1:
+    case DRV_ENCX24J600_SFR_EPMM1:
             return DRV_ENCX24J600_SPI_SFR_EPMM1;
-	case DRV_ENCX24J600_SFR_EPMM2:
+    case DRV_ENCX24J600_SFR_EPMM2:
             return DRV_ENCX24J600_SPI_SFR_EPMM2;
-	case DRV_ENCX24J600_SFR_EPMM3:
+    case DRV_ENCX24J600_SFR_EPMM3:
             return DRV_ENCX24J600_SPI_SFR_EPMM3;
-	case DRV_ENCX24J600_SFR_EPMM4:
+    case DRV_ENCX24J600_SFR_EPMM4:
             return DRV_ENCX24J600_SPI_SFR_EPMM4;
-	case DRV_ENCX24J600_SFR_EPMCS:
+    case DRV_ENCX24J600_SFR_EPMCS:
             return DRV_ENCX24J600_SPI_SFR_EPMCS;
-	case DRV_ENCX24J600_SFR_EPMO:
+    case DRV_ENCX24J600_SFR_EPMO:
             return DRV_ENCX24J600_SPI_SFR_EPMO;
-	case DRV_ENCX24J600_SFR_ERXFCON:
+    case DRV_ENCX24J600_SFR_ERXFCON:
             return DRV_ENCX24J600_SPI_SFR_ERXFCON;
-	case DRV_ENCX24J600_SFR_MACON1:
+    case DRV_ENCX24J600_SFR_MACON1:
             return DRV_ENCX24J600_SPI_SFR_MACON1;
-	case DRV_ENCX24J600_SFR_MACON2:
+    case DRV_ENCX24J600_SFR_MACON2:
             return DRV_ENCX24J600_SPI_SFR_MACON2;
-	case DRV_ENCX24J600_SFR_MABBIPG:
+    case DRV_ENCX24J600_SFR_MABBIPG:
             return DRV_ENCX24J600_SPI_SFR_MABBIPG;
-	case DRV_ENCX24J600_SFR_MAIPG:
+    case DRV_ENCX24J600_SFR_MAIPG:
             return DRV_ENCX24J600_SPI_SFR_MAIPG;
-	case DRV_ENCX24J600_SFR_MACLCON:
+    case DRV_ENCX24J600_SFR_MACLCON:
             return DRV_ENCX24J600_SPI_SFR_MACLCON;
-	case DRV_ENCX24J600_SFR_MAMXFL:
+    case DRV_ENCX24J600_SFR_MAMXFL:
             return DRV_ENCX24J600_SPI_SFR_MAMXFL;
-	case DRV_ENCX24J600_SFR_MICMD:
+    case DRV_ENCX24J600_SFR_MICMD:
             return DRV_ENCX24J600_SPI_SFR_MICMD;
-	case DRV_ENCX24J600_SFR_MIREGADR:
+    case DRV_ENCX24J600_SFR_MIREGADR:
             return DRV_ENCX24J600_SPI_SFR_MIREGADR;
-	case DRV_ENCX24J600_SFR_MAADR3:
+    case DRV_ENCX24J600_SFR_MAADR3:
             return DRV_ENCX24J600_SPI_SFR_MAADR3;
-	case DRV_ENCX24J600_SFR_MAADR2:
+    case DRV_ENCX24J600_SFR_MAADR2:
             return DRV_ENCX24J600_SPI_SFR_MAADR2;
-	case DRV_ENCX24J600_SFR_MAADR1:
+    case DRV_ENCX24J600_SFR_MAADR1:
             return DRV_ENCX24J600_SPI_SFR_MAADR1;
-	case DRV_ENCX24J600_SFR_MIWR:
+    case DRV_ENCX24J600_SFR_MIWR:
             return DRV_ENCX24J600_SPI_SFR_MIWR;
-	case DRV_ENCX24J600_SFR_MIRD:
+    case DRV_ENCX24J600_SFR_MIRD:
             return DRV_ENCX24J600_SPI_SFR_MIRD;
-	case DRV_ENCX24J600_SFR_MISTAT:
+    case DRV_ENCX24J600_SFR_MISTAT:
             return DRV_ENCX24J600_SPI_SFR_MISTAT;
-	case DRV_ENCX24J600_SFR_EPAUS:
+    case DRV_ENCX24J600_SFR_EPAUS:
             return DRV_ENCX24J600_SPI_SFR_EPAUS;
-	case DRV_ENCX24J600_SFR_ECON2:
+    case DRV_ENCX24J600_SFR_ECON2:
             return DRV_ENCX24J600_SPI_SFR_ECON2;
-	case DRV_ENCX24J600_SFR_ERXWM:
+    case DRV_ENCX24J600_SFR_ERXWM:
             return DRV_ENCX24J600_SPI_SFR_ERXWM;
-	case DRV_ENCX24J600_SFR_EIE:
+    case DRV_ENCX24J600_SFR_EIE:
             return DRV_ENCX24J600_SPI_SFR_EIE;
-	case DRV_ENCX24J600_SFR_EIDLED:
+    case DRV_ENCX24J600_SFR_EIDLED:
             return DRV_ENCX24J600_SPI_SFR_EIDLED;
-	case DRV_ENCX24J600_SFR_EGPDATA:
+    case DRV_ENCX24J600_SFR_EGPDATA:
             return DRV_ENCX24J600_SPI_SFR_EGPDATA;
-	case DRV_ENCX24J600_SFR_ERXDATA:
+    case DRV_ENCX24J600_SFR_ERXDATA:
             return DRV_ENCX24J600_SPI_SFR_ERXDATA;
-	case DRV_ENCX24J600_SFR_EUDADTA:
+    case DRV_ENCX24J600_SFR_EUDADTA:
             return DRV_ENCX24J600_SPI_SFR_EUDADTA;
-	case DRV_ENCX24J600_SFR_EGPRDPT:
+    case DRV_ENCX24J600_SFR_EGPRDPT:
             return DRV_ENCX24J600_SPI_SFR_EGPRDPT;
-	case DRV_ENCX24J600_SFR_EGPWRPT:
+    case DRV_ENCX24J600_SFR_EGPWRPT:
             return DRV_ENCX24J600_SPI_SFR_EGPWRPT;
-	case DRV_ENCX24J600_SFR_ERXRDPT:
+    case DRV_ENCX24J600_SFR_ERXRDPT:
             return DRV_ENCX24J600_SPI_SFR_ERXRDPT;
-	case DRV_ENCX24J600_SFR_ERXWRPT:
+    case DRV_ENCX24J600_SFR_ERXWRPT:
             return DRV_ENCX24J600_SPI_SFR_ERXWRPT;
-	case DRV_ENCX24J600_SFR_EUDARDPT:
+    case DRV_ENCX24J600_SFR_EUDARDPT:
             return DRV_ENCX24J600_SPI_SFR_EUDARDPT;
         case DRV_ENCX24J600_SFR_EUDAWRPT:
             return DRV_ENCX24J600_SPI_SFR_EUDAWRPT;

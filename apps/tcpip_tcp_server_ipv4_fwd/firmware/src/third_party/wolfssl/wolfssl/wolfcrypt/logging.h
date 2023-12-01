@@ -1,6 +1,6 @@
 /* logging.h
  *
- * Copyright (C) 2006-2019 wolfSSL Inc.
+ * Copyright (C) 2006-2021 wolfSSL Inc.
  *
  * This file is part of wolfSSL.
  *
@@ -93,28 +93,41 @@ typedef void (*wolfSSL_Logging_cb)(const int logLevel,
                                    const char *const logMessage);
 
 WOLFSSL_API int wolfSSL_SetLoggingCb(wolfSSL_Logging_cb log_function);
+WOLFSSL_API wolfSSL_Logging_cb wolfSSL_GetLoggingCb(void);
 
 /* turn logging on, only if compiled in */
 WOLFSSL_API int  wolfSSL_Debugging_ON(void);
 /* turn logging off */
 WOLFSSL_API void wolfSSL_Debugging_OFF(void);
 
+#ifdef HAVE_WC_INTROSPECTION
+    WOLFSSL_API const char *wolfSSL_configure_args(void);
+    WOLFSSL_API const char *wolfSSL_global_cflags(void);
+#endif
+
+
+#if (defined(OPENSSL_EXTRA) && !defined(_WIN32) && \
+        !defined(NO_ERROR_QUEUE)) || defined(DEBUG_WOLFSSL_VERBOSE)
+#define WOLFSSL_HAVE_ERROR_QUEUE
+#endif
 
 #if defined(OPENSSL_EXTRA) || defined(DEBUG_WOLFSSL_VERBOSE)
     WOLFSSL_LOCAL int wc_LoggingInit(void);
     WOLFSSL_LOCAL int wc_LoggingCleanup(void);
     WOLFSSL_LOCAL int wc_AddErrorNode(int error, int line, char* buf,
             char* file);
-    WOLFSSL_LOCAL int wc_PeekErrorNode(int index, const char **file,
+    WOLFSSL_LOCAL int wc_PeekErrorNode(int idx, const char **file,
             const char **reason, int *line);
-    WOLFSSL_LOCAL void wc_RemoveErrorNode(int index);
+    WOLFSSL_LOCAL void wc_RemoveErrorNode(int idx);
     WOLFSSL_LOCAL void wc_ClearErrorNodes(void);
     WOLFSSL_LOCAL int wc_PullErrorNode(const char **file, const char **reason,
                             int *line);
     WOLFSSL_API   int wc_SetLoggingHeap(void* h);
     WOLFSSL_API   int wc_ERR_remove_state(void);
     #if !defined(NO_FILESYSTEM) && !defined(NO_STDIO_FILESYSTEM)
-        WOLFSSL_API   void wc_ERR_print_errors_fp(XFILE fp);
+        WOLFSSL_API void wc_ERR_print_errors_fp(XFILE fp);
+        WOLFSSL_API void wc_ERR_print_errors_cb(int (*cb)(const char *str,
+                                                size_t len, void *u), void *u);
     #endif
 #endif /* OPENSSL_EXTRA || DEBUG_WOLFSSL_VERBOSE */
 
@@ -148,7 +161,12 @@ WOLFSSL_API void wolfSSL_Debugging_OFF(void);
     WOLFSSL_API void WOLFSSL_LEAVE(const char* msg, int ret);
     #define WOLFSSL_STUB(m) \
         WOLFSSL_MSG(WOLFSSL_LOG_CAT(wolfSSL Stub, m, not implemented))
-
+    WOLFSSL_API int WOLFSSL_IS_DEBUG_ON(void);
+#if !defined(_WIN32) && defined(XVSNPRINTF)
+    WOLFSSL_API void WOLFSSL_MSG_EX(const char* fmt, ...);
+#else
+    #define WOLFSSL_MSG_EX(m, ...)
+#endif
     WOLFSSL_API void WOLFSSL_MSG(const char* msg);
     WOLFSSL_API void WOLFSSL_BUFFER(const byte* buffer, word32 length);
 
@@ -157,17 +175,18 @@ WOLFSSL_API void wolfSSL_Debugging_OFF(void);
     #define WOLFSSL_ENTER(m)
     #define WOLFSSL_LEAVE(m, r)
     #define WOLFSSL_STUB(m)
+    #define WOLFSSL_IS_DEBUG_ON() 0
 
-    #define WOLFSSL_MSG(m)
-    #define WOLFSSL_BUFFER(b, l)
+    #define WOLFSSL_MSG_EX(m, ...)    do{} while(0)
+    #define WOLFSSL_MSG(m)            do{} while(0)
+    #define WOLFSSL_BUFFER(b, l)      do{} while(0)
 
 #endif /* DEBUG_WOLFSSL && !WOLFSSL_DEBUG_ERRORS_ONLY */
 
 #if defined(DEBUG_WOLFSSL) || defined(OPENSSL_ALL) || defined(WOLFSSL_NGINX) ||\
     defined(WOLFSSL_HAPROXY) || defined(OPENSSL_EXTRA)
 
-    #if (!defined(NO_ERROR_QUEUE) && defined(OPENSSL_EXTRA) && !defined(_WIN32))\
-        || defined(DEBUG_WOLFSSL_VERBOSE)
+    #ifdef WOLFSSL_HAVE_ERROR_QUEUE
         WOLFSSL_API void WOLFSSL_ERROR_LINE(int err, const char* func, unsigned int line,
             const char* file, void* ctx);
         #define WOLFSSL_ERROR(x) \
@@ -180,6 +199,14 @@ WOLFSSL_API void wolfSSL_Debugging_OFF(void);
 #else
     #define WOLFSSL_ERROR(e)
     #define WOLFSSL_ERROR_MSG(m)
+#endif
+
+#ifdef HAVE_STACK_SIZE_VERBOSE
+    extern WOLFSSL_API THREAD_LS_T unsigned char *StackSizeCheck_myStack;
+    extern WOLFSSL_API THREAD_LS_T size_t StackSizeCheck_stackSize;
+    extern WOLFSSL_API THREAD_LS_T size_t StackSizeCheck_stackSizeHWM;
+    extern WOLFSSL_API THREAD_LS_T size_t *StackSizeCheck_stackSizeHWM_ptr;
+    extern WOLFSSL_API THREAD_LS_T void *StackSizeCheck_stackOffsetPointer;
 #endif
 
 #ifdef __cplusplus

@@ -1,6 +1,6 @@
 /* random.h
  *
- * Copyright (C) 2006-2019 wolfSSL Inc.
+ * Copyright (C) 2006-2021 wolfSSL Inc.
  *
  * This file is part of wolfSSL.
  *
@@ -99,6 +99,11 @@
      * #define CUSTOM_RAND_GENERATE_BLOCK myRngFunc
      * extern int myRngFunc(byte* output, word32 sz);
      */
+    #if defined(CUSTOM_RAND_GENERATE_BLOCK) && defined(WOLFSSL_KCAPI)
+        #undef  CUSTOM_RAND_GENERATE_BLOCK
+        #define CUSTOM_RAND_GENERATE_BLOCK wc_hwrng_generate_block
+        WOLFSSL_LOCAL int wc_hwrng_generate_block(byte *output, word32 sz);
+    #endif
 #elif defined(HAVE_HASHDRBG)
     #ifdef NO_SHA256
         #error "Hash DRBG requires SHA-256."
@@ -130,9 +135,17 @@
     #endif
 #endif
 
+#ifndef WC_RNG_TYPE_DEFINED /* guard on redeclaration */
+    typedef struct OS_Seed OS_Seed;
+    typedef struct WC_RNG WC_RNG;
+    #ifdef WC_RNG_SEED_CB
+        typedef int (*wc_RngSeed_Cb)(OS_Seed* os, byte* seed, word32 sz);
+    #endif
+    #define WC_RNG_TYPE_DEFINED
+#endif
 
 /* OS specific seeder */
-typedef struct OS_Seed {
+struct OS_Seed {
     #if defined(USE_WINDOWS_API)
         ProviderHandle handle;
     #else
@@ -141,34 +154,34 @@ typedef struct OS_Seed {
     #if defined(WOLF_CRYPTO_CB)
         int devId;
     #endif
-} OS_Seed;
+};
 
-
-#ifndef WC_RNG_TYPE_DEFINED /* guard on redeclaration */
-    typedef struct WC_RNG WC_RNG;
-    #define WC_RNG_TYPE_DEFINED
+#ifdef HAVE_HASHDRBG
+struct DRBG_internal {
+    word32 reseedCtr;
+    word32 lastBlock;
+    byte V[DRBG_SEED_LEN];
+    byte C[DRBG_SEED_LEN];
+#if defined(WOLFSSL_ASYNC_CRYPT) || defined(WOLF_CRYPTO_CB)
+    void* heap;
+    int devId;
+#endif
+    byte   matchCount;
+#ifdef WOLFSSL_SMALL_STACK_CACHE
+    wc_Sha256 sha256;
+#endif
+};
 #endif
 
 /* RNG context */
 struct WC_RNG {
-    OS_Seed seed;
+    struct OS_Seed seed;
     void* heap;
 #ifdef HAVE_HASHDRBG
     /* Hash-based Deterministic Random Bit Generator */
     struct DRBG* drbg;
 #if defined(WOLFSSL_NO_MALLOC) && !defined(WOLFSSL_STATIC_MEMORY)
-    #define DRBG_STRUCT_SZ ((sizeof(word32)*3) + (DRBG_SEED_LEN*2))
-    #ifdef WOLFSSL_SMALL_STACK_CACHE
-        #define DRBG_STRUCT_SZ_SHA256 (sizeof(wc_Sha256))
-    #else
-        #define DRBG_STRUCT_SZ_SHA256 0
-    #endif
-    #if defined(WOLFSSL_ASYNC_CRYPT) || defined(WOLF_CRYPTO_CB)
-        #define DRBG_STRUCT_SZ_ASYNC (sizeof(void*) + sizeof(int))
-    #else
-        #define DRBG_STRUCT_SZ_ASYNC 0
-    #endif
-    byte drbg_data[DRBG_STRUCT_SZ + DRBG_STRUCT_SZ_SHA256 + DRBG_STRUCT_SZ_ASYNC];
+    struct DRBG_internal drbg_data;
 #endif
     byte status;
 #endif
@@ -188,9 +201,7 @@ struct WC_RNG {
     #define RNG WC_RNG
 #endif
 
-
-WOLFSSL_LOCAL
-int wc_GenerateSeed(OS_Seed* os, byte* seed, word32 sz);
+WOLFSSL_API int wc_GenerateSeed(OS_Seed* os, byte* seed, word32 sz);
 
 
 #ifdef HAVE_WNR
@@ -200,31 +211,38 @@ int wc_GenerateSeed(OS_Seed* os, byte* seed, word32 sz);
 #endif /* HAVE_WNR */
 
 
-WOLFSSL_ABI WOLFSSL_API WC_RNG* wc_rng_new(byte*, word32, void*);
-WOLFSSL_ABI WOLFSSL_API void wc_rng_free(WC_RNG*);
+WOLFSSL_ABI WOLFSSL_API WC_RNG* wc_rng_new(byte* nonce, word32 nonceSz, void* heap);
+WOLFSSL_ABI WOLFSSL_API void wc_rng_free(WC_RNG* rng);
 
 
 #ifndef WC_NO_RNG
-WOLFSSL_API int  wc_InitRng(WC_RNG*);
+WOLFSSL_API int  wc_InitRng(WC_RNG* rng);
 WOLFSSL_API int  wc_InitRng_ex(WC_RNG* rng, void* heap, int devId);
 WOLFSSL_API int  wc_InitRngNonce(WC_RNG* rng, byte* nonce, word32 nonceSz);
 WOLFSSL_API int  wc_InitRngNonce_ex(WC_RNG* rng, byte* nonce, word32 nonceSz,
                                     void* heap, int devId);
-WOLFSSL_API int  wc_RNG_GenerateBlock(WC_RNG*, byte*, word32 sz);
-WOLFSSL_API int  wc_RNG_GenerateByte(WC_RNG*, byte*);
-WOLFSSL_API int  wc_FreeRng(WC_RNG*);
+WOLFSSL_ABI WOLFSSL_API int wc_RNG_GenerateBlock(WC_RNG* rng, byte* b, word32 sz);
+WOLFSSL_API int  wc_RNG_GenerateByte(WC_RNG* rng, byte* b);
+WOLFSSL_API int  wc_FreeRng(WC_RNG* rng);
 #else
 #include <wolfssl/wolfcrypt/error-crypt.h>
 #define wc_InitRng(rng) NOT_COMPILED_IN
 #define wc_InitRng_ex(rng, h, d) NOT_COMPILED_IN
 #define wc_InitRngNonce(rng, n, s) NOT_COMPILED_IN
 #define wc_InitRngNonce_ex(rng, n, s, h, d) NOT_COMPILED_IN
+#if defined(__ghs__) || defined(WC_NO_RNG_SIMPLE)
+/* some older compilers do not like macro function in expression */
 #define wc_RNG_GenerateBlock(rng, b, s) NOT_COMPILED_IN
+#else
+#define wc_RNG_GenerateBlock(rng, b, s) ({(void)rng; (void)b; (void)s; NOT_COMPILED_IN;})
+#endif
 #define wc_RNG_GenerateByte(rng, b) NOT_COMPILED_IN
 #define wc_FreeRng(rng) (void)NOT_COMPILED_IN
 #endif
 
-
+#ifdef WC_RNG_SEED_CB
+    WOLFSSL_API int wc_SetSeed_Cb(wc_RngSeed_Cb cb);
+#endif
 
 #ifdef HAVE_HASHDRBG
     WOLFSSL_LOCAL int wc_RNG_DRBG_Reseed(WC_RNG* rng, const byte* entropy,
