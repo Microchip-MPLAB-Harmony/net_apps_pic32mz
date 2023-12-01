@@ -49,12 +49,10 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include "crypto/crypto.h"
-#include "driver/memory/drv_memory.h"
 #include "driver/ethmac/drv_ethmac.h"
 #include "system/time/sys_time.h"
 #include "peripheral/nvm/plib_nvm.h"
 #include "peripheral/coretimer/plib_coretimer.h"
-#include "driver/memory/drv_memory_nvm.h"
 #include "driver/encx24j600/drv_encx24j600.h"
 #include "peripheral/uart/plib_uart2.h"
 #include "peripheral/spi/spi_master/plib_spi1_master.h"
@@ -64,26 +62,16 @@
 #include "system/sys_random_h2_adapter.h"
 #include "system/int/sys_int.h"
 #include "system/ports/sys_ports.h"
-#include "system/cache/sys_cache.h"
-#include "system/dma/sys_dma.h"
 #include "system/reset/sys_reset.h"
 #include "osal/osal.h"
 #include "system/debug/sys_debug.h"
 #include "system/command/sys_command.h"
 #include "peripheral/clk/plib_clk.h"
 #include "peripheral/gpio/plib_gpio.h"
-#include "peripheral/cache/plib_cache.h"
 #include "peripheral/evic/plib_evic.h"
 #include "bsp/bsp.h"
 #include "driver/miim/drv_miim.h"
 #include "wolfssl/wolfcrypt/port/pic32/crypt_wolfcryptcb.h"
-#include "net_pres/pres/net_pres.h"
-#include "net_pres/pres/net_pres_encryptionproviderapi.h"
-#include "net_pres/pres/net_pres_transportapi.h"
-#include "net_pres/pres/net_pres_socketapi.h"
-#include "system/fs/sys_fs.h"
-#include "system/fs/sys_fs_media_manager.h"
-#include "system/fs/mpfs/mpfs.h"
 #include "system/console/sys_console.h"
 #include "system/console/src/sys_console_uart_definitions.h"
 #include "app.h"
@@ -218,7 +206,6 @@ Remarks:
 typedef struct
 {
     SYS_MODULE_OBJ  sysTime;
-    SYS_MODULE_OBJ  drvMemory0;
 
     /* ENCX24J600 System object */
     SYS_MODULE_OBJ          encx24j600Object;
@@ -233,8 +220,6 @@ typedef struct
    SYS_MODULE_OBJ  drvMiim_0;
 
     SYS_MODULE_OBJ  sysDebug;
-
-    SYS_MODULE_OBJ  netPres;
 
 
 } SYSTEM_OBJECTS;

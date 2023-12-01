@@ -62,15 +62,6 @@
 // *****************************************************************************
 
 
-/*** Macros for GPIO_RE9 pin ***/
-#define GPIO_RE9_Set()               (LATESET = (1U<<9))
-#define GPIO_RE9_Clear()             (LATECLR = (1U<<9))
-#define GPIO_RE9_Toggle()            (LATEINV= (1U<<9))
-#define GPIO_RE9_OutputEnable()      (TRISECLR = (1U<<9))
-#define GPIO_RE9_InputEnable()       (TRISESET = (1U<<9))
-#define GPIO_RE9_Get()               ((PORTE >> 9) & 0x1U)
-#define GPIO_RE9_PIN                  GPIO_PIN_RE9
-
 /*** Macros for GPIO_RH12 pin ***/
 #define GPIO_RH12_Set()               (LATHSET = (1U<<12))
 #define GPIO_RH12_Clear()             (LATHCLR = (1U<<12))

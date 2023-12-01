@@ -79,14 +79,9 @@ SYS_CMD_Tasks();
 
 
 
-SYS_FS_Tasks();
-
-
 
     /* Maintain Device Drivers */
-    DRV_MEMORY_Tasks(sysObj.drvMemory0);
-
-   DRV_MIIM_OBJECT_BASE_Default.DRV_MIIM_Tasks(sysObj.drvMiim_0);
+       DRV_MIIM_OBJECT_BASE_Default.DRV_MIIM_Tasks(sysObj.drvMiim_0);
 
 
 
@@ -94,10 +89,6 @@ SYS_FS_Tasks();
     /* Maintain Middleware & Other Libraries */
     
    TCPIP_STACK_Task(sysObj.tcpip);
-
-
-
-NET_PRES_Tasks(sysObj.netPres);
 
 
 

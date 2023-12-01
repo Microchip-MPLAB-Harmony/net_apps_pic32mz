@@ -96,7 +96,7 @@ extern "C" {
 
 #define SYS_CMD_ENABLE
 #define SYS_CMD_DEVICE_MAX_INSTANCES       SYS_CONSOLE_DEVICE_MAX_INSTANCES
-#define SYS_CMD_PRINT_BUFFER_SIZE          2500U
+#define SYS_CMD_PRINT_BUFFER_SIZE          1024U
 #define SYS_CMD_BUFFER_DMA_READY
 
 
@@ -107,32 +107,10 @@ extern "C" {
 #define SYS_DEBUG_USE_CONSOLE
 
 
-
-/* File System Service Configuration */
-
-#define SYS_FS_MEDIA_NUMBER               (1U)
-#define SYS_FS_VOLUME_NUMBER              (1U)
-
-#define SYS_FS_AUTOMOUNT_ENABLE           false
-#define SYS_FS_MAX_FILES                  (25U)
-#define SYS_FS_MAX_FILE_SYSTEM_TYPE       (1U)
-#define SYS_FS_MEDIA_MAX_BLOCK_SIZE       (512U)
-#define SYS_FS_MEDIA_MANAGER_BUFFER_SIZE  (2048U)
-#define SYS_FS_USE_LFN                    (1)
-#define SYS_FS_FILE_NAME_LEN              (255U)
-#define SYS_FS_CWD_STRING_LEN             (1024)
-
-
-
-
-
-
-
-
 #define SYS_CONSOLE_DEVICE_MAX_INSTANCES   			(1U)
 #define SYS_CONSOLE_UART_MAX_INSTANCES 	   			(1U)
 #define SYS_CONSOLE_USB_CDC_MAX_INSTANCES 	   		(0U)
-#define SYS_CONSOLE_PRINT_BUFFER_SIZE        		(2500U)
+#define SYS_CONSOLE_PRINT_BUFFER_SIZE        		(200U)
 
 
 
@@ -142,19 +120,6 @@ extern "C" {
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
-/* Memory Driver Global Configuration Options */
-#define DRV_MEMORY_INSTANCES_NUMBER          (1U)
-
-/* Memory Driver Instance 0 Configuration */
-#define DRV_MEMORY_INDEX_0                   0
-#define DRV_MEMORY_CLIENTS_NUMBER_IDX0       1
-#define DRV_MEMORY_BUF_Q_SIZE_IDX0    1
-#define DRV_MEMORY_DEVICE_START_ADDRESS      0x9d100000U
-#define DRV_MEMORY_DEVICE_MEDIA_SIZE         1024UL
-#define DRV_MEMORY_DEVICE_MEDIA_SIZE_BYTES   (DRV_MEMORY_DEVICE_MEDIA_SIZE * 1024U)
-#define DRV_MEMORY_DEVICE_PROGRAM_SIZE       2048U
-#define DRV_MEMORY_DEVICE_ERASE_SIZE         16384U
-
 
 /*** ENCX24J600 Driver Configuration ***/
 /*** Driver Compilation and static configuration options. ***/
@@ -534,12 +499,6 @@ extern "C" {
 #define NO_ERROR_STRINGS
 #define NO_WOLFSSL_MEMORY
 // ---------- FUNCTIONAL CONFIGURATION END ----------
-
-/* MPLAB Harmony Net Presentation Layer Definitions*/
-#define NET_PRES_NUM_INSTANCE 1
-#define NET_PRES_NUM_SOCKETS 10
-
-
 
 #define TCPIP_STACK_NETWORK_INTERAFCE_COUNT  	2
 
