@@ -71,9 +71,9 @@
 #include "net_pres/pres/net_pres_encryptionproviderapi.h"
 #include "net_pres/pres/net_pres_transportapi.h"
 #include "net_pres/pres/net_pres_socketapi.h"
+#include "bsp/bsp.h"
 #include "system/console/sys_console.h"
 #include "system/console/src/sys_console_uart_definitions.h"
-#include "bsp/bsp.h"
 #include "app.h"
 
 
@@ -85,6 +85,12 @@ extern "C" {
 
 #endif
 // DOM-IGNORE-END
+
+/* Device Information */
+#define DEVICE_NAME			 "PIC32MZ2064DAS169"
+#define DEVICE_ARCH			 "MIPS"
+#define DEVICE_FAMILY		 "PIC32MZDA"
+#define DEVICE_SERIES		 "PIC32MZ"
 
 /* CPU clock frequency */
 #define CPU_CLOCK_FREQUENCY 200000000
@@ -204,8 +210,8 @@ typedef struct
 
 
     SYS_MODULE_OBJ  tcpip;
+   SYS_MODULE_OBJ  drvMiim_0;
 
-    SYS_MODULE_OBJ  drvMiim;
     SYS_MODULE_OBJ  sysDebug;
 
     SYS_MODULE_OBJ  netPres;
