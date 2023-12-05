@@ -1,0 +1,76 @@
+{
+	"metaDataVersion": "1.0.0",
+	"category": "com.microchip.ide.project",
+	"content": {
+		"metaDataVersion": "1.1.0",
+		"name": "com.microchip.mcu32.mplabx.project.net_apps_pic32mz_snmpv3_nvm_mpfs_pic32mz_ef_sk_freertos",
+		"version": "3.9.0",
+		"displayName": "TCP/IP SNMP NVM MPFS Application Example for PIC32MZ EF Family",
+		"projectName": "snmpv3_nvm_mpfs_freertos",
+		"shortDescription": "The Microchip SNMP Server is a multi-lingual implementation, which supports SNMPv1, V2c, and V3 server features simultaneously. The SNMP Server is implemented to address the requirements of embedded applications and works with both IPv4 and IPv6 addresses.",
+		"ide": {
+			"name": "MPLABX",
+			"semverRange": ">=6.15.0"
+		},
+		"compiler": [
+			{
+				"name": "XC32",
+				"semverRange": ">=4.35.0"
+			}
+		],
+		"dfp": {
+			"name": "PIC32MZ-EF_DFP",
+			"semverRange": "^1.3.58"
+		},
+		"configurator": {
+			"name": "MCC",
+			"semverRange": ">=5.3.7"
+		},
+		"device": {
+			"metaDataVersion": "1.0.0",
+			"category": "com.microchip.portal.contentRef",
+			"content": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.device",
+				"name": "PIC32MZ2048EFH144",
+				"versionRange": "*"
+			}
+		},
+		"author": "Microchip",
+		"subcategories": [
+			[
+				"Development Kit", "PIC32MZ Embedded Connectivity with FPU (EF) Starter Kit"
+			],
+			[
+				"Harmony", "Middleware", "TCP/IP", "SNMPV3_NVM_MPFS"
+			],
+			[
+				"Middleware", "TCP/IP", "SNMPV3_NVM_MPFS"
+			]
+		],
+		"peripherals": [
+			"MAC"
+		],
+		"keywords": [
+			"MCC",
+			"Harmony",
+			"Middleware",
+			"TCP/IP",
+			"PIC32MZ2048EFH144",
+			"PIC32MZ EF Family",
+			"Ethernet MAC",
+			"GMAC"
+		],
+		"additionalData": {
+			"longDescription": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.portal.fileRef",
+				"content": {
+					"metaDataVersion": "1.0.0",
+					"fileName": "./../../readme.md",
+					"mimeType": "text/markdown"
+				}
+			}
+		}
+	}
+}
