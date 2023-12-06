@@ -51,8 +51,8 @@
 #include "crypto/crypto.h"
 #include "driver/memory/drv_memory.h"
 #include "driver/ethmac/drv_ethmac.h"
-#include "system/time/sys_time.h"
 #include "peripheral/nvm/plib_nvm.h"
+#include "system/time/sys_time.h"
 #include "peripheral/coretimer/plib_coretimer.h"
 #include "driver/memory/drv_memory_nvm.h"
 #include "peripheral/uart/plib_uart2.h"
@@ -78,9 +78,9 @@
 #include "system/fs/sys_fs.h"
 #include "system/fs/sys_fs_media_manager.h"
 #include "system/fs/mpfs/mpfs.h"
-#include "bsp/bsp.h"
 #include "system/console/sys_console.h"
 #include "system/console/src/sys_console_uart_definitions.h"
+#include "bsp/bsp.h"
 #include "app.h"
 
 
