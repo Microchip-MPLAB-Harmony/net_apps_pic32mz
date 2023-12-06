@@ -63,29 +63,7 @@
 #define pic32mz_ef_sk
 #define BSP_NAME             "pic32mz_ef_sk"
 
-/*** LED Macros for LED1 ***/
-#define LED1_Toggle() (LATHINV = (1UL<<0))
-#define LED1_Get() ((PORTH >> 0) & 0x1U)
-#define LED1_On() (LATHSET = (1UL<<0))
-#define LED1_Off() (LATHCLR = (1UL<<0))
-/*** LED Macros for LED2 ***/
-#define LED2_Toggle() (LATHINV = (1UL<<1))
-#define LED2_Get() ((PORTH >> 1) & 0x1U)
-#define LED2_On() (LATHSET = (1UL<<1))
-#define LED2_Off() (LATHCLR = (1UL<<1))
-/*** LED Macros for LED3 ***/
-#define LED3_Toggle() (LATHINV = (1UL<<2))
-#define LED3_Get() ((PORTH >> 2) & 0x1U)
-#define LED3_On() (LATHSET = (1UL<<2))
-#define LED3_Off() (LATHCLR = (1UL<<2))
-/*** SWITCH Macros for SWITCH1 ***/
-#define SWITCH1_Get() ((PORTB >> 12) & 0x1U)
-#define SWITCH1_STATE_PRESSED 0U
-#define SWITCH1_STATE_RELEASED 1U
-/*** SWITCH Macros for SWITCH2 ***/
-#define SWITCH2_Get() ((PORTB >> 13) & 0x1U)
-#define SWITCH2_STATE_PRESSED 0U
-#define SWITCH2_STATE_RELEASED 1U
+
 
 
 
