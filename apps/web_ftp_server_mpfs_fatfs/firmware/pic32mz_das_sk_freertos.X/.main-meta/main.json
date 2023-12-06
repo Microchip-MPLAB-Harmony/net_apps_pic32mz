@@ -1,0 +1,76 @@
+{
+	"metaDataVersion": "1.0.0",
+	"category": "com.microchip.ide.project",
+	"content": {
+		"metaDataVersion": "1.1.0",
+		"name": "com.microchip.mcu32.mplabx.project.net_apps_pic32mz_web_ftp_server_mpfs_fatfs_pic32mz_das_sk",
+		"version": "3.9.0",
+		"displayName": "TCP/IP WEB & FTP SERVER Application with MPFS & FATF FS Example for PIC32MZ DA Family",
+		"projectName": "web_ftp_server_mpfs_fatfs",
+		"shortDescription": "The Web and FTP Server configuration demonstrates creating an application where HTTP web server will use MPFS FS with NVM media and FTP server will use FAT FS with SDCARD as media.",
+		"ide": {
+			"name": "MPLABX",
+			"semverRange": ">=6.15.0"
+		},
+		"compiler": [
+			{
+				"name": "XC32",
+				"semverRange": ">=4.35.0"
+			}
+		],
+		"dfp": {
+			"name": "PIC32MZ-DA_DFP",
+			"semverRange": "^1.4.118"
+		},
+		"configurator": {
+			"name": "MCC",
+			"semverRange": ">=5.3.7"
+		},
+		"device": {
+			"metaDataVersion": "1.0.0",
+			"category": "com.microchip.portal.contentRef",
+			"content": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.device",
+				"name": "PIC32MZ2064DAS169",
+				"versionRange": "*"
+			}
+		},
+		"author": "Microchip",
+		"subcategories": [
+			[
+				"Development Kit", "PIC32MZ Embedded Graphics with Stacked DRAM (DA) Starter Kit (Crypto)"
+			],
+			[
+				"Harmony", "Middleware", "TCP/IP", "WEB_FTP_SERVER_MPFS_FATFS"
+			],
+			[
+				"Middleware", "TCP/IP", "WEB_FTP_SERVER_MPFS_FATFS"
+			]
+		],
+		"peripherals": [
+			"MAC"
+		],
+		"keywords": [
+			"MCC",
+			"Harmony",
+			"Middleware",
+			"TCP/IP",
+			"PIC32MZ2064DAS169",
+			"PIC32MZ DA Family",
+			"Ethernet MAC",
+			"GMAC"
+		],
+		"additionalData": {
+			"longDescription": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.portal.fileRef",
+				"content": {
+					"metaDataVersion": "1.0.0",
+					"fileName": "./../../readme.md",
+					"mimeType": "text/markdown"
+				}
+			}
+		}
+	}
+}
