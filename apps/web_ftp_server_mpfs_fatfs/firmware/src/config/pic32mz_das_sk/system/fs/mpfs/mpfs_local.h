@@ -114,10 +114,10 @@ typedef struct
 
 /* File status structure when using latest FAT-FS and MPFS Together*/
 typedef struct {
-    unsigned long	fsize;			/* File size */
-    unsigned short	fdate;			/* Last modified date */
-    unsigned short	ftime;			/* Last modified time */
-    unsigned char	fattrib;		/* Attribute */
+    uint32_t    fsize;     /* File size */
+    uint16_t    fdate;     /* Last modified date */
+    uint16_t    ftime;     /* Last modified time */
+    uint8_t     fattrib;   /* Attribute */
     /* Alternate file name */
     char        altname[13];
     /* Primary file name */
