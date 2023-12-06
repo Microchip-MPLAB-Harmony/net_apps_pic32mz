@@ -71,6 +71,51 @@
 #define GPIO_RE9_Get()               ((PORTE >> 9) & 0x1U)
 #define GPIO_RE9_PIN                  GPIO_PIN_RE9
 
+/*** Macros for LED1 pin ***/
+#define LED1_Set()               (LATHSET = (1U<<0))
+#define LED1_Clear()             (LATHCLR = (1U<<0))
+#define LED1_Toggle()            (LATHINV= (1U<<0))
+#define LED1_OutputEnable()      (TRISHCLR = (1U<<0))
+#define LED1_InputEnable()       (TRISHSET = (1U<<0))
+#define LED1_Get()               ((PORTH >> 0) & 0x1U)
+#define LED1_PIN                  GPIO_PIN_RH0
+
+/*** Macros for LED2 pin ***/
+#define LED2_Set()               (LATHSET = (1U<<1))
+#define LED2_Clear()             (LATHCLR = (1U<<1))
+#define LED2_Toggle()            (LATHINV= (1U<<1))
+#define LED2_OutputEnable()      (TRISHCLR = (1U<<1))
+#define LED2_InputEnable()       (TRISHSET = (1U<<1))
+#define LED2_Get()               ((PORTH >> 1) & 0x1U)
+#define LED2_PIN                  GPIO_PIN_RH1
+
+/*** Macros for LED3 pin ***/
+#define LED3_Set()               (LATHSET = (1U<<2))
+#define LED3_Clear()             (LATHCLR = (1U<<2))
+#define LED3_Toggle()            (LATHINV= (1U<<2))
+#define LED3_OutputEnable()      (TRISHCLR = (1U<<2))
+#define LED3_InputEnable()       (TRISHSET = (1U<<2))
+#define LED3_Get()               ((PORTH >> 2) & 0x1U)
+#define LED3_PIN                  GPIO_PIN_RH2
+
+/*** Macros for SWITCH1 pin ***/
+#define SWITCH1_Set()               (LATBSET = (1U<<12))
+#define SWITCH1_Clear()             (LATBCLR = (1U<<12))
+#define SWITCH1_Toggle()            (LATBINV= (1U<<12))
+#define SWITCH1_OutputEnable()      (TRISBCLR = (1U<<12))
+#define SWITCH1_InputEnable()       (TRISBSET = (1U<<12))
+#define SWITCH1_Get()               ((PORTB >> 12) & 0x1U)
+#define SWITCH1_PIN                  GPIO_PIN_RB12
+
+/*** Macros for SWITCH2 pin ***/
+#define SWITCH2_Set()               (LATBSET = (1U<<13))
+#define SWITCH2_Clear()             (LATBCLR = (1U<<13))
+#define SWITCH2_Toggle()            (LATBINV= (1U<<13))
+#define SWITCH2_OutputEnable()      (TRISBCLR = (1U<<13))
+#define SWITCH2_InputEnable()       (TRISBSET = (1U<<13))
+#define SWITCH2_Get()               ((PORTB >> 13) & 0x1U)
+#define SWITCH2_PIN                  GPIO_PIN_RB13
+
 /*** Macros for GPIO_RH12 pin ***/
 #define GPIO_RH12_Set()               (LATHSET = (1U<<12))
 #define GPIO_RH12_Clear()             (LATHCLR = (1U<<12))
