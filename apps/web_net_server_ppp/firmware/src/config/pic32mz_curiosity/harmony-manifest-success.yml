@@ -4,7 +4,7 @@
 
 
 project: web_net_server_ppp
-creation_date: 2023-10-05T11:26:47.808-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2023-12-07T09:40:04.991-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mcc_mode: IDE            # [IDE|Standalone|Headless]
 mcc_version: v5.3.7
@@ -15,13 +15,13 @@ compiler: XC32 (v4.35)
 
 modules:
     - {name: "core", version: "v3.13.1"}
-    - {name: "csp", version: "v3.17.0"}
+    - {name: "csp", version: "v3.18.0"}
     - {name: "filex", version: "unknown"}
-    - {name: "dev_packs", version: "v3.17.0"}
+    - {name: "dev_packs", version: "v3.18.1"}
     - {name: "littlefs", version: "unknown"}
     - {name: "wolfssl", version: "v5.4.0"}
-    - {name: "net", version: "unknown"}
-    - {name: "bsp", version: "v3.16.1"}
-    - {name: "crypto", version: "v3.8.0"}
+    - {name: "net", version: "v3.11.0"}
+    - {name: "bsp", version: "v3.17.0"}
+    - {name: "crypto", version: "v3.8.1"}
     - {name: "h3_token_manager", version: "unknown"}
 
