@@ -16,9 +16,7 @@ compiler: XC32 (v4.35)
 modules:
     - {name: "csp", version: "v3.18.0"}
     - {name: "core", version: "v3.13.1"}
-    - {name: "filex", version: "v6.2.1_rel"}
     - {name: "dev_packs", version: "v3.18.1"}
-    - {name: "littlefs", version: "v2.6.1"}
     - {name: "wolfssl", version: "v5.4.0"}
     - {name: "net", version: "v3.11.0"}
     - {name: "bsp", version: "v3.17.0"}
