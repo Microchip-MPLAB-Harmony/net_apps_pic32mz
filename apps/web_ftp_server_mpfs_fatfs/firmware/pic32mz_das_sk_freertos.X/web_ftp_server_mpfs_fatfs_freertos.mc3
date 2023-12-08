@@ -6220,11 +6220,23 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CONFIG_SYS_CLK_REFCLK4_ENABLE"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;CONFIG_SYS_CLK_REFCLK4_ENABLE&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CONFIG_SYS_CLK_REFCLK4_FREQ"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;CONFIG_SYS_CLK_REFCLK4_FREQ&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;0&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;200000000&quot;/&gt;
+      &lt;User dnOrder=&quot;1&quot; value=&quot;200000000&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -7473,7 +7485,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;SDHC_CLOCK_FREQUENCY&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;0&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;200000000&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -12338,6 +12350,17 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sdhc" name="SDHC_CLK_FREQ"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sdhc&gt;
+  &lt;sdhc dnOrder=&quot;0&quot; id=&quot;SDHC_CLK_FREQ&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;sdhc&quot; value=&quot;200000000&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/sdhc&gt;
+&lt;/sdhc&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sdhc" name="SDHC_IEC_REG"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sdhc&gt;
   &lt;sdhc dnOrder=&quot;0&quot; id=&quot;SDHC_IEC_REG&quot;&gt;
@@ -12468,7 +12491,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sys_command" name="SYS_COMMAND_RTOS_STACK_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_command&gt;
   &lt;sys_command dnOrder=&quot;0&quot; id=&quot;SYS_COMMAND_RTOS_STACK_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;10240&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/sys_command&gt;
 &lt;/sys_command&gt;
 </value>
@@ -20577,7 +20602,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk_freertos\peripheral\clk\plib_clk.c</file>
-         <hash>a642490059da46046fc64b9e602fa4854d00d0293bf43eda07a3fbadfe1643e0</hash>
+         <hash>689e0e7a124fecfe7a05564c8f0184bcda3d2b1f1c67bb5e516dcff291d013a7</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk_freertos\library\tcpip\src\ftpc_private.h</file>
@@ -20629,7 +20654,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk_freertos\peripheral\sdhc\plib_sdhc.c</file>
-         <hash>2d7d4982e4684f63b4ea5223610afd0920fa4582b171bea199e90f64b550752e</hash>
+         <hash>0a9cd5141f7c9f89f474263a1e7ac82899028ffa35193a5b3bfb6143541a39c5</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\rc2.c</file>
@@ -21781,7 +21806,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk_freertos\configuration.h</file>
-         <hash>46a36b629b72cc1afb925b5f8177c3292995d6308680af4869f84df31e69665e</hash>
+         <hash>f590bcf49333257132d75c6c5bc5f72dbe3d2bdd6d50c7e7eed701dcf164de6c</hash>
       </entry>
       <entry>
          <file>..\src\web_pages\status.xml</file>
