@@ -80,6 +80,13 @@
               </logicalFolder>
               <itemPath>../src/config/pic32mz_ef_sk_encx24j600/driver/ethphy/drv_ethphy.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="memory" displayName="memory" projectFiles="true">
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/driver/memory/drv_memory_nvm.h</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/driver/memory/src/drv_memory_local.h</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/driver/memory/src/drv_memory_file_system.h</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/driver/memory/drv_memory.h</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/driver/memory/drv_memory_definitions.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="miim" displayName="miim" projectFiles="true">
               <logicalFolder name="src" displayName="src" projectFiles="true">
                 <logicalFolder name="dynamic" displayName="dynamic" projectFiles="true">
@@ -229,9 +236,16 @@
           </logicalFolder>
           <logicalFolder name="net_pres" displayName="net_pres" projectFiles="true">
             <logicalFolder name="pres" displayName="pres" projectFiles="true">
+              <logicalFolder name="src" displayName="src" projectFiles="true">
+                <itemPath>../src/config/pic32mz_ef_sk_encx24j600/net_pres/pres/src/net_pres_local.h</itemPath>
+              </logicalFolder>
               <itemPath>../src/config/pic32mz_ef_sk_encx24j600/net_pres/pres/net_pres_socketapiconversion.h</itemPath>
               <itemPath>../src/config/pic32mz_ef_sk_encx24j600/net_pres/pres/net_pres_socketapi.h</itemPath>
               <itemPath>../src/config/pic32mz_ef_sk_encx24j600/net_pres/pres/net_pres.h</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/net_pres/pres/net_pres_certstore.h</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/net_pres/pres/net_pres_enc_glue.h</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/net_pres/pres/net_pres_transportapi.h</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/net_pres/pres/net_pres_encryptionproviderapi.h</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="osal" displayName="osal" projectFiles="true">
@@ -240,6 +254,11 @@
             <itemPath>../src/config/pic32mz_ef_sk_encx24j600/osal/osal.h</itemPath>
           </logicalFolder>
           <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
+            <logicalFolder name="cache" displayName="cache" projectFiles="true">
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/peripheral/cache/plib_cache_local.h</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/peripheral/cache/plib_cache_pic32mz.h</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/peripheral/cache/plib_cache.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="clk" displayName="clk" projectFiles="true">
               <itemPath>../src/config/pic32mz_ef_sk_encx24j600/peripheral/clk/plib_clk.h</itemPath>
             </logicalFolder>
@@ -267,6 +286,9 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="system" displayName="system" projectFiles="true">
+            <logicalFolder name="cache" displayName="cache" projectFiles="true">
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/cache/sys_cache.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="command" displayName="command" projectFiles="true">
               <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/command/sys_command.h</itemPath>
             </logicalFolder>
@@ -279,6 +301,16 @@
             <logicalFolder name="debug" displayName="debug" projectFiles="true">
               <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/debug/sys_debug.h</itemPath>
               <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/debug/src/sys_debug_local.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="fs" displayName="fs" projectFiles="true">
+              <logicalFolder name="mpfs" displayName="mpfs" projectFiles="true">
+                <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/fs/mpfs/mpfs_local.h</itemPath>
+                <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/fs/mpfs/mpfs.h</itemPath>
+              </logicalFolder>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/fs/sys_fs.h</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/fs/sys_fs_media_manager.h</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/fs/src/sys_fs_media_manager_local.h</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/fs/src/sys_fs_local.h</itemPath>
             </logicalFolder>
             <logicalFolder name="int" displayName="int" projectFiles="true">
               <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/int/sys_int_mapping.h</itemPath>
@@ -301,6 +333,7 @@
             <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/system_common.h</itemPath>
             <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/sys_time_h2_adapter.h</itemPath>
             <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/sys_random_h2_adapter.h</itemPath>
+            <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/system_media.h</itemPath>
           </logicalFolder>
           <itemPath>../src/config/pic32mz_ef_sk_encx24j600/toolchain_specifics.h</itemPath>
           <itemPath>../src/config/pic32mz_ef_sk_encx24j600/user.h</itemPath>
@@ -312,6 +345,7 @@
           <itemPath>../src/config/pic32mz_ef_sk_encx24j600/sys_tasks.h</itemPath>
           <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system_definitions.h</itemPath>
           <itemPath>../src/config/pic32mz_ef_sk_encx24j600/config.h</itemPath>
+          <itemPath>../src/config/pic32mz_ef_sk_encx24j600/device_cache.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="system" displayName="system" projectFiles="true">
@@ -459,6 +493,7 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/types.h</itemPath>
       </logicalFolder>
       <itemPath>../src/app.h</itemPath>
+      <itemPath>../src/http_net_print.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -543,6 +578,11 @@
                 </logicalFolder>
               </logicalFolder>
             </logicalFolder>
+            <logicalFolder name="memory" displayName="memory" projectFiles="true">
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/driver/memory/src/drv_memory_nvm.c</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/driver/memory/src/drv_memory.c</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/driver/memory/src/drv_memory_file_system.c</itemPath>
+            </logicalFolder>
             <logicalFolder name="miim" displayName="miim" projectFiles="true">
               <logicalFolder name="src" displayName="src" projectFiles="true">
                 <logicalFolder name="dynamic" displayName="dynamic" projectFiles="true">
@@ -560,6 +600,7 @@
               <logicalFolder name="src" displayName="src" projectFiles="true">
                 <logicalFolder name="common" displayName="common" projectFiles="true">
                   <itemPath>../src/config/pic32mz_ef_sk_encx24j600/library/tcpip/src/helpers.c</itemPath>
+                  <itemPath>../src/config/pic32mz_ef_sk_encx24j600/library/tcpip/src/common/sys_fs_shell.c</itemPath>
                 </logicalFolder>
                 <itemPath>../src/config/pic32mz_ef_sk_encx24j600/library/tcpip/src/tcpip_packet.c</itemPath>
                 <itemPath>../src/config/pic32mz_ef_sk_encx24j600/library/tcpip/src/tcpip_manager.c</itemPath>
@@ -579,10 +620,24 @@
                 <itemPath>../src/config/pic32mz_ef_sk_encx24j600/library/tcpip/src/ipv4.c</itemPath>
                 <itemPath>../src/config/pic32mz_ef_sk_encx24j600/library/tcpip/src/tcp.c</itemPath>
                 <itemPath>../src/config/pic32mz_ef_sk_encx24j600/library/tcpip/src/tcpip_announce.c</itemPath>
+                <itemPath>../src/config/pic32mz_ef_sk_encx24j600/library/tcpip/src/http_net.c</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
+          <logicalFolder name="net_pres" displayName="net_pres" projectFiles="true">
+            <logicalFolder name="pres" displayName="pres" projectFiles="true">
+              <logicalFolder name="src" displayName="src" projectFiles="true">
+                <itemPath>../src/config/pic32mz_ef_sk_encx24j600/net_pres/pres/src/net_pres.c</itemPath>
+              </logicalFolder>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/net_pres/pres/net_pres_cert_store.c</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/net_pres/pres/net_pres_enc_glue.c</itemPath>
+            </logicalFolder>
+          </logicalFolder>
           <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
+            <logicalFolder name="cache" displayName="cache" projectFiles="true">
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/peripheral/cache/plib_cache_pic32mz.S</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/peripheral/cache/plib_cache.c</itemPath>
+            </logicalFolder>
             <logicalFolder name="clk" displayName="clk" projectFiles="true">
               <itemPath>../src/config/pic32mz_ef_sk_encx24j600/peripheral/clk/plib_clk.c</itemPath>
             </logicalFolder>
@@ -611,6 +666,9 @@
             <itemPath>../src/config/pic32mz_ef_sk_encx24j600/stdio/xc32_monitor.c</itemPath>
           </logicalFolder>
           <logicalFolder name="system" displayName="system" projectFiles="true">
+            <logicalFolder name="cache" displayName="cache" projectFiles="true">
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/cache/sys_cache.c</itemPath>
+            </logicalFolder>
             <logicalFolder name="command" displayName="command" projectFiles="true">
               <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/command/src/sys_command.c</itemPath>
             </logicalFolder>
@@ -620,6 +678,13 @@
             </logicalFolder>
             <logicalFolder name="debug" displayName="debug" projectFiles="true">
               <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/debug/src/sys_debug.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="fs" displayName="fs" projectFiles="true">
+              <logicalFolder name="mpfs" displayName="mpfs" projectFiles="true">
+                <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/fs/mpfs/mpfs.c</itemPath>
+              </logicalFolder>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/fs/src/sys_fs_media_manager.c</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/fs/src/sys_fs.c</itemPath>
             </logicalFolder>
             <logicalFolder name="int" displayName="int" projectFiles="true">
               <itemPath>../src/config/pic32mz_ef_sk_encx24j600/system/int/src/sys_int.c</itemPath>
@@ -638,6 +703,47 @@
           <itemPath>../src/config/pic32mz_ef_sk_encx24j600/exceptions.c</itemPath>
           <itemPath>../src/config/pic32mz_ef_sk_encx24j600/initialization.c</itemPath>
         </logicalFolder>
+      </logicalFolder>
+      <logicalFolder name="web_pages" displayName="web_pages" projectFiles="true">
+        <logicalFolder name="dyndns" displayName="dyndns" projectFiles="true">
+          <logicalFolder name="dyndns" displayName="dyndns" projectFiles="true">
+            <itemPath>../src/web_pages/dyndns/index.htm</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="email" displayName="email" projectFiles="true">
+          <logicalFolder name="email" displayName="email" projectFiles="true">
+            <itemPath>../src/web_pages/email/index.htm</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="protect" displayName="protect" projectFiles="true">
+          <logicalFolder name="protect" displayName="protect" projectFiles="true">
+            <itemPath>../src/web_pages/protect/reboot.htm</itemPath>
+            <itemPath>../src/web_pages/protect/reboot.cgi</itemPath>
+            <itemPath>../src/web_pages/protect/index.htm</itemPath>
+            <itemPath>../src/web_pages/protect/config.htm</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="snmp" displayName="snmp" projectFiles="true">
+          <logicalFolder name="snmp" displayName="snmp" projectFiles="true">
+            <itemPath>../src/web_pages/snmp/snmpconfig.htm</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+        <itemPath>../src/web_pages/status.xml</itemPath>
+        <itemPath>../src/web_pages/footer.htm</itemPath>
+        <itemPath>../src/web_pages/auth.htm</itemPath>
+        <itemPath>../src/web_pages/ssi.htm</itemPath>
+        <itemPath>../src/web_pages/mchp.css</itemPath>
+        <itemPath>../src/web_pages/dynvars.htm</itemPath>
+        <itemPath>../src/web_pages/upload.htm</itemPath>
+        <itemPath>../src/web_pages/snmp.bib</itemPath>
+        <itemPath>../src/web_pages/mchp.gif</itemPath>
+        <itemPath>../src/web_pages/index.htm</itemPath>
+        <itemPath>../src/web_pages/harmony.gif</itemPath>
+        <itemPath>../src/web_pages/cookies.htm</itemPath>
+        <itemPath>../src/web_pages/mchp.js</itemPath>
+        <itemPath>../src/web_pages/leds.cgi</itemPath>
+        <itemPath>../src/web_pages/forms.htm</itemPath>
+        <itemPath>../src/web_pages/header.htm</itemPath>
       </logicalFolder>
       <logicalFolder name="wolfcrypt" displayName="wolfcrypt" projectFiles="true">
         <logicalFolder name="port" displayName="port" projectFiles="true">
@@ -740,6 +846,9 @@
       </logicalFolder>
       <itemPath>../src/app.c</itemPath>
       <itemPath>../src/main.c</itemPath>
+      <itemPath>../src/custom_http_net_app.c</itemPath>
+      <itemPath>../src/http_net_print.c</itemPath>
+      <itemPath>../src/mpfs_net_img.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -822,6 +931,9 @@
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
       </C32>
+      <C32-AR>
+        <property key="additional-options-chop-files" value="false"/>
+      </C32-AR>
       <C32-AS>
         <property key="assembler-symbols" value=""/>
         <property key="enable-symbols" value="true"/>

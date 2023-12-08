@@ -1,25 +1,23 @@
-/*******************************************************************************
- System Tasks File
+/******************************************************************************
+  MEMORY Driver File System Interface Implementation
+
+  Company:
+    Microchip Technology Inc.
 
   File Name:
-    tasks.c
+    drv_memory_file_system.h
 
   Summary:
-    This file contains source code necessary to maintain system's polled tasks.
+    MEMORY Driver Interface Definition
 
   Description:
-    This file contains source code necessary to maintain system's polled tasks.
-    It implements the "SYS_Tasks" function that calls the individual "Tasks"
-    functions for all polled MPLAB Harmony modules in the system.
+    The MEMORY Driver provides a interface to access the MEMORY on the PIC32
+    microcontroller. This file implements the MEMORY Driver file system interface.
+    This file should be included in the project if MEMORY driver functionality with
+    File system is needed.
+*******************************************************************************/
 
-  Remarks:
-    This file requires access to the systemObjects global data structure that
-    contains the object handles to all MPLAB Harmony module objects executing
-    polled in the system.  These handles are passed into the individual module
-    "Tasks" functions to identify the instance of the module to maintain.
- *******************************************************************************/
-
-// DOM-IGNORE-BEGIN
+//DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
@@ -41,77 +39,43 @@
 * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
- *******************************************************************************/
+*******************************************************************************/
+//DOM-IGNORE-END
+#ifndef DRV_MEMORY_FILE_SYSTEM_H
+#define DRV_MEMORY_FILE_SYSTEM_H
+
+// *****************************************************************************
+// *****************************************************************************
+// Section: Include Files
+// *****************************************************************************
+// *****************************************************************************
+
+#include "driver/memory/src/drv_memory_local.h"
+#include "system/fs/sys_fs_media_manager.h"
+
+// DOM-IGNORE-BEGIN
+#ifdef __cplusplus  // Provide C++ Compatibility
+    extern "C" {
+#endif
 // DOM-IGNORE-END
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: Included Files
+// Section: Global objects
 // *****************************************************************************
 // *****************************************************************************
-
-#include "configuration.h"
-#include "definitions.h"
-#include "sys_tasks.h"
-
-
 
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: System "Tasks" Routine
+// Section: MEMORY Driver File system interface Routines
 // *****************************************************************************
 // *****************************************************************************
 
-/*******************************************************************************
-  Function:
-    void SYS_Tasks ( void )
+void DRV_MEMORY_RegisterWithSysFs( const SYS_MODULE_INDEX drvIndex, uint8_t mediaType);
 
-  Remarks:
-    See prototype in system/common/sys_module.h.
-*/
-void SYS_Tasks ( void )
-{
-    /* Maintain system services */
-    
-
-SYS_CMD_Tasks();
-
-
-
-SYS_FS_Tasks();
-
-
-
-    /* Maintain Device Drivers */
-    DRV_MEMORY_Tasks(sysObj.drvMemory0);
-
-   DRV_MIIM_OBJECT_BASE_Default.DRV_MIIM_Tasks(sysObj.drvMiim_0);
-
-
-
-
-    /* Maintain Middleware & Other Libraries */
-    
-   TCPIP_STACK_Task(sysObj.tcpip);
-
-
-
-NET_PRES_Tasks(sysObj.netPres);
-
-
-
-
-    /* Maintain the application's state machine. */
-        /* Call Application task APP. */
-    APP_Tasks();
-
-
-
-
+#ifdef __cplusplus
 }
+#endif
 
-/*******************************************************************************
- End of File
- */
-
+#endif //#ifndef DRV_MEMORY_FILE_SYSTEM_H

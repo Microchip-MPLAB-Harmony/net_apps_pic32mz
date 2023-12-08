@@ -75,6 +75,7 @@
 
 APP_DATA appData;
 
+APP_LED_STATE LEDstate = APP_LED_STATE_OFF;
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Callback Functions
@@ -114,9 +115,8 @@ void APP_Initialize ( void )
     /* Place the App state machine in its initial state. */
     appData.state = APP_TCPIP_WAIT_INIT;
     
-    /* TODO: Initialize your application's state machine and other
-     * parameters.
-     */
+    /* Place the application state machine in its initial state. */
+    appData.state = APP_MOUNT_DISK;
 }
 
 
@@ -139,6 +139,14 @@ void APP_Tasks ( void )
 
     switch(appData.state)
     {
+        case APP_MOUNT_DISK:
+            if(SYS_FS_Mount(APP_SYS_FS_NVM_VOL, APP_SYS_FS_MOUNT_POINT, APP_SYS_FS_TYPE, 0, NULL) == 0)
+            {
+                SYS_CONSOLE_PRINT("SYS_Initialize: The %s File System is mounted\r\n", APP_SYS_FS_TYPE_STRING);
+                appData.state = APP_TCPIP_WAIT_INIT;
+            }
+            break;
+
         case APP_TCPIP_WAIT_INIT:
             tcpipStat = TCPIP_STACK_Status(sysObj.tcpip);
             if(tcpipStat < 0)
@@ -167,6 +175,10 @@ void APP_Tasks ( void )
                     (void)netBiosName;      // if SYS_CONSOLE_PRINT is null macro
 
                 }
+#if defined(TCPIP_STACK_USE_HTTP_NET_SERVER)
+                // register the application HTTP processing
+                HTTP_APP_Initialize();
+#endif // defined(TCPIP_STACK_USE_HTTP_NET_SERVER)
                 appData.state = APP_TCPIP_WAIT_FOR_IP;
 
             }

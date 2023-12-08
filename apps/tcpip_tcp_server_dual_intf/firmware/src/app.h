@@ -63,7 +63,41 @@
 // Section: Type Definitions
 // *****************************************************************************
 // *****************************************************************************
+#if defined (__PIC32C__) || defined(__SAMA5D2__)        
+/* This section is highly customizable based on application's specific needs. */
+#define APP_SWITCH_1StateGet()      SWITCH_Get()
+#define APP_SWITCH_2StateGet()      SWITCH_Get()
+#define APP_SWITCH_3StateGet()      SWITCH_Get()
+#elif defined (__PIC32MZ__)
+/* This section is highly customizable based on application's specific needs. */
+#define APP_SWITCH_1StateGet()      SWITCH1_Get()
+#define APP_SWITCH_2StateGet()      SWITCH2_Get()
+#define APP_SWITCH_3StateGet()      SWITCH2_Get()
+#endif
 
+#define APP_LED_1StateSet()         LED1_Set()
+#define APP_LED_1StateGet()         LED1_Get()
+#define APP_LED_1StateClear()       LED1_Clear()
+#define APP_LED_1StateToggle()      LED1_Toggle()
+
+#if defined(__PIC32MZ__)
+#define APP_LED_2StateSet()         LED2_Set()
+#define APP_LED_2StateGet()         LED2_Get()
+#define APP_LED_2StateClear()       LED2_Clear()
+#define APP_LED_2StateToggle()      LED2_Toggle()
+
+#define APP_LED_3StateSet()         LED3_Set()
+#define APP_LED_3StateGet()         LED3_Get()
+#define APP_LED_3StateClear()       LED3_Clear()
+#define APP_LED_3StateToggle()      LED3_Toggle()
+#endif
+
+// Application SYS_FS mount points
+// Adjust as needed
+#define APP_SYS_FS_NVM_VOL          "/dev/nvma1"
+#define APP_SYS_FS_MOUNT_POINT      "/mnt/mchpSite1"
+#define APP_SYS_FS_TYPE             MPFS2
+#define APP_SYS_FS_TYPE_STRING      "MPFS2"
 // *****************************************************************************
 /* Application States
 
@@ -77,6 +111,9 @@
 
 typedef enum
 {
+    /* The application mounts the disk. */
+    APP_MOUNT_DISK = 0,
+
     /* In this state, the application waits for the initialization of the TCP/IP stack
      * to complete. */
     APP_TCPIP_WAIT_INIT,
@@ -95,6 +132,25 @@ typedef enum
     APP_TCPIP_ERROR,
 } APP_STATES;
 
+// *****************************************************************************
+/* LED State
+
+  Summary:
+    Enumerates the supported LED states.
+
+  Description:
+    This enumeration defines the supported LED states.
+
+  Remarks:
+    None.
+*/
+typedef enum
+{
+    /* LED State is on */
+    APP_LED_STATE_OFF = 0,
+   /* LED State is off */
+    APP_LED_STATE_ON = 1,
+} APP_LED_STATE;
 
 // *****************************************************************************
 /* Application Data
@@ -111,6 +167,8 @@ typedef enum
 
 typedef struct
 {
+    /* SYS_FS file handle */
+    SYS_FS_HANDLE fileHandle;
     /* The application's current state */
     APP_STATES state;
 
@@ -200,7 +258,16 @@ void APP_Initialize ( void );
 
 void APP_Tasks ( void );
 
+// *****************************************************************************
+// *****************************************************************************
+// Section: External Declarations
+// *****************************************************************************
+// *****************************************************************************
 
+// HTTP application processing
+#if defined(TCPIP_STACK_USE_HTTP_NET_SERVER)
+#include "http_net_print.h"
+#endif // defined(TCPIP_STACK_USE_HTTP_NET_SERVER)
 
 #endif /* _APP_H */
 
