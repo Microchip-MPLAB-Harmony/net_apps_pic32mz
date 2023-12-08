@@ -5486,11 +5486,23 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CONFIG_SYS_CLK_REFCLK4_ENABLE"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;CONFIG_SYS_CLK_REFCLK4_ENABLE&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CONFIG_SYS_CLK_REFCLK4_FREQ"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;CONFIG_SYS_CLK_REFCLK4_FREQ&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;0&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;200000000&quot;/&gt;
+      &lt;User dnOrder=&quot;1&quot; value=&quot;200000000&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -6658,7 +6670,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;SDHC_CLOCK_FREQUENCY&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;0&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;200000000&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -11375,6 +11387,17 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sdhc&gt;
   &lt;sdhc dnOrder=&quot;0&quot; id=&quot;SDCARD_SDWP_SUPPORT&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;/&gt;
+  &lt;/sdhc&gt;
+&lt;/sdhc&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sdhc" name="SDHC_CLK_FREQ"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sdhc&gt;
+  &lt;sdhc dnOrder=&quot;0&quot; id=&quot;SDHC_CLK_FREQ&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;sdhc&quot; value=&quot;200000000&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/sdhc&gt;
 &lt;/sdhc&gt;
 </value>
@@ -19337,7 +19360,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\peripheral\sdhc\plib_sdhc.c</file>
-         <hash>2d7d4982e4684f63b4ea5223610afd0920fa4582b171bea199e90f64b550752e</hash>
+         <hash>0a9cd5141f7c9f89f474263a1e7ac82899028ffa35193a5b3bfb6143541a39c5</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\library\tcpip\src\ftp_private.h</file>
@@ -19365,7 +19388,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\configuration.h</file>
-         <hash>c3b8bb05b24e961954752870b749e43dfa378d06ab7821f8c52b51d6ac02e78b</hash>
+         <hash>df3e23005a030042fb1dfe4bd094b51aeeeba66e6cfc5785cf7d9bb278bce1ea</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\port\pic32\CryptoLib_ZpEccConv_pb.h</file>
@@ -20581,7 +20604,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\peripheral\clk\plib_clk.c</file>
-         <hash>f33eaf794c075ecfee6140a836c5cc6e20cca80eac8eb35c72f7c75e4400e1cc</hash>
+         <hash>5a53027ceec930920e59cdc0e388c76cff06f6957fc364e3361d6578f3c6c6aa</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\bsp\bsp.c</file>
@@ -21149,7 +21172,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\definitions.h</file>
-         <hash>b544ded5de1141699e4f8e5fe56bdf15024f8c7684fa02768df0028e181cf0b1</hash>
+         <hash>567364e6cc569a16f16ce90037d9871068dc62108d142812ffb66ce9603413ab</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\peripheral\evic\plib_evic.h</file>

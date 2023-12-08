@@ -90,6 +90,10 @@ void CLK_Initialize( void )
     SYSKEY = 0x556699AAU;
 
 
+    /* Set up Reference Clock 4 */
+    /* Enable oscillator (ON bit) */
+    REFO4CONSET = 0x00008000;
+
     /* CFGMPLL */
     /* MPLLVREGDIS = ENABLED */
     /* INTVREFCON = EXTERNAL_DDRV */
