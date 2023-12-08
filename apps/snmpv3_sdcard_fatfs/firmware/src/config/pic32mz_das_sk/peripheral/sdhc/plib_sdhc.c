@@ -59,7 +59,7 @@
 #define SDHC_MODE_RESPTYPE_NONE                                 (0x00UL << 16)
 
 #define SDHC_DMA_NUM_DESCR_LINES               1U
-#define SDHC_BASE_CLOCK_FREQUENCY              0
+#define SDHC_BASE_CLOCK_FREQUENCY              200000000
 #define SDHC_MAX_BLOCK_SIZE                    0x200U
 
 typedef unsigned long paddr_t; /* a physical address */
@@ -368,7 +368,7 @@ void SDHC_DmaSetup (
 bool SDHC_ClockSet ( uint32_t speed)
 {
     uint32_t divs = 0;
-    uint32_t sdhc_clk = 0;
+    uint32_t sdhc_clk = 200000000;
 
     /* Disable clock before changing it */
     if ((SDHCCON2 & _SDHCCON2_SDCLKEN_MASK) != 0U)
