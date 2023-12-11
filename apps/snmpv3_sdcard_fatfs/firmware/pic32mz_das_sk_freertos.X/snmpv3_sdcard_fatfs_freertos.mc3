@@ -11977,7 +11977,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_command&gt;
   &lt;sys_command dnOrder=&quot;0&quot; id=&quot;SYS_COMMAND_RTOS_STACK_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;10240&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;8192&quot;/&gt;
     &lt;/Values&gt;
   &lt;/sys_command&gt;
 &lt;/sys_command&gt;
@@ -21612,7 +21612,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk_freertos\configuration.h</file>
-         <hash>486bd598fafe913c34abbd2dc1d13909fe94917b5a3aaf81aa88eca75cd0c4f6</hash>
+         <hash>fae891599929b34abbe86f1ecfb221c5d30ef3381cc455f94c4c568f42387902</hash>
       </entry>
       <entry>
          <file>..\src\web_pages\status.xml</file>
@@ -21816,7 +21816,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk_freertos\definitions.h</file>
-         <hash>9576598ef73159018f4d3de5573fb89c6891fc3f345c436b132f1a7fd0897361</hash>
+         <hash>6c28fd98c608b796691ebcd4484f2494a3040d97a2738a6fda6e60c7a2f4cb44</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\port\pic32\crypt_sha224_hw.h</file>
