@@ -9841,7 +9841,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sys_command" name="SYS_COMMAND_PRINT_BUFFER_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_command&gt;
   &lt;sys_command dnOrder=&quot;0&quot; id=&quot;SYS_COMMAND_PRINT_BUFFER_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;2560&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/sys_command&gt;
 &lt;/sys_command&gt;
 </value>
@@ -9850,7 +9852,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sys_command" name="SYS_COMMAND_RTOS_DELAY"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_command&gt;
   &lt;sys_command dnOrder=&quot;0&quot; id=&quot;SYS_COMMAND_RTOS_DELAY&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/sys_command&gt;
 &lt;/sys_command&gt;
 </value>
@@ -9860,7 +9864,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_command&gt;
   &lt;sys_command dnOrder=&quot;0&quot; id=&quot;SYS_COMMAND_RTOS_STACK_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;4096&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;8192&quot;/&gt;
     &lt;/Values&gt;
   &lt;/sys_command&gt;
 &lt;/sys_command&gt;
@@ -14665,7 +14669,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk_freertos\tasks.c</file>
-         <hash>572ea6ffe58d6de1ad318b36c782ab32321f583b79e4c795fc6e85219a001f35</hash>
+         <hash>7d6df444da56a15cca55d176ab1e1a698dae5fc8b9d7696cc330360144434516</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk_freertos\crypto\src\crypto.c</file>
@@ -15877,7 +15881,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk_freertos\configuration.h</file>
-         <hash>2d5d4f281e32d512693853cb8f2e16775739f196b2d6161b4f280a8da2bddb93</hash>
+         <hash>b5a87905e8c7c8a93c91f9d1bdd35b93d970f814a0099ab58c7ec34fc345505a</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\ecc_fp.c</file>
@@ -16061,7 +16065,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk_freertos\definitions.h</file>
-         <hash>2474027b3c0f897b6db689e5ac906ed7de9f84b0de1aa7939556f752ec710431</hash>
+         <hash>bf910b829c10d3e0c1fde5a41becd9a0184531c0704e07773f8b71eb311be867</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\port\pic32\crypt_sha224_hw.h</file>
