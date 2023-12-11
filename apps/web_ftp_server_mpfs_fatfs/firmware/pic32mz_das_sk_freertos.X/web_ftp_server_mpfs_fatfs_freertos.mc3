@@ -4623,7 +4623,7 @@
         &lt;ElementPosition dnOrder=&quot;11&quot; id=&quot;lib_wolfssl&quot; x=&quot;680&quot; y=&quot;20&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;nvm&quot; x=&quot;601&quot; y=&quot;367&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;sdhc&quot; x=&quot;277&quot; y=&quot;551&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;sys_command&quot; x=&quot;474&quot; y=&quot;145&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;sys_command&quot; x=&quot;474&quot; y=&quot;144&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;sys_console&quot; x=&quot;220&quot; y=&quot;141&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;16&quot; id=&quot;sys_debug&quot; x=&quot;458&quot; y=&quot;348&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;17&quot; id=&quot;sys_fs&quot; x=&quot;682&quot; y=&quot;441&quot;/&gt;
@@ -12470,7 +12470,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_command&gt;
   &lt;sys_command dnOrder=&quot;0&quot; id=&quot;SYS_COMMAND_PRINT_BUFFER_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;4096&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;2560&quot;/&gt;
     &lt;/Values&gt;
   &lt;/sys_command&gt;
 &lt;/sys_command&gt;
@@ -12492,7 +12492,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_command&gt;
   &lt;sys_command dnOrder=&quot;0&quot; id=&quot;SYS_COMMAND_RTOS_STACK_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;10240&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;8192&quot;/&gt;
     &lt;/Values&gt;
   &lt;/sys_command&gt;
 &lt;/sys_command&gt;
@@ -21806,7 +21806,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk_freertos\configuration.h</file>
-         <hash>f590bcf49333257132d75c6c5bc5f72dbe3d2bdd6d50c7e7eed701dcf164de6c</hash>
+         <hash>7a7437fdda62d7dc88b812d3306755bbbe031e8643c1903ca4ce7d6d4cd5c104</hash>
       </entry>
       <entry>
          <file>..\src\web_pages\status.xml</file>
