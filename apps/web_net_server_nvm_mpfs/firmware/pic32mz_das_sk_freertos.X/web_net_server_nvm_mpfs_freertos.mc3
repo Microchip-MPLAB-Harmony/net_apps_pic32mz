@@ -21320,7 +21320,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk_freertos\definitions.h</file>
-         <hash>e1d18c2bd2f3fcb32277761096e146e5f3283cd55f4d4a575f24aaed9d09e14f</hash>
+         <hash>096fcc3c7ca95d7791080e3fe2aed24d0e818df4687301c291fc2e087def23e3</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\port\pic32\crypt_sha224_hw.h</file>
