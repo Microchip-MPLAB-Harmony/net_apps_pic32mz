@@ -4482,7 +4482,7 @@
         &lt;ElementPosition dnOrder=&quot;7&quot; id=&quot;lib_crypto&quot; x=&quot;620&quot; y=&quot;20&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;8&quot; id=&quot;lib_wolfcrypt&quot; x=&quot;240&quot; y=&quot;20&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;9&quot; id=&quot;nvm&quot; x=&quot;9&quot; y=&quot;321&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;10&quot; id=&quot;sys_command&quot; x=&quot;459&quot; y=&quot;149&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;10&quot; id=&quot;sys_command&quot; x=&quot;459&quot; y=&quot;148&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;11&quot; id=&quot;sys_console&quot; x=&quot;230&quot; y=&quot;164&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;sys_debug&quot; x=&quot;455&quot; y=&quot;362&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;sys_time&quot; x=&quot;232&quot; y=&quot;358&quot;/&gt;
@@ -10546,7 +10546,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sys_command" name="SYS_COMMAND_PRINT_BUFFER_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_command&gt;
   &lt;sys_command dnOrder=&quot;0&quot; id=&quot;SYS_COMMAND_PRINT_BUFFER_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;2560&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/sys_command&gt;
 &lt;/sys_command&gt;
 </value>
@@ -10565,7 +10567,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_command&gt;
   &lt;sys_command dnOrder=&quot;0&quot; id=&quot;SYS_COMMAND_RTOS_STACK_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;4096&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;8192&quot;/&gt;
     &lt;/Values&gt;
   &lt;/sys_command&gt;
 &lt;/sys_command&gt;
@@ -16706,7 +16708,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk_freertos\configuration.h</file>
-         <hash>b1999bdb831de5b18a7e5c1a0305ef5c138a54a4012e5335890cf2e470c4694c</hash>
+         <hash>2a83d771ecd6c733eced79ddb4e0a253a3619b2c4c9223f4566888f8f3886acc</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\ecc_fp.c</file>
@@ -16890,7 +16892,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk_freertos\definitions.h</file>
-         <hash>c86bdc722db5e22298ecf4764f228f8d267934c263dff82a0a44d7804c805d90</hash>
+         <hash>0bd021edc3dfd63fcfa08c59913932b1f847abc8834a5456cae0474e5cdaa3d9</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\port\pic32\crypt_sha224_hw.h</file>
