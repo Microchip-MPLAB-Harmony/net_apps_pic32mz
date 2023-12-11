@@ -52,6 +52,7 @@
 
 #include "configuration.h"
 #include "definitions.h"
+#include "sys_tasks.h"
 
 
 
@@ -87,18 +88,20 @@ DRV_SDMMC_Tasks(sysObj.drvSDMMC0);
 
 
     /* Maintain Device Drivers */
-    DRV_MIIM_Tasks(sysObj.drvMiim);
+    DRV_MEMORY_Tasks(sysObj.drvMemory0);
+
+   DRV_MIIM_OBJECT_BASE_Default.DRV_MIIM_Tasks(sysObj.drvMiim_0);
 
 
 
 
     /* Maintain Middleware & Other Libraries */
     
+   TCPIP_STACK_Task(sysObj.tcpip);
+
+
+
 NET_PRES_Tasks(sysObj.netPres);
-
-
-
-TCPIP_STACK_Task(sysObj.tcpip);
 
 
 
