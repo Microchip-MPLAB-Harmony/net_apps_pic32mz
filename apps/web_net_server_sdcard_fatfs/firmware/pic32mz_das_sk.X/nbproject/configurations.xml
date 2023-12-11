@@ -36,13 +36,6 @@
               </logicalFolder>
               <itemPath>../src/config/pic32mz_das_sk/driver/ethphy/drv_ethphy.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="memory" displayName="memory" projectFiles="true">
-              <itemPath>../src/config/pic32mz_das_sk/driver/memory/drv_memory.h</itemPath>
-              <itemPath>../src/config/pic32mz_das_sk/driver/memory/drv_memory_nvm.h</itemPath>
-              <itemPath>../src/config/pic32mz_das_sk/driver/memory/drv_memory_definitions.h</itemPath>
-              <itemPath>../src/config/pic32mz_das_sk/driver/memory/src/drv_memory_local.h</itemPath>
-              <itemPath>../src/config/pic32mz_das_sk/driver/memory/src/drv_memory_file_system.h</itemPath>
-            </logicalFolder>
             <logicalFolder name="miim" displayName="miim" projectFiles="true">
               <logicalFolder name="src" displayName="src" projectFiles="true">
                 <logicalFolder name="dynamic" displayName="dynamic" projectFiles="true">
@@ -228,9 +221,6 @@
             <logicalFolder name="gpio" displayName="gpio" projectFiles="true">
               <itemPath>../src/config/pic32mz_das_sk/peripheral/gpio/plib_gpio.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="nvm" displayName="nvm" projectFiles="true">
-              <itemPath>../src/config/pic32mz_das_sk/peripheral/nvm/plib_nvm.h</itemPath>
-            </logicalFolder>
             <logicalFolder name="sdhc" displayName="sdhc" projectFiles="true">
               <itemPath>../src/config/pic32mz_das_sk/peripheral/sdhc/plib_sdhc.h</itemPath>
               <itemPath>../src/config/pic32mz_das_sk/peripheral/sdhc/plib_sdhc_common.h</itemPath>
@@ -268,10 +258,6 @@
                                projectFiles="true">
                   <itemPath>../src/config/pic32mz_das_sk/system/fs/fat_fs/hardware_access/diskio.h</itemPath>
                 </logicalFolder>
-              </logicalFolder>
-              <logicalFolder name="mpfs" displayName="mpfs" projectFiles="true">
-                <itemPath>../src/config/pic32mz_das_sk/system/fs/mpfs/mpfs.h</itemPath>
-                <itemPath>../src/config/pic32mz_das_sk/system/fs/mpfs/mpfs_local.h</itemPath>
               </logicalFolder>
               <itemPath>../src/config/pic32mz_das_sk/system/fs/src/sys_fs_local.h</itemPath>
               <itemPath>../src/config/pic32mz_das_sk/system/fs/sys_fs_media_manager.h</itemPath>
@@ -514,11 +500,6 @@
                 </logicalFolder>
               </logicalFolder>
             </logicalFolder>
-            <logicalFolder name="memory" displayName="memory" projectFiles="true">
-              <itemPath>../src/config/pic32mz_das_sk/driver/memory/src/drv_memory.c</itemPath>
-              <itemPath>../src/config/pic32mz_das_sk/driver/memory/src/drv_memory_nvm.c</itemPath>
-              <itemPath>../src/config/pic32mz_das_sk/driver/memory/src/drv_memory_file_system.c</itemPath>
-            </logicalFolder>
             <logicalFolder name="miim" displayName="miim" projectFiles="true">
               <logicalFolder name="src" displayName="src" projectFiles="true">
                 <logicalFolder name="dynamic" displayName="dynamic" projectFiles="true">
@@ -593,9 +574,6 @@
             <logicalFolder name="gpio" displayName="gpio" projectFiles="true">
               <itemPath>../src/config/pic32mz_das_sk/peripheral/gpio/plib_gpio.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="nvm" displayName="nvm" projectFiles="true">
-              <itemPath>../src/config/pic32mz_das_sk/peripheral/nvm/plib_nvm.c</itemPath>
-            </logicalFolder>
             <logicalFolder name="sdhc" displayName="sdhc" projectFiles="true">
               <itemPath>../src/config/pic32mz_das_sk/peripheral/sdhc/plib_sdhc.c</itemPath>
             </logicalFolder>
@@ -631,9 +609,6 @@
                                projectFiles="true">
                   <itemPath>../src/config/pic32mz_das_sk/system/fs/fat_fs/hardware_access/diskio.c</itemPath>
                 </logicalFolder>
-              </logicalFolder>
-              <logicalFolder name="mpfs" displayName="mpfs" projectFiles="true">
-                <itemPath>../src/config/pic32mz_das_sk/system/fs/mpfs/mpfs.c</itemPath>
               </logicalFolder>
               <itemPath>../src/config/pic32mz_das_sk/system/fs/src/sys_fs_media_manager.c</itemPath>
               <itemPath>../src/config/pic32mz_das_sk/system/fs/src/sys_fs_fat_interface.c</itemPath>
@@ -815,7 +790,6 @@
       </logicalFolder>
       <itemPath>../src/main.c</itemPath>
       <itemPath>../src/app.c</itemPath>
-      <itemPath>../src/mpfs_net_img.c</itemPath>
       <itemPath>../src/http_net_print.c</itemPath>
       <itemPath>../src/custom_http_net_app.c</itemPath>
     </logicalFolder>

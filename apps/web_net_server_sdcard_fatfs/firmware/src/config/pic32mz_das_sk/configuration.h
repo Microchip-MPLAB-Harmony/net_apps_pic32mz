@@ -110,12 +110,12 @@ extern "C" {
 
 /* File System Service Configuration */
 
-#define SYS_FS_MEDIA_NUMBER               (2U)
-#define SYS_FS_VOLUME_NUMBER              (2U)
+#define SYS_FS_MEDIA_NUMBER               (1U)
+#define SYS_FS_VOLUME_NUMBER              (1U)
 
 #define SYS_FS_AUTOMOUNT_ENABLE           false
 #define SYS_FS_MAX_FILES                  (25U)
-#define SYS_FS_MAX_FILE_SYSTEM_TYPE       (2U)
+#define SYS_FS_MAX_FILE_SYSTEM_TYPE       (1U)
 #define SYS_FS_MEDIA_MAX_BLOCK_SIZE       (512U)
 #define SYS_FS_MEDIA_MANAGER_BUFFER_SIZE  (2048U)
 #define SYS_FS_USE_LFN                    (1)
@@ -147,19 +147,6 @@ extern "C" {
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
-/* Memory Driver Global Configuration Options */
-#define DRV_MEMORY_INSTANCES_NUMBER          (1U)
-
-/* Memory Driver Instance 0 Configuration */
-#define DRV_MEMORY_INDEX_0                   0
-#define DRV_MEMORY_CLIENTS_NUMBER_IDX0       1
-#define DRV_MEMORY_BUF_Q_SIZE_IDX0    1
-#define DRV_MEMORY_DEVICE_START_ADDRESS      0x9d100000U
-#define DRV_MEMORY_DEVICE_MEDIA_SIZE         1024UL
-#define DRV_MEMORY_DEVICE_MEDIA_SIZE_BYTES   (DRV_MEMORY_DEVICE_MEDIA_SIZE * 1024U)
-#define DRV_MEMORY_DEVICE_PROGRAM_SIZE       2048U
-#define DRV_MEMORY_DEVICE_ERASE_SIZE         16384U
-
 /* SDMMC Driver Global Configuration Options */
 #define DRV_SDMMC_INSTANCES_NUMBER                       (1U)
 
@@ -275,27 +262,6 @@ extern "C" {
 #define TCPIP_NBNS_TASK_TICK_RATE   110
 
 
-/******************************************************************************/
-/*wolfSSL TLS Layer Configuration*/
-/******************************************************************************/
-
-#define WOLFSSL_ALT_NAMES
-#define WOLFSSL_DER_LOAD
-#define KEEP_OUR_CERT
-#define KEEP_PEER_CERT
-#define HAVE_CRL_IO
-#define HAVE_IO_TIMEOUT
-#define TFM_NO_ASM
-#define WOLFSSL_NO_ASM
-#define SIZEOF_LONG_LONG 8
-#define WOLFSSL_USER_IO
-#define NO_WRITEV
-#define MICROCHIP_TCPIP
-#define WOLFSSL_DTLS
-#define NO_PWDBASED
-#define NO_ERROR_STRINGS
-#define NO_OLD_TLS
-
 /*** TCPIP MAC Configuration ***/
 #define TCPIP_EMAC_TX_DESCRIPTORS				    8
 #define TCPIP_EMAC_RX_DESCRIPTORS				    8
@@ -337,6 +303,27 @@ extern "C" {
 #define TCPIP_EMAC_FLOW_CONTROL_FULL_WMARK          2
 #define TCPIP_EMAC_FLOW_CONTROL_EMPTY_WMARK         0
 
+
+/******************************************************************************/
+/*wolfSSL TLS Layer Configuration*/
+/******************************************************************************/
+
+#define WOLFSSL_ALT_NAMES
+#define WOLFSSL_DER_LOAD
+#define KEEP_OUR_CERT
+#define KEEP_PEER_CERT
+#define HAVE_CRL_IO
+#define HAVE_IO_TIMEOUT
+#define TFM_NO_ASM
+#define WOLFSSL_NO_ASM
+#define SIZEOF_LONG_LONG 8
+#define WOLFSSL_USER_IO
+#define NO_WRITEV
+#define MICROCHIP_TCPIP
+#define WOLFSSL_DTLS
+#define NO_PWDBASED
+#define NO_ERROR_STRINGS
+#define NO_OLD_TLS
 
 
 /*** TCP Configuration ***/
@@ -417,6 +404,11 @@ extern "C" {
 #define TCPIP_IPV6_NDP_TASK_TIMER_RATE 				32
 
 
+	/*** tcpip_cmd Configuration ***/
+	#define TCPIP_STACK_COMMAND_ENABLE
+
+
+
 /* Network Configuration Index 0 */
 #define TCPIP_NETWORK_DEFAULT_INTERFACE_NAME_IDX0 "ETHMAC"
 #define TCPIP_IF_ETHMAC
@@ -436,11 +428,6 @@ extern "C" {
                                                     TCPIP_NETWORK_CONFIG_IP_STATIC
                                                     
 #define TCPIP_NETWORK_DEFAULT_MAC_DRIVER_IDX0         DRV_ETHMAC_PIC32MACObject
-
-
-
-	/*** tcpip_cmd Configuration ***/
-	#define TCPIP_STACK_COMMAND_ENABLE
 
 
 

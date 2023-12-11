@@ -61,7 +61,6 @@ void EVIC_Initialize( void )
     IPC36SET = 0x40000U | 0x0U;  /* UART2_RX:  Priority 1 / Subpriority 0 */
     IPC36SET = 0x4000000U | 0x0U;  /* UART2_TX:  Priority 1 / Subpriority 0 */
     IPC38SET = 0x400U | 0x0U;  /* ETHERNET:  Priority 1 / Subpriority 0 */
-    IPC41SET = 0x4000000U | 0x0U;  /* FLASH_CONTROL:  Priority 1 / Subpriority 0 */
     IPC47SET = 0x4000000U | 0x0U;  /* SDHC:  Priority 1 / Subpriority 0 */
 
 

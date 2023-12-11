@@ -62,14 +62,6 @@
          <string>class com.microchip.mcc.harmony.HarmonyModule</string>
       </entry>
       <entry>
-         <string>drv_memory</string>
-         <string>class com.microchip.mcc.harmony.HarmonyModule</string>
-      </entry>
-      <entry>
-         <string>drv_memory_0</string>
-         <string>class com.microchip.mcc.harmony.HarmonyModule</string>
-      </entry>
-      <entry>
          <string>drv_sdmmc</string>
          <string>class com.microchip.mcc.harmony.HarmonyModule</string>
       </entry>
@@ -91,10 +83,6 @@
       </entry>
       <entry>
          <string>net_Pres</string>
-         <string>class com.microchip.mcc.harmony.HarmonyModule</string>
-      </entry>
-      <entry>
-         <string>nvm</string>
          <string>class com.microchip.mcc.harmony.HarmonyModule</string>
       </entry>
       <entry>
@@ -797,7 +785,12 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="ENABLE_DRV_COMMON"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;ENABLE_DRV_COMMON&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;readOnly&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;false&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
   &lt;/HarmonyCore&gt;
@@ -830,7 +823,12 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="ENABLE_SYS_COMMON"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;ENABLE_SYS_COMMON&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;readOnly&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;false&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
   &lt;/HarmonyCore&gt;
@@ -3812,7 +3810,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="!@#harmonyUserData"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;UserData&gt;
   &lt;UserData dnOrder=&quot;0&quot;&gt;
-    &lt;GraphSettings canvasHeight=&quot;300&quot; canvasWidth=&quot;954&quot; dnOrder=&quot;0&quot;/&gt;
+    &lt;GraphSettings canvasHeight=&quot;663&quot; canvasWidth=&quot;842&quot; dnOrder=&quot;0&quot;/&gt;
     &lt;ComponentGraph dnOrder=&quot;1&quot; id=&quot;APPLICATION LAYER&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipAnnounce&quot; x=&quot;329&quot; y=&quot;22&quot;/&gt;
@@ -3877,19 +3875,17 @@
         &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;core&quot; x=&quot;13&quot; y=&quot;76&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;core_timer&quot; x=&quot;16&quot; y=&quot;404&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;dfp&quot; x=&quot;14&quot; y=&quot;46&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;drv_memory&quot; x=&quot;721&quot; y=&quot;220&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;7&quot; id=&quot;drv_sdmmc&quot; x=&quot;447&quot; y=&quot;460&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;8&quot; id=&quot;lib_crypto&quot; x=&quot;234&quot; y=&quot;23&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;9&quot; id=&quot;lib_wolfcrypt&quot; x=&quot;500&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;10&quot; id=&quot;lib_wolfssl&quot; x=&quot;680&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;11&quot; id=&quot;nvm&quot; x=&quot;601&quot; y=&quot;367&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;sdhc&quot; x=&quot;277&quot; y=&quot;551&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;sys_command&quot; x=&quot;475&quot; y=&quot;145&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;sys_console&quot; x=&quot;220&quot; y=&quot;141&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;sys_debug&quot; x=&quot;444&quot; y=&quot;352&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;16&quot; id=&quot;sys_fs&quot; x=&quot;682&quot; y=&quot;441&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;17&quot; id=&quot;sys_time&quot; x=&quot;219&quot; y=&quot;357&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;18&quot; id=&quot;uart2&quot; x=&quot;13&quot; y=&quot;225&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;drv_sdmmc&quot; x=&quot;447&quot; y=&quot;460&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;7&quot; id=&quot;lib_crypto&quot; x=&quot;234&quot; y=&quot;23&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;8&quot; id=&quot;lib_wolfcrypt&quot; x=&quot;500&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;9&quot; id=&quot;lib_wolfssl&quot; x=&quot;680&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;10&quot; id=&quot;sdhc&quot; x=&quot;277&quot; y=&quot;551&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;11&quot; id=&quot;sys_command&quot; x=&quot;475&quot; y=&quot;145&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;sys_console&quot; x=&quot;220&quot; y=&quot;141&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;sys_debug&quot; x=&quot;444&quot; y=&quot;352&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;sys_fs&quot; x=&quot;711&quot; y=&quot;454&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;sys_time&quot; x=&quot;219&quot; y=&quot;357&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;16&quot; id=&quot;uart2&quot; x=&quot;13&quot; y=&quot;225&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
   &lt;/UserData&gt;
@@ -5895,7 +5891,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;EVIC_167_ENABLE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;true&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;false&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -5906,7 +5902,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;EVIC_167_HANDLER_LOCK&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;true&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;false&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -5917,7 +5913,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;EVIC_167_INTERRUPT_HANDLER&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;NVM_InterruptHandler&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;FLASH_CONTROL_Handler&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -6202,9 +6198,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="FLASH_CONTROL_INTERRUPT_ENABLE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;FLASH_CONTROL_INTERRUPT_ENABLE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;nvm&quot; value=&quot;true&quot;/&gt;
-    &lt;/Values&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/core&gt;
 &lt;/core&gt;
 </value>
@@ -6214,7 +6208,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;FLASH_CONTROL_INTERRUPT_ENABLE_UPDATE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;false&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -6224,9 +6218,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="FLASH_CONTROL_INTERRUPT_HANDLER"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;FLASH_CONTROL_INTERRUPT_HANDLER&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;nvm&quot; value=&quot;NVM_InterruptHandler&quot;/&gt;
-    &lt;/Values&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/core&gt;
 &lt;/core&gt;
 </value>
@@ -6235,9 +6227,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="FLASH_CONTROL_INTERRUPT_HANDLER_LOCK"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;FLASH_CONTROL_INTERRUPT_HANDLER_LOCK&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;nvm&quot; value=&quot;true&quot;/&gt;
-    &lt;/Values&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/core&gt;
 &lt;/core&gt;
 </value>
@@ -8304,347 +8294,6 @@
 </value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory" name="!@#harmonyAttachmentState"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory&gt;
-  &lt;drv_memory dnOrder=&quot;0&quot;/&gt;
-&lt;/drv_memory&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory" name="#&amp;__MCC_Group_Parrent_id"/>
-         <value>__ROOTVIEW</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory" name="DRV_MEMORY_COMMON_FS_ENABLE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory&gt;
-  &lt;drv_memory dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_COMMON_FS_ENABLE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;drv_memory&quot; value=&quot;true&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/drv_memory&gt;
-&lt;/drv_memory&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory" name="DRV_MEMORY_COMMON_MODE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory&gt;
-  &lt;drv_memory dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_COMMON_MODE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drv_memory&gt;
-&lt;/drv_memory&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory" name="DRV_MEMORY_COMMON_SYS_TIME_ENABLE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory&gt;
-  &lt;drv_memory dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_COMMON_SYS_TIME_ENABLE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drv_memory&gt;
-&lt;/drv_memory&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory" name="DRV_MEMORY_FS_HEADER"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory&gt;
-  &lt;drv_memory dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_FS_HEADER&quot;&gt;
-    &lt;Attributes dnOrder=&quot;0&quot;&gt;
-      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
-      &lt;/Boolean&gt;
-    &lt;/Attributes&gt;
-  &lt;/drv_memory&gt;
-&lt;/drv_memory&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory" name="DRV_MEMORY_FS_SOURCE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory&gt;
-  &lt;drv_memory dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_FS_SOURCE&quot;&gt;
-    &lt;Attributes dnOrder=&quot;0&quot;&gt;
-      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
-      &lt;/Boolean&gt;
-    &lt;/Attributes&gt;
-  &lt;/drv_memory&gt;
-&lt;/drv_memory&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="!@#harmonyAttachmentState"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot;&gt;
-    &lt;Attachments dnOrder=&quot;0&quot;&gt;
-      &lt;DirectDependency dnOrder=&quot;0&quot; id=&quot;drv_memory_MEMORY_dependency&quot;&gt;
-        &lt;Attributes dnOrder=&quot;0&quot;&gt;
-          &lt;String dnOrder=&quot;0&quot; id=&quot;targetComponentID&quot;&gt;
-            &lt;Value dnOrder=&quot;0&quot;&gt;nvm&lt;/Value&gt;
-          &lt;/String&gt;
-          &lt;String dnOrder=&quot;1&quot; id=&quot;targetAttachmentID&quot;&gt;
-            &lt;Value dnOrder=&quot;0&quot;&gt;NVM_MEMORY&lt;/Value&gt;
-          &lt;/String&gt;
-        &lt;/Attributes&gt;
-      &lt;/DirectDependency&gt;
-    &lt;/Attachments&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="#&amp;__MCC_Group_Parrent_id"/>
-         <value>drv_memory</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_BUFFER_QUEUE_SIZE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_BUFFER_QUEUE_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_DEVICE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_DEVICE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;drv_memory_0&quot; value=&quot;NVM&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_DEVICE_POLL_US"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_DEVICE_POLL_US&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_DEVICE_TYPE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_DEVICE_TYPE&quot;&gt;
-    &lt;Attributes dnOrder=&quot;0&quot;&gt;
-      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
-      &lt;/Boolean&gt;
-    &lt;/Attributes&gt;
-    &lt;Values dnOrder=&quot;1&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;SYS_FS_MEDIA_TYPE_NVM&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_ERASE_ENABLE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_ERASE_ENABLE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;drv_memory_0&quot; value=&quot;true&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_FS_ENABLE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_FS_ENABLE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;drv_memory_0&quot; value=&quot;true&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_INTERRUPT_ENABLE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_INTERRUPT_ENABLE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;drv_memory_0&quot; value=&quot;true&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_NUM_CLIENTS"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_NUM_CLIENTS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_PLIB"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_PLIB&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;drv_memory_0&quot; value=&quot;DRV_NVM&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_PLIB_HEADER"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_PLIB_HEADER&quot;&gt;
-    &lt;Attributes dnOrder=&quot;0&quot;&gt;
-      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
-      &lt;/Boolean&gt;
-      &lt;String dnOrder=&quot;1&quot; id=&quot;name&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;drv_memory_nvm.h&lt;/Value&gt;
-      &lt;/String&gt;
-    &lt;/Attributes&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_PLIB_SOURCE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_PLIB_SOURCE&quot;&gt;
-    &lt;Attributes dnOrder=&quot;0&quot;&gt;
-      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
-      &lt;/Boolean&gt;
-      &lt;String dnOrder=&quot;1&quot; id=&quot;name&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;drv_memory_nvm.c&lt;/Value&gt;
-      &lt;/String&gt;
-    &lt;/Attributes&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_PLIB_SYS_DEF"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_PLIB_SYS_DEF&quot;&gt;
-    &lt;Attributes dnOrder=&quot;0&quot;&gt;
-      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
-      &lt;/Boolean&gt;
-    &lt;/Attributes&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_RTOS"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_RTOS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_RTOS_DELAY"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_RTOS_DELAY&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_RTOS_STACK_SIZE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_RTOS_STACK_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_RTOS_TASK_MSG_QTY"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_RTOS_TASK_MSG_QTY&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_RTOS_TASK_OPT_NONE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_RTOS_TASK_OPT_NONE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_RTOS_TASK_OPT_NO_TLS"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_RTOS_TASK_OPT_NO_TLS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_RTOS_TASK_OPT_SAVE_FP"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_RTOS_TASK_OPT_SAVE_FP&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_RTOS_TASK_OPT_STK_CHK"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_RTOS_TASK_OPT_STK_CHK&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_RTOS_TASK_OPT_STK_CLR"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_RTOS_TASK_OPT_STK_CLR&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_RTOS_TASK_PRIORITY"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_RTOS_TASK_PRIORITY&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_RTOS_TASK_TIME_QUANTA"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_RTOS_TASK_TIME_QUANTA&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_memory_0" name="DRV_MEMORY_RTOS_USE_DELAY"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_memory_0&gt;
-  &lt;drv_memory_0 dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_RTOS_USE_DELAY&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drv_memory_0&gt;
-&lt;/drv_memory_0&gt;
-</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drv_sdmmc" name="!@#harmonyAttachmentState"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drv_sdmmc&gt;
   &lt;drv_sdmmc dnOrder=&quot;0&quot;/&gt;
@@ -10261,7 +9910,15 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="lib_wolfssl" name="wolfsslOsalHeapKeys"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_wolfssl&gt;
   &lt;lib_wolfssl dnOrder=&quot;0&quot; id=&quot;wolfsslOsalHeapKeys&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+      &lt;Boolean dnOrder=&quot;1&quot; id=&quot;visible&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;/&gt;
   &lt;/lib_wolfssl&gt;
 &lt;/lib_wolfssl&gt;
 </value>
@@ -11106,194 +10763,6 @@
 </value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="nvm" name="!@#harmonyAttachmentState"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;nvm&gt;
-  &lt;nvm dnOrder=&quot;0&quot;&gt;
-    &lt;Attachments dnOrder=&quot;0&quot;&gt;
-      &lt;DirectCapability dnOrder=&quot;0&quot; id=&quot;NVM_MEMORY&quot;&gt;
-        &lt;Attributes dnOrder=&quot;0&quot;&gt;
-          &lt;String dnOrder=&quot;0&quot; id=&quot;targetComponentID&quot;&gt;
-            &lt;Value dnOrder=&quot;0&quot;&gt;drv_memory_0&lt;/Value&gt;
-          &lt;/String&gt;
-          &lt;String dnOrder=&quot;1&quot; id=&quot;targetAttachmentID&quot;&gt;
-            &lt;Value dnOrder=&quot;0&quot;&gt;drv_memory_MEMORY_dependency&lt;/Value&gt;
-          &lt;/String&gt;
-        &lt;/Attributes&gt;
-      &lt;/DirectCapability&gt;
-    &lt;/Attachments&gt;
-  &lt;/nvm&gt;
-&lt;/nvm&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="nvm" name="#&amp;__MCC_Group_Parrent_id"/>
-         <value>__ROOTVIEW</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="nvm" name="DRV_MEMORY_CONNECTED"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;nvm&gt;
-  &lt;nvm dnOrder=&quot;0&quot; id=&quot;DRV_MEMORY_CONNECTED&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;drv_memory_0&quot; value=&quot;true&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/nvm&gt;
-&lt;/nvm&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="nvm" name="ERASE_API_NAME"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;nvm&gt;
-  &lt;nvm dnOrder=&quot;0&quot; id=&quot;ERASE_API_NAME&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/nvm&gt;
-&lt;/nvm&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="nvm" name="ERASE_BUFFER_SIZE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;nvm&gt;
-  &lt;nvm dnOrder=&quot;0&quot; id=&quot;ERASE_BUFFER_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/nvm&gt;
-&lt;/nvm&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="nvm" name="ERASE_ENABLE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;nvm&gt;
-  &lt;nvm dnOrder=&quot;0&quot; id=&quot;ERASE_ENABLE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/nvm&gt;
-&lt;/nvm&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="nvm" name="FLASH_ERASE_SIZE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;nvm&gt;
-  &lt;nvm dnOrder=&quot;0&quot; id=&quot;FLASH_ERASE_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/nvm&gt;
-&lt;/nvm&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="nvm" name="FLASH_PROGRAM_SIZE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;nvm&gt;
-  &lt;nvm dnOrder=&quot;0&quot; id=&quot;FLASH_PROGRAM_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/nvm&gt;
-&lt;/nvm&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="nvm" name="FLASH_SIZE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;nvm&gt;
-  &lt;nvm dnOrder=&quot;0&quot; id=&quot;FLASH_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/nvm&gt;
-&lt;/nvm&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="nvm" name="FLASH_START_ADDRESS"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;nvm&gt;
-  &lt;nvm dnOrder=&quot;0&quot; id=&quot;FLASH_START_ADDRESS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/nvm&gt;
-&lt;/nvm&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="nvm" name="INTERRUPT_ENABLE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;nvm&gt;
-  &lt;nvm dnOrder=&quot;0&quot; id=&quot;INTERRUPT_ENABLE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/nvm&gt;
-&lt;/nvm&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="nvm" name="MEMORY_MEDIA_SIZE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;nvm&gt;
-  &lt;nvm dnOrder=&quot;0&quot; id=&quot;MEMORY_MEDIA_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/nvm&gt;
-&lt;/nvm&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="nvm" name="NVM_IEC_REG"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;nvm&gt;
-  &lt;nvm dnOrder=&quot;0&quot; id=&quot;NVM_IEC_REG&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/nvm&gt;
-&lt;/nvm&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="nvm" name="NVM_IEC_REG_VALUE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;nvm&gt;
-  &lt;nvm dnOrder=&quot;0&quot; id=&quot;NVM_IEC_REG_VALUE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/nvm&gt;
-&lt;/nvm&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="nvm" name="NVM_IFS_REG"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;nvm&gt;
-  &lt;nvm dnOrder=&quot;0&quot; id=&quot;NVM_IFS_REG&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/nvm&gt;
-&lt;/nvm&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="nvm" name="NVM_IFS_REG_VALUE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;nvm&gt;
-  &lt;nvm dnOrder=&quot;0&quot; id=&quot;NVM_IFS_REG_VALUE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/nvm&gt;
-&lt;/nvm&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="nvm" name="NVM_INSTANCE_NAME"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;nvm&gt;
-  &lt;nvm dnOrder=&quot;0&quot; id=&quot;NVM_INSTANCE_NAME&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/nvm&gt;
-&lt;/nvm&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="nvm" name="NVM_VECTOR_NUMBER"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;nvm&gt;
-  &lt;nvm dnOrder=&quot;0&quot; id=&quot;NVM_VECTOR_NUMBER&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/nvm&gt;
-&lt;/nvm&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="nvm" name="START_ADDRESS"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;nvm&gt;
-  &lt;nvm dnOrder=&quot;0&quot; id=&quot;START_ADDRESS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/nvm&gt;
-&lt;/nvm&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="nvm" name="WRITE_API_NAME"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;nvm&gt;
-  &lt;nvm dnOrder=&quot;0&quot; id=&quot;WRITE_API_NAME&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/nvm&gt;
-&lt;/nvm&gt;
-</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sdhc" name="!@#harmonyAttachmentState"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sdhc&gt;
   &lt;sdhc dnOrder=&quot;0&quot;&gt;
@@ -11987,8 +11456,7 @@
     &lt;Attachments dnOrder=&quot;0&quot;&gt;
       &lt;MultiCapability dnOrder=&quot;0&quot; id=&quot;sys_fs_DRV_MEDIA_dependency&quot;&gt;
         &lt;TargetAttachments dnOrder=&quot;0&quot;&gt;
-          &lt;TargetAttachment dnOrder=&quot;0&quot; targetAttachmentID=&quot;drv_media&quot; targetComponentID=&quot;drv_memory_0&quot;/&gt;
-          &lt;TargetAttachment dnOrder=&quot;1&quot; targetAttachmentID=&quot;drv_media&quot; targetComponentID=&quot;drv_sdmmc_0&quot;/&gt;
+          &lt;TargetAttachment dnOrder=&quot;0&quot; targetAttachmentID=&quot;drv_media&quot; targetComponentID=&quot;drv_sdmmc_0&quot;/&gt;
         &lt;/TargetAttachments&gt;
       &lt;/MultiCapability&gt;
     &lt;/Attachments&gt;
@@ -12422,11 +11890,11 @@
   &lt;sys_fs dnOrder=&quot;0&quot; id=&quot;SYS_FS_IDX1&quot;&gt;
     &lt;Attributes dnOrder=&quot;0&quot;&gt;
       &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;false&lt;/Value&gt;
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
     &lt;Values dnOrder=&quot;1&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;sys_fs&quot; value=&quot;true&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;sys_fs&quot; value=&quot;false&quot;/&gt;
     &lt;/Values&gt;
   &lt;/sys_fs&gt;
 &lt;/sys_fs&gt;
@@ -12459,7 +11927,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_fs&gt;
   &lt;sys_fs dnOrder=&quot;0&quot; id=&quot;SYS_FS_INSTANCES_NUMBER&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;2&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1&quot;/&gt;
     &lt;/Values&gt;
   &lt;/sys_fs&gt;
 &lt;/sys_fs&gt;
@@ -12517,7 +11985,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_fs&gt;
   &lt;sys_fs dnOrder=&quot;0&quot; id=&quot;SYS_FS_MAX_FILE_SYSTEM_TYPE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;2&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1&quot;/&gt;
     &lt;/Values&gt;
   &lt;/sys_fs&gt;
 &lt;/sys_fs&gt;
@@ -12870,7 +12338,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_fs&gt;
   &lt;sys_fs dnOrder=&quot;0&quot; id=&quot;SYS_FS_MPFS&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;false&quot;/&gt;
     &lt;/Values&gt;
   &lt;/sys_fs&gt;
 &lt;/sys_fs&gt;
@@ -12882,7 +12350,7 @@
   &lt;sys_fs dnOrder=&quot;0&quot; id=&quot;SYS_FS_MPFS_HEADER&quot;&gt;
     &lt;Attributes dnOrder=&quot;0&quot;&gt;
       &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;false&lt;/Value&gt;
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
   &lt;/sys_fs&gt;
@@ -12895,7 +12363,7 @@
   &lt;sys_fs dnOrder=&quot;0&quot; id=&quot;SYS_FS_MPFS_LOCAL_HEADER&quot;&gt;
     &lt;Attributes dnOrder=&quot;0&quot;&gt;
       &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;false&lt;/Value&gt;
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
   &lt;/sys_fs&gt;
@@ -12908,7 +12376,7 @@
   &lt;sys_fs dnOrder=&quot;0&quot; id=&quot;SYS_FS_MPFS_SOURCE&quot;&gt;
     &lt;Attributes dnOrder=&quot;0&quot;&gt;
       &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;false&lt;/Value&gt;
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
   &lt;/sys_fs&gt;
@@ -13028,7 +12496,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_fs&gt;
   &lt;sys_fs dnOrder=&quot;0&quot; id=&quot;SYS_FS_TOTAL_VOLUMES&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;sys_fs&quot; value=&quot;2&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;sys_fs&quot; value=&quot;1&quot;/&gt;
     &lt;/Values&gt;
   &lt;/sys_fs&gt;
 &lt;/sys_fs&gt;
@@ -13183,7 +12651,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_fs&gt;
   &lt;sys_fs dnOrder=&quot;0&quot; id=&quot;SYS_FS_VOLUME_NUMBER&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;2&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1&quot;/&gt;
     &lt;/Values&gt;
   &lt;/sys_fs&gt;
 &lt;/sys_fs&gt;
@@ -14064,7 +13532,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipHttpNet&gt;
   &lt;tcpipHttpNet dnOrder=&quot;0&quot; id=&quot;TCPIP_HTTP_NET_CUSTOM_TEMPLATE_SL&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipHttpNet&quot; value=&quot;true&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipHttpNet&quot; value=&quot;false&quot;/&gt;
     &lt;/Values&gt;
   &lt;/tcpipHttpNet&gt;
 &lt;/tcpipHttpNet&gt;
@@ -18786,10 +18254,6 @@
    </tokenMap>
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
-         <file>..\src\config\pic32mz_das_sk\driver\memory\drv_memory_definitions.h</file>
-         <hash>b8f10e5a04840558da99e20856d3f7394b280d5e399d72ee5ef1cf13b3ee48f2</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32mz_das_sk\peripheral\uart\plib_uart2.c</file>
          <hash>c5fda594d05d36f9515bfeafafe2cf9376ed4ecd8528cf94134548e208605f03</hash>
       </entry>
@@ -19126,10 +18590,6 @@
          <hash>75ccad43ecc7a20a4109f55478d13f6fe3cade767a8a10acd25741f34db25e9f</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_das_sk\driver\memory\src\drv_memory_file_system.c</file>
-         <hash>ad02bcbc7e97a16a5e8b08c735b79e783435094db2e1803bb0cafa4a7ee7eb25</hash>
-      </entry>
-      <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\port\pic32\CryptoLib_ExpMod_pb.h</file>
          <hash>04e89b5ef58511c0500a6db585eeb2868bfa7ea32a7bf399243fc58cca77079a</hash>
       </entry>
@@ -19144,10 +18604,6 @@
       <entry>
          <file>..\src\config\pic32mz_das_sk\library\tcpip\src\dhcp_manager.h</file>
          <hash>2a60482d99b8371831d90ad158d8933fe595c0bb1b2c8dbadd76a920d4807f0d</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_das_sk\driver\memory\src\drv_memory_file_system.h</file>
-         <hash>25417962a1c2116c903c6b4061d496b3aaf075ea17b372ca28e1766f23bc9c56</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\library\tcpip\src\tcpip_manager_control.h</file>
@@ -19219,7 +18675,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\configuration.h</file>
-         <hash>99368c8cec0afcd7a040a8decc4e90d390338ecc1e19238506345067cc097404</hash>
+         <hash>497803d18b9f9df2bf617b7d81240b19c674ac4569026b7cd5803c4c65685a69</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\port\pic32\CryptoLib_ZpEccConv_pb.h</file>
@@ -19322,10 +18778,6 @@
          <hash>a2dcf05575becc98aa212af1d220eda07487bd645d82c4d7a980aa3a22384cf3</hash>
       </entry>
       <entry>
-         <file>..\src\mpfs_net_img.c</file>
-         <hash>342756bdce21d4610ec4539f742b5af6f7fe37d4c624df53770ce74d90c5d7a2</hash>
-      </entry>
-      <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\hash.h</file>
          <hash>46d344a5e35192b4342be98f2ae53b509703acac4c6578dd9486f6b65c8049eb</hash>
       </entry>
@@ -19388,10 +18840,6 @@
       <entry>
          <file>..\src\config\pic32mz_das_sk\library\tcpip\src\tcpip_helpers_private.h</file>
          <hash>c1a9d58bb202ac83a85e9b79bb1d4ae9eaf585d6f6cd471fdadf433df47295d3</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_das_sk\driver\memory\drv_memory.h</file>
-         <hash>614702f2ebbb2a6a2b1baf1c9f8472c94ea3588e370c507c9bf408b1d86702af</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\net_pres\pres\net_pres_encryptionproviderapi.h</file>
@@ -19630,10 +19078,6 @@
          <hash>dfc1c6335a9a4c2c542f6ea45fc44cd52e8f174e3e64a4d9513c8c92db4c42f0</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_das_sk\driver\memory\src\drv_memory_local.h</file>
-         <hash>129258f301260bf3f612f02652c061c7df89379cc21950df0d02ba5f5ee1845d</hash>
-      </entry>
-      <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\port\pic32\CryptoLib_ZpEccAddSub_pb.h</file>
          <hash>64c5dc03d9fd8bd2fa6e5e4dc8e53cb53f4e2f022a69f86798e794d2681cf1a7</hash>
       </entry>
@@ -19750,12 +19194,12 @@
          <hash>d88929a1d7d6d0428c517cb789359c574c42d52c3c8a04bb267990255ad81706</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_das_sk\osal\osal.h</file>
-         <hash>8404fbe44807fa0484ffb38843a72cb9af8e31c9c30bd1b2594e609b8ea317d9</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32mz_das_sk\library\tcpip\ftpc.h</file>
          <hash>2f94649ae9fa9ee66ad17c51050540ea2aa89ba42201027e13a9b47dc6dfd090</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32mz_das_sk\osal\osal.h</file>
+         <hash>8404fbe44807fa0484ffb38843a72cb9af8e31c9c30bd1b2594e609b8ea317d9</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\crypto\crypto.h</file>
@@ -20030,10 +19474,6 @@
          <hash>a9b02d1c90e6236d3538d66084c3346c683eeb6a34a47cb3c347eef95000a80d</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_das_sk\driver\memory\src\drv_memory_nvm.c</file>
-         <hash>58243f9da95357beb459fd16a20c065fd919a4e5670e17b3a346e04b61a7b041</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32mz_das_sk\library\tcpip\src\hash_fnv.h</file>
          <hash>08928a0c0ce1effbdfe3336a8daa5921a3334a850189f4c4d67c24836a173871</hash>
       </entry>
@@ -20246,10 +19686,6 @@
          <hash>6c136e5b4ef349437256727bcc2b02432a8b2b4fb2eb242c4daa99503cedb947</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_das_sk\driver\memory\src\drv_memory.c</file>
-         <hash>808d43318deace95edc80d3ccbadfcfff5298b35a2e705be7ac5fcae1d7f8c98</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32mz_das_sk\library\tcpip\snmpv3.h</file>
          <hash>8c24aaa8cc60fedc4077728ac0a219ed7d921c39fa78bbded08fd3232f37609f</hash>
       </entry>
@@ -20359,7 +19795,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\interrupts.h</file>
-         <hash>0ebc3924990d93c7bb0095af3454cf8aa77e5ebbb284372b9a1e1946d1da6be6</hash>
+         <hash>f6ec013d03060f612cf2e3c26dd802912db771f1a4bf2dcb782774b365be8eb2</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\wc_dsp.c</file>
@@ -20371,7 +19807,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\interrupts.c</file>
-         <hash>c3f20e49e771bfb487eb5830728cd54351faef44758b19258fe946974d05ae26</hash>
+         <hash>066085b61ac2c65343cd698f78fbad6de5353989d198bac6c9a719f9bc2922d7</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\system\fs\fat_fs\file_system\ff.c</file>
@@ -20391,7 +19827,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\system\fs\fat_fs\file_system\ffconf.h</file>
-         <hash>b2235d698effbab01d54382f772dcc3d83e162f8f3bb2b6abc7d3331720be8c9</hash>
+         <hash>5d036c89eef6cc276107bf13cd95a3291cd86a22cb55e51ab32390c70432e091</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\src\conf.c</file>
@@ -20406,12 +19842,12 @@
          <hash>b8353b2a02e23a9a0bf72ec917dc8dde444fb199e3b74c53d8559990afad3065</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_das_sk\tasks.c</file>
-         <hash>cffcb953d315bb3aec043d832e45a318389c3025544c32348412ec651dfe86bb</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32mz_das_sk\library\tcpip\src\udp_manager.h</file>
          <hash>d7f37688e3e11ccb8eb937f7c7266bfb676e245b41ccd166fba9249e7b572c1d</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32mz_das_sk\tasks.c</file>
+         <hash>66e1465f592222704ef97bbb79201c2ff44c677af5090c9a8f6bab5e510b28fc</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\peripheral\clk\plib_clk.h</file>
@@ -20519,7 +19955,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\initialization.c</file>
-         <hash>b2a4d4c3c6d7171bc9d0a8a9db30e4a64bb9046240864b7b9d2d55127da88e74</hash>
+         <hash>c1e3d721849da96137e334b6e2880a128ecf344d1bd58103beea742cea1271f8</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\library\tcpip\tcpip.h</file>
@@ -20642,10 +20078,6 @@
          <hash>37506f0dc8c5f172bab80adec44c30c44d2f9c8df786eedecc63093e5088d86d</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_das_sk\driver\memory\drv_memory_nvm.h</file>
-         <hash>aafbf98cdcd6fde28e160f311729c3bce2823a42c90ff56ee3bcf3e018800fc5</hash>
-      </entry>
-      <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\rc2.h</file>
          <hash>e1066d1c9398a39bfd4c1155d47bd692f22d536f8737afa260733602d3a09ec0</hash>
       </entry>
@@ -20759,7 +20191,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\system\fs\src\sys_fs_media_manager.c</file>
-         <hash>e033ef639ca13a801e1d650f26d7001a0927c1d87cf7b73ff8b3274cd442d4de</hash>
+         <hash>c40b26a6263eb0890cbd15ef4eeb676cf876e347a183767514ac1d9c9603ee19</hash>
       </entry>
       <entry>
          <file>..\src\main.c</file>
@@ -20830,10 +20262,6 @@
          <hash>3721cc4c9f7089be80068923527b1f7b5ec375e25fd4aeb08bdeff04fdf22951</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_das_sk\system\fs\mpfs\mpfs_local.h</file>
-         <hash>52950f4baec00261faa5f0eb5c5da64ed910c5fc0fbd19f2d093bfaceb866050</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32mz_das_sk\library\tcpip\udp.h</file>
          <hash>ea405bdcd021f77c5002ff868dc513a76a1f4074cedc29f7df364c9a48b2e89d</hash>
       </entry>
@@ -20860,10 +20288,6 @@
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\sniffer_error.h</file>
          <hash>d20f8e1dc6e9f18a1d98439d778ea613a954006f38bc6764de37d841dea70fe1</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_das_sk\peripheral\nvm\plib_nvm.h</file>
-         <hash>d959b0b0f27d5580d2ab0e35b53fb3cc376424d73ed20a8602e688c9e4ea8aac</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\pkcs7.c</file>
@@ -20930,10 +20354,6 @@
          <hash>f279952651872077220a00d12d182632c1d5fd7c9e301d199a00a078a9ba7ec5</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_das_sk\peripheral\nvm\plib_nvm.c</file>
-         <hash>5a29e6cb41d62e12717ce78220673c6a591555b6cb9e6a23f45f600cb6c9d292</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32mz_das_sk\library\tcpip\zero_conf_multicast_dns.h</file>
          <hash>f0df8b849afed8c3258e3006621c74f16bfb1522d5aff7a835217a73593a5eae</hash>
       </entry>
@@ -20994,12 +20414,8 @@
          <hash>fc62a7a3adcac4cf2340ce7e9c7ee200668c3d0d8d5ff741512fc7f37a726d61</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_das_sk\system\fs\mpfs\mpfs.c</file>
-         <hash>43e5fc12888209dbb072de4f51dfb2da44bb137ba93ffa09974f1418296296b4</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32mz_das_sk\definitions.h</file>
-         <hash>439957339124113191979b8e0f6ba2dd85ecdb6c715ebbe0a514818e774ac094</hash>
+         <hash>1eb4faa60013226c48e01aef959a7c844701d1eec6fee461d8ee5ee8920bd603</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\peripheral\evic\plib_evic.h</file>
@@ -21020,10 +20436,6 @@
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\port\pic32\crypt_ecc_pukcl.c</file>
          <hash>340d8aebf02cfd914c718599dabb098a6dd174a4643843dacef36dca318a60c2</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_das_sk\system\fs\mpfs\mpfs.h</file>
-         <hash>5a5c03658aecea816f7717a1124d6c61bebe2f9a28d5f4f82475fa87ff788e2a</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\curve25519.c</file>
@@ -21063,7 +20475,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\peripheral\evic\plib_evic.c</file>
-         <hash>0caa49bd5873b8f884ba076f4cf3c189f7709c372ef6d6eec67d24aaa3ef88ac</hash>
+         <hash>c19f8495c01c9219b4a8a4e41238f14e45f0c391d7f85f7cfd5437f5d9b7d59b</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_das_sk\library\tcpip\ddns.h</file>

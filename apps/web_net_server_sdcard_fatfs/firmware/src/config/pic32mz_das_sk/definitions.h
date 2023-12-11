@@ -50,23 +50,20 @@
 #include <stdbool.h>
 #include "crypto/crypto.h"
 #include "peripheral/sdhc/plib_sdhc.h"
-#include "driver/memory/drv_memory.h"
 #include "driver/ethmac/drv_ethmac.h"
 #include "system/time/sys_time.h"
-#include "peripheral/nvm/plib_nvm.h"
 #include "peripheral/coretimer/plib_coretimer.h"
-#include "driver/memory/drv_memory_nvm.h"
 #include "peripheral/uart/plib_uart2.h"
+#include "library/tcpip/tcpip.h"
+#include "system/sys_time_h2_adapter.h"
+#include "system/sys_random_h2_adapter.h"
 #include "system/int/sys_int.h"
 #include "system/cache/sys_cache.h"
 #include "system/reset/sys_reset.h"
 #include "osal/osal.h"
 #include "system/debug/sys_debug.h"
-#include "library/tcpip/tcpip.h"
-#include "system/sys_time_h2_adapter.h"
-#include "system/sys_random_h2_adapter.h"
-#include "driver/sdmmc/drv_sdmmc.h"
 #include "system/command/sys_command.h"
+#include "driver/sdmmc/drv_sdmmc.h"
 #include "peripheral/clk/plib_clk.h"
 #include "peripheral/gpio/plib_gpio.h"
 #include "peripheral/cache/plib_cache.h"
@@ -83,10 +80,9 @@
 #include "system/fs/fat_fs/file_system/ff.h"
 #include "system/fs/fat_fs/file_system/ffconf.h"
 #include "system/fs/fat_fs/hardware_access/diskio.h"
-#include "system/fs/mpfs/mpfs.h"
+#include "bsp/bsp.h"
 #include "system/console/sys_console.h"
 #include "system/console/src/sys_console_uart_definitions.h"
-#include "bsp/bsp.h"
 #include "app.h"
 
 
@@ -219,7 +215,6 @@ Remarks:
 typedef struct
 {
     SYS_MODULE_OBJ  sysTime;
-    SYS_MODULE_OBJ  drvMemory0;
     SYS_MODULE_OBJ  sysConsole0;
 
 
