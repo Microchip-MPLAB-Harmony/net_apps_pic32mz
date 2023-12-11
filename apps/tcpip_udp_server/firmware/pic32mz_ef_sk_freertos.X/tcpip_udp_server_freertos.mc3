@@ -732,6 +732,19 @@
   &lt;FreeRTOS dnOrder=&quot;0&quot; id=&quot;FREERTOS_HEAP_2_C&quot;&gt;
     &lt;Attributes dnOrder=&quot;0&quot;&gt;
       &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;false&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/FreeRTOS&gt;
+&lt;/FreeRTOS&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="FreeRTOS" name="FREERTOS_HEAP_3_C"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;FreeRTOS&gt;
+  &lt;FreeRTOS dnOrder=&quot;0&quot; id=&quot;FREERTOS_HEAP_3_C&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
         &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
@@ -978,7 +991,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;FreeRTOS&gt;
   &lt;FreeRTOS dnOrder=&quot;0&quot; id=&quot;FREERTOS_MEMORY_MANAGEMENT_CHOICE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;Heap_2&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;Heap_3&quot;/&gt;
     &lt;/Values&gt;
   &lt;/FreeRTOS&gt;
 &lt;/FreeRTOS&gt;
@@ -7571,7 +7584,7 @@
   &lt;core dnOrder=&quot;0&quot; id=&quot;XC32_HEAP_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;1024&quot;/&gt;
-      &lt;User dnOrder=&quot;1&quot; value=&quot;76960&quot;/&gt;
+      &lt;User dnOrder=&quot;1&quot; value=&quot;86960&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -8799,7 +8812,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sys_command" name="SYS_COMMAND_PRINT_BUFFER_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_command&gt;
   &lt;sys_command dnOrder=&quot;0&quot; id=&quot;SYS_COMMAND_PRINT_BUFFER_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;2560&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/sys_command&gt;
 &lt;/sys_command&gt;
 </value>
@@ -8808,7 +8823,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sys_command" name="SYS_COMMAND_RTOS_DELAY"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_command&gt;
   &lt;sys_command dnOrder=&quot;0&quot; id=&quot;SYS_COMMAND_RTOS_DELAY&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/sys_command&gt;
 &lt;/sys_command&gt;
 </value>
@@ -8818,7 +8835,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_command&gt;
   &lt;sys_command dnOrder=&quot;0&quot; id=&quot;SYS_COMMAND_RTOS_STACK_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;4096&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;8192&quot;/&gt;
     &lt;/Values&gt;
   &lt;/sys_command&gt;
 &lt;/sys_command&gt;
@@ -13101,6 +13118,10 @@
          <hash>7ad9faa903d8587bab9490660328f134b8e027f9c24bca47201f3f96f3b99474</hash>
       </entry>
       <entry>
+         <file>..\src\third_party\rtos\FreeRTOS\Source\portable\MemMang\heap_3.c</file>
+         <hash>e2d5dbb3f3ccbadd8e7ae778f30c18d28b0532ebfe81b03aa6a20e3f75242853</hash>
+      </entry>
+      <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\src\telnet_manager.h</file>
          <hash>261058ce6621821d0b4c15a1336e03f1bbaedd4dc5cb26c7ad32c11999b9a763</hash>
       </entry>
@@ -13461,10 +13482,6 @@
          <hash>858f8710d4287200a5ee7f3b3ad7c24f505aed9c05c16956ab0ff9f7bb162a6a</hash>
       </entry>
       <entry>
-         <file>..\src\third_party\rtos\FreeRTOS\Source\portable\MemMang\heap_2.c</file>
-         <hash>a7b035b9ed786593143c8317acfb49de21b6450f246036a72331593577e5408b</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\tcpip_mac_object.h</file>
          <hash>a2165601d592aace23bfc05e3b4d0df59517e4663cfe9821eba6f2b37a4465f9</hash>
       </entry>
@@ -13502,7 +13519,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\configuration.h</file>
-         <hash>6a176396213c52517af310d1e24fc7746b7f84aace496fd03418c6d9b3a44cf0</hash>
+         <hash>c85b5174998fcf4e543c3bba14e6413293546d207ab978885257d0acad9b781b</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\driver\ethphy\src\drv_ethphy_local.h</file>
@@ -14030,7 +14047,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\tasks.c</file>
-         <hash>572ea6ffe58d6de1ad318b36c782ab32321f583b79e4c795fc6e85219a001f35</hash>
+         <hash>7d6df444da56a15cca55d176ab1e1a698dae5fc8b9d7696cc330360144434516</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\system\debug\src\sys_debug_local.h</file>
