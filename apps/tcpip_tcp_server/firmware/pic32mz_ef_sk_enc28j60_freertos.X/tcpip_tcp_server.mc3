@@ -58,18 +58,6 @@
          <string>class com.microchip.mcc.harmony.HarmonyModule</string>
       </entry>
       <entry>
-         <string>drvExtPhyLan8740</string>
-         <string>class com.microchip.mcc.harmony.HarmonyModule</string>
-      </entry>
-      <entry>
-         <string>drvMiim</string>
-         <string>class com.microchip.mcc.harmony.HarmonyModule</string>
-      </entry>
-      <entry>
-         <string>drvPic32mEthmac</string>
-         <string>class com.microchip.mcc.harmony.HarmonyModule</string>
-      </entry>
-      <entry>
          <string>drv_spi</string>
          <string>class com.microchip.mcc.harmony.HarmonyModule</string>
       </entry>
@@ -143,10 +131,6 @@
       </entry>
       <entry>
          <string>tcpipNetConfig_0</string>
-         <string>class com.microchip.mcc.harmony.HarmonyModule</string>
-      </entry>
-      <entry>
-         <string>tcpipNetConfig_1</string>
          <string>class com.microchip.mcc.harmony.HarmonyModule</string>
       </entry>
       <entry>
@@ -4480,7 +4464,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="!@#harmonyUserData"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;UserData&gt;
   &lt;UserData dnOrder=&quot;0&quot;&gt;
-    &lt;GraphSettings canvasHeight=&quot;607&quot; canvasWidth=&quot;658&quot; dnOrder=&quot;0&quot;/&gt;
+    &lt;GraphSettings canvasHeight=&quot;606&quot; canvasWidth=&quot;658&quot; dnOrder=&quot;0&quot;/&gt;
     &lt;ComponentGraph dnOrder=&quot;1&quot; id=&quot;APPLICATION LAYER&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipDhcp&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
@@ -4496,10 +4480,7 @@
     &lt;ComponentGraph dnOrder=&quot;3&quot; id=&quot;DATA LINK LAYER&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;drvExtMacEnc28j60&quot; x=&quot;34&quot; y=&quot;52&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;drvExtPhyLan8740&quot; x=&quot;80&quot; y=&quot;265&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;drvMiim&quot; x=&quot;541&quot; y=&quot;50&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;drvPic32mEthmac&quot; x=&quot;231&quot; y=&quot;241&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;tcpipNetConfig&quot; x=&quot;350&quot; y=&quot;48&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipNetConfig&quot; x=&quot;350&quot; y=&quot;48&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
     &lt;ComponentGraph dnOrder=&quot;4&quot; id=&quot;NETWORK LAYER&quot;&gt;
@@ -4529,7 +4510,7 @@
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;BSP_PIC32MZ_EF_Starter_Kit&quot; x=&quot;7&quot; y=&quot;22&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;FreeRTOS&quot; x=&quot;240&quot; y=&quot;20&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;HarmonyCore&quot; x=&quot;5&quot; y=&quot;116&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;TCP/IP STACK&quot; x=&quot;515&quot; y=&quot;236&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;TCP/IP STACK&quot; x=&quot;515&quot; y=&quot;235&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;core&quot; x=&quot;7&quot; y=&quot;82&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;core_timer&quot; x=&quot;26&quot; y=&quot;382&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;dfp&quot; x=&quot;8&quot; y=&quot;52&quot;/&gt;
@@ -5986,9 +5967,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CONFIG_FETHIO"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;CONFIG_FETHIO&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;drvPic32mEthmac&quot; value=&quot;ON&quot;/&gt;
-    &lt;/Values&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/core&gt;
 &lt;/core&gt;
 </value>
@@ -5997,9 +5976,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="CONFIG_FMIIEN"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;CONFIG_FMIIEN&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;drvPic32mEthmac&quot; value=&quot;OFF&quot;/&gt;
-    &lt;/Values&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/core&gt;
 &lt;/core&gt;
 </value>
@@ -6281,9 +6258,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="ETHERNET_INTERRUPT_ENABLE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;ETHERNET_INTERRUPT_ENABLE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;drvPic32mEthmac&quot; value=&quot;true&quot;/&gt;
-    &lt;/Values&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/core&gt;
 &lt;/core&gt;
 </value>
@@ -6293,7 +6268,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;ETHERNET_INTERRUPT_ENABLE_UPDATE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;false&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -6303,9 +6278,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="ETHERNET_INTERRUPT_HANDLER"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;ETHERNET_INTERRUPT_HANDLER&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;drvPic32mEthmac&quot; value=&quot;ETHERNET_InterruptHandler&quot;/&gt;
-    &lt;/Values&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/core&gt;
 &lt;/core&gt;
 </value>
@@ -6314,9 +6287,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="ETHERNET_INTERRUPT_HANDLER_LOCK"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;ETHERNET_INTERRUPT_HANDLER_LOCK&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;drvPic32mEthmac&quot; value=&quot;true&quot;/&gt;
-    &lt;/Values&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/core&gt;
 &lt;/core&gt;
 </value>
@@ -6325,9 +6296,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="ETH_CLOCK_ENABLE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;ETH_CLOCK_ENABLE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;drvPic32mEthmac&quot; value=&quot;true&quot;/&gt;
-    &lt;/Values&gt;
+    &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/core&gt;
 &lt;/core&gt;
 </value>
@@ -6337,7 +6306,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;ETH_CLOCK_FREQUENCY&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;100000000&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;0&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -6601,7 +6570,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;EVIC_153_ENABLE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;true&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;false&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -6612,7 +6581,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;EVIC_153_HANDLER_LOCK&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;true&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;false&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -6623,7 +6592,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;EVIC_153_INTERRUPT_HANDLER&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;ETHERNET_InterruptHandler&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;ETHERNET_Handler&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -7276,7 +7245,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;PMD6_REG_VALUE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;8585217&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;277020673&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -8583,786 +8552,6 @@
     &lt;Values dnOrder=&quot;0&quot;/&gt;
   &lt;/drvExtMacEnc28j60_0&gt;
 &lt;/drvExtMacEnc28j60_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvExtPhyLan8740" name="!@#harmonyAttachmentState"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvExtPhyLan8740&gt;
-  &lt;drvExtPhyLan8740 dnOrder=&quot;0&quot;&gt;
-    &lt;Attachments dnOrder=&quot;0&quot;&gt;
-      &lt;DirectCapability dnOrder=&quot;0&quot; id=&quot;libdrvExtPhyLan8740&quot;&gt;
-        &lt;Attributes dnOrder=&quot;0&quot;&gt;
-          &lt;String dnOrder=&quot;0&quot; id=&quot;targetComponentID&quot;&gt;
-            &lt;Value dnOrder=&quot;0&quot;&gt;drvPic32mEthmac&lt;/Value&gt;
-          &lt;/String&gt;
-          &lt;String dnOrder=&quot;1&quot; id=&quot;targetAttachmentID&quot;&gt;
-            &lt;Value dnOrder=&quot;0&quot;&gt;ETHMAC_PHY_Dependency&lt;/Value&gt;
-          &lt;/String&gt;
-        &lt;/Attributes&gt;
-      &lt;/DirectCapability&gt;
-    &lt;/Attachments&gt;
-  &lt;/drvExtPhyLan8740&gt;
-&lt;/drvExtPhyLan8740&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvExtPhyLan8740" name="#&amp;__MCC_Group_Parrent_id"/>
-         <value>DATA LINK LAYER</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvExtPhyLan8740" name="DRV_ETHPHY_CLIENTS_NUMBER"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvExtPhyLan8740&gt;
-  &lt;drvExtPhyLan8740 dnOrder=&quot;0&quot; id=&quot;DRV_ETHPHY_CLIENTS_NUMBER&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvExtPhyLan8740&gt;
-&lt;/drvExtPhyLan8740&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvExtPhyLan8740" name="DRV_ETHPHY_INDEX"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvExtPhyLan8740&gt;
-  &lt;drvExtPhyLan8740 dnOrder=&quot;0&quot; id=&quot;DRV_ETHPHY_INDEX&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvExtPhyLan8740&gt;
-&lt;/drvExtPhyLan8740&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvExtPhyLan8740" name="DRV_ETHPHY_INSTANCES_NUMBER"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvExtPhyLan8740&gt;
-  &lt;drvExtPhyLan8740 dnOrder=&quot;0&quot; id=&quot;DRV_ETHPHY_INSTANCES_NUMBER&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvExtPhyLan8740&gt;
-&lt;/drvExtPhyLan8740&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvExtPhyLan8740" name="DRV_ETHPHY_MAC_NAME"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvExtPhyLan8740&gt;
-  &lt;drvExtPhyLan8740 dnOrder=&quot;0&quot; id=&quot;DRV_ETHPHY_MAC_NAME&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;drvExtPhyLan8740&quot; value=&quot;ETHMAC&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/drvExtPhyLan8740&gt;
-&lt;/drvExtPhyLan8740&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvExtPhyLan8740" name="DRV_ETHPHY_NEG_DONE_TMO"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvExtPhyLan8740&gt;
-  &lt;drvExtPhyLan8740 dnOrder=&quot;0&quot; id=&quot;DRV_ETHPHY_NEG_DONE_TMO&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvExtPhyLan8740&gt;
-&lt;/drvExtPhyLan8740&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvExtPhyLan8740" name="DRV_ETHPHY_NEG_INIT_TMO"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvExtPhyLan8740&gt;
-  &lt;drvExtPhyLan8740 dnOrder=&quot;0&quot; id=&quot;DRV_ETHPHY_NEG_INIT_TMO&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvExtPhyLan8740&gt;
-&lt;/drvExtPhyLan8740&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvExtPhyLan8740" name="DRV_ETHPHY_PERIPHERAL_ID"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvExtPhyLan8740&gt;
-  &lt;drvExtPhyLan8740 dnOrder=&quot;0&quot; id=&quot;DRV_ETHPHY_PERIPHERAL_ID&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;drvExtPhyLan8740&quot; value=&quot;_ETH_BASE_ADDRESS&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/drvExtPhyLan8740&gt;
-&lt;/drvExtPhyLan8740&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvExtPhyLan8740" name="DRV_ETHPHY_RESET_CALLBACK"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvExtPhyLan8740&gt;
-  &lt;drvExtPhyLan8740 dnOrder=&quot;0&quot; id=&quot;DRV_ETHPHY_RESET_CALLBACK&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvExtPhyLan8740&gt;
-&lt;/drvExtPhyLan8740&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvExtPhyLan8740" name="DRV_ETHPHY_RESET_CLR_TMO"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvExtPhyLan8740&gt;
-  &lt;drvExtPhyLan8740 dnOrder=&quot;0&quot; id=&quot;DRV_ETHPHY_RESET_CLR_TMO&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvExtPhyLan8740&gt;
-&lt;/drvExtPhyLan8740&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvExtPhyLan8740" name="DRV_ETHPHY_USE_RESET_CALLBACK"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvExtPhyLan8740&gt;
-  &lt;drvExtPhyLan8740 dnOrder=&quot;0&quot; id=&quot;DRV_ETHPHY_USE_RESET_CALLBACK&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvExtPhyLan8740&gt;
-&lt;/drvExtPhyLan8740&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvExtPhyLan8740" name="TCPIP_EMAC_PHY_TYPE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvExtPhyLan8740&gt;
-  &lt;drvExtPhyLan8740 dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_PHY_TYPE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvExtPhyLan8740&gt;
-&lt;/drvExtPhyLan8740&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvExtPhyLan8740" name="TCPIP_INTMAC_PHY_ADDRESS"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvExtPhyLan8740&gt;
-  &lt;drvExtPhyLan8740 dnOrder=&quot;0&quot; id=&quot;TCPIP_INTMAC_PHY_ADDRESS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvExtPhyLan8740&gt;
-&lt;/drvExtPhyLan8740&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvExtPhyLan8740" name="TCPIP_INTMAC_PHY_CONFIG_ALTERNATE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvExtPhyLan8740&gt;
-  &lt;drvExtPhyLan8740 dnOrder=&quot;0&quot; id=&quot;TCPIP_INTMAC_PHY_CONFIG_ALTERNATE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvExtPhyLan8740&gt;
-&lt;/drvExtPhyLan8740&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvExtPhyLan8740" name="TCPIP_INTMAC_PHY_CONFIG_AUTO"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvExtPhyLan8740&gt;
-  &lt;drvExtPhyLan8740 dnOrder=&quot;0&quot; id=&quot;TCPIP_INTMAC_PHY_CONFIG_AUTO&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvExtPhyLan8740&gt;
-&lt;/drvExtPhyLan8740&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvExtPhyLan8740" name="TCPIP_INTMAC_PHY_CONFIG_RMII"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvExtPhyLan8740&gt;
-  &lt;drvExtPhyLan8740 dnOrder=&quot;0&quot; id=&quot;TCPIP_INTMAC_PHY_CONFIG_RMII&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvExtPhyLan8740&gt;
-&lt;/drvExtPhyLan8740&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvExtPhyLan8740" name="TCPIP_INTMAC_PHY_LINK_INIT_DELAY"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvExtPhyLan8740&gt;
-  &lt;drvExtPhyLan8740 dnOrder=&quot;0&quot; id=&quot;TCPIP_INTMAC_PHY_LINK_INIT_DELAY&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvExtPhyLan8740&gt;
-&lt;/drvExtPhyLan8740&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvMiim" name="!@#harmonyAttachmentState"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvMiim&gt;
-  &lt;drvMiim dnOrder=&quot;0&quot;/&gt;
-&lt;/drvMiim&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvMiim" name="#&amp;__MCC_Group_Parrent_id"/>
-         <value>DATA LINK LAYER</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvMiim" name="DRV_MIIM_CLIENT_OP_PROTECTION"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvMiim&gt;
-  &lt;drvMiim dnOrder=&quot;0&quot; id=&quot;DRV_MIIM_CLIENT_OP_PROTECTION&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvMiim&gt;
-&lt;/drvMiim&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvMiim" name="DRV_MIIM_COMMANDS"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvMiim&gt;
-  &lt;drvMiim dnOrder=&quot;0&quot; id=&quot;DRV_MIIM_COMMANDS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvMiim&gt;
-&lt;/drvMiim&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvMiim" name="DRV_MIIM_DRIVER_INDEX0"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvMiim&gt;
-  &lt;drvMiim dnOrder=&quot;0&quot; id=&quot;DRV_MIIM_DRIVER_INDEX0&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvMiim&gt;
-&lt;/drvMiim&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvMiim" name="DRV_MIIM_DRIVER_INDEX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvMiim&gt;
-  &lt;drvMiim dnOrder=&quot;0&quot; id=&quot;DRV_MIIM_DRIVER_INDEX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvMiim&gt;
-&lt;/drvMiim&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvMiim" name="DRV_MIIM_DRIVER_OBJECT"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvMiim&gt;
-  &lt;drvMiim dnOrder=&quot;0&quot; id=&quot;DRV_MIIM_DRIVER_OBJECT&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvMiim&gt;
-&lt;/drvMiim&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvMiim" name="DRV_MIIM_ETH_MODULE_ID0"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvMiim&gt;
-  &lt;drvMiim dnOrder=&quot;0&quot; id=&quot;DRV_MIIM_ETH_MODULE_ID0&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvMiim&gt;
-&lt;/drvMiim&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvMiim" name="DRV_MIIM_ETH_MODULE_ID1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvMiim&gt;
-  &lt;drvMiim dnOrder=&quot;0&quot; id=&quot;DRV_MIIM_ETH_MODULE_ID1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvMiim&gt;
-&lt;/drvMiim&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvMiim" name="DRV_MIIM_INSTANCES_NUMBER"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvMiim&gt;
-  &lt;drvMiim dnOrder=&quot;0&quot; id=&quot;DRV_MIIM_INSTANCES_NUMBER&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvMiim&gt;
-&lt;/drvMiim&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvMiim" name="DRV_MIIM_INSTANCE_CLIENTS"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvMiim&gt;
-  &lt;drvMiim dnOrder=&quot;0&quot; id=&quot;DRV_MIIM_INSTANCE_CLIENTS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvMiim&gt;
-&lt;/drvMiim&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvMiim" name="DRV_MIIM_INSTANCE_OPERATIONS"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvMiim&gt;
-  &lt;drvMiim dnOrder=&quot;0&quot; id=&quot;DRV_MIIM_INSTANCE_OPERATIONS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvMiim&gt;
-&lt;/drvMiim&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvMiim" name="DRV_MIIM_RTOS"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvMiim&gt;
-  &lt;drvMiim dnOrder=&quot;0&quot; id=&quot;DRV_MIIM_RTOS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvMiim&gt;
-&lt;/drvMiim&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvMiim" name="DRV_MIIM_RTOS_DELAY"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvMiim&gt;
-  &lt;drvMiim dnOrder=&quot;0&quot; id=&quot;DRV_MIIM_RTOS_DELAY&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvMiim&gt;
-&lt;/drvMiim&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvMiim" name="DRV_MIIM_RTOS_STACK_SIZE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvMiim&gt;
-  &lt;drvMiim dnOrder=&quot;0&quot; id=&quot;DRV_MIIM_RTOS_STACK_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvMiim&gt;
-&lt;/drvMiim&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvMiim" name="DRV_MIIM_RTOS_TASK_PRIORITY"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvMiim&gt;
-  &lt;drvMiim dnOrder=&quot;0&quot; id=&quot;DRV_MIIM_RTOS_TASK_PRIORITY&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvMiim&gt;
-&lt;/drvMiim&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvMiim" name="DRV_MIIM_RTOS_USE_DELAY"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvMiim&gt;
-  &lt;drvMiim dnOrder=&quot;0&quot; id=&quot;DRV_MIIM_RTOS_USE_DELAY&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvMiim&gt;
-&lt;/drvMiim&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvMiim" name="DRV_MIIM_USE_DRIVER"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvMiim&gt;
-  &lt;drvMiim dnOrder=&quot;0&quot; id=&quot;DRV_MIIM_USE_DRIVER&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvMiim&gt;
-&lt;/drvMiim&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvMiim" name="DRV_SDHC_SYS_RTOS_TASK"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvMiim&gt;
-  &lt;drvMiim dnOrder=&quot;0&quot; id=&quot;DRV_SDHC_SYS_RTOS_TASK&quot;&gt;
-    &lt;Attributes dnOrder=&quot;0&quot;&gt;
-      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
-      &lt;/Boolean&gt;
-    &lt;/Attributes&gt;
-  &lt;/drvMiim&gt;
-&lt;/drvMiim&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="!@#harmonyAttachmentState"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot;&gt;
-    &lt;Attachments dnOrder=&quot;0&quot;&gt;
-      &lt;DirectDependency dnOrder=&quot;0&quot; id=&quot;ETHMAC_PHY_Dependency&quot;&gt;
-        &lt;Attributes dnOrder=&quot;0&quot;&gt;
-          &lt;String dnOrder=&quot;0&quot; id=&quot;targetComponentID&quot;&gt;
-            &lt;Value dnOrder=&quot;0&quot;&gt;drvExtPhyLan8740&lt;/Value&gt;
-          &lt;/String&gt;
-          &lt;String dnOrder=&quot;1&quot; id=&quot;targetAttachmentID&quot;&gt;
-            &lt;Value dnOrder=&quot;0&quot;&gt;libdrvExtPhyLan8740&lt;/Value&gt;
-          &lt;/String&gt;
-        &lt;/Attributes&gt;
-      &lt;/DirectDependency&gt;
-    &lt;/Attachments&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="#&amp;__MCC_Group_Parrent_id"/>
-         <value>DATA LINK LAYER</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="DRV_ETHMAC_CLOCK"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;DRV_ETHMAC_CLOCK&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="DRV_ETHMAC_HEAP_SIZE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;DRV_ETHMAC_HEAP_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="DRV_ETHMAC_INTERRUPT_SOURCE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;DRV_ETHMAC_INTERRUPT_SOURCE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="DRV_INTMAC_PHY_TYPE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;DRV_INTMAC_PHY_TYPE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;drvPic32mEthmac&quot; value=&quot;LAN8740&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="ETHERNET_IEC_REG"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;ETHERNET_IEC_REG&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="ETHERNET_IEC_REG_VALUE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;ETHERNET_IEC_REG_VALUE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="ETHERNET_IFS_REG"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;ETHERNET_IFS_REG&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="ETHERNET_IFS_REG_VALUE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;ETHERNET_IFS_REG_VALUE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="ETHERNET_VECTOR_NUMBER"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;ETHERNET_VECTOR_NUMBER&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="INTERRUPT_ENABLE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;INTERRUPT_ENABLE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_AUTO_FLOW_CONTROL_ENABLE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_AUTO_FLOW_CONTROL_ENABLE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_ETH_FILTER_BCAST_ACCEPT"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_ETH_FILTER_BCAST_ACCEPT&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_ETH_FILTER_CRC_ERROR_ACCEPT"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_ETH_FILTER_CRC_ERROR_ACCEPT&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_ETH_FILTER_CRC_ERROR_REJECT"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_ETH_FILTER_CRC_ERROR_REJECT&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_ETH_FILTER_MCAST_ACCEPT"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_ETH_FILTER_MCAST_ACCEPT&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_ETH_FILTER_RUNT_ACCEPT"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_ETH_FILTER_RUNT_ACCEPT&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_ETH_FILTER_RUNT_REJECT"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_ETH_FILTER_RUNT_REJECT&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_ETH_FILTER_UCAST_ACCEPT"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_ETH_FILTER_UCAST_ACCEPT&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_ETH_FILTER_UCAST_OTHER_ACCEPT"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_ETH_FILTER_UCAST_OTHER_ACCEPT&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_ETH_OF_10"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_ETH_OF_10&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_ETH_OF_100"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_ETH_OF_100&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_ETH_OF_AUTO_NEGOTIATION"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_ETH_OF_AUTO_NEGOTIATION&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_ETH_OF_FULL_DUPLEX"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_ETH_OF_FULL_DUPLEX&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_ETH_OF_HALF_DUPLEX"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_ETH_OF_HALF_DUPLEX&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_ETH_OF_HUGE_PKTS"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_ETH_OF_HUGE_PKTS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_ETH_OF_MAC_LOOPBACK"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_ETH_OF_MAC_LOOPBACK&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_ETH_OF_MDIX_AUTO"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_ETH_OF_MDIX_AUTO&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_ETH_OF_MDIX_SWAP"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_ETH_OF_MDIX_SWAP&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_ETH_OF_PHY_LOOPBACK"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_ETH_OF_PHY_LOOPBACK&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_ETH_OF_RMII"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_ETH_OF_RMII&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_FLOW_CONTROL_EMPTY_WMARK"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_FLOW_CONTROL_EMPTY_WMARK&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_FLOW_CONTROL_FULL_WMARK"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_FLOW_CONTROL_FULL_WMARK&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_FLOW_CONTROL_PAUSE_BYTES"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_FLOW_CONTROL_PAUSE_BYTES&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_LINK_MTU"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_LINK_MTU&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_MAX_FRAME"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_MAX_FRAME&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_MODULE_ID"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_MODULE_ID&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_RX_BUFF_SIZE"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_RX_BUFF_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_RX_DEDICATED_BUFFERS"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_RX_DEDICATED_BUFFERS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_RX_DESCRIPTORS"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_RX_DESCRIPTORS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_RX_FRAGMENTS"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_RX_FRAGMENTS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_RX_INIT_BUFFERS"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_RX_INIT_BUFFERS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_RX_LOW_FILL"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_RX_LOW_FILL&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_RX_LOW_THRESHOLD"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_RX_LOW_THRESHOLD&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_TRAFFIC"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_TRAFFIC&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_TX_DESCRIPTORS"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_TX_DESCRIPTORS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_USE_ETH_MAC"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
-  &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_USE_ETH_MAC&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/drvPic32mEthmac&gt;
-&lt;/drvPic32mEthmac&gt;
 </value>
       </entry>
       <entry>
@@ -11950,7 +11139,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipArp&gt;
   &lt;tcpipArp dnOrder=&quot;0&quot; id=&quot;TCPIP_ARP_HEAP_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipArp&quot; value=&quot;444&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipArp&quot; value=&quot;222&quot;/&gt;
     &lt;/Values&gt;
   &lt;/tcpipArp&gt;
 &lt;/tcpipArp&gt;
@@ -12055,7 +11244,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipDhcp&gt;
   &lt;tcpipDhcp dnOrder=&quot;0&quot; id=&quot;TCPIP_DHCP_HEAP_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipDhcp&quot; value=&quot;176&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipDhcp&quot; value=&quot;88&quot;/&gt;
     &lt;/Values&gt;
   &lt;/tcpipDhcp&gt;
 &lt;/tcpipDhcp&gt;
@@ -13406,7 +12595,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig&gt;
   &lt;tcpipNetConfig dnOrder=&quot;0&quot; id=&quot;TCPIP_STACK_NETWORK_INTERAFCE_COUNT&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipNetConfig&quot; value=&quot;2&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipNetConfig&quot; value=&quot;1&quot;/&gt;
     &lt;/Values&gt;
   &lt;/tcpipNetConfig&gt;
 &lt;/tcpipNetConfig&gt;
@@ -13686,271 +12875,6 @@
     &lt;/Values&gt;
   &lt;/tcpipNetConfig_0&gt;
 &lt;/tcpipNetConfig_0&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="!@#harmonyAttachmentState"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot;&gt;
-    &lt;Attachments dnOrder=&quot;0&quot;&gt;
-      &lt;DirectDependency dnOrder=&quot;0&quot; id=&quot;NETCONFIG_MAC_Dependency&quot;&gt;
-        &lt;Attributes dnOrder=&quot;0&quot;&gt;
-          &lt;String dnOrder=&quot;0&quot; id=&quot;targetComponentID&quot;&gt;
-            &lt;Value dnOrder=&quot;0&quot;&gt;drvPic32mEthmac&lt;/Value&gt;
-          &lt;/String&gt;
-          &lt;String dnOrder=&quot;1&quot; id=&quot;targetAttachmentID&quot;&gt;
-            &lt;Value dnOrder=&quot;0&quot;&gt;libdrvPic32mEthmac&lt;/Value&gt;
-          &lt;/String&gt;
-        &lt;/Attributes&gt;
-      &lt;/DirectDependency&gt;
-    &lt;/Attachments&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="#&amp;__MCC_Group_Parrent_id"/>
-         <value>tcpipNetConfig</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="INDEX"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;INDEX&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_CONFIG_MULTICAST_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_CONFIG_MULTICAST_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_DEFAULT_DNS_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_DEFAULT_DNS_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipNetConfig_1&quot; value=&quot;192.168.100.1&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_DEFAULT_GATEWAY_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_DEFAULT_GATEWAY_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipNetConfig_1&quot; value=&quot;192.168.100.1&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_DEFAULT_HOST_NAME_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_DEFAULT_HOST_NAME_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipNetConfig_1&quot; value=&quot;MCHPBOARD_E&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_DEFAULT_INTERFACE_NAME_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_DEFAULT_INTERFACE_NAME_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipNetConfig_1&quot; value=&quot;ETHMAC&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_DEFAULT_IPV6_ADDRESS_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_DEFAULT_IPV6_ADDRESS_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_DEFAULT_IPV6_GATEWAY_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_DEFAULT_IPV6_GATEWAY_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_DEFAULT_IPV6_PREFIX_LENGTH_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_DEFAULT_IPV6_PREFIX_LENGTH_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_DEFAULT_IP_ADDRESS_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_DEFAULT_IP_ADDRESS_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipNetConfig_1&quot; value=&quot;192.168.100.10&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_DEFAULT_IP_MASK_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_DEFAULT_IP_MASK_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_DEFAULT_MAC_ADDR_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_DEFAULT_MAC_ADDR_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_DEFAULT_MAC_DRIVER_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_DEFAULT_MAC_DRIVER_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipNetConfig_1&quot; value=&quot;DRV_ETHMAC_PIC32MACObject&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_DEFAULT_POWER_MODE_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_DEFAULT_POWER_MODE_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_DEFAULT_SECOND_DNS_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_DEFAULT_SECOND_DNS_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_INTERFACE_FLAG_DHCP_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_INTERFACE_FLAG_DHCP_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_INTERFACE_FLAG_DNS_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_INTERFACE_FLAG_DNS_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_INTERFACE_FLAG_IPV6_ADDRESS_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_INTERFACE_FLAG_IPV6_ADDRESS_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_INTERFACE_FLAG_IPV6_G3_NET_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_INTERFACE_FLAG_IPV6_G3_NET_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_INTERFACE_FLAG_IPV6_G3_NET_ROUTER_ADV_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_INTERFACE_FLAG_IPV6_G3_NET_ROUTER_ADV_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_INTERFACE_FLAG_IPV6_G3_NET_ROUTER_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_INTERFACE_FLAG_IPV6_G3_NET_ROUTER_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_MACBRIDGE_ADD_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_MACBRIDGE_ADD_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_NETWORK_MACBRIDGE_GLOBAL_CONFIG_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_NETWORK_MACBRIDGE_GLOBAL_CONFIG_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_STACK_NETWORK_CONFIG_IDX1"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_STACK_NETWORK_CONFIG_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipNetConfig_1&quot; value=&quot;true&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
-</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipNetConfig_1" name="TCPIP_STACK_NETWORK_CONFIG_NUMBER"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipNetConfig_1&gt;
-  &lt;tcpipNetConfig_1 dnOrder=&quot;0&quot; id=&quot;TCPIP_STACK_NETWORK_CONFIG_NUMBER&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipNetConfig_1&quot; value=&quot;1&quot;/&gt;
-    &lt;/Values&gt;
-  &lt;/tcpipNetConfig_1&gt;
-&lt;/tcpipNetConfig_1&gt;
 </value>
       </entry>
       <entry>
@@ -14691,7 +13615,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipStack&gt;
   &lt;tcpipStack dnOrder=&quot;0&quot; id=&quot;TCPIP_STACK_HEAP_SIZE_RECOMMEND&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;35&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;28&quot;/&gt;
     &lt;/Values&gt;
   &lt;/tcpipStack&gt;
 &lt;/tcpipStack&gt;
@@ -14747,7 +13671,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipStack&gt;
   &lt;tcpipStack dnOrder=&quot;0&quot; id=&quot;TCPIP_STACK_INTERRUPT_EN_IDX0&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;true&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;false&quot;/&gt;
     &lt;/Values&gt;
   &lt;/tcpipStack&gt;
 &lt;/tcpipStack&gt;
@@ -14776,7 +13700,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipStack&gt;
   &lt;tcpipStack dnOrder=&quot;0&quot; id=&quot;TCPIP_STACK_INTMAC_INTERFACE_NUM&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;1&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;0&quot;/&gt;
     &lt;/Values&gt;
   &lt;/tcpipStack&gt;
 &lt;/tcpipStack&gt;
@@ -14798,7 +13722,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipStack&gt;
   &lt;tcpipStack dnOrder=&quot;0&quot; id=&quot;TCPIP_STACK_INT_MAC_IDX1&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;true&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;false&quot;/&gt;
     &lt;/Values&gt;
   &lt;/tcpipStack&gt;
 &lt;/tcpipStack&gt;
@@ -14854,7 +13778,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipStack&gt;
   &lt;tcpipStack dnOrder=&quot;0&quot; id=&quot;TCPIP_STACK_MAC_CLOCK&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;100000000&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;0&quot;/&gt;
     &lt;/Values&gt;
   &lt;/tcpipStack&gt;
 &lt;/tcpipStack&gt;
@@ -14907,8 +13831,13 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipStack" name="TCPIP_STACK_MII_MODE_IDX1"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipStack&gt;
   &lt;tcpipStack dnOrder=&quot;0&quot; id=&quot;TCPIP_STACK_MII_MODE_IDX1&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;RMII&quot;/&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;false&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;&quot;/&gt;
     &lt;/Values&gt;
   &lt;/tcpipStack&gt;
 &lt;/tcpipStack&gt;
@@ -14966,7 +13895,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipStack&gt;
   &lt;tcpipStack dnOrder=&quot;0&quot; id=&quot;TCPIP_STACK_NET_INTERFACE_NAME_IDX1&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;ETHMAC&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;&quot;/&gt;
     &lt;/Values&gt;
   &lt;/tcpipStack&gt;
 &lt;/tcpipStack&gt;
@@ -15013,7 +13942,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipStack&gt;
   &lt;tcpipStack dnOrder=&quot;0&quot; id=&quot;TCPIP_STACK_NET_INTERFACE_NUM&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;2&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;1&quot;/&gt;
     &lt;/Values&gt;
   &lt;/tcpipStack&gt;
 &lt;/tcpipStack&gt;
@@ -16025,16 +14954,8 @@
          <hash>36309e0534f4f0084d42ef24f1d8c3a17e68eb99e5c5fa108f746bf009ed7169</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\driver\miim\src\drv_miim_local.h</file>
-         <hash>2788809a5707f44ba7f921e5ebb818cc14a3e38986a52638906d56074014fdad</hash>
-      </entry>
-      <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\port\pic32\CryptoLib_CondCopy_pb.h</file>
          <hash>e99baec77bebcc5e59095de299f823842ee88813e63925e50fa5099d3921c0b5</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\driver\ethphy\src\dynamic\drv_extphy_lan8740.c</file>
-         <hash>3eddd602bb9431178a01bb3bf265929f755cbf2c57ec77b4b07b35f891db6862</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\library\tcpip\tftpc.h</file>
@@ -16145,10 +15066,6 @@
          <hash>841b654fc46af5ce4175455a16df1d5f2b2848f3a0a036432f94256913789a44</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\driver\ethphy\src\dynamic\drv_extphy_lan8740.h</file>
-         <hash>2a1f8c02be53aaf3b2ac8ffc58040d78d5b7e96bd71e3be134acbfd3504ff38d</hash>
-      </entry>
-      <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\port\pic32\CryptoLib_Rng_pb.h</file>
          <hash>47aafba03d6c641d17aa223851cd3a0ad625b2c061d9272541ec72fc42e44400</hash>
       </entry>
@@ -16193,10 +15110,6 @@
          <hash>bd28ee8d440b400ad38783b1ae1ac694eb15eee6b9bc6594225cde85642312ce</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\driver\ethmac\src\dynamic\drv_ethmac_lib.h</file>
-         <hash>f0eb2e4ee1062c3ca2d1ffcd44764f96df6b7c723a9eeb1d50dfedbf51c41742</hash>
-      </entry>
-      <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\asm.c</file>
          <hash>c7053830f389c72d976d5209ba4a34c7121758feaba70aba49ec38c7a239bfe0</hash>
       </entry>
@@ -16215,10 +15128,6 @@
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\sp_arm64.c</file>
          <hash>31c14f8b4121d2466343cf704287f2d172e42c1841a50f2e282c98930ef441f3</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\driver\ethmac\src\dynamic\drv_ethmac_lib.c</file>
-         <hash>ff7e76f39bc3ce1278b203c6f47a2ffa602d8c20b0688972658525c04e15e0da</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\library\tcpip\tcpip_mac_object.h</file>
@@ -16705,12 +15614,8 @@
          <hash>b6b70897f78664b9f63b702b41e216c73ee58117bdd6422b961cffa06fe52985</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\driver\ethmac\src\drv_ethmac_local.h</file>
-         <hash>cd40541f38bc077ea5ffd755063476868fa3f8a700aa41bd3ba6442226501127</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\initialization.c</file>
-         <hash>44ecb7ae7ab2850bdc24dd16f16acd2aaab44e4a6466a364ee478a7b7df253e4</hash>
+         <hash>12c47691807e9eac972c3ff6c4ba244915f235554fe213cc2503c0851f028eb7</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\library\tcpip\src\tcpip_mac_bridge_private.h</file>
@@ -16839,10 +15744,6 @@
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\library\tcpip\src\dhcps_private.h</file>
          <hash>05813acf368bf4936adb3ff2a8fe1a643e377d4552ec2bbff9259b49159e4a3d</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\driver\ethphy\src\dynamic\drv_ethphy.c</file>
-         <hash>c3d2f4da008b8ad990932fc3fd4f5842d1ce6b3ecf6d05a396fbc5f89604febd</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\system\int\sys_int_mapping.h</file>
@@ -17033,10 +15934,6 @@
          <hash>351893667c7ceecac719f0aa1233f097baa6898ccbc50c99533a5bb9e0ae1c4c</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\driver\ethmac\src\dynamic\drv_ethmac.c</file>
-         <hash>37506f0dc8c5f172bab80adec44c30c44d2f9c8df786eedecc63093e5088d86d</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\system\sys_random_h2_adapter.c</file>
          <hash>f02fbc16bb1d8fa4349b7bf3b2317d9dcdbb1d8a239cb8fb6e77745f4b97d90c</hash>
       </entry>
@@ -17075,10 +15972,6 @@
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\system\reset\sys_reset.c</file>
          <hash>7626748bc54c0de05d023a7aa7eacf73f9cc9ca2e1e77abe078b478b54ed5fed</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\driver\miim\src\dynamic\drv_miim_device.h</file>
-         <hash>4623fceab1f3a28961af6715e1733ed0ea37ef50c533a601d2262e728ab7e449</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\library\tcpip\src\berkeley_manager.h</file>
@@ -17226,7 +16119,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\interrupts_a.S</file>
-         <hash>bb807743e504f3e6b1bdf1378c014d9def67f8656b90ec7b247f8f36283ffeac</hash>
+         <hash>82d37666c53ee002f40b896e062af5a3c9878f3dc4f9750574d2655f7ef77fb2</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\system\time\sys_time.h</file>
@@ -17238,7 +16131,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\tasks.c</file>
-         <hash>9d58d58cc3c6fb254593274cfec3b928be7300f7fde24ef179311feda4a7f7dc</hash>
+         <hash>7128eb807eaa2642a8d7af35261294d3dea95a18882d4547f0b7f64d1ddbd960</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\kdf.h</file>
@@ -17306,7 +16199,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\peripheral\evic\plib_evic.c</file>
-         <hash>a76b684a63fd6cbe51ba650dd5a01300572c1a91197108c96f39fad9ab2fda7e</hash>
+         <hash>a633780550a157aa5e98f84980dc4073fe52fda931bac65d79bdf51509ae2080</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\port\pic32\CryptoLib_GCD_pb.h</file>
@@ -17373,10 +16266,6 @@
          <hash>d300fe07c49c66a4b4c1ff62395b1e6723284a2a7b369f7b0a87522cf20584b8</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\driver\miim\src\dynamic\drv_miim_pic32m.c</file>
-         <hash>2eefac93a73944b9cb0201e5f0b6c48cfda396756e7dfeb9f4782d748fafd1d2</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\library\tcpip\dhcpv6.h</file>
          <hash>002ee8f06c499ac64c216a6958c42a320e894890ebd623b64cb2512b1ce2ab42</hash>
       </entry>
@@ -17407,10 +16296,6 @@
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\rsa.c</file>
          <hash>a2f55de914c87b091b398be896ed509d608fc533a5952b91e27d763a630ce0bb</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\driver\miim\src\dynamic\drv_miim.c</file>
-         <hash>945c9461a8682e8096bef399f6fd2e0a5ef996783c9df3c74b8e4aa85d6f386f</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\port\pic32\CryptoLib_Rc_pb.h</file>
@@ -17446,11 +16331,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\definitions.h</file>
-         <hash>197cf5588d399f04c5204d6ce6950cd2b6914ee7bdf4849b6f3f7b5a43873aa1</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\driver\ethphy\src\dynamic\drv_extphy_regs.h</file>
-         <hash>f86abe844bea011040ca6705895d34f1106aa53cf875bde5bc4fb9d608a9bf29</hash>
+         <hash>4479ee0d2c4bf58aa8102fc28b334aa3245f1efc8b89baa43ac6b035c8b82365</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\pkcs7.h</file>
@@ -17542,15 +16423,11 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\peripheral\clk\plib_clk.c</file>
-         <hash>cb05a63a4501dc5ce902e887f6340b360d12efbf2e319a2c0924f4ffd9110952</hash>
+         <hash>682acfb49ff2a24bec943808c163caa209ef30bc8f9a402052b2607565c98fbc</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\library\tcpip\src\icmp.c</file>
          <hash>38438bd4e94e1ff4f0a5f3b14eea2e9e9e4f6452b06e1f3717db6f703bd2df37</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\driver\ethmac\src\dynamic\_eth_dcpt_lists.h</file>
-         <hash>c9c11a6ca1501b6d5838ebaf62cad10e5cf52299722b25fa86688f3e96e8ccfb</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\net_pres\pres\net_pres_socketapiconversion.h</file>
@@ -17677,14 +16554,6 @@
          <hash>d19b6335d37bb86224a50feaac9678342de36b4c6649ca29b47caa39cf4e11fd</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\driver\ethmac\src\dynamic\drv_eth_pic32_lib.h</file>
-         <hash>879f2a315603b91958f63fee3d590dd12d0d7674e33627102c995873e632cdd5</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\driver\ethmac\src\dynamic\drv_eth_pic32_lib.c</file>
-         <hash>a9b02d1c90e6236d3538d66084c3346c683eeb6a34a47cb3c347eef95000a80d</hash>
-      </entry>
-      <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\ecc_fp.c</file>
          <hash>768159060f0b2b1b467786a1b5e75b4887fd834b3dfcf6b8ab7ae7577bceb581</hash>
       </entry>
@@ -17765,10 +16634,6 @@
          <hash>bf745c14ab397ea3b5998d9edcbe228365ea0a02544922cf777ea849a429c969</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\driver\ethphy\src\drv_ethphy_local.h</file>
-         <hash>d2fca30512453811bb11b4cfff6e0bf937a0fe5afc2698a5ba1440f6346b7620</hash>
-      </entry>
-      <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\sp_x86_64.c</file>
          <hash>8286e3de46c345eb4c7a749019d41e2dfce05514822d01802e0ed2fdc4327d60</hash>
       </entry>
@@ -17810,7 +16675,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\interrupts.c</file>
-         <hash>72155d014d31b86548605f232f71ad95fee69ca2012b513b78ce0836383d95d3</hash>
+         <hash>ac34028486481072d3024ef8253346b6b220c13fa980be19ec02708c8feaa13d</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\srp.c</file>
@@ -17846,7 +16711,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\interrupts.h</file>
-         <hash>23fa1b3701fdbc5575dfb7722f0c46336a0abf9d0db73ad40803ba7087091bdc</hash>
+         <hash>6a504277796787caf2f0d90a435aae914d7c9fb15aa99760dc3ba616e743c5ca</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\asn.h</file>
@@ -17871,10 +16736,6 @@
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\library\tcpip\smtp.h</file>
          <hash>474828e7dc8a204101443abf70a5b622986734367e430eee2db797d20c67620c</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\driver\ethphy\drv_ethphy.h</file>
-         <hash>9d6dac988264897815d8d97ea559ed4cec334109dec6098b5533e1974b5fa490</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\p32MZ2048EFH144.ld</file>
@@ -17914,7 +16775,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\configuration.h</file>
-         <hash>9629b7880816cb967e16096a4035c7d261ffbedd28f3c1411e9c9c05a3336f0b</hash>
+         <hash>6e3a05d3cadf7098274d321222d64361454e16be0e123294953336dea302fdc8</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\toolchain_specifics.h</file>
@@ -18017,16 +16878,8 @@
          <hash>6e79e7a2d3bce5e020ecfa9ef3c5fe68eb4f7ee0ab4b298e63ed1969893267fe</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\driver\miim\drv_miim.h</file>
-         <hash>4971ff0f45a66f415f5435687b847568e7ee65697ccf25f97281d7036cd6f37a</hash>
-      </entry>
-      <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\md5.c</file>
          <hash>f17d72b1caa14b77ddc600f233a93d536a0177c4e777287a6e87e8924fce37e9</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_ef_sk_enc28j60_freertos\driver\ethmac\drv_ethmac.h</file>
-         <hash>6d8c4a7f4e7d4df92d80ac5f6b11f1582c33be2269b8ef17226aae8117a163c5</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\port\pic32\crypt_sha_sam11105.h</file>

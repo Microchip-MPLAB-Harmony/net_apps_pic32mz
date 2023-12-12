@@ -146,21 +146,6 @@ extern "C" {
 #define DRV_SPI_CLIENTS_NUMBER_IDX0           1
 #define DRV_SPI_QUEUE_SIZE_IDX0               10
 
-/*** MIIM Driver Configuration ***/
-#define DRV_MIIM_ETH_MODULE_ID_0                _ETH_BASE_ADDRESS
-#define DRV_MIIM_DRIVER_INDEX_0                 0
-#define DRV_MIIM_INSTANCES_NUMBER           1
-#define DRV_MIIM_INSTANCE_OPERATIONS        4
-#define DRV_MIIM_INSTANCE_CLIENTS           2
-#define DRV_MIIM_CLIENT_OP_PROTECTION   false
-#define DRV_MIIM_COMMANDS   false
-#define DRV_MIIM_DRIVER_OBJECT              DRV_MIIM_OBJECT_BASE_Default            
-
-/* MIIM RTOS Configurations*/
-#define DRV_MIIM_RTOS_STACK_SIZE                1024
-#define DRV_MIIM_RTOS_TASK_PRIORITY             1
-
-
 
 
 // *****************************************************************************
@@ -192,48 +177,6 @@ extern "C" {
 /*** ICMPv4 Server Configuration ***/
 #define TCPIP_STACK_USE_ICMP_SERVER
 #define TCPIP_ICMP_ECHO_ALLOW_BROADCASTS    false
-
-
-/*** TCPIP MAC Configuration ***/
-#define TCPIP_EMAC_TX_DESCRIPTORS				    8
-#define TCPIP_EMAC_RX_DESCRIPTORS				    8
-#define TCPIP_EMAC_RX_DEDICATED_BUFFERS				4
-#define TCPIP_EMAC_RX_INIT_BUFFERS				    0
-#define TCPIP_EMAC_RX_LOW_THRESHOLD				    1
-#define TCPIP_EMAC_RX_LOW_FILL				        2
-#define TCPIP_EMAC_MAX_FRAME		    			1536
-#define TCPIP_EMAC_LINK_MTU		    			    1500
-#define TCPIP_EMAC_RX_BUFF_SIZE		    			1536
-#define TCPIP_EMAC_RX_FRAGMENTS		    			1
-
-#define TCPIP_EMAC_RX_FILTERS                       \
-                                                    TCPIP_MAC_RX_FILTER_TYPE_BCAST_ACCEPT |\
-                                                    TCPIP_MAC_RX_FILTER_TYPE_MCAST_ACCEPT |\
-                                                    TCPIP_MAC_RX_FILTER_TYPE_UCAST_ACCEPT |\
-                                                    TCPIP_MAC_RX_FILTER_TYPE_RUNT_REJECT |\
-                                                    TCPIP_MAC_RX_FILTER_TYPE_CRC_ERROR_REJECT |\
-                                                    0
-#define TCPIP_EMAC_ETH_OPEN_FLAGS       			\
-                                                    TCPIP_ETH_OPEN_AUTO |\
-                                                    TCPIP_ETH_OPEN_FDUPLEX |\
-                                                    TCPIP_ETH_OPEN_HDUPLEX |\
-                                                    TCPIP_ETH_OPEN_100 |\
-                                                    TCPIP_ETH_OPEN_10 |\
-                                                    TCPIP_ETH_OPEN_MDIX_AUTO |\
-                                                    TCPIP_ETH_OPEN_RMII |\
-                                                    0
-
-#define TCPIP_INTMAC_MODULE_ID		    			_ETH_BASE_ADDRESS
-#define TCPIP_INTMAC_PERIPHERAL_CLK  				100000000
-
-#define DRV_ETHMAC_INTERRUPT_SOURCE				_ETHERNET_VECTOR
-
-#define DRV_ETHMAC_INTERRUPT_MODE        			true
-
-#define TCPIP_EMAC_AUTO_FLOW_CONTROL_ENABLE        	true
-#define TCPIP_EMAC_FLOW_CONTROL_PAUSE_BYTES         3072
-#define TCPIP_EMAC_FLOW_CONTROL_FULL_WMARK          2
-#define TCPIP_EMAC_FLOW_CONTROL_EMPTY_WMARK         0
 
 
 
@@ -323,28 +266,6 @@ extern "C" {
 
 
 
-/* Network Configuration Index 1 */
-#define TCPIP_NETWORK_DEFAULT_INTERFACE_NAME_IDX1 "ETHMAC"
-#define TCPIP_IF_ETHMAC
-
-#define TCPIP_NETWORK_DEFAULT_HOST_NAME_IDX1              "MCHPBOARD_E"
-#define TCPIP_NETWORK_DEFAULT_MAC_ADDR_IDX1               0
-
-#define TCPIP_NETWORK_DEFAULT_IP_ADDRESS_IDX1         "192.168.100.10"
-#define TCPIP_NETWORK_DEFAULT_IP_MASK_IDX1            "255.255.255.0"
-#define TCPIP_NETWORK_DEFAULT_GATEWAY_IDX1            "192.168.100.1"
-#define TCPIP_NETWORK_DEFAULT_DNS_IDX1                "192.168.100.1"
-#define TCPIP_NETWORK_DEFAULT_SECOND_DNS_IDX1         "0.0.0.0"
-#define TCPIP_NETWORK_DEFAULT_POWER_MODE_IDX1         "full"
-#define TCPIP_NETWORK_DEFAULT_INTERFACE_FLAGS_IDX1            \
-                                                    TCPIP_NETWORK_CONFIG_DHCP_CLIENT_ON |\
-                                                    TCPIP_NETWORK_CONFIG_DNS_CLIENT_ON |\
-                                                    TCPIP_NETWORK_CONFIG_IP_STATIC
-                                                    
-#define TCPIP_NETWORK_DEFAULT_MAC_DRIVER_IDX1         DRV_ETHMAC_PIC32MACObject
-
-
-
 /*** IPv4 Configuration ***/
 #define TCPIP_IPV4_ARP_SLOTS                        10
 #define TCPIP_IPV4_EXTERN_PACKET_PROCESS   false
@@ -408,7 +329,7 @@ extern "C" {
 #define TCPIP_STACK_EXTERN_PACKET_PROCESS   false
 #define TCPIP_STACK_RUN_TIME_INIT   false
 
-#define TCPIP_STACK_INTMAC_COUNT           1
+#define TCPIP_STACK_INTMAC_COUNT           0
 
 
 
@@ -428,18 +349,6 @@ extern "C" {
 #define TCPIP_UDP_USE_RX_CHECKSUM             			true
 #define TCPIP_UDP_COMMANDS   false
 #define TCPIP_UDP_EXTERN_PACKET_PROCESS   false
-
-
-#define DRV_LAN8740_PHY_CONFIG_FLAGS       ( 0 \
-                                                    | DRV_ETHPHY_CFG_AUTO \
-                                                    )
-                                                    
-#define DRV_LAN8740_PHY_LINK_INIT_DELAY            500
-#define DRV_LAN8740_PHY_ADDRESS                    0
-#define DRV_LAN8740_PHY_PERIPHERAL_ID              _ETH_BASE_ADDRESS
-#define DRV_ETHPHY_LAN8740_NEG_INIT_TMO            1
-#define DRV_ETHPHY_LAN8740_NEG_DONE_TMO            2000
-#define DRV_ETHPHY_LAN8740_RESET_CLR_TMO           500
 
 
 
@@ -495,7 +404,7 @@ extern "C" {
 #define NO_WOLFSSL_MEMORY
 // ---------- FUNCTIONAL CONFIGURATION END ----------
 
-#define TCPIP_STACK_NETWORK_INTERAFCE_COUNT  	2
+#define TCPIP_STACK_NETWORK_INTERAFCE_COUNT  	1
 
 
 

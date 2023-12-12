@@ -178,24 +178,6 @@ IntVectorUART2_TX_Handler:
     nop
     portRESTORE_CONTEXT
     .end   IntVectorUART2_TX_Handler
-    .extern  ETHERNET_Handler
-
-    .section   .vector_153,code, keep
-    .equ     __vector_dispatch_153, IntVectorETHERNET_Handler
-    .global  __vector_dispatch_153
-    .set     nomicromips
-    .set     noreorder
-    .set     nomips16
-    .set     noat
-    .ent  IntVectorETHERNET_Handler
-
-IntVectorETHERNET_Handler:
-    portSAVE_CONTEXT
-    la    s6,  ETHERNET_Handler
-    jalr  s6
-    nop
-    portRESTORE_CONTEXT
-    .end   IntVectorETHERNET_Handler
     .extern  FLASH_CONTROL_Handler
 
     .section   .vector_167,code, keep

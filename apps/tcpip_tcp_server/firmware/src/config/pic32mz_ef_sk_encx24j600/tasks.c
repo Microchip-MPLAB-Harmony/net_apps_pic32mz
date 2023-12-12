@@ -81,10 +81,7 @@ SYS_CMD_Tasks();
 
 
     /* Maintain Device Drivers */
-       DRV_MIIM_OBJECT_BASE_Default.DRV_MIIM_Tasks(sysObj.drvMiim_0);
-
-
-
+    
 
     /* Maintain Middleware & Other Libraries */
     

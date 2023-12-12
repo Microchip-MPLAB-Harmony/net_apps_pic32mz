@@ -97,7 +97,7 @@
 
 /*** DEVCFG3 ***/
 #pragma config USERID =     0xffff
-#pragma config FMIIEN =     OFF
+#pragma config FMIIEN =     ON
 #pragma config FETHIO =     ON
 #pragma config PGL1WAY =    ON
 #pragma config PMDL1WAY =   ON
@@ -122,10 +122,6 @@
 /* MISRA C-2012 Rule 11.1 */
 /* MISRA C-2012 Rule 11.3 */
 /* MISRA C-2012 Rule 11.8 */
-/* Forward declaration of MAC initialization data */
-const TCPIP_MODULE_MAC_PIC32INT_CONFIG tcpipMACPIC32INTInitData;
-
-
 
 // <editor-fold defaultstate="collapsed" desc="ENC 60 Driver Initialization Data">
 
@@ -213,12 +209,6 @@ static const DRV_SPI_INIT drvSPI0InitData =
     .interruptSources = &drvSPI0InterruptSources,
 };
 // </editor-fold>
-/* Forward declaration of MIIM 0 initialization data */
-static const DRV_MIIM_INIT drvMiimInitData_0;
-
-/* Forward declaration of PHY initialization data */
-const DRV_ETHPHY_INIT tcpipPhyInitData_LAN8740;
-
 
 
 
@@ -235,25 +225,6 @@ SYSTEM_OBJECTS sysObj;
 // Section: Library/Stack Initialization Data
 // *****************************************************************************
 // *****************************************************************************
-/*** ETH MAC Initialization Data ***/
-const TCPIP_MODULE_MAC_PIC32INT_CONFIG tcpipMACPIC32INTInitData =
-{ 
-    .nTxDescriptors         = TCPIP_EMAC_TX_DESCRIPTORS,
-    .rxBuffSize             = TCPIP_EMAC_RX_BUFF_SIZE,
-    .nRxDescriptors         = TCPIP_EMAC_RX_DESCRIPTORS,
-    .nRxDedicatedBuffers    = TCPIP_EMAC_RX_DEDICATED_BUFFERS,
-    .nRxInitBuffers         = TCPIP_EMAC_RX_INIT_BUFFERS,
-    .rxLowThreshold         = TCPIP_EMAC_RX_LOW_THRESHOLD,
-    .rxLowFill              = TCPIP_EMAC_RX_LOW_FILL,
-    .linkInitDelay          = DRV_LAN8740_PHY_LINK_INIT_DELAY, 
-    .ethFlags               = TCPIP_EMAC_ETH_OPEN_FLAGS,
-    .ethModuleId            = TCPIP_INTMAC_MODULE_ID,
-    .pPhyBase               = &DRV_ETHPHY_OBJECT_BASE_Default,
-    .pPhyInit               = &tcpipPhyInitData_LAN8740,
-};
-
-
-
 
 // <editor-fold defaultstate="collapsed" desc="TCP/IP Stack Initialization Data">
 // *****************************************************************************
@@ -378,20 +349,6 @@ const TCPIP_NETWORK_CONFIG __attribute__((unused))  TCPIP_HOSTS_CONFIGURATION[] 
         .startFlags = TCPIP_NETWORK_DEFAULT_INTERFACE_FLAGS_IDX0,
         .pMacObject = &TCPIP_NETWORK_DEFAULT_MAC_DRIVER_IDX0,
     },
-    /*** Network Configuration Index 1 ***/
-    {
-        .interface = TCPIP_NETWORK_DEFAULT_INTERFACE_NAME_IDX1,
-        .hostName = TCPIP_NETWORK_DEFAULT_HOST_NAME_IDX1,
-        .macAddr = TCPIP_NETWORK_DEFAULT_MAC_ADDR_IDX1,
-        .ipAddr = TCPIP_NETWORK_DEFAULT_IP_ADDRESS_IDX1,
-        .ipMask = TCPIP_NETWORK_DEFAULT_IP_MASK_IDX1,
-        .gateway = TCPIP_NETWORK_DEFAULT_GATEWAY_IDX1,
-        .priDNS = TCPIP_NETWORK_DEFAULT_DNS_IDX1,
-        .secondDNS = TCPIP_NETWORK_DEFAULT_SECOND_DNS_IDX1,
-        .powerMode = TCPIP_NETWORK_DEFAULT_POWER_MODE_IDX1,
-        .startFlags = TCPIP_NETWORK_DEFAULT_INTERFACE_FLAGS_IDX1,
-        .pMacObject = &TCPIP_NETWORK_DEFAULT_MAC_DRIVER_IDX1,
-    },
 };
 
 const size_t TCPIP_HOSTS_CONFIGURATION_SIZE = sizeof (TCPIP_HOSTS_CONFIGURATION) / sizeof (*TCPIP_HOSTS_CONFIGURATION);
@@ -412,7 +369,6 @@ const TCPIP_STACK_MODULE_CONFIG TCPIP_STACK_MODULE_CONFIG_TBL [] =
     { TCPIP_MODULE_MANAGER,         &tcpipHeapConfig },             // TCPIP_MODULE_MANAGER
 
 // MAC modules
-    {TCPIP_MODULE_MAC_PIC32INT,     &tcpipMACPIC32INTInitData},     // TCPIP_MODULE_MAC_PIC32INT
 
     {TCPIP_MODULE_MAC_ENCJ60,       &drvEnc28j60InitData},          // TCPIP_MODULE_MAC_ENCJ60
 };
@@ -453,35 +409,6 @@ SYS_MODULE_OBJ TCPIP_STACK_Init(void)
     return TCPIP_STACK_Initialize(0, &tcpipInit.moduleInit);
 }
 // </editor-fold>
-
-/*** MIIM Driver Instance 0 Configuration ***/
-static const DRV_MIIM_INIT drvMiimInitData_0 =
-{
-   .miimId = DRV_MIIM_ETH_MODULE_ID_0,
-};
-
-/*** LAN8740 PHY Driver Time-Out Initialization Data ***/
-DRV_ETHPHY_TMO drvlan8740Tmo = 
-{
-    .resetTmo = DRV_ETHPHY_LAN8740_RESET_CLR_TMO,
-    .aNegDoneTmo = DRV_ETHPHY_LAN8740_NEG_DONE_TMO,
-    .aNegInitTmo = DRV_ETHPHY_LAN8740_NEG_INIT_TMO,    
-};
-
-/*** ETH PHY Initialization Data ***/
-const DRV_ETHPHY_INIT tcpipPhyInitData_LAN8740 =
-{    
-    .ethphyId               = DRV_LAN8740_PHY_PERIPHERAL_ID,
-    .phyAddress             = DRV_LAN8740_PHY_ADDRESS,
-    .phyFlags               = DRV_LAN8740_PHY_CONFIG_FLAGS,
-    .pPhyObject             = &DRV_ETHPHY_OBJECT_LAN8740,
-    .resetFunction          = 0,
-    .ethphyTmo              = &drvlan8740Tmo,
-    .pMiimObject            = &DRV_MIIM_OBJECT_BASE_Default,
-    .pMiimInit              = &drvMiimInitData_0,
-    .miimIndex              = 0,
-};
-
 
 
 
@@ -613,10 +540,6 @@ void SYS_Initialize ( void* data )
 
     /* Initialize SPI0 Driver Instance */
     sysObj.drvSPI0 = DRV_SPI_Initialize(DRV_SPI_INDEX_0, (SYS_MODULE_INIT *)&drvSPI0InitData);
-
-
-   /* Initialize the MIIM Driver Instance 0*/
-   sysObj.drvMiim_0 = DRV_MIIM_OBJECT_BASE_Default.DRV_MIIM_Initialize(DRV_MIIM_DRIVER_INDEX_0, (const SYS_MODULE_INIT *) &drvMiimInitData_0); 
 
 
     /* MISRA C-2012 Rule 11.3, 11.8 deviated below. Deviation record ID -  

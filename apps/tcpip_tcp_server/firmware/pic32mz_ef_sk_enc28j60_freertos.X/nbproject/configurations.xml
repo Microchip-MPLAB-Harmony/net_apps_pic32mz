@@ -59,36 +59,6 @@
               </logicalFolder>
               <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/enc28j60/drv_enc28j60.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="ethmac" displayName="ethmac" projectFiles="true">
-              <logicalFolder name="src" displayName="src" projectFiles="true">
-                <logicalFolder name="dynamic" displayName="dynamic" projectFiles="true">
-                  <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/ethmac/src/dynamic/_eth_dcpt_lists.h</itemPath>
-                  <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/ethmac/src/dynamic/drv_eth_pic32_lib.h</itemPath>
-                  <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/ethmac/src/dynamic/drv_ethmac_lib.h</itemPath>
-                </logicalFolder>
-                <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/ethmac/src/drv_ethmac_local.h</itemPath>
-              </logicalFolder>
-              <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/ethmac/drv_ethmac.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="ethphy" displayName="ethphy" projectFiles="true">
-              <logicalFolder name="src" displayName="src" projectFiles="true">
-                <logicalFolder name="dynamic" displayName="dynamic" projectFiles="true">
-                  <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/ethphy/src/dynamic/drv_extphy_lan8740.h</itemPath>
-                  <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/ethphy/src/dynamic/drv_extphy_regs.h</itemPath>
-                </logicalFolder>
-                <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/ethphy/src/drv_ethphy_local.h</itemPath>
-              </logicalFolder>
-              <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/ethphy/drv_ethphy.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="miim" displayName="miim" projectFiles="true">
-              <logicalFolder name="src" displayName="src" projectFiles="true">
-                <logicalFolder name="dynamic" displayName="dynamic" projectFiles="true">
-                  <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/miim/src/dynamic/drv_miim_device.h</itemPath>
-                </logicalFolder>
-                <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/miim/src/drv_miim_local.h</itemPath>
-              </logicalFolder>
-              <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/miim/drv_miim.h</itemPath>
-            </logicalFolder>
             <logicalFolder name="spi" displayName="spi" projectFiles="true">
               <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/spi/src/drv_spi_local.h</itemPath>
               <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/spi/drv_spi_definitions.h</itemPath>
@@ -557,31 +527,6 @@
                 </logicalFolder>
               </logicalFolder>
             </logicalFolder>
-            <logicalFolder name="ethmac" displayName="ethmac" projectFiles="true">
-              <logicalFolder name="src" displayName="src" projectFiles="true">
-                <logicalFolder name="dynamic" displayName="dynamic" projectFiles="true">
-                  <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/ethmac/src/dynamic/drv_ethmac.c</itemPath>
-                  <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/ethmac/src/dynamic/drv_eth_pic32_lib.c</itemPath>
-                  <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/ethmac/src/dynamic/drv_ethmac_lib.c</itemPath>
-                </logicalFolder>
-              </logicalFolder>
-            </logicalFolder>
-            <logicalFolder name="ethphy" displayName="ethphy" projectFiles="true">
-              <logicalFolder name="src" displayName="src" projectFiles="true">
-                <logicalFolder name="dynamic" displayName="dynamic" projectFiles="true">
-                  <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/ethphy/src/dynamic/drv_extphy_lan8740.c</itemPath>
-                  <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/ethphy/src/dynamic/drv_ethphy.c</itemPath>
-                </logicalFolder>
-              </logicalFolder>
-            </logicalFolder>
-            <logicalFolder name="miim" displayName="miim" projectFiles="true">
-              <logicalFolder name="src" displayName="src" projectFiles="true">
-                <logicalFolder name="dynamic" displayName="dynamic" projectFiles="true">
-                  <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/miim/src/dynamic/drv_miim.c</itemPath>
-                  <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/miim/src/dynamic/drv_miim_pic32m.c</itemPath>
-                </logicalFolder>
-              </logicalFolder>
-            </logicalFolder>
             <logicalFolder name="spi" displayName="spi" projectFiles="true">
               <itemPath>../src/config/pic32mz_ef_sk_enc28j60_freertos/driver/spi/src/drv_spi.c</itemPath>
             </logicalFolder>
@@ -852,7 +797,6 @@
       <C32>
         <property key="additional-warnings" value="true"/>
         <property key="addresss-attribute-use" value="false"/>
-        <property key="appendMe" value=""/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
@@ -883,7 +827,6 @@
         <property key="additional-options-chop-files" value="false"/>
       </C32-AR>
       <C32-AS>
-        <property key="appendMe" value=""/>
         <property key="assembler-symbols" value=""/>
         <property key="enable-symbols" value="true"/>
         <property key="exclude-floating-point-library" value="false"/>
@@ -913,7 +856,6 @@
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
         <property key="allocate-dinit" value="false"/>
-        <property key="appendMe" value=""/>
         <property key="code-dinit" value="false"/>
         <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
@@ -953,7 +895,6 @@
       <C32CPP>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
-        <property key="appendMe" value=""/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>

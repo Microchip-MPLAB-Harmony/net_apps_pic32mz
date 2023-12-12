@@ -74,7 +74,6 @@ void CHANGE_NOTICE_H_Handler (void);
 void UART2_FAULT_Handler (void);
 void UART2_RX_Handler (void);
 void UART2_TX_Handler (void);
-void ETHERNET_Handler (void);
 void FLASH_CONTROL_Handler (void);
 
 
@@ -116,11 +115,6 @@ void __ISR(_UART2_RX_VECTOR, ipl1SRS) UART2_RX_Handler (void)
 void __ISR(_UART2_TX_VECTOR, ipl1SRS) UART2_TX_Handler (void)
 {
     UART2_TX_InterruptHandler();
-}
-
-void __ISR(_ETHERNET_VECTOR, ipl1SRS) ETHERNET_Handler (void)
-{
-    ETHERNET_InterruptHandler();
 }
 
 void __ISR(_FLASH_CONTROL_VECTOR, ipl1SRS) FLASH_CONTROL_Handler (void)
