@@ -116,15 +116,6 @@
 #define SWITCH2_Get()               ((PORTB >> 13) & 0x1U)
 #define SWITCH2_PIN                  GPIO_PIN_RB13
 
-/*** Macros for GPIO_RH12 pin ***/
-#define GPIO_RH12_Set()               (LATHSET = (1U<<12))
-#define GPIO_RH12_Clear()             (LATHCLR = (1U<<12))
-#define GPIO_RH12_Toggle()            (LATHINV= (1U<<12))
-#define GPIO_RH12_OutputEnable()      (TRISHCLR = (1U<<12))
-#define GPIO_RH12_InputEnable()       (TRISHSET = (1U<<12))
-#define GPIO_RH12_Get()               ((PORTH >> 12) & 0x1U)
-#define GPIO_RH12_PIN                  GPIO_PIN_RH12
-
 
 // *****************************************************************************
 /* GPIO Port
