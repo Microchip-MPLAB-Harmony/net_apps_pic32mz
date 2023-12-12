@@ -67,12 +67,16 @@
 #include "peripheral/evic/plib_evic.h"
 #include "driver/miim/drv_miim.h"
 #include "wolfssl/wolfcrypt/port/pic32/crypt_wolfcryptcb.h"
+#include "bsp/bsp.h"
 #include "system/console/sys_console.h"
 #include "system/console/src/sys_console_uart_definitions.h"
-#include "bsp/bsp.h"
 #include "FreeRTOS.h"
 #include "task.h"
 #include "app.h"
+#include "app1.h"
+#include "app2.h"
+#include "app3.h"
+#include "app4.h"
 
 
 

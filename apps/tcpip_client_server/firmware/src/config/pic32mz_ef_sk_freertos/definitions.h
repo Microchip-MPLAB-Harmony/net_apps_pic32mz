@@ -50,8 +50,8 @@
 #include <stdbool.h>
 #include "crypto/crypto.h"
 #include "driver/ethmac/drv_ethmac.h"
-#include "peripheral/nvm/plib_nvm.h"
 #include "system/time/sys_time.h"
+#include "peripheral/nvm/plib_nvm.h"
 #include "peripheral/coretimer/plib_coretimer.h"
 #include "peripheral/uart/plib_uart2.h"
 #include "library/tcpip/tcpip.h"
@@ -73,6 +73,10 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "app.h"
+#include "app1.h"
+#include "app2.h"
+#include "app3.h"
+#include "app4.h"
 
 
 

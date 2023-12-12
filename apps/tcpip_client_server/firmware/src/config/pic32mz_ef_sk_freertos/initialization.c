@@ -541,6 +541,10 @@ void SYS_Initialize ( void* data )
 
     /* MISRAC 2012 deviation block end */
     APP_Initialize();
+    APP1_Initialize();
+    APP2_Initialize();
+    APP3_Initialize();
+    APP4_Initialize();
 
 
     EVIC_Initialize();

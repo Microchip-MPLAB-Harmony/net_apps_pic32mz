@@ -1350,6 +1350,110 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="APP1_C"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
+  &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;APP1_C&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/HarmonyCore&gt;
+&lt;/HarmonyCore&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="APP1_H"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
+  &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;APP1_H&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/HarmonyCore&gt;
+&lt;/HarmonyCore&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="APP2_C"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
+  &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;APP2_C&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/HarmonyCore&gt;
+&lt;/HarmonyCore&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="APP2_H"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
+  &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;APP2_H&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/HarmonyCore&gt;
+&lt;/HarmonyCore&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="APP3_C"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
+  &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;APP3_C&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/HarmonyCore&gt;
+&lt;/HarmonyCore&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="APP3_H"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
+  &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;APP3_H&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/HarmonyCore&gt;
+&lt;/HarmonyCore&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="APP4_C"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
+  &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;APP4_C&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/HarmonyCore&gt;
+&lt;/HarmonyCore&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="APP4_H"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
+  &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;APP4_H&quot;&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+  &lt;/HarmonyCore&gt;
+&lt;/HarmonyCore&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="COMMON_SYMBOL_CNTR"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;COMMON_SYMBOL_CNTR&quot;&gt;
@@ -1525,7 +1629,7 @@
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
     &lt;Values dnOrder=&quot;1&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;2&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1&quot;/&gt;
     &lt;/Values&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
@@ -2716,7 +2820,14 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="GEN_APP_RTOS_TASK_1_DELAY"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;GEN_APP_RTOS_TASK_1_DELAY&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
 </value>
@@ -2815,7 +2926,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="GEN_APP_RTOS_TASK_1_USE_DELAY"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;GEN_APP_RTOS_TASK_1_USE_DELAY&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
 </value>
@@ -2824,7 +2937,14 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="GEN_APP_RTOS_TASK_2_DELAY"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;GEN_APP_RTOS_TASK_2_DELAY&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
 </value>
@@ -2923,7 +3043,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="GEN_APP_RTOS_TASK_2_USE_DELAY"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;GEN_APP_RTOS_TASK_2_USE_DELAY&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
 </value>
@@ -2932,7 +3054,14 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="GEN_APP_RTOS_TASK_3_DELAY"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;GEN_APP_RTOS_TASK_3_DELAY&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
 </value>
@@ -3031,7 +3160,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="GEN_APP_RTOS_TASK_3_USE_DELAY"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;GEN_APP_RTOS_TASK_3_USE_DELAY&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
 </value>
@@ -3040,7 +3171,14 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="GEN_APP_RTOS_TASK_4_DELAY"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;GEN_APP_RTOS_TASK_4_DELAY&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
 </value>
@@ -3139,7 +3277,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="GEN_APP_RTOS_TASK_4_USE_DELAY"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;GEN_APP_RTOS_TASK_4_USE_DELAY&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
 </value>
@@ -3688,7 +3828,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="HarmonyCore" name="GEN_APP_TASK_COUNT"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;GEN_APP_TASK_COUNT&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;5&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
 </value>
@@ -14812,7 +14954,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\initialization.c</file>
-         <hash>46ec3b8ac6c3490ce056965416617f1e724f678987810b05449bb783f86a8f30</hash>
+         <hash>70f0375ee01dc8a44f018699c034973cb7663bea9fb937e2a020e722b95e3096</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\fips_test.h</file>
@@ -14971,8 +15113,16 @@
          <hash>b6b70897f78664b9f63b702b41e216c73ee58117bdd6422b961cffa06fe52985</hash>
       </entry>
       <entry>
+         <file>..\src\app1.h</file>
+         <hash>1f831d6201b58406a84bddbe88724ea46d980f2cab76a2071c2fd4aafd7cdd69</hash>
+      </entry>
+      <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\src\tcpip_module_manager.h</file>
          <hash>5b124a232ff36c186aea959c97d37783c75d69ca31126243dceab8b3ec0e15d2</hash>
+      </entry>
+      <entry>
+         <file>..\src\app1.c</file>
+         <hash>3c35d84efec37b87ed185c5359d079cae5e24f63904897d169f624bc397d9dc9</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\src\snmp_private.h</file>
@@ -15071,6 +15221,10 @@
          <hash>4863894cdd9a870351ffec0f4764bae24630d5ba06b6e5bc18966affae2cb1d0</hash>
       </entry>
       <entry>
+         <file>..\src\app3.h</file>
+         <hash>ba43d9a92f05f35b516620f5430642c888221e542f74aabce103b5876eaccfb6</hash>
+      </entry>
+      <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\ripemd.h</file>
          <hash>beb0162c9a5367e69de633d3738cade3709e18e47c8647aaee43c97b2c075a5d</hash>
       </entry>
@@ -15123,8 +15277,16 @@
          <hash>6c32fdefdba112f694e75b0376e6c69a26bea5ff3bffd082a1a7218a4a8404d2</hash>
       </entry>
       <entry>
+         <file>..\src\app2.h</file>
+         <hash>924c4155d4d8ab1bdc28463aac663e8d9bc5724bae3e1126f4af7f3ddd5734da</hash>
+      </entry>
+      <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\system\command\src\sys_command.c</file>
          <hash>e2e011b221d372dbb81cd7af594d7da29d7ae18966a99a3fd72b3c5772c237bf</hash>
+      </entry>
+      <entry>
+         <file>..\src\app2.c</file>
+         <hash>52616276511043f099e10b0c5564297edf87c7aa722296b0966b1c660e320a88</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\port\pic32\crypt_tdes_sam6150.h</file>
@@ -15191,6 +15353,10 @@
          <hash>9a8141d3d6c8044a57d7e448180c9bd2ed32e45ded32be288d095a39dced91ab</hash>
       </entry>
       <entry>
+         <file>..\src\app4.h</file>
+         <hash>da391c4c5f4134af61a372e622f6791f103ecd85c6edd0afef59a663d38d8c09</hash>
+      </entry>
+      <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\tcpip.h</file>
          <hash>3915ed25813f0af1cf934f806b694645addfa93d12d8c6d2f9b71ea27e1223c0</hash>
       </entry>
@@ -15251,6 +15417,10 @@
          <hash>68a483b948ba5d67db2a45b2b980809cc0d2f2fc90500671abf98b6c6890a026</hash>
       </entry>
       <entry>
+         <file>..\src\app3.c</file>
+         <hash>cfc1009a544506c078a08ab0a45704b7676cc25d5886ce59f1fd9fda42866a32</hash>
+      </entry>
+      <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\port\pic32\CryptoLib_ZpEccAdd_pb.h</file>
          <hash>306304fdd0b0a007bc263cb49b389e37851500bcc6f1c65e9e69211e2d7735b8</hash>
       </entry>
@@ -15260,7 +15430,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\tasks.c</file>
-         <hash>7d6df444da56a15cca55d176ab1e1a698dae5fc8b9d7696cc330360144434516</hash>
+         <hash>2095340c71a0daef1c760918d9740d5f09d957b9a695e32a32085b7011ba5bfc</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\ge_operations.c</file>
@@ -15365,6 +15535,10 @@
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\md2.h</file>
          <hash>91ca5ec568ac98caba1bee86466b93a82c155757d186def87e4908c01e37ffe8</hash>
+      </entry>
+      <entry>
+         <file>..\src\app4.c</file>
+         <hash>0cbefa43fda74a94f9dc05144aab9907e56dab06aa31968fc6b14c0f89079b6e</hash>
       </entry>
       <entry>
          <file>..\src\third_party\rtos\FreeRTOS\Source\portable\MemMang\heap_3.c</file>
@@ -15784,7 +15958,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\sys_tasks.h</file>
-         <hash>db92e5126443fbe3f721921f12cd1c0ef9b28b9e26e1d77295c7f2bf925b1ca8</hash>
+         <hash>a8381148be08b5c8df5e97101a403e974d637c613088a09b8fed40357d915b21</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\snmpv3.h</file>
@@ -15904,7 +16078,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\definitions.h</file>
-         <hash>82d749d1291d5beedd78f35b4140ea6e6f26d3cd36caeb27d19612259164387a</hash>
+         <hash>244b169eeb39a1d2de0ad104551d7190492da8151f7c1a81452899d516ffb2fc</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\tcpip_heap.h</file>
