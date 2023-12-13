@@ -637,8 +637,7 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="DATA LINK LAYER" name="harmonyGroupAttachments"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;Attachments&gt;
   &lt;Attachments dnOrder=&quot;0&quot;&gt;
-    &lt;Attachment dnOrder=&quot;0&quot; id=&quot;ENCX24J600_SPI&quot; namespace=&quot;drvExtMacEncx24j600_0&quot;/&gt;
-    &lt;Attachment dnOrder=&quot;1&quot; id=&quot;ENC28J60_SPI&quot; namespace=&quot;drvExtMacEnc28j60_0&quot; targetAttachmentID=&quot;TCP/IP STACK:drvExtMacEnc28j60_0:ENC28J60_SPI&quot; targetComponentID=&quot;TCP/IP STACK&quot;/&gt;
+    &lt;Attachment dnOrder=&quot;0&quot; id=&quot;ENCX24J600_SPI&quot; namespace=&quot;drvExtMacEncx24j600_0&quot; targetAttachmentID=&quot;TCP/IP STACK:drvExtMacEncx24j600_0:ENCX24J600_SPI&quot; targetComponentID=&quot;TCP/IP STACK&quot;/&gt;
   &lt;/Attachments&gt;
 &lt;/Attachments&gt;
 </value>
@@ -3711,8 +3710,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;Attachments&gt;
   &lt;Attachments dnOrder=&quot;0&quot;&gt;
     &lt;Attachment dnOrder=&quot;0&quot; id=&quot;tcpipStack:Core_SysConsole_Dependency&quot; namespace=&quot;BASIC CONFIGURATION&quot; targetAttachmentID=&quot;sys_console&quot; targetComponentID=&quot;sys_console_0&quot;/&gt;
-    &lt;Attachment dnOrder=&quot;1&quot; id=&quot;drvExtMacEncx24j600_0:ENCX24J600_SPI&quot; namespace=&quot;DATA LINK LAYER&quot;/&gt;
-    &lt;Attachment dnOrder=&quot;2&quot; id=&quot;drvExtMacEnc28j60_0:ENC28J60_SPI&quot; namespace=&quot;DATA LINK LAYER&quot; targetAttachmentID=&quot;drv_spi&quot; targetComponentID=&quot;drv_spi_0&quot;/&gt;
+    &lt;Attachment dnOrder=&quot;1&quot; id=&quot;drvExtMacEncx24j600_0:ENCX24J600_SPI&quot; namespace=&quot;DATA LINK LAYER&quot; targetAttachmentID=&quot;drv_spi&quot; targetComponentID=&quot;drv_spi_0&quot;/&gt;
   &lt;/Attachments&gt;
 &lt;/Attachments&gt;
 </value>
@@ -3782,7 +3780,7 @@
         &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;core&quot; x=&quot;7&quot; y=&quot;82&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;core_timer&quot; x=&quot;26&quot; y=&quot;382&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;dfp&quot; x=&quot;8&quot; y=&quot;52&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;drv_spi&quot; x=&quot;345&quot; y=&quot;414&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;drv_spi&quot; x=&quot;359&quot; y=&quot;419&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;7&quot; id=&quot;lib_crypto&quot; x=&quot;620&quot; y=&quot;20&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;8&quot; id=&quot;lib_wolfcrypt&quot; x=&quot;630&quot; y=&quot;100&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;9&quot; id=&quot;nvm&quot; x=&quot;18&quot; y=&quot;300&quot;/&gt;
@@ -7835,7 +7833,7 @@
             &lt;Value dnOrder=&quot;0&quot;&gt;TCP/IP&amp;amp;#160;STACK&lt;/Value&gt;
           &lt;/String&gt;
           &lt;String dnOrder=&quot;1&quot; id=&quot;targetAttachmentID&quot;&gt;
-            &lt;Value dnOrder=&quot;0&quot;&gt;DATA&amp;amp;#160;LINK&amp;amp;#160;LAYER:drvExtMacEnc28j60_0:ENC28J60_SPI&lt;/Value&gt;
+            &lt;Value dnOrder=&quot;0&quot;&gt;DATA&amp;amp;#160;LINK&amp;amp;#160;LAYER:drvExtMacEncx24j600_0:ENCX24J600_SPI&lt;/Value&gt;
           &lt;/String&gt;
         &lt;/Attributes&gt;
       &lt;/DirectCapability&gt;
