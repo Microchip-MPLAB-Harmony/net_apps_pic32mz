@@ -1,4 +1,4 @@
-<config configName="pic32mz_ef_sk" projectName="wolfssl_tcp_client" configVersion="1.1" device="PIC32MZ2048EFH144" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.5.7">
+<config configName="pic32mz_ef_sk" projectName="wolfssl_tcp_client" configVersion="1.1" device="PIC32MZ2048EFM144" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.5.7">
    <usedPackages class="java.util.ArrayList"/>
    <usedClasses class="java.util.TreeMap">
       <entry>
@@ -15439,7 +15439,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk\definitions.h</file>
-         <hash>179fa731b863306661da2a3d7102a572913ae2e92bdc26b8afbf6e830776dfd7</hash>
+         <hash>b041ea4eaa7bea44d6b67efb8ca88dbc73554f7cb45061cf31c4e8ac4fff9509</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk\library\tcpip\src\oahash.c</file>
@@ -15487,7 +15487,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk\peripheral\evic\plib_evic.h</file>
-         <hash>99ea8255ad17a7d7368d57f2df1280fffac1961e1b89a2cb62bc35be8072e5bd</hash>
+         <hash>55a4d4a3985da6e88a9548a0a29a4f8d08e077348dbad6cd6ddce5fe40d01a33</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\sp_c64.c</file>
@@ -15846,10 +15846,6 @@
          <hash>818f0b66c35cb3e5d0e2f0f7192e091a25e50bbef124edf784b5063263dbc2a3</hash>
       </entry>
       <entry>
-         <file>..\src\config\pic32mz_ef_sk\p32MZ2048EFH144.ld</file>
-         <hash>bb79d747f7a82dd825972c04040708a3816a5ec975048a3decfb71aa3c0eec7c</hash>
-      </entry>
-      <entry>
          <file>..\src\config\pic32mz_ef_sk\system\time\sys_time.h</file>
          <hash>6357468f7670698b16bfb6439d9919ed38eba99d4f03277a8b43ac34586fa1b3</hash>
       </entry>
@@ -16020,6 +16016,10 @@
       <entry>
          <file>..\src\config\pic32mz_ef_sk\system\command\sys_command.h</file>
          <hash>7ef4ded141f7f71e84038aa39c414929ee9cbd9cdacb92e06544f5bf53915dca</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32mz_ef_sk\p32MZ2048EFM144.ld</file>
+         <hash>845668fce00fbcce2a16b1f325acfa0a1cbca5916ae3207f3e77699d2ca6272f</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk\library\tcpip\src\arp_manager.h</file>
