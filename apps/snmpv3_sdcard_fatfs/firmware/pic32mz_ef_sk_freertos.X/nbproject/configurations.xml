@@ -49,8 +49,8 @@
               <itemPath>../src/config/pic32mz_ef_sk_freertos/driver/sdspi/drv_sdspi.h</itemPath>
               <itemPath>../src/config/pic32mz_ef_sk_freertos/driver/sdspi/drv_sdspi_definitions.h</itemPath>
               <itemPath>../src/config/pic32mz_ef_sk_freertos/driver/sdspi/src/drv_sdspi_file_system.h</itemPath>
-              <itemPath>../src/config/pic32mz_ef_sk_freertos/driver/sdspi/src/drv_sdspi_plib_interface.h</itemPath>
               <itemPath>../src/config/pic32mz_ef_sk_freertos/driver/sdspi/src/drv_sdspi_local.h</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_freertos/driver/sdspi/src/drv_sdspi_plib_interface.h</itemPath>
             </logicalFolder>
             <itemPath>../src/config/pic32mz_ef_sk_freertos/driver/driver_common.h</itemPath>
             <itemPath>../src/config/pic32mz_ef_sk_freertos/driver/driver.h</itemPath>
@@ -556,8 +556,8 @@
             </logicalFolder>
             <logicalFolder name="sdspi" displayName="sdspi" projectFiles="true">
               <itemPath>../src/config/pic32mz_ef_sk_freertos/driver/sdspi/src/drv_sdspi_file_system.c</itemPath>
-              <itemPath>../src/config/pic32mz_ef_sk_freertos/driver/sdspi/src/drv_sdspi_plib_interface.c</itemPath>
               <itemPath>../src/config/pic32mz_ef_sk_freertos/driver/sdspi/src/drv_sdspi.c</itemPath>
+              <itemPath>../src/config/pic32mz_ef_sk_freertos/driver/sdspi/src/drv_sdspi_plib_interface.c</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="library" displayName="library" projectFiles="true">
@@ -895,7 +895,7 @@
         <targetDevice>PIC32MZ2048EFH144</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool>PKOBSKDEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>4.35</languageToolchainVersion>
         <platform>3</platform>
@@ -964,7 +964,6 @@
         <property key="additional-options-chop-files" value="false"/>
       </C32-AR>
       <C32-AS>
-        <property key="appendMe" value=""/>
         <property key="assembler-symbols" value=""/>
         <property key="enable-symbols" value="true"/>
         <property key="exclude-floating-point-library" value="false"/>
@@ -1011,7 +1010,7 @@
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-cross-reference-file" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
-        <property key="heap-size" value="216960"/>
+        <property key="heap-size" value="226960"/>
         <property key="input-libraries" value=""/>
         <property key="kseg-length" value=""/>
         <property key="kseg-origin" value=""/>
@@ -1115,6 +1114,7 @@
         <property key="debugoptions.reset-behaviour" value="Use system settings"/>
         <property key="event.recorder.enabled" value="false"/>
         <property key="event.recorder.scvd.files" value=""/>
+        <property key="firmware.download.all" value="false"/>
         <property key="lastid" value=""/>
         <property key="memories.configurationmemory" value="true"/>
         <property key="memories.dataflash" value="true"/>
