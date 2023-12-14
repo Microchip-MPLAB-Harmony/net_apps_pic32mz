@@ -8585,7 +8585,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_ETH_FILTER_UCAST_OTHER_ACCEPT"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
   &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_ETH_FILTER_UCAST_OTHER_ACCEPT&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/drvPic32mEthmac&gt;
 &lt;/drvPic32mEthmac&gt;
 </value>
@@ -19508,7 +19510,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\configuration.h</file>
-         <hash>897bce628b6cf5d6246e5edbddd24d33e8696dc19af007f8fc6f3ee6e3692baf</hash>
+         <hash>d27b359c7e36e3adfc5323f3e2ecbbaaadd021cfc6ddab52e6ac56ea3c862a6d</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\library\tcpip\telnet.h</file>
@@ -19656,7 +19658,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\definitions.h</file>
-         <hash>595b051a8579aba832fa20fe0e244a783ba3dbb467465e028aa7cecbdd4b013b</hash>
+         <hash>aba0220600b3954dc88a291591fa912920bf260953b28e4d7dcb57ebdffb3488</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\library\tcpip\src\icmpv6_manager.h</file>

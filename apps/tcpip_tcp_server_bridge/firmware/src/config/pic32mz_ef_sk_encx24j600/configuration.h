@@ -294,6 +294,7 @@ extern "C" {
                                                     TCPIP_MAC_RX_FILTER_TYPE_BCAST_ACCEPT |\
                                                     TCPIP_MAC_RX_FILTER_TYPE_MCAST_ACCEPT |\
                                                     TCPIP_MAC_RX_FILTER_TYPE_UCAST_ACCEPT |\
+                                                    TCPIP_MAC_RX_FILTER_TYPE_UCAST_OTHER_ACCEPT |\
                                                     TCPIP_MAC_RX_FILTER_TYPE_RUNT_REJECT |\
                                                     TCPIP_MAC_RX_FILTER_TYPE_CRC_ERROR_REJECT |\
                                                     0
