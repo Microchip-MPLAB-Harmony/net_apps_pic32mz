@@ -481,11 +481,10 @@ extern "C" {
 #define NO_HC128
 #define NO_RABBIT
 #define HAVE_ECC
-#define HAVE_DH
+#define NO_DH
 #define NO_DSA
 #define FP_MAX_BITS 8192
 #define USE_CERT_BUFFERS_2048
-#define WC_RSA_PSS
 #define NO_DEV_RANDOM
 #define HAVE_HASHDRBG
 #define WC_NO_HARDEN
