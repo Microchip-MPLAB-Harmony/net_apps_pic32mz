@@ -429,7 +429,7 @@
         <logicalFolder name="pic32mz_ef_sk"
                        displayName="pic32mz_ef_sk"
                        projectFiles="true">
-          <itemPath>../src/config/pic32mz_ef_sk/p32MZ2048EFH144.ld</itemPath>
+          <itemPath>../src/config/pic32mz_ef_sk/p32MZ2048EFM144.ld</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
@@ -695,10 +695,10 @@
     <conf name="pic32mz_ef_sk" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>PIC32MZ2048EFH144</targetDevice>
+        <targetDevice>PIC32MZ2048EFM144</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool>ICD4Tool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>4.35</languageToolchainVersion>
         <platform>3</platform>

@@ -50,8 +50,8 @@
 #include <stdbool.h>
 #include "crypto/crypto.h"
 #include "driver/ethmac/drv_ethmac.h"
-#include "system/time/sys_time.h"
 #include "peripheral/nvm/plib_nvm.h"
+#include "system/time/sys_time.h"
 #include "peripheral/coretimer/plib_coretimer.h"
 #include "peripheral/uart/plib_uart2.h"
 #include "library/tcpip/tcpip.h"
@@ -87,7 +87,7 @@ extern "C" {
 // DOM-IGNORE-END
 
 /* Device Information */
-#define DEVICE_NAME			 "PIC32MZ2048EFH144"
+#define DEVICE_NAME			 "PIC32MZ2048EFM144"
 #define DEVICE_ARCH			 "MIPS"
 #define DEVICE_FAMILY		 "PIC32MZEF"
 #define DEVICE_SERIES		 "PIC32MZ"

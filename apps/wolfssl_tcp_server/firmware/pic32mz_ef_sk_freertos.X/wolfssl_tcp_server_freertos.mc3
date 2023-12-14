@@ -1,4 +1,4 @@
-<config configName="pic32mz_ef_sk_freertos" projectName="wolfssl_tcp_server" configVersion="1.1" device="PIC32MZ2048EFH144" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.5.7">
+<config configName="pic32mz_ef_sk_freertos" projectName="wolfssl_tcp_server" configVersion="1.1" device="PIC32MZ2048EFM144" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.5.7">
    <usedPackages class="java.util.ArrayList"/>
    <usedClasses class="java.util.TreeMap">
       <entry>
@@ -15687,10 +15687,6 @@
    </tokenMap>
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
-         <file>..\src\config\pic32mz_ef_sk_freertos\p32MZ2048EFH144.ld</file>
-         <hash>bb79d747f7a82dd825972c04040708a3816a5ec975048a3decfb71aa3c0eec7c</hash>
-      </entry>
-      <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\des3.h</file>
          <hash>bd932ec53039ab14baced49166d8826d27cd545475d406062ee0755da916f5ab</hash>
       </entry>
@@ -16552,7 +16548,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\peripheral\evic\plib_evic.h</file>
-         <hash>99ea8255ad17a7d7368d57f2df1280fffac1961e1b89a2cb62bc35be8072e5bd</hash>
+         <hash>55a4d4a3985da6e88a9548a0a29a4f8d08e077348dbad6cd6ddce5fe40d01a33</hash>
       </entry>
       <entry>
          <file>..\src\third_party\rtos\FreeRTOS\Source\FreeRTOS_tasks.c</file>
@@ -16645,6 +16641,10 @@
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\compress.c</file>
          <hash>eaa80f34ebc87c249b318538edb83535d7984626ce2e1534a1e2aadf4b992124</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32mz_ef_sk_freertos\p32MZ2048EFM144.ld</file>
+         <hash>845668fce00fbcce2a16b1f325acfa0a1cbca5916ae3207f3e77699d2ca6272f</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\test.h</file>
@@ -17420,7 +17420,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\definitions.h</file>
-         <hash>564ff0089c518fca7ec630f6c70e6218211cd591bdba1f678a4879542513a897</hash>
+         <hash>efcaa97d5c5cb7644a5a54aeedaddd2431149a83a3733fa16c0027db81d4eac9</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\tcpip_heap.h</file>
