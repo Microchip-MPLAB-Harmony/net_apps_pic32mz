@@ -156,8 +156,8 @@ extern "C" {
 /* SDSPI Driver Instance 0 Configuration Options */
 #define DRV_SDSPI_INDEX_0                       0
 #define DRV_SDSPI_CLIENTS_NUMBER_IDX0           1
-#define DRV_SDSPI_CHIP_SELECT_PIN_IDX0          SYS_PORT_PIN_RA0
-#define DRV_SDSPI_SPEED_HZ_IDX0                 5000000
+#define DRV_SDSPI_CHIP_SELECT_PIN_IDX0          SYS_PORT_PIN_RB1
+#define DRV_SDSPI_SPEED_HZ_IDX0                 10000000
 #define DRV_SDSPI_POLLING_INTERVAL_MS_IDX0      1000
 
 
@@ -233,7 +233,7 @@ extern "C" {
 #define TCPIP_HTTP_NET_MAX_DATA_LEN		        		100
 #define TCPIP_HTTP_NET_SKT_TX_BUFF_SIZE		    		2048
 #define TCPIP_HTTP_NET_SKT_RX_BUFF_SIZE		    		2048
-#define TCPIP_HTTP_NET_LISTEN_PORT		    		    80
+#define TCPIP_HTTP_NET_LISTEN_PORT		    		    443
 #define TCPIP_HTTP_NET_CONFIG_FLAGS                       \
                                                         TCPIP_HTTP_NET_MODULE_FLAG_SECURE_DEFAULT |\
                                                         TCPIP_HTTP_NET_MODULE_FLAG_DEFAULT
@@ -288,10 +288,12 @@ extern "C" {
 #define WOLFSSL_USER_IO
 #define NO_WRITEV
 #define MICROCHIP_TCPIP
+#include "osal/osal.h"
+#define XMALLOC_OVERRIDE
+#define XMALLOC(s, h, type)  OSAL_Malloc((s))
+#define XFREE(p, h, type)    OSAL_Free((p))
 #define WOLFSSL_DTLS
 #define NO_PWDBASED
-#define HAVE_TLS_EXTENSIONS
-#define HAVE_SUPPORTED_CURVES
 #define NO_ERROR_STRINGS
 #define NO_OLD_TLS
 
@@ -674,7 +676,7 @@ extern "C" {
 #define NET_PRES_NUM_SOCKETS 10
 
 /* Net Pres RTOS Configurations*/
-#define NET_PRES_RTOS_STACK_SIZE                12288
+#define NET_PRES_RTOS_STACK_SIZE                13788
 #define NET_PRES_RTOS_TASK_PRIORITY             1
 	
 #define FREERTOS
