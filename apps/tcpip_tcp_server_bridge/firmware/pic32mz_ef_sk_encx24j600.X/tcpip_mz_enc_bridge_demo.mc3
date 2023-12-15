@@ -11665,7 +11665,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sys_command" name="SYS_COMMAND_PRINT_BUFFER_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_command&gt;
   &lt;sys_command dnOrder=&quot;0&quot; id=&quot;SYS_COMMAND_PRINT_BUFFER_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;2560&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/sys_command&gt;
 &lt;/sys_command&gt;
 </value>
@@ -11806,7 +11808,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sys_console" name="SYS_CONSOLE_PRINT_BUFFER_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_console&gt;
   &lt;sys_console dnOrder=&quot;0&quot; id=&quot;SYS_CONSOLE_PRINT_BUFFER_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;2000&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/sys_console&gt;
 &lt;/sys_console&gt;
 </value>
@@ -18238,7 +18242,14 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="uart2" name="UART_RX_RING_BUFFER_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;uart2&gt;
   &lt;uart2 dnOrder=&quot;0&quot; id=&quot;UART_RX_RING_BUFFER_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;256&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/uart2&gt;
 &lt;/uart2&gt;
 </value>
@@ -18293,7 +18304,7 @@
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
     &lt;Values dnOrder=&quot;1&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;1024&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;2560&quot;/&gt;
     &lt;/Values&gt;
   &lt;/uart2&gt;
 &lt;/uart2&gt;
@@ -18670,7 +18681,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\library\tcpip\tcpip_mac.h</file>
-         <hash>218593a61106f8271a1f93a33124f01482c46982a7b70fa29a4916045e466599</hash>
+         <hash>7137ed6478803b511ada20f717583d7168e680c784b6d6c42dbaa75e4b928ea1</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\driver\spi\drv_spi.h</file>
@@ -18690,7 +18701,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\peripheral\uart\plib_uart2.c</file>
-         <hash>c8db5fcd120795be5eff0bd01ea63a033305a3795d9588d7fdd73225f18c5063</hash>
+         <hash>197b286a90a7652bfa2493e975f4f4dc40c7a572bf813b84d1d0678c78c71144</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\sakke.h</file>
@@ -18862,7 +18873,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\driver\ethphy\src\dynamic\drv_ethphy.c</file>
-         <hash>c3d2f4da008b8ad990932fc3fd4f5842d1ce6b3ecf6d05a396fbc5f89604febd</hash>
+         <hash>f9b6cd771128c5a2f0568dbac64f8d5429a023e61052d8b587a16059d97c463f</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\fe_low_mem.c</file>
@@ -19510,7 +19521,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\configuration.h</file>
-         <hash>d27b359c7e36e3adfc5323f3e2ecbbaaadd021cfc6ddab52e6ac56ea3c862a6d</hash>
+         <hash>a5896fefe3aad69347d744aa21a89a4d265dc480d3d6d59a4d9b96010a84c63c</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\library\tcpip\telnet.h</file>
@@ -19678,7 +19689,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\driver\ethphy\src\drv_ethphy_local.h</file>
-         <hash>d2fca30512453811bb11b4cfff6e0bf937a0fe5afc2698a5ba1440f6346b7620</hash>
+         <hash>3f19a0efd23df04cc9ba8e7359d01372236eed0688979ea00507b429c6c9c698</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\config.h</file>
@@ -19978,7 +19989,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\library\tcpip\src\tcpip_mac_bridge_private.h</file>
-         <hash>4f94e7c23deb567c6717c1e790d8dd779ce85835dfb3b28f104e0460f8b90dcb</hash>
+         <hash>8a616af6e5e81b37d32df4a326d20d6f52e91a2053211a6abf2ec9391ef2b2a3</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\library\tcpip\src\hash_fnv.c</file>
@@ -20246,7 +20257,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\driver\ethphy\src\dynamic\drv_extphy_regs.h</file>
-         <hash>f86abe844bea011040ca6705895d34f1106aa53cf875bde5bc4fb9d608a9bf29</hash>
+         <hash>8b304230ccee2b2aef3b92eef3c004c938e81432844db5fb0db127986a811e9f</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\sp_x86_64.c</file>
@@ -20598,7 +20609,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_encx24j600\library\tcpip\src\tcpip_mac_bridge.c</file>
-         <hash>e0d30dd8eb226cc36b63ed05b2e3e388bdd81a580e315964c20c692778989929</hash>
+         <hash>6a280fcc910624c8ff13d99df5e151d126c675d49c4f17b78390cc851c8ad157</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\port\pic32\crypt_aes_hwInt.h</file>
