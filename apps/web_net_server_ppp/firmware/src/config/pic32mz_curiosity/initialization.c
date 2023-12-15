@@ -786,7 +786,6 @@ void SYS_Initialize ( void* data )
     CORETIMER_Initialize();
 	UART1_Initialize();
 
-	BSP_Initialize();
 
 
     /* MISRAC 2012 deviation block start */
