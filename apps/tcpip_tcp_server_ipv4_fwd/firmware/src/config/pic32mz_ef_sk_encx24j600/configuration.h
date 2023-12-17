@@ -400,14 +400,13 @@ extern "C" {
 #define TCPIP_NETWORK_DEFAULT_HOST_NAME_IDX0              "MCHPENCX24_E"
 #define TCPIP_NETWORK_DEFAULT_MAC_ADDR_IDX0               0
 
-#define TCPIP_NETWORK_DEFAULT_IP_ADDRESS_IDX0         "192.168.100.12"
+#define TCPIP_NETWORK_DEFAULT_IP_ADDRESS_IDX0         "192.168.200.1"
 #define TCPIP_NETWORK_DEFAULT_IP_MASK_IDX0            "255.255.255.0"
-#define TCPIP_NETWORK_DEFAULT_GATEWAY_IDX0            "192.168.100.1"
+#define TCPIP_NETWORK_DEFAULT_GATEWAY_IDX0            "192.168.200.1"
 #define TCPIP_NETWORK_DEFAULT_DNS_IDX0                "192.168.100.1"
 #define TCPIP_NETWORK_DEFAULT_SECOND_DNS_IDX0         "0.0.0.0"
 #define TCPIP_NETWORK_DEFAULT_POWER_MODE_IDX0         "full"
 #define TCPIP_NETWORK_DEFAULT_INTERFACE_FLAGS_IDX0            \
-                                                    TCPIP_NETWORK_CONFIG_DHCP_CLIENT_ON |\
                                                     TCPIP_NETWORK_CONFIG_DNS_CLIENT_ON |\
                                                     TCPIP_NETWORK_CONFIG_IP_STATIC
                                                     
@@ -422,14 +421,13 @@ extern "C" {
 #define TCPIP_NETWORK_DEFAULT_HOST_NAME_IDX1              "MCHPBOARD_E"
 #define TCPIP_NETWORK_DEFAULT_MAC_ADDR_IDX1               0
 
-#define TCPIP_NETWORK_DEFAULT_IP_ADDRESS_IDX1         "192.168.100.10"
+#define TCPIP_NETWORK_DEFAULT_IP_ADDRESS_IDX1         "192.168.1.130"
 #define TCPIP_NETWORK_DEFAULT_IP_MASK_IDX1            "255.255.255.0"
-#define TCPIP_NETWORK_DEFAULT_GATEWAY_IDX1            "192.168.100.1"
-#define TCPIP_NETWORK_DEFAULT_DNS_IDX1                "192.168.100.1"
+#define TCPIP_NETWORK_DEFAULT_GATEWAY_IDX1            "192.168.1.1"
+#define TCPIP_NETWORK_DEFAULT_DNS_IDX1                "192.168.1.1"
 #define TCPIP_NETWORK_DEFAULT_SECOND_DNS_IDX1         "0.0.0.0"
 #define TCPIP_NETWORK_DEFAULT_POWER_MODE_IDX1         "full"
 #define TCPIP_NETWORK_DEFAULT_INTERFACE_FLAGS_IDX1            \
-                                                    TCPIP_NETWORK_CONFIG_DHCP_CLIENT_ON |\
                                                     TCPIP_NETWORK_CONFIG_DNS_CLIENT_ON |\
                                                     TCPIP_NETWORK_CONFIG_IP_STATIC
                                                     

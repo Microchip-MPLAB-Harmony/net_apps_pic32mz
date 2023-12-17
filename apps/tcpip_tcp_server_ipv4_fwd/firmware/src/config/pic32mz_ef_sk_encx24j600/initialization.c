@@ -400,9 +400,9 @@ const TCPIP_DNS_CLIENT_MODULE_CONFIG tcpipDNSClientInitData =
 TCPIP_IPV4_FORWARD_ENTRY_ASCII tcpipIPv4AsciiForwardTbl[TCPIP_IPV4_FORWARDING_TABLE_ENTRIES] =
 {
     // destination     mask    gateway   in interface   out interface   metric        
-    {  "192.168.2.0", "255.255.255.0", "0.0.0.0", "eth1", "eth0", 10 },
     {  "192.168.1.0", "255.255.255.0", "0.0.0.0", "eth0", "eth1", 10 },
-    {  "0.0.0.0", "0.0.0.0", "192.168.1.100", "eth0", "eth1", 10 },
+    {  "0.0.0.0", "0.0.0.0", "0.0.0.0", "eth0", "eth1", 10 },
+    {  "192.168.200.0", "255.255.255.0", "0.0.0.0", "eth1", "eth0", 10 },
 };
 
 const TCPIP_IPV4_MODULE_CONFIG  tcpipIPv4InitData = 
