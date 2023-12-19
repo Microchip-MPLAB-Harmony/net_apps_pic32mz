@@ -49,8 +49,8 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include "crypto/crypto.h"
-#include "peripheral/nvm/plib_nvm.h"
 #include "system/time/sys_time.h"
+#include "peripheral/nvm/plib_nvm.h"
 #include "peripheral/coretimer/plib_coretimer.h"
 #include "driver/encx24j600/drv_encx24j600.h"
 #include "peripheral/uart/plib_uart2.h"
