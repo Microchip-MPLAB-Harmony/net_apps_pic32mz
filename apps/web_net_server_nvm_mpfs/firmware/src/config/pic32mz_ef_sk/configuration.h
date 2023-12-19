@@ -201,12 +201,6 @@ extern "C" {
 
 
 
-/*** NBNS Configuration ***/
-#define TCPIP_STACK_USE_NBNS
-#define TCPIP_NBNS_TASK_TICK_RATE   110
-
-
-
 /*** HTTP NET Configuration ***/
 #define TCPIP_STACK_USE_HTTP_NET_SERVER
 #define TCPIP_HTTP_NET_MAX_HEADER_LEN		    		15
@@ -255,28 +249,11 @@ extern "C" {
 #define TCPIP_HTTP_NET_CONSOLE_CMD           		false
 
 
-/******************************************************************************/
-/*wolfSSL TLS Layer Configuration*/
-/******************************************************************************/
 
-#define WOLFSSL_ALT_NAMES
-#define WOLFSSL_DER_LOAD
-#define KEEP_OUR_CERT
-#define KEEP_PEER_CERT
-#define HAVE_CRL_IO
-#define HAVE_IO_TIMEOUT
-#define TFM_NO_ASM
-#define WOLFSSL_NO_ASM
-#define SIZEOF_LONG_LONG 8
-#define WOLFSSL_USER_IO
-#define NO_WRITEV
-#define MICROCHIP_TCPIP
-#define WOLFSSL_DTLS
-#define NO_PWDBASED
-#define HAVE_TLS_EXTENSIONS
-#define HAVE_SUPPORTED_CURVES
-#define NO_ERROR_STRINGS
-#define NO_OLD_TLS
+/*** NBNS Configuration ***/
+#define TCPIP_STACK_USE_NBNS
+#define TCPIP_NBNS_TASK_TICK_RATE   110
+
 
 /*** TCPIP MAC Configuration ***/
 #define TCPIP_EMAC_TX_DESCRIPTORS				    8
@@ -319,6 +296,29 @@ extern "C" {
 #define TCPIP_EMAC_FLOW_CONTROL_FULL_WMARK          2
 #define TCPIP_EMAC_FLOW_CONTROL_EMPTY_WMARK         0
 
+
+/******************************************************************************/
+/*wolfSSL TLS Layer Configuration*/
+/******************************************************************************/
+
+#define WOLFSSL_ALT_NAMES
+#define WOLFSSL_DER_LOAD
+#define KEEP_OUR_CERT
+#define KEEP_PEER_CERT
+#define HAVE_CRL_IO
+#define HAVE_IO_TIMEOUT
+#define TFM_NO_ASM
+#define WOLFSSL_NO_ASM
+#define SIZEOF_LONG_LONG 8
+#define WOLFSSL_USER_IO
+#define NO_WRITEV
+#define MICROCHIP_TCPIP
+#define WOLFSSL_DTLS
+#define NO_PWDBASED
+#define HAVE_TLS_EXTENSIONS
+#define HAVE_SUPPORTED_CURVES
+#define NO_ERROR_STRINGS
+#define NO_OLD_TLS
 
 
 /*** TCP Configuration ***/
@@ -364,6 +364,9 @@ extern "C" {
 
 
 
+#define TCPIP_STACK_USE_ICMPV6_SERVER
+
+
 /*** ARP Configuration ***/
 #define TCPIP_ARP_CACHE_ENTRIES                 		5
 #define TCPIP_ARP_CACHE_DELETE_OLD		        	true
@@ -379,9 +382,6 @@ extern "C" {
 #define TCPIP_ARP_PRIMARY_CACHE_ONLY		        	true
 #define TCPIP_ARP_COMMANDS false
 
-
-
-#define TCPIP_STACK_USE_ICMPV6_SERVER
 
 
 #define TCPIP_IPV6_NDP_MAX_RTR_SOLICITATION_DELAY 	1
