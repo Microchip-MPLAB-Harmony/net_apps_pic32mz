@@ -306,8 +306,6 @@ extern "C" {
 #define MICROCHIP_TCPIP
 #define WOLFSSL_DTLS
 #define NO_PWDBASED
-#define HAVE_TLS_EXTENSIONS
-#define HAVE_SUPPORTED_CURVES
 #define NO_ERROR_STRINGS
 #define NO_OLD_TLS
 
