@@ -1,13 +1,50 @@
----
-title: Release notes
-nav_order: 99
----
-
 ![Microchip logo](https://raw.githubusercontent.com/wiki/Microchip-MPLAB-Harmony/Microchip-MPLAB-Harmony.github.io/images/microchip_logo.png)
 ![Harmony logo small](https://raw.githubusercontent.com/wiki/Microchip-MPLAB-Harmony/Microchip-MPLAB-Harmony.github.io/images/microchip_mplab_harmony_logo_small.png)
 
 # Microchip MPLABÂ® Harmony 3 Release Notes
 
+## Network Application Examples for PIC32MZ EF and PIC32MZ DA Family, v3.9.0
+
+### New Features
+- Addition of PPP demo for PIC32MZ EF Curiosity 2.0.
+- All applications with TCP/IP Configurator Plugin.
+
+### Improvements and Bug Fixes
+- Fix for bind operation in berkeley module.
+- Fix for 'IntegerSymbol not found' MCC failure.
+- ETHPHY driver write function.
+- Updated demo documentation.
+
+### Known Issues
+- Hardware crypto with wolfssl(v5.4.0) not working on PIC32MZ EF Starter Kit.
+
+
+### Development Tools
+
+- [MPLABÂ® X IDE, v6.15](https://www.microchip.com/mplab/mplab-x-ide) or later
+- [MPLABÂ® XC32 C/C++ Compiler, v4.35](https://www.microchip.com/mplab/compilers) or later
+- [MPLABÂ® Code Configurator(MCC) Plugin, v5.3.7](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator) or later
+- [MPLABÂ® Harmony v3 net repository, v3.11.0](https://github.com/Microchip-MPLAB-Harmony/net/tree/v3.11.0)
+- [MPLABÂ® Harmony v3 net\_apps\_pic32mz demo apps repository, v3.9.0](https://github.com/Microchip-MPLAB-Harmony/net_apps_pic32mz/tree/v3.9.0)
+
+### Development Kit Support
+
+This release supports applications for the following development kit.
+
+| Development Kits |
+| --- |
+| [PIC32MZ Embedded Connectivity with FPU (EF) Starter Kit](https://www.microchip.com/en-us/development-tool/DM320007)|
+| [PIC32MZ Embedded Connectivity with FPU (EF) Starter Kit (CRYPTO)](https://www.microchip.com/en-us/development-tool/DM320007-C)|
+| [PIC32MZ Embedded Graphics with Stacked DRAM (DA) Starter Kit](https://www.microchip.com/en-us/development-tool/DM320010-C) |
+| [CURIOSITY PIC32MZ EF 2.0 DEVELOPMENT BOARD](https://www.microchip.com/en-us/development-tool/DM320209) |
+
+
+
+## Net Release Notes
+
+- See the [Net 3.11.0 Release Notes](https://github.com/Microchip-MPLAB-Harmony/net/tree/v3.11.0)
+
+---
 ## Harmony 3 Network application examples for PIC32MZEF and PIC32MZDA family  v3.8.0
 
 ### New Features
@@ -31,8 +68,8 @@ The current known issues are as follows:
 
 ### Development Tools
 
-- [MPLAB® X IDE v6.00](https://www.microchip.com/mplab/mplab-x-ide) or later
-- [MPLAB® XC32 C/C++ Compiler v4.00](https://www.microchip.com/mplab/compilers) or later
+- [MPLABï¿½ X IDE v6.00](https://www.microchip.com/mplab/mplab-x-ide) or later
+- [MPLABï¿½ XC32 C/C++ Compiler v4.00](https://www.microchip.com/mplab/compilers) or later
 - [Harmony net repository, 3.8.0](https://github.com/Microchip-MPLAB-Harmony/net/tree/v3.8.0)
 - [Harmony net_apps_pic32mz demo apps repositories, 3.8.0](https://github.com/Microchip-MPLAB-Harmony/net_apps_pic32mz/tree/v3.8.0)
 - MPLAB Code Configurator (MCC), 5.1.2
@@ -63,8 +100,8 @@ New features added in this release are as follows:
 
 ### Development Tools
 
-- [MPLAB® X IDE v5.45](https://www.microchip.com/mplab/mplab-x-ide) or later
-- [MPLAB® XC32 C/C++ Compiler v2.50](https://www.microchip.com/mplab/compilers) or later
+- [MPLABï¿½ X IDE v5.45](https://www.microchip.com/mplab/mplab-x-ide) or later
+- [MPLABï¿½ XC32 C/C++ Compiler v2.50](https://www.microchip.com/mplab/compilers) or later
 - [Harmony net repository, 3.7.0](https://github.com/Microchip-MPLAB-Harmony/net/tree/v3.7.0)
 - [Harmony net_apps_pic32mz demo apps repositories, 3.7.0](https://github.com/Microchip-MPLAB-Harmony/net_apps_pic32mz/tree/v3.7.0)
 
