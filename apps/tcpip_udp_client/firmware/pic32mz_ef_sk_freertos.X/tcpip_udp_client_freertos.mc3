@@ -7584,7 +7584,7 @@
   &lt;core dnOrder=&quot;0&quot; id=&quot;XC32_HEAP_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;1024&quot;/&gt;
-      &lt;User dnOrder=&quot;1&quot; value=&quot;76960&quot;/&gt;
+      &lt;User dnOrder=&quot;1&quot; value=&quot;126959&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -13131,7 +13131,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\driver\ethphy\src\dynamic\drv_extphy_regs.h</file>
-         <hash>f86abe844bea011040ca6705895d34f1106aa53cf875bde5bc4fb9d608a9bf29</hash>
+         <hash>8b304230ccee2b2aef3b92eef3c004c938e81432844db5fb0db127986a811e9f</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\dnss.h</file>
@@ -13207,7 +13207,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\tcpip_mac.h</file>
-         <hash>218593a61106f8271a1f93a33124f01482c46982a7b70fa29a4916045e466599</hash>
+         <hash>7137ed6478803b511ada20f717583d7168e680c784b6d6c42dbaa75e4b928ea1</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\peripheral\gpio\plib_gpio.h</file>
@@ -13299,7 +13299,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\src\tcpip_mac_bridge_private.h</file>
-         <hash>4f94e7c23deb567c6717c1e790d8dd779ce85835dfb3b28f104e0460f8b90dcb</hash>
+         <hash>8a616af6e5e81b37d32df4a326d20d6f52e91a2053211a6abf2ec9391ef2b2a3</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\src\dnss_private.h</file>
@@ -13523,7 +13523,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\driver\ethphy\src\drv_ethphy_local.h</file>
-         <hash>d2fca30512453811bb11b4cfff6e0bf937a0fe5afc2698a5ba1440f6346b7620</hash>
+         <hash>3f19a0efd23df04cc9ba8e7359d01372236eed0688979ea00507b429c6c9c698</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\sys_tasks.h</file>
@@ -13675,7 +13675,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\definitions.h</file>
-         <hash>1a9f6306a05eeab6a949aff04e88681057cea52897113a24a63873ad71ead666</hash>
+         <hash>d0a671987daec7bbc16ac6c88ccb4d2e9370c893fb0203ed15a59969f8c421b7</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\driver\ethmac\src\dynamic\drv_eth_pic32_lib.c</file>
@@ -13771,7 +13771,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\driver\ethphy\src\dynamic\drv_ethphy.c</file>
-         <hash>c3d2f4da008b8ad990932fc3fd4f5842d1ce6b3ecf6d05a396fbc5f89604febd</hash>
+         <hash>f9b6cd771128c5a2f0568dbac64f8d5429a023e61052d8b587a16059d97c463f</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\src\smtpc_private.h</file>
