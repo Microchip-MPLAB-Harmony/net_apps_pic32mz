@@ -4,14 +4,14 @@
 
 
 project: berkeley_udp_client
-creation_date: 2023-12-19T03:54:39.639+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2023-12-19T15:03:52.728-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mcc_mode: IDE            # [IDE|Standalone|Headless]
 mcc_version: v5.3.7
 mcc_core_version: v5.5.7
 mplabx_version: v6.15        # if MPLAB X plugin only
 harmony_version: v1.3.2
-compiler: XC32 (v4.35)
+compiler: XC32 (v4.35) 
 
 modules:
     - {name: "core", version: "v3.13.1"}
@@ -22,3 +22,4 @@ modules:
     - {name: "bsp", version: "v3.17.0"}
     - {name: "crypto", version: "v3.8.1"}
     - {name: "CMSIS-FreeRTOS", version: "v10.5.1"}
+
