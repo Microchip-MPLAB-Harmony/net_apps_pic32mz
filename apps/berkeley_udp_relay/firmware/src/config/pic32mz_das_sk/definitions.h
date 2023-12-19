@@ -71,9 +71,9 @@
 #include "net_pres/pres/net_pres_encryptionproviderapi.h"
 #include "net_pres/pres/net_pres_transportapi.h"
 #include "net_pres/pres/net_pres_socketapi.h"
-#include "bsp/bsp.h"
 #include "system/console/sys_console.h"
 #include "system/console/src/sys_console_uart_definitions.h"
+#include "bsp/bsp.h"
 #include "app.h"
 
 
