@@ -1,328 +1,296 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html
-  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE11" /><meta name="copyright" content="(C) Copyright 2022" />
-<meta name="DC.rights.owner" content="(C) Copyright 2022" />
-<meta name="DC.type" content="topic" />
-<meta name="DC.title" content="TCP/IP Berkeley TCP Server" />
-<meta name="DC.relation" scheme="URI" content="GUID-E3619664-D1A4-427D-A50A-7CBF1634F410.html" />
-<meta name="DC.format" content="XHTML" />
-<meta name="DC.identifier" content="tcpip-berkeley-tcp-server" />
-<link rel="stylesheet" type="text/css" href="stylesheets/commonltr.css" />
-<link rel="stylesheet" type="text/css" href="stylesheets/atmel.css" />
-<link rel="stylesheet" type="text/css" href="./stylesheets/common-extended.css" /><title>TCP/IP Berkeley TCP Server</title>
-<meta name="Microsoft.Help.Id" content="GUID-BCD81BDF-C95E-4AE9-9BD2-480503C8438E-tcpip-berkeley-tcp-server" />
-<meta name="Microsoft.Help.TocParent" content="GUID-BCD81BDF-C95E-4AE9-9BD2-480503C8438E" />
-<meta name="Microsoft.Help.TocOrder" content="0" />
-<meta name="Microsoft.Help.Locale" content="en-US" />
-<meta name="Microsoft.Help.TopicLocale" content="en-US" />
-<meta name="Microsoft.Help.DisplayVersion" content="MPLAB® Harmony TCP/IP Application for PIC32MZ Family Reference A 11/2021" />
-<script language="javascript">
-       
-       if (window.parent.location.protocol != 'file:') {
-				document.addEventListener('click', function(e) {
-				    if (e.target) {
-               if (e.target.nodeName == "A" ) {
-                    if (!e.target.target) {
-                      e.preventDefault();
-                      e.stopPropagation();
-                              
-                      var origUrl = window.parent.location.href.substr(0, window.parent.location.href.indexOf("?"));
-                      if (origUrl.length === 0) {
-                          origUrl = window.parent.location.href;
-                      }
-                      var href= e.target.getAttribute("href");
-                      var parts = href.split("#");
-          
-                      var url = "";
-                      if (parts.length == 2 ) {
-                        if (!parts[0].length) {
-                            url = window.parent.location.search.replace('?','')
-                        } else {
-                            url = parts[0].replace('.html','');
-                        }
-                      } else {
-                        url = parts[0].replace('.html','');
-                      }
-
-                      if (parts.length == 2) {
-                          url += "#" + parts[1];
-                      }
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" data-whc_version="24.1">
+    <head><link rel="shortcut icon" href="oxygen-webhelp\template\resources/images/favicon.ico"/><link rel="icon" href="oxygen-webhelp\template\resources/images/favicon.ico"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="The Berkeley TCP Server configuration demonstrates creating a creating a network server that uses the Berkeley API to create a TCP/IP echo server on port 9760. TCP/IP Berkeley TCP Server MCC ..."/><meta name="copyright" content="(C) Copyright 2023"/><meta name="generator" content="DITA-OT"/><title>1.2 TCP/IP Berkeley TCP Server</title><!--  Generated with Oxygen version 24.1, build number 2022062014.  --><meta name="wh-path2root" content=""/><meta name="wh-toc-id" content="&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;&lt;?workdir /D:\InfoShare\Data\Publish\Data\3vwkanla3yd\work\temp?&gt;&lt;?workdir-uri file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/temp/?&gt;&lt;?path2project?&gt;&lt;?path2project-uri ./?&gt;&lt;?path2rootmap-uri ./?&gt;&lt;topic xmlns:dita-ot=&#34;http://dita-ot.sourceforge.net/ns/201007/dita-ot&#34; xmlns:ditaarch=&#34;http://dita.oasis-open.org/architecture/2005/&#34; class=&#34;- topic/topic &#34; ditaarch:DITAArchVersion=&#34;2.0&#34; specializations=&#34;@props/audience @props/deliveryTarget @props/otherprops @props/platform @props/product&#34; id=&#34;tcpip-berkeley-tcp-server&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;topic:1;184:15&#34; domains=&#34;a(props audience) a(props deliveryTarget) a(props otherprops) a(props platform) a(props product)&#34;&gt;&lt;title class=&#34;- topic/title &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;title:1;184:15&#34;&gt;TCP/IP Berkeley TCP Server&lt;/title&gt;&lt;body class=&#34;- topic/body &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;body:1;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:1;184:15&#34;&gt;The Berkeley TCP Server configuration demonstrates creating a creating a network server that uses the Berkeley API to create a TCP/IP echo server on port 9760.&lt;/p&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:2;184:15&#34;&gt;&lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:1;184:15&#34;&gt;TCP/IP Berkeley TCP Server MCC Configuration&lt;/b&gt;&lt;/p&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:3;184:15&#34;&gt;The following Project Graph diagram shows the Harmony components included in the Berkeley TCP Server application demonstration.&lt;/p&gt;&lt;ul class=&#34;- topic/ul &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;ul:1;184:15&#34;&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:1;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:4;184:15&#34;&gt;MCC is launched by selecting Tools &amp;gt; Embedded &amp;gt; MPLAB® Code Configurator from the MPLAB X IDE and after opening the project, TCP/IP demo project is ready to be configured and regenerated.&lt;/p&gt;&lt;/li&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:2;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:5;184:15&#34;&gt;&lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:2;184:15&#34;&gt;TCP/IP Root Layer Project Graph&lt;/b&gt;&lt;/p&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:6;184:15&#34;&gt;The root layer project shows that UART2 peripheral is selected to do read and write operation for TCP/IP commands.&lt;/p&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:7;184:15&#34;&gt;This is the basic configuration with SYS_CONSOLE, SYS_DEBUG and SYS_COMMAND modules. These modules are required for TCP/IP command execution.&lt;/p&gt;&lt;image class=&#34;- topic/image &#34; href=&#34;GUID-AF4F4B05-AC27-42FC-BC78-008DB153D192-low.png&#34; placement=&#34;break&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;image:1;184:15&#34; dita-ot:image-width=&#34;647&#34; dita-ot:image-height=&#34;584&#34; dita-ot:horizontal-dpi=&#34;96&#34; dita-ot:vertical-dpi=&#34;96&#34;&gt;&lt;alt class=&#34;- topic/alt &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;alt:1;184:15&#34;&gt;tcpip_pic32mz_project&lt;/alt&gt;&lt;/image&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:8;184:15&#34;&gt;&lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:3;184:15&#34;&gt;NOTE&lt;/b&gt; - The above diagram contains &lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:4;184:15&#34;&gt;FreeRTOS&lt;/b&gt; component and that is required for RTOS application. For bare-metal(non-RTOS) &lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:5;184:15&#34;&gt;FreeRTOS&lt;/b&gt; component shouldn't be selected.&lt;/p&gt;&lt;/li&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:3;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:9;184:15&#34;&gt;&lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:6;184:15&#34;&gt;TCP/IP Configuration&lt;/b&gt;&lt;/p&gt;&lt;ul class=&#34;- topic/ul &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;ul:2;184:15&#34;&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:4;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:10;184:15&#34;&gt;&lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:7;184:15&#34;&gt;PIC32MZ DA Starter Kit&lt;/b&gt; / &lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:8;184:15&#34;&gt;PIC32MZ EF Starter Kit&lt;/b&gt; &lt;image class=&#34;- topic/image &#34; href=&#34;GUID-F214ED1F-8B4D-45E4-90BC-2C81B6A42F02-low.png&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;image:2;184:15&#34; dita-ot:image-width=&#34;850&#34; dita-ot:image-height=&#34;637&#34; dita-ot:horizontal-dpi=&#34;96&#34; dita-ot:vertical-dpi=&#34;96&#34;&gt;&lt;alt class=&#34;- topic/alt &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;alt:2;184:15&#34;&gt;tcpip_pic32mz_project&lt;/alt&gt;&lt;/image&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:5;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:11;184:15&#34;&gt;&lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:9;184:15&#34;&gt;TCP/IP Required Application&lt;/b&gt;&lt;/p&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:12;184:15&#34;&gt;TCP/IP demo use these application module components for this demo.&lt;/p&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:13;184:15&#34;&gt;&lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:10;184:15&#34;&gt;Berkeley API&lt;/b&gt; module provides the Berkeley_Socket_Distribution (BSD) wrapper to the native Microchip TCP/IP Stack APIs. During this component selection, the required transport and network modules are also selected.&lt;/p&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:14;184:15&#34;&gt;&lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:11;184:15&#34;&gt;DHCP Client&lt;/b&gt; module to discover the IPv4 address from the nearest DHCP Server.&lt;/p&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:15;184:15&#34;&gt;&lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:12;184:15&#34;&gt;DNS Client&lt;/b&gt; provides DNS resolution capabilities to the stack.&lt;/p&gt;&lt;/li&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:6;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:16;184:15&#34;&gt;&lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:13;184:15&#34;&gt;TCP/IP Data Link Layer&lt;/b&gt;&lt;/p&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:17;184:15&#34;&gt;&lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:14;184:15&#34;&gt;Internal ethernet driver(ethmac)&lt;/b&gt; is enabled with the external &lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:15;184:15&#34;&gt;LAN8740 PHY driver&lt;/b&gt; library for both the starter kits. The MIIM Driver supports asynchronous read/write and scan operations for accessing the external PHY registers and notification when MIIM operations have completed.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:18;184:15&#34;&gt;&lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:16;184:15&#34;&gt;TCP/IP Berkeley TCP Server Hardware Configuration&lt;/b&gt;&lt;/p&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:19;184:15&#34;&gt;This section describes the hardware configuration for PIC32MZ DA/EF Starter Kit and one can be used for the respective application demonstration.&lt;/p&gt;&lt;ol class=&#34;- topic/ol &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;ol:1;184:15&#34;&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:7;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:20;184:15&#34;&gt;This section describes the &lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:17;184:15&#34;&gt;PIC32MZ DA Starter Kit&lt;/b&gt; default hardware configuration which uses the &lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:18;184:15&#34;&gt;on-board debugger and programmer&lt;/b&gt; for this application demonstration.&lt;/p&gt;&lt;ul class=&#34;- topic/ul &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;ul:3;184:15&#34;&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:8;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:21;184:15&#34;&gt;Refer to the PIC32MZ DA Starter Kit &lt;xref class=&#34;- topic/xref &#34; href=&#34;https://ww1.microchip.com/downloads/en/DeviceDoc/70005311A.pdf&#34; format=&#34;pdf&#34; scope=&#34;external&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;xref:1;184:15&#34;&gt;&lt;?ditaot usertext?&gt;User Guide&lt;/xref&gt; for the programming/debugging options supported &amp;amp; setting up the hardware.&lt;/p&gt;&lt;image class=&#34;- topic/image &#34; href=&#34;GUID-B6C027B9-F243-4157-830F-84E25CD694F2-low.png&#34; placement=&#34;break&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;image:3;184:15&#34; dita-ot:image-width=&#34;900&#34; dita-ot:image-height=&#34;491&#34; dita-ot:horizontal-dpi=&#34;96&#34; dita-ot:vertical-dpi=&#34;96&#34;&gt;&lt;alt class=&#34;- topic/alt &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;alt:3;184:15&#34;&gt;required_hardware&lt;/alt&gt;&lt;/image&gt;&lt;/li&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:9;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:22;184:15&#34;&gt;Connect micro USB cable from the computer to the DEBUG USB connector(J19) on the PIC32MZ DA Starter Kit&lt;/p&gt;&lt;/li&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:10;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:23;184:15&#34;&gt;Connect micro USB cable from the computer to the USB-UART connector(J5) on the PIC32MZ DA Starter Kit&lt;/p&gt;&lt;/li&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:11;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:24;184:15&#34;&gt;Establish a connection between the router/switch with the PIC32MZ DA Starter Kit through the RJ45 connector on PHY daughter board&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:12;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:25;184:15&#34;&gt;This section describes the &lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:19;184:15&#34;&gt;PIC32MZ EF Starter Kit&lt;/b&gt; default hardware configuration which uses the &lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:20;184:15&#34;&gt;on-board debugger and programmer&lt;/b&gt; for this application demonstration.&lt;/p&gt;&lt;ul class=&#34;- topic/ul &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;ul:4;184:15&#34;&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:13;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:26;184:15&#34;&gt;Refer to the PIC32MZ EF Starter Kit &lt;xref class=&#34;- topic/xref &#34; href=&#34;https://ww1.microchip.com/downloads/en/devicedoc/70005230b.pdf&#34; format=&#34;pdf&#34; scope=&#34;external&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;xref:2;184:15&#34;&gt;&lt;?ditaot usertext?&gt;User Guide&lt;/xref&gt; for the programming/debugging options supported &amp;amp; setting up the hardware.&lt;/p&gt;&lt;image class=&#34;- topic/image &#34; href=&#34;GUID-D271A617-441D-4CA4-B92C-BCD1DF80C669-low.png&#34; placement=&#34;break&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;image:4;184:15&#34; dita-ot:image-width=&#34;817&#34; dita-ot:image-height=&#34;527&#34; dita-ot:horizontal-dpi=&#34;120&#34; dita-ot:vertical-dpi=&#34;120&#34;&gt;&lt;alt class=&#34;- topic/alt &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;alt:4;184:15&#34;&gt;required_hardware&lt;/alt&gt;&lt;/image&gt;&lt;/li&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:14;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:27;184:15&#34;&gt;Connect the mini USB cable from the computer to the USB DEBUG connector on the PIC32MZ EF Starter Kit&lt;/p&gt;&lt;/li&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:15;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:28;184:15&#34;&gt;Connect the mini USB cable from the computer to the USB-UART connector on the PIC32MZ EF Starter Kit&lt;/p&gt;&lt;/li&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:16;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:29;184:15&#34;&gt;Establish a connection between the router/switch with the PIC32MZ EF Starter Kit through the RJ45 connector on PHY daughter board&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ol&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:30;184:15&#34;&gt;&lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:21;184:15&#34;&gt;TCP/IP Berkeley TCP Server Running Application&lt;/b&gt;&lt;/p&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:31;184:15&#34;&gt;This table list the name and location of the MPLAB X IDE project folder for the demonstration.&lt;/p&gt;&lt;table class=&#34;- topic/table &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;table:1;184:15&#34;&gt;&lt;tgroup class=&#34;- topic/tgroup &#34; cols=&#34;4&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;tgroup:1;184:15&#34;&gt;&lt;colspec class=&#34;- topic/colspec &#34; colname=&#34;col1&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;colspec:1;184:15&#34; colnum=&#34;1&#34;/&gt;&lt;colspec class=&#34;- topic/colspec &#34; colname=&#34;col2&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;colspec:2;184:15&#34; colnum=&#34;2&#34;/&gt;&lt;colspec class=&#34;- topic/colspec &#34; colname=&#34;col3&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;colspec:3;184:15&#34; colnum=&#34;3&#34;/&gt;&lt;colspec class=&#34;- topic/colspec &#34; colname=&#34;col4&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;colspec:4;184:15&#34; colnum=&#34;4&#34;/&gt;&lt;thead class=&#34;- topic/thead &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;thead:1;184:15&#34;&gt;&lt;row class=&#34;- topic/row &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;row:1;184:15&#34;&gt;&lt;entry class=&#34;- topic/entry &#34; align=&#34;center&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;entry:1;184:15&#34; colname=&#34;col1&#34; dita-ot:x=&#34;1&#34; dita-ot:y=&#34;1&#34;&gt;Project Name&lt;/entry&gt;&lt;entry class=&#34;- topic/entry &#34; align=&#34;center&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;entry:2;184:15&#34; colname=&#34;col2&#34; dita-ot:x=&#34;2&#34; dita-ot:y=&#34;1&#34;&gt;Target Device&lt;/entry&gt;&lt;entry class=&#34;- topic/entry &#34; align=&#34;center&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;entry:3;184:15&#34; colname=&#34;col3&#34; dita-ot:x=&#34;3&#34; dita-ot:y=&#34;1&#34;&gt;Target Development Board&lt;/entry&gt;&lt;entry class=&#34;- topic/entry &#34; align=&#34;center&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;entry:4;184:15&#34; colname=&#34;col4&#34; dita-ot:x=&#34;4&#34; dita-ot:y=&#34;1&#34;&gt;Description&lt;/entry&gt;&lt;/row&gt;&lt;/thead&gt;&lt;tbody class=&#34;- topic/tbody &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;tbody:1;184:15&#34;&gt;&lt;row class=&#34;- topic/row &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;row:2;184:15&#34;&gt;&lt;entry class=&#34;- topic/entry &#34; align=&#34;center&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;entry:5;184:15&#34; colname=&#34;col1&#34; dita-ot:x=&#34;1&#34; dita-ot:y=&#34;2&#34;&gt;pic32mz_das_sk.X&lt;/entry&gt;&lt;entry class=&#34;- topic/entry &#34; align=&#34;center&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;entry:6;184:15&#34; colname=&#34;col2&#34; dita-ot:x=&#34;2&#34; dita-ot:y=&#34;2&#34;&gt;PIC32MZ2064DAS169&lt;/entry&gt;&lt;entry class=&#34;- topic/entry &#34; align=&#34;center&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;entry:7;184:15&#34; colname=&#34;col3&#34; dita-ot:x=&#34;3&#34; dita-ot:y=&#34;2&#34;&gt;PIC32MZ DA Starter Kit&lt;/entry&gt;&lt;entry class=&#34;- topic/entry &#34; align=&#34;center&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;entry:8;184:15&#34; colname=&#34;col4&#34; dita-ot:x=&#34;4&#34; dita-ot:y=&#34;2&#34;&gt;Demonstrates the Berkeley TCP Server on development board with PIC32MZ2064DAS169 device and LAN8740 PHY daughter board. This implementation is based on bare-metal(non-RTOS).&lt;/entry&gt;&lt;/row&gt;&lt;row class=&#34;- topic/row &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;row:3;184:15&#34;&gt;&lt;entry class=&#34;- topic/entry &#34; align=&#34;center&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;entry:9;184:15&#34; colname=&#34;col1&#34; dita-ot:x=&#34;1&#34; dita-ot:y=&#34;3&#34;&gt;pic32mz_das_sk_freertos.X&lt;/entry&gt;&lt;entry class=&#34;- topic/entry &#34; align=&#34;center&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;entry:10;184:15&#34; colname=&#34;col2&#34; dita-ot:x=&#34;2&#34; dita-ot:y=&#34;3&#34;&gt;PIC32MZ2064DAS169&lt;/entry&gt;&lt;entry class=&#34;- topic/entry &#34; align=&#34;center&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;entry:11;184:15&#34; colname=&#34;col3&#34; dita-ot:x=&#34;3&#34; dita-ot:y=&#34;3&#34;&gt;PIC32MZ DA Starter Kit&lt;/entry&gt;&lt;entry class=&#34;- topic/entry &#34; align=&#34;center&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;entry:12;184:15&#34; colname=&#34;col4&#34; dita-ot:x=&#34;4&#34; dita-ot:y=&#34;3&#34;&gt;Demonstrates the Berkeley TCP Server on development board with PIC32MZ2064DAS169 device and LAN8740 PHY daughter board. This implementation is based on FreeRTOS.&lt;/entry&gt;&lt;/row&gt;&lt;row class=&#34;- topic/row &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;row:4;184:15&#34;&gt;&lt;entry class=&#34;- topic/entry &#34; align=&#34;center&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;entry:13;184:15&#34; colname=&#34;col1&#34; dita-ot:x=&#34;1&#34; dita-ot:y=&#34;4&#34;&gt;pic32mz_ef_sk_freertos.X&lt;/entry&gt;&lt;entry class=&#34;- topic/entry &#34; align=&#34;center&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;entry:14;184:15&#34; colname=&#34;col2&#34; dita-ot:x=&#34;2&#34; dita-ot:y=&#34;4&#34;&gt;PIC32MZ2048EFH144&lt;/entry&gt;&lt;entry class=&#34;- topic/entry &#34; align=&#34;center&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;entry:15;184:15&#34; colname=&#34;col3&#34; dita-ot:x=&#34;3&#34; dita-ot:y=&#34;4&#34;&gt;PIC32MZ EF Starter Kit&lt;/entry&gt;&lt;entry class=&#34;- topic/entry &#34; align=&#34;center&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;entry:16;184:15&#34; colname=&#34;col4&#34; dita-ot:x=&#34;4&#34; dita-ot:y=&#34;4&#34;&gt;Demonstrates the Berkeley TCP Server on development board with PIC32MZ2048EFH144 device and LAN8740 PHY daughter board. This implementation is based on FreeRTOS.&lt;/entry&gt;&lt;/row&gt;&lt;/tbody&gt;&lt;/tgroup&gt;&lt;/table&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:32;184:15&#34;&gt;&lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:22;184:15&#34;&gt;Running Demonstration Steps&lt;/b&gt;&lt;/p&gt;&lt;ol class=&#34;- topic/ol &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;ol:2;184:15&#34;&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:17;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:33;184:15&#34;&gt;Build and download the demonstration project on the target board.&lt;/p&gt;&lt;/li&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:18;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:34;184:15&#34;&gt;If the board has a UART connection:&lt;/p&gt;&lt;ol class=&#34;- topic/ol &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;ol:3;184:15&#34;&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:19;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:35;184:15&#34;&gt;A virtual COM port will be detected on the computer, when the USB cable is connected to USB-UART connector.&lt;/p&gt;&lt;/li&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:20;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:36;184:15&#34;&gt;Open a standard terminal application on the computer (like Hyper-terminal or Tera Term) and configure the virtual COM port.&lt;/p&gt;&lt;/li&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:21;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:37;184:15&#34;&gt;Set the serial baud rate to 115200 baud in the terminal application.&lt;/p&gt;&lt;/li&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:22;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:38;184:15&#34;&gt;See that the initialization prints on the serial port terminal.&lt;/p&gt;&lt;/li&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:23;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:39;184:15&#34;&gt;When the DHCP client is enabled in the demonstration, wait for the DHCP server to assign an IP address for the development board. This will be printed on the serial port terminal.&lt;/p&gt;&lt;ul class=&#34;- topic/ul &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;ul:5;184:15&#34;&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:24;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:40;184:15&#34;&gt;Alternatively: Use the Announce service or ping to get the IP address of the board.&lt;/p&gt;&lt;/li&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:25;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:41;184:15&#34;&gt;Run &lt;b class=&#34;+ topic/ph hi-d/b &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;b:23;184:15&#34;&gt;tcpip_discoverer.jar&lt;/b&gt; to discover the IPv4 and IPv6 address for the board.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/li&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:26;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:42;184:15&#34;&gt;Execution :&lt;/p&gt;&lt;ol class=&#34;- topic/ol &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;ol:4;184:15&#34;&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:27;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:43;184:15&#34;&gt;As soon as a valid IP address is assigned through the DHCP to the demonstration, it is ready to accept a TCP/IP connection on port 9760.&lt;/p&gt;&lt;image class=&#34;- topic/image &#34; href=&#34;GUID-1D2E74CA-B131-46FF-AC98-0EA373B603E2-low.png&#34; placement=&#34;break&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;image:5;184:15&#34; dita-ot:image-width=&#34;571&#34; dita-ot:image-height=&#34;330&#34; dita-ot:horizontal-dpi=&#34;96&#34; dita-ot:vertical-dpi=&#34;96&#34;&gt;&lt;alt class=&#34;- topic/alt &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;alt:5;184:15&#34;&gt;tcpip_pic32mz_project&lt;/alt&gt;&lt;/image&gt;&lt;/li&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:28;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:44;184:15&#34;&gt;Send a TCP packet to the IP address of the hardware board using port 9760 from any TCP Client application running on the computer.&lt;/p&gt;&lt;/li&gt;&lt;li class=&#34;- topic/li &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;li:29;184:15&#34;&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:45;184:15&#34;&gt;The TCP Server demonstration running on the hardware board will echo back everything it receives along the connection.&lt;/p&gt;&lt;p class=&#34;- topic/p &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;p:46;184:15&#34;&gt;The expected output -&lt;/p&gt;&lt;image class=&#34;- topic/image &#34; href=&#34;GUID-1576440F-E8BE-43AD-8CC3-0351CE949E4E-low.png&#34; placement=&#34;break&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;image:6;184:15&#34; dita-ot:image-width=&#34;900&#34; dita-ot:image-height=&#34;309&#34; dita-ot:horizontal-dpi=&#34;96&#34; dita-ot:vertical-dpi=&#34;96&#34;&gt;&lt;alt class=&#34;- topic/alt &#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md&#34; xtrc=&#34;alt:6;184:15&#34;&gt;tcpip_pic32mz_project&lt;/alt&gt;&lt;/image&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;related-links class=&#34;- topic/related-links &#34;&gt;&lt;linkpool class=&#34;- topic/linkpool &#34; mapkeyref=&#34;GUID-E28269E6-790E-4209-B81F-40930E771ED4&#34; xtrc=&#34;topicref:3;6:402&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-E28269E6-790E-4209-B81F-40930E771ED4.ditamap&#34;&gt;&lt;link class=&#34;- topic/link &#34; format=&#34;dita&#34; href=&#34;GUID-E3619664-D1A4-427D-A50A-7CBF1634F410.md&#34; mapclass=&#34;- map/topicref &#34; role=&#34;parent&#34; scope=&#34;local&#34; type=&#34;topic&#34; xtrc=&#34;topicref:1;6:99&#34; xtrf=&#34;file:/D:/InfoShare/Data/Publish/Data/3vwkanla3yd/work/1/en-US/GUID-E28269E6-790E-4209-B81F-40930E771ED4.ditamap&#34;&gt;&lt;?ditaot usertext?&gt;&lt;linktext class=&#34;- topic/linktext &#34;&gt;&lt;?ditaot gentext?&gt;MPLAB® Harmony 3 TCP/IP Application for PIC32MZ Family&lt;/linktext&gt;&lt;/link&gt;&lt;/linkpool&gt;&lt;/related-links&gt;&lt;/topic&gt;"/><meta name="wh-source-relpath" content="GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.md"/><meta name="wh-out-relpath" content="GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.html"/>
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="./oxygen-webhelp/lib/bootstrap/css/bootstrap.min.css"/>
     
-                      window.parent.location.href = origUrl + "?" + url;
+    <link rel="stylesheet" href="./oxygen-webhelp/lib/jquery-ui/jquery-ui.min.css"/>
+    
+    <!-- Template default styles  -->
+    <link rel="stylesheet" type="text/css" href="./oxygen-webhelp/app/topic-page.css?buildId=2022062014"/>
+    
+    
+    <script src="./oxygen-webhelp/lib/jquery/jquery-3.5.1.min.js"></script>
+    
+    <script data-main="./oxygen-webhelp/app/topic-page.js" src="./oxygen-webhelp/lib/requirejs/require.js"></script>
+<link rel="stylesheet" type="text/css" href="oxygen-webhelp/template/microchip.css?buildId=2022062014"/><link rel="stylesheet" type="text/css" href="oxygen-webhelp/template/notes.css?buildId=2022062014"/>
+<script src="mchp-context-help.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async="" type="text/javascript"></script>
+    <script src="https://assets.adobedtm.com/6a72a357eb48/a636c708c7fe/launch-0b0023397020.min.js"></script><!-- Adobe Analytics -->
+</head>
 
-                      return false;
-                    }
-               }
-            }
-				});
-			}
+    <body id="tcpip-berkeley-tcp-server" class="wh_topic_page frmBody">
+        <a href="#wh_topic_body" class="sr-only sr-only-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid">
+        <div class="wh_header_flex_container navbar-nav navbar-expand-md navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    <a href="index.html" class=" wh_logo d-none d-sm-block "><img src="oxygen-webhelp\template\resources/images/microchip.png" alt="MPLAB® Harmony TCP/IP Application for PIC32MZ Family "/></a>
+                    <div class=" wh_publication_title "><a href="index.html">MPLAB® Harmony TCP/IP Application for PIC32MZ Family </a></div>
+                    
+                </div>
+                
+                
+            </div>
 
-		</script><script language="javascript">
-        function cpy(id, button) {
-        
-            var element = document.getElementById(id);
-            var content = element.getAttribute("content");
-            var textArea = document.createElement("textarea");
-            
-            // Place in the top-left corner of screen regardless of scroll position.
-            textArea.style.position = 'fixed';
-            textArea.style.top = 0;
-            textArea.style.left = 0;
-            
-            // Ensure it has a small width and height. Setting to 1px / 1em
-            // doesn't work as this gives a negative w/h on some browsers.
-            textArea.style.width = '2em';
-            textArea.style.height = '2em';
-            
-            // We don't need padding, reducing the size if it does flash render.
-            textArea.style.padding = 0;
-            
-            // Clean up any borders.
-            textArea.style.border = 'none';
-            textArea.style.outline = 'none';
-            textArea.style.boxShadow = 'none';
-            
-            // Avoid flash of the white box if rendered for any reason.
-            textArea.style.background = 'transparent';
-            
-            
-            textArea.value = content;
-            
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
-            
-            try {
-               var successful = document.execCommand('copy');
-               var msg = successful ? 'successful' : 'unsuccessful';
-               if (!button.classList.contains("copied")){
-                  button.textContent = "Copied";
-                  button.classList.add("copied");
-                  setTimeout(function(){
-                    button.textContent = "Copy";
-                    button.classList.remove("copied");
-                  },1000);
-               }
-            } catch (err) {
-              console.log('Oops, unable to copy');
-            }
-            
-            document.body.removeChild(textArea);
-        }
-      </script><script language="javascript">
-          
-          // Add the MathML namespace to html
-          var html = document.getElementsByTagName("html")[0],
-          head = document.getElementsByTagName("head")[0];
-          
-          var mathJax = document.createElement("script");
-          mathJax.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML";
-          head.appendChild(mathJax);
-          
-          html.setAttribute("xmlns:m","http://www.w3.org/1998/Math/MathML");
-          
-          function inIframe() { try { return window.self !== window.top; } catch (e) { return true; } }
-          
-          if (!inIframe()) { 
-          
-          var Default = "index.html?GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0"; 
-          
-          var displaylocation = "value" + window.location.href;
-          
-          var GUIDS = displaylocation.split('GUID');          
-          
-          if (displaylocation.indexOf('#GUID') != -1) {            
-          var First = GUIDS[1].split('.html');  
-          if (GUIDS[3]){First = GUIDS[2].split('.html');}
-          if (GUIDS[4]){First = GUIDS[3].split('.html');}
-          if (GUIDS[5]){First = GUIDS[4].split('.html');}
-          
-          var Second = GUIDS[2].split('#');   
-          if (GUIDS[3]){Second = GUIDS[3].split('#');}
-          if (GUIDS[4]){Second = GUIDS[4].split('#');}
-          if (GUIDS[5]){Second = GUIDS[5].split('#');}
-          
-          Default = "index.html?" + "GUID" + First[0] + "GUID" + Second[0];     
-          }                    
-          window.top.location = Default;
-          }       
-          
-        </script><style xml:space="">
-        
-          button.copy-code{
-            display:none;
-            padding:0.7em 1.4em;
-            margin:0 0.3em 0.3em 0;
-            border-radius:0.15em;
-            box-sizing: border-box;
-            text-decoration:none;
-            font-family:'Roboto',sans-serif;
-            text-transform:uppercase;
-            font-weight:400;
-            color:#FFFFFF;
-            background-color:#9c9c9c;
-            box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
-            text-align:center;
-            position:relative;
-            border: 0;
-            float: right;
-            border-radius: .5em;
-            cursor: pointer;
-          }
-          button.copy-code:active{
-            top:0.1em;
-          }
-          
-          pre:hover button.copy-code{
-            display: inline-block !important;
-          }
-          button.copy-code.copied {
-            cursor: default !important;
-          }
-          
-          
-          @media all and (max-width:30em){
-            button.copy-code{
-              display:block;
-              margin:0.4em auto;
-            }
-          }
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</header>
         
         
-      </style></head>
-<body id="tcpip-berkeley-tcp-server">
-<h1 class="title topictitle1" id="ariaid-title1">TCP/IP Berkeley TCP Server</h1><div class="body"><p class="p">The Berkeley TCP Server configuration demonstrates creating a  creating a network server that uses the Berkeley API to create a TCP/IP echo server on port 9760.</p>
-<p class="p"><strong class="ph b">TCP/IP Berkeley TCP Server MHC Configuration</strong></p>
-<p class="p">The following Project Graph diagram shows the Harmony components included in the TCP Server application demonstration.</p>
-<ul class="ul"><li class="li with-image"><p class="p">MHC is launched by selecting <strong class="ph b">Tools &gt; Embedded &gt; MPLAB® Harmony 3 Configurator</strong> from the MPLAB X IDE and after successful database migration , TCP/IP demo project is ready to be configured and regenerated.</p>
-<br /><img class="image" src="GUID-9B937DEB-C777-4C34-A7F8-2996E32EE5E1-low.png" alt="tcpip_pic32mz_project" /><br /></li>
-<li class="li with-image"><p class="p"><strong class="ph b">TCP/IP Root Layer Project Graph</strong></p>
-<p class="p">The root layer project shows that UART2 peripheral is selected to do read and write operation for TCP/IP commands.</p>
-<p class="p">This is the basic configuration with SYS_CONSOLE, SYS_DEBUG and SYS_COMMAND modules. These modules are required for TCP/IP command execution.</p>
-<br /><img class="image" src="GUID-A3F03F6D-ABD4-4BFA-822D-248EEFEAADD7-low.png" alt="tcpip_pic32mz_project" /><br /><p class="p"><strong class="ph b">FreeRTOS</strong> component is required for RTOS application. For bare-metal (non-RTOS) <strong class="ph b">FreeRTOS</strong> component should not be selected.</p>
-<p class="p"><strong class="ph b">NOTE</strong> - The above diagram contains <strong class="ph b">FreeRTOS</strong> component  and that is required for RTOS application. For bare-metal(non-RTOS) <strong class="ph b">FreeRTOS</strong> component shouldn't be selected.</p>
-<br /><img class="image" src="GUID-3D4D5D22-47FC-43D8-B74A-E055541ACA72-low.png" alt="tcpip_pic32mz_project" /><br /><p class="p">TCP sockets calculate the ISN using the wolfSSL crypto library.</p>
-</li>
-<li class="li with-image"><p class="p"><strong class="ph b">TCP/IP Required Application</strong></p>
-<p class="p">TCP/IP demo use these application module components for this demo.</p>
-<p class="p"><strong class="ph b">Announce</strong> module to discover the Microchip devices within a local network.</p>
-<p class="p"><strong class="ph b">DHCP Client</strong> module to discover the IPv4 address from the nearest DHCP Server.</p>
-<p class="p"><strong class="ph b">DNS Client</strong> provides DNS resolution capabilities to the stack.</p>
-<p class="p"><strong class="ph b">Berkeley API</strong>  module provides the Berkeley_Socket_Distribution (BSD) wrapper to the native Microchip TCP/IP Stack APIs. During this component selection, the required transport and network modules are also selected.</p>
-<br /><img class="image" src="GUID-4553439F-6CFF-4657-82EE-7CD532F1B8B9-low.png" alt="tcpip_pic32mz_project" /><br /></li>
-<li class="li with-image"><p class="p"><strong class="ph b">TCPIP Driver Layer</strong></p>
-<p class="p"><strong class="ph b">Internal ethernet driver(ethmac)</strong> is enabled with the external <strong class="ph b">LAN8740 PHY driver</strong> library. The MIIM Driver supports asynchronous read/write and scan operations for accessing the external PHY registers and notification when MIIM operations have completed.</p>
-<br /><img class="image" src="GUID-060D07A9-FE8E-4381-9550-8D0F45A95323-low.png" alt="tcpip_pic32mz_project" /><br /></li>
-</ul>
-<p class="p"><strong class="ph b">TCP/IP Berkeley TCP Server Hardware Configuration</strong></p>
-<p class="p">This is the following section describes the hardware configurations for both PIC32MZ EF and DA devices. One of the configuration can be used for this application demonstration as per the microcontroller.</p>
-<ol class="ol"><li class="li"><span class="indent-level-default">1.</span><p class="p">This section describes the PIC32MZ EF device default hardware configuration use USB device as <strong class="ph b">on board debugger and programmer</strong> for this application demonstration.</p>
-<ul class="ul"><li class="li with-image"><p class="p">Refer to the PIC32MZ EF Ethernet Starter Kit <a class="xref" href="http://ww1.microchip.com/downloads/en/devicedoc/70005230b.pdf" target="_blank">User Guide</a></p>
-<br /><img class="image" src="GUID-D271A617-441D-4CA4-B92C-BCD1DF80C669-low.png" alt="reuired_hardware" /><br /></li>
-<li class="li"><p class="p">No hardware related configuration or jumper setting changes are necessary.
-Connect the mini USB cable from the computer to the USB DEBUG connector on the PIC32MZ EF Ethernet Starter Kit</p>
-</li>
-<li class="li"><p class="p">Connect the mini USB cable from the computer to the USB-UART connector on the PIC32MZ EF Starter Kit</p>
-</li>
-<li class="li"><p class="p">Establish a connection between the router/switch with the PIC32MZ EF Starter Kit through the RJ45 connector on PHY daughter board</p>
-</li>
-</ul>
-</li>
-<li class="li"><span class="indent-level-default">2.</span><p class="p">This section describes the PIC32MZ EF device hardware configuration with the combination of <strong class="ph b">RealICE, or ICD4</strong> and the Starter Kit I/O Expansion Board for debugging and programming for this application demonstration.</p>
-<br /><img class="image" src="GUID-3E034137-03DA-4203-92E9-90F1A606DE82-low.png" alt="reuired_hardware" /><br /><ul class="ul"><li class="li"><p class="p">Connect the 168 pin to 132 pin Starter Kit Adapter board to the Starter Kit I/O Expansion Board, optionally use a nylon nut and bolt to secure the two boards together</p>
-</li>
-<li class="li"><p class="p">Connect the PIC32MZ Extended Connectivity w/FPU (EF) Starter kit to the 168 pin to 132 pin Starter Kit Adapter board, optionally use a nylon nut and bolt to secure the two boards together</p>
-</li>
-<li class="li"><p class="p">Connect the RealICE, or ICD to the RJ-11 port on the Starter Kit I/O Expansion Board</p>
-</li>
-<li class="li"><p class="p">Connect a USB Mini-b (5 pin) cable to the DEBUG USB port
-connect an Ethernet cable to the Ethernet Port</p>
-</li>
-<li class="li"><p class="p">Connect the 9V power supply to the Starter Kit I/O Expansion Board</p>
-</li>
-</ul>
-</li>
-<li class="li"><span class="indent-level-default">3.</span><p class="p">This section describes the PIC32MZ DA device default hardware configuration use USB device as <strong class="ph b">on board debugger and programmer</strong> for this application demonstration.</p>
-<ul class="ul"><li class="li with-image"><p class="p">Refer to the PIC32MZ DA Ethernet Starter Kit <a class="xref" href="http://ww1.microchip.com/downloads/en/DeviceDoc/70005311A.pdf" target="_blank">User Guide</a> for the programming/debugging options supported.</p>
-<br /><img class="image" src="GUID-28BB3160-D05D-474F-9FC5-12320C46252A-low.png" alt="reuired_hardware" /><br /></li>
-<li class="li"><p class="p">No hardware related configuration or jumper setting changes are necessary.
-Connect the mini USB cable from the computer to the USB DEBUG connector on the PIC32MZ DA Ethernet Starter Kit</p>
-</li>
-<li class="li"><p class="p">Connect micro USB cable from the computer to the USB connector(J4) on the PIC32MZ DA Starter Kit</p>
-</li>
-<li class="li"><p class="p">Connect micro USB cable from the computer to the USB-UART connector(J5) on the PIC32MZ DA Starter Kit</p>
-</li>
-<li class="li"><p class="p">Establish a connection between the router/switch with the PIC32MZ DA Starter Kit through the RJ45 connector on PHY daughter board</p>
-</li>
-</ul>
-</li>
-</ol>
-<p class="p"><strong class="ph b">TCP/IP Berkeley TCP Server Running Application</strong></p>
-<p class="p">This table list the name and location of the MPLAB X IDE project folder for the demonstration.</p>
+         
+        
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="search.html"><div class="d-flex justify-contents-around"><div class="flex-grow-1"></div><div class="position-relative flex-grow-1"><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div><div class="align-self-center flex-grow-1 ml-2"></div></div></form>
+            
+            <div class="mchp-color-stripe-grid-container">
+  <div class="mchp-main-bar mchp-orange-bar"></div>
+  <div class="mchp-main-bar mchp-blue-bar"></div>
+  <div class="mchp-main-bar mchp-green-bar"></div>
+</div>
+            
+        </div>
+        
+        <div class="container-fluid" id="wh_topic_container">
+            <div class="row">
 
-<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><col style="width:" /><col style="width:" /><col style="width:" /><col style="width:" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d5303e197"><span>Project Name</span></th>
-<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d5303e199"><span>Target Device</span></th>
-<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d5303e201"><span>Target Development Board</span></th>
-<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d5303e203"><span>Description</span></th>
-</tr>
-</thead>
-<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e197 "><span>pic32mz_ef_sk_freertos.X</span></td>
-<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e199 "><span>PIC32MZ2048EFH144</span></td>
-<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e201 "><span>PIC32MZ EF Starter Kit</span></td>
-<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e203 "><span>Demonstrates the Berkeley TCP Server on development board with PIC32MZ2048EFH144 device and LAN8740 PHY daughter board. This implementation is based on FreeRTOS.</span></td>
-</tr>
-<tr class="row"><td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e197 "><span>pic32mz_da_sk</span></td>
-<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e199 "><span>PIC32MZ2064DAS169</span></td>
-<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e201 "><span>PIC32MZ DA Starter Kit</span></td>
-<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e203 "><span>Demonstrates the Berkeley TCP Server on development board with PIC32MZ2064DAS169 device and LAN8740 PHY daughter board. This implementation is based on bare-metal(non-RTOS).</span></td>
-</tr>
-<tr class="row"><td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e197 "><span>pic32mz_da_sk_freertos.X</span></td>
-<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e199 "><span>PIC32MZ2064DAS169</span></td>
-<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e201 "><span>PIC32MZ DA Starter Kit</span></td>
-<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d5303e203 "><span>Demonstrates the Berkeley TCP Server on development board with PIC32MZ2064DAS169 device and LAN8740 PHY daughter board. This implementation is based on FreeRTOS.</span></td>
-</tr>
-</tbody>
-</table>
+                <nav class="wh_tools d-print-none navbar-expand-md" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "><ol class="d-print-none"><li><span class="home"><a href="index.html"><span>Home</span></a></span></li><li><div class="topicref" data-id="mplab-harmony-3-tcpip-application-for-pic32mz-family"><div class="title"><a href="GUID-E3619664-D1A4-427D-A50A-7CBF1634F410.html"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1</ph>
+MPLAB® Harmony 3 TCP/IP Application for PIC32MZ Family</a></div></div></li><li class="active"><div class="topicref" data-id="tcpip-berkeley-tcp-server"><div class="title"><a href="GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.html"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.2</ph>
+TCP/IP Berkeley TCP Server</a></div></div></li></ol></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        
+                        
+                        
+                        
+                        <div class=" wh_print_link print d-none d-md-inline-block "><button onClick="window.print()" title="Print this page" aria-label="Print this page"></button></div>
+                        
+                        <button type="button" id="wh_toc_button" class="custom-toggler navbar-toggler collapsed wh_toggle_button navbar-light" aria-expanded="false" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                        <nav id="wh_publication_toc" class="col-lg-3 col-md-3 col-sm-12 d-md-block d-none d-print-none" aria-label="Table of Contents Container">
+                            <div id="wh_publication_toc_content">
+		                        
+                            	<div class=" wh_publication_toc " data-tooltip-position="right"><span class="expand-button-action-labels"><span id="button-expand-action" role="button" aria-label="Expand"></span><span id="button-collapse-action" role="button" aria-label="Collapse"></span><span id="button-pending-action" role="button" aria-label="Pending"></span></span><ul role="tree" aria-label="Table of Contents"><li role="treeitem" aria-expanded="true"><div data-tocid="mplab-harmony-3-tcpip-application-for-pic32mz-family-d398e11" class="topicref" data-id="mplab-harmony-3-tcpip-application-for-pic32mz-family" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action mplab-harmony-3-tcpip-application-for-pic32mz-family-d398e11-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-E3619664-D1A4-427D-A50A-7CBF1634F410.html" id="mplab-harmony-3-tcpip-application-for-pic32mz-family-d398e11-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1</ph>
+MPLAB® Harmony 3 TCP/IP Application for PIC32MZ Family</a></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem"><div data-tocid="tcpip-berkeley-tcp-client-d398e19" class="topicref" data-id="tcpip-berkeley-tcp-client" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-42F3AE83-551C-46BA-82E8-E1887A38D861.html" id="tcpip-berkeley-tcp-client-d398e19-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.1</ph>
+TCP/IP Berkeley TCP Client</a></div></div></li><li role="treeitem" class="active"><div data-tocid="tcpip-berkeley-tcp-server-d398e27" class="topicref" data-id="tcpip-berkeley-tcp-server" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-508C7BED-0EBE-4324-9D97-7674F8587AA0.html" id="tcpip-berkeley-tcp-server-d398e27-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.2</ph>
+TCP/IP Berkeley TCP Server</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-berkeley-udp-client-d398e35" class="topicref" data-id="tcpip-berkeley-udp-client" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-641F1177-2D60-4F73-B789-75D84BF7E3DE.html" id="tcpip-berkeley-udp-client-d398e35-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.3</ph>
+TCP/IP Berkeley UDP Client</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-berkeley-udp-relay-d398e43" class="topicref" data-id="tcpip-berkeley-udp-relay" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-61972412-01B0-4ED3-A8FF-EAEEE6EE67C4.html" id="tcpip-berkeley-udp-relay-d398e43-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.4</ph>
+TCP/IP Berkeley UDP Relay</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-berkeley-udp-server-d398e51" class="topicref" data-id="tcpip-berkeley-udp-server" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-593C6DF2-417D-4D7A-8AF7-58F0934CD381.html" id="tcpip-berkeley-udp-server-d398e51-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.5</ph>
+TCP/IP Berkeley UDP Server</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-iperf-application-d398e59" class="topicref" data-id="tcpip-iperf-application" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-3053C09C-9E26-4370-9326-C272FD63EF2E.html" id="tcpip-iperf-application-d398e59-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.6</ph>
+TCP/IP IPERF Application</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-snmp-nvm-mpfs-d398e67" class="topicref" data-id="tcpip-snmp-nvm-mpfs" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-B4FD67E2-927A-499F-A4EC-4125281B5AE4.html" id="tcpip-snmp-nvm-mpfs-d398e67-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.7</ph>
+TCP/IP SNMP NVM MPFS</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-snmp-sdcard-fatfs-d398e75" class="topicref" data-id="tcpip-snmp-sdcard-fatfs" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-220605C9-D85C-4C7C-AF71-32CAB7948216.html" id="tcpip-snmp-sdcard-fatfs-d398e75-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.8</ph>
+TCP/IP SNMP SDCARD FATFS</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-tcp-and-udp-client-server-d398e83" class="topicref" data-id="tcpip-tcp-and-udp-client-server" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-4200DE77-9144-41A2-86FB-6EF3B624303E.html" id="tcpip-tcp-and-udp-client-server-d398e83-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.9</ph>
+TCP/IP TCP and UDP Client Server</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-tcp-client-d398e91" class="topicref" data-id="tcpip-tcp-client" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-6AAE041E-FA83-41EA-AB57-D3A4C68AA0B9.html" id="tcpip-tcp-client-d398e91-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.10</ph>
+TCP/IP TCP Client</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-tcp-client-server-d398e100" class="topicref" data-id="tcpip-tcp-client-server" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-6ABD89F7-455E-40DE-B113-F05360EB3C18.html" id="tcpip-tcp-client-server-d398e100-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.11</ph>
+TCP/IP TCP Client Server</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-tcp-server-d398e108" class="topicref" data-id="tcpip-tcp-server" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-CB66FBEC-2A26-42EB-8D57-41C205A6D2D1.html" id="tcpip-tcp-server-d398e108-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.12</ph>
+TCP/IP TCP Server</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-tcp-server-bridge-d398e116" class="topicref" data-id="tcpip-tcp-server-bridge" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-F6CB5AD1-285A-4B06-88D7-DA316429FA7D.html" id="tcpip-tcp-server-bridge-d398e116-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.13</ph>
+TCP/IP TCP Server Bridge</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-tcp-server-dual-interface-d398e124" class="topicref" data-id="tcpip-tcp-server-dual-interface" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-5ECB97C7-6505-4748-B263-E0412B60DF9E.html" id="tcpip-tcp-server-dual-interface-d398e124-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.14</ph>
+TCP/IP TCP Server Dual Interface</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-tcp-server-ipv4-forwarding-d398e132" class="topicref" data-id="tcpip-tcp-server-ipv4-forwarding" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-C284613D-89EA-4B1D-8E65-A3E5F73024B1.html" id="tcpip-tcp-server-ipv4-forwarding-d398e132-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.15</ph>
+TCP/IP TCP Server IPv4 Forwarding</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-udp-client-d398e140" class="topicref" data-id="tcpip-udp-client" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-F3606D97-AA35-448C-9C43-5AA654AEEA77.html" id="tcpip-udp-client-d398e140-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.16</ph>
+TCP/IP UDP Client</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-udp-client-server-d398e148" class="topicref" data-id="tcpip-udp-client-server" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-91937E7A-9C9D-42CF-A1AB-33272BF9C882.html" id="tcpip-udp-client-server-d398e148-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.17</ph>
+TCP/IP UDP Client Server</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-udp-server-d398e156" class="topicref" data-id="tcpip-udp-server" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-5438F082-FEFD-407F-8A23-0F45E590883E.html" id="tcpip-udp-server-d398e156-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.18</ph>
+TCP/IP UDP Server</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-web--ftp-server-with-mpfs--fatfs-d398e164" class="topicref" data-id="tcpip-web--ftp-server-with-mpfs--fatfs" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-5964AB33-E2C1-444C-BD8B-B3564F198731.html" id="tcpip-web--ftp-server-with-mpfs--fatfs-d398e164-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.19</ph>
+TCP/IP WEB &amp; FTP SERVER with MPFS &amp; FATFS</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-web-net-server-nvm-mpfs-d398e172" class="topicref" data-id="tcpip-web-net-server-nvm-mpfs" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-91DACBA9-7604-4BAE-8BEE-D3EB8B3AEB4E.html" id="tcpip-web-net-server-nvm-mpfs-d398e172-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.20</ph>
+TCP/IP WEB NET Server NVM MPFS</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-web-net-server-ppp-d398e180" class="topicref" data-id="tcpip-web-net-server-ppp" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-EF8C8FA4-CBBF-4BED-A7F6-1810080B7668.html" id="tcpip-web-net-server-ppp-d398e180-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.21</ph>
+TCP/IP WEB NET Server PPP</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-web-net-server-sdcard-fatfs-d398e189" class="topicref" data-id="tcpip-web-net-server-sdcard-fatfs" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-C7C913D7-9924-41F3-B5FE-417777457612.html" id="tcpip-web-net-server-sdcard-fatfs-d398e189-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.22</ph>
+TCP/IP WEB NET Server SDCARD FATFS</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-wolfssl-mqtt-application-d398e197" class="topicref" data-id="tcpip-wolfssl-mqtt-application" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-A3992BB9-1698-44B6-98D1-489765E3E9A9.html" id="tcpip-wolfssl-mqtt-application-d398e197-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.23</ph>
+TCP/IP WolfSSL MQTT Application</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-wolfssl-tcp-client-d398e205" class="topicref" data-id="tcpip-wolfssl-tcp-client" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-EAFAC274-BD06-4CB8-8797-15A853587DD8.html" id="tcpip-wolfssl-tcp-client-d398e205-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.24</ph>
+TCP/IP WolfSSL TCP Client</a></div></div></li><li role="treeitem"><div data-tocid="tcpip-wolfssl-tcp-server-d398e213" class="topicref" data-id="tcpip-wolfssl-tcp-server" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-1F1EE0EB-CFE4-4D37-AE67-057D2A700185.html" id="tcpip-wolfssl-tcp-server-d398e213-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1.25</ph>
+TCP/IP WolfSSL TCP Server</a></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-F1A8FC97-AF0E-4957-9E2E-FBB5502EFFCD-d398e221" class="topicref" data-id="GUID-F1A8FC97-AF0E-4957-9E2E-FBB5502EFFCD" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-F1A8FC97-AF0E-4957-9E2E-FBB5502EFFCD-d398e221-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-F1A8FC97-AF0E-4957-9E2E-FBB5502EFFCD.html" id="GUID-F1A8FC97-AF0E-4957-9E2E-FBB5502EFFCD-d398e221-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">2</ph>
+Appendix</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-0FB3F908-88EE-45CE-94F5-E97AF9049C9B-d398e245" class="topicref backmatter backmatter_parent" data-id="GUID-0FB3F908-88EE-45CE-94F5-E97AF9049C9B" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-0FB3F908-88EE-45CE-94F5-E97AF9049C9B-d398e245-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-0FB3F908-88EE-45CE-94F5-E97AF9049C9B.html" id="GUID-0FB3F908-88EE-45CE-94F5-E97AF9049C9B-d398e245-link">Microchip Information</a></div></div></li></ul></div>
+		                        
+                            </div>
+                        </nav>
+                    
+                    
+                    <div class="col-lg-9 col-md-9 col-sm-12" id="wh_topic_body">
+                        <button id="wh_close_publication_toc_button" class="close-toc-button d-none" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc" aria-expanded="true">
+                            <span class="close-toc-icon-container">
+                                <span class="close-toc-icon"></span>     
+                            </span>
+                        </button>
+                        
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article role="article" aria-labelledby="ariaid-title1"><h1 class="- topic/title title topictitle1" id="ariaid-title1" style="">1.2 TCP/IP Berkeley TCP Server</h1><div class="- topic/body body"><p class="- topic/p p">The Berkeley TCP Server configuration demonstrates creating a creating a network server that uses the Berkeley API to create a TCP/IP echo server on port 9760.</p><p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">TCP/IP Berkeley TCP Server MCC Configuration</strong></p><p class="- topic/p p">The following Project Graph diagram shows the Harmony components included in the Berkeley TCP Server application demonstration.</p><ul class="- topic/ul ul"><li class="- topic/li li"><p class="- topic/p p">MCC is launched by selecting Tools &gt; Embedded &gt; MPLAB® Code Configurator from the MPLAB X IDE and after opening the project, TCP/IP demo project is ready to be configured and regenerated.</p></li><li class="- topic/li li"><p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">TCP/IP Root Layer Project Graph</strong></p><p class="- topic/p p">The root layer project shows that UART2 peripheral is selected to do read and write operation for TCP/IP commands.</p><p class="- topic/p p">This is the basic configuration with SYS_CONSOLE, SYS_DEBUG and SYS_COMMAND modules. These modules are required for TCP/IP command execution.</p><div class=""><img class="- topic/image image break break" src="GUID-AF4F4B05-AC27-42FC-BC78-008DB153D192-low.png" alt="tcpip_pic32mz_project"/></div><p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">NOTE</strong> - The above diagram contains <strong class="+ topic/ph hi-d/b ph b">FreeRTOS</strong> component  and that is required for RTOS application. For bare-metal(non-RTOS) <strong class="+ topic/ph hi-d/b ph b">FreeRTOS</strong> component shouldn't be selected.</p></li><li class="- topic/li li"><p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">TCP/IP Configuration</strong></p><ul class="- topic/ul ul"><li class="- topic/li li"><p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">PIC32MZ DA Starter Kit</strong> / <strong class="+ topic/ph hi-d/b ph b">PIC32MZ EF Starter Kit</strong>
+<div class=""><img class="- topic/image image" src="GUID-F214ED1F-8B4D-45E4-90BC-2C81B6A42F02-low.png" alt="tcpip_pic32mz_project"/></div></p></li></ul></li><li class="- topic/li li"><p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">TCP/IP Required Application</strong></p><p class="- topic/p p">TCP/IP demo use these application module components for this demo.</p><p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Berkeley API</strong>  module provides the Berkeley_Socket_Distribution (BSD) wrapper to the native Microchip TCP/IP Stack APIs. During this component selection, the required transport and network modules are also selected.</p><p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">DHCP Client</strong> module to discover the IPv4 address from the nearest DHCP Server.</p><p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">DNS Client</strong> provides DNS resolution capabilities to the stack.</p></li><li class="- topic/li li"><p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">TCP/IP Data Link Layer</strong></p><p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Internal ethernet driver(ethmac)</strong> is enabled with the external <strong class="+ topic/ph hi-d/b ph b">LAN8740 PHY driver</strong> library for both the starter kits.
+The MIIM Driver supports asynchronous read/write and scan operations for accessing the external PHY registers and notification when MIIM operations have completed.</p></li></ul><p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">TCP/IP Berkeley TCP Server Hardware Configuration</strong></p><p class="- topic/p p">This section describes the hardware configuration for PIC32MZ DA/EF Starter Kit and one can be used for the respective application demonstration.</p><ol class="- topic/ol ol"><li class="- topic/li li"><p class="- topic/p p">This section describes the <strong class="+ topic/ph hi-d/b ph b">PIC32MZ DA Starter Kit</strong> default hardware configuration which uses the <strong class="+ topic/ph hi-d/b ph b">on-board debugger and programmer</strong> for this application demonstration.</p><ul class="- topic/ul ul"><li class="- topic/li li"><p class="- topic/p p">Refer to the PIC32MZ DA Starter Kit <a class="- topic/xref xref" href="https://ww1.microchip.com/downloads/en/DeviceDoc/70005311A.pdf" target="_blank" rel="external noopener">User Guide</a> for the programming/debugging options supported &amp; setting up the hardware.</p><div class=""><img class="- topic/image image break break" src="GUID-B6C027B9-F243-4157-830F-84E25CD694F2-low.png" alt="required_hardware"/></div></li><li class="- topic/li li"><p class="- topic/p p">Connect micro USB cable from the computer to the DEBUG USB connector(J19) on the PIC32MZ DA Starter Kit</p></li><li class="- topic/li li"><p class="- topic/p p">Connect micro USB cable from the computer to the USB-UART connector(J5) on the PIC32MZ DA Starter Kit</p></li><li class="- topic/li li"><p class="- topic/p p">Establish a connection between the router/switch with the PIC32MZ DA Starter Kit through the RJ45 connector on PHY daughter board</p></li></ul></li><li class="- topic/li li"><p class="- topic/p p">This section describes the <strong class="+ topic/ph hi-d/b ph b">PIC32MZ EF Starter Kit</strong> default hardware configuration which uses the <strong class="+ topic/ph hi-d/b ph b">on-board debugger and programmer</strong> for this application demonstration.</p><ul class="- topic/ul ul"><li class="- topic/li li"><p class="- topic/p p">Refer to the PIC32MZ EF Starter Kit <a class="- topic/xref xref" href="https://ww1.microchip.com/downloads/en/devicedoc/70005230b.pdf" target="_blank" rel="external noopener">User Guide</a> for the programming/debugging options supported &amp; setting up the hardware.</p><div class=""><img class="- topic/image image break break" src="GUID-D271A617-441D-4CA4-B92C-BCD1DF80C669-low.png" alt="required_hardware"/></div></li><li class="- topic/li li"><p class="- topic/p p">Connect the mini USB cable from the computer to the USB DEBUG connector on the PIC32MZ EF Starter Kit</p></li><li class="- topic/li li"><p class="- topic/p p">Connect the mini USB cable from the computer to the USB-UART connector on the PIC32MZ EF Starter Kit</p></li><li class="- topic/li li"><p class="- topic/p p">Establish a connection between the router/switch with the PIC32MZ EF Starter Kit through the RJ45 connector on PHY daughter board</p></li></ul></li></ol><p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">TCP/IP Berkeley TCP Server Running Application</strong></p><p class="- topic/p p">This table list the name and location of the MPLAB X IDE project folder for the demonstration.</p><div class="table-container"><table class="- topic/table table" data-cols="4"><caption></caption><colgroup><col/><col/><col/><col/></colgroup><thead class="- topic/thead thead"><tr class="- topic/row"><th class="- topic/entry entry align-center colsep-0 rowsep-0" id="tcpip-berkeley-tcp-server__entry__1">Project Name</th><th class="- topic/entry entry align-center colsep-0 rowsep-0" id="tcpip-berkeley-tcp-server__entry__2">Target Device</th><th class="- topic/entry entry align-center colsep-0 rowsep-0" id="tcpip-berkeley-tcp-server__entry__3">Target Development Board</th><th class="- topic/entry entry align-center colsep-0 rowsep-0" id="tcpip-berkeley-tcp-server__entry__4">Description</th></tr></thead><tbody class="- topic/tbody tbody"><tr class="- topic/row"><td class="- topic/entry entry align-center colsep-0 rowsep-0" headers="tcpip-berkeley-tcp-server__entry__1">pic32mz_das_sk.X</td><td class="- topic/entry entry align-center colsep-0 rowsep-0" headers="tcpip-berkeley-tcp-server__entry__2">PIC32MZ2064DAS169</td><td class="- topic/entry entry align-center colsep-0 rowsep-0" headers="tcpip-berkeley-tcp-server__entry__3">PIC32MZ DA Starter Kit</td><td class="- topic/entry entry align-center colsep-0 rowsep-0" headers="tcpip-berkeley-tcp-server__entry__4">Demonstrates the Berkeley TCP Server on development board with PIC32MZ2064DAS169 device and LAN8740 PHY daughter board. This implementation is based on bare-metal(non-RTOS).</td></tr><tr class="- topic/row"><td class="- topic/entry entry align-center colsep-0 rowsep-0" headers="tcpip-berkeley-tcp-server__entry__1">pic32mz_das_sk_freertos.X</td><td class="- topic/entry entry align-center colsep-0 rowsep-0" headers="tcpip-berkeley-tcp-server__entry__2">PIC32MZ2064DAS169</td><td class="- topic/entry entry align-center colsep-0 rowsep-0" headers="tcpip-berkeley-tcp-server__entry__3">PIC32MZ DA Starter Kit</td><td class="- topic/entry entry align-center colsep-0 rowsep-0" headers="tcpip-berkeley-tcp-server__entry__4">Demonstrates the Berkeley TCP Server on development board with PIC32MZ2064DAS169 device and LAN8740 PHY daughter board. This implementation is based on FreeRTOS.</td></tr><tr class="- topic/row"><td class="- topic/entry entry align-center colsep-0 rowsep-0" headers="tcpip-berkeley-tcp-server__entry__1">pic32mz_ef_sk_freertos.X</td><td class="- topic/entry entry align-center colsep-0 rowsep-0" headers="tcpip-berkeley-tcp-server__entry__2">PIC32MZ2048EFH144</td><td class="- topic/entry entry align-center colsep-0 rowsep-0" headers="tcpip-berkeley-tcp-server__entry__3">PIC32MZ EF Starter Kit</td><td class="- topic/entry entry align-center colsep-0 rowsep-0" headers="tcpip-berkeley-tcp-server__entry__4">Demonstrates the Berkeley TCP Server on development board with PIC32MZ2048EFH144 device and LAN8740 PHY daughter board. This implementation is based on FreeRTOS.</td></tr></tbody></table></div><p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Running Demonstration Steps</strong></p><ol class="- topic/ol ol"><li class="- topic/li li"><p class="- topic/p p">Build and download the demonstration project on the target board.</p></li><li class="- topic/li li"><p class="- topic/p p">If the board has a UART connection:</p><ol class="- topic/ol ol" type="a"><li class="- topic/li li"><p class="- topic/p p">A virtual COM port will be detected on the computer, when the USB cable is connected to USB-UART connector.</p></li><li class="- topic/li li"><p class="- topic/p p">Open a standard terminal application on the computer (like Hyper-terminal or Tera Term) and configure the virtual COM port.</p></li><li class="- topic/li li"><p class="- topic/p p">Set the serial baud rate to 115200 baud in the terminal application.</p></li><li class="- topic/li li"><p class="- topic/p p">See that the initialization prints on the serial port terminal.</p></li><li class="- topic/li li"><p class="- topic/p p">When the DHCP client is enabled in the demonstration, wait for the DHCP server to assign an IP address for the development board. This will be printed on the serial port terminal.</p><ul class="- topic/ul ul"><li class="- topic/li li"><p class="- topic/p p">Alternatively: Use the Announce service or ping to get the IP address of the board.</p></li><li class="- topic/li li"><p class="- topic/p p">Run <strong class="+ topic/ph hi-d/b ph b">tcpip_discoverer.jar</strong> to discover the IPv4 and IPv6 address for the board.</p></li></ul></li></ol></li><li class="- topic/li li"><p class="- topic/p p">Execution :</p><ol class="- topic/ol ol" type="a"><li class="- topic/li li"><p class="- topic/p p">As soon as a valid IP address is assigned through the DHCP to the demonstration, it is ready to accept a TCP/IP connection on port 9760.</p><div class=""><img class="- topic/image image break break" src="GUID-1D2E74CA-B131-46FF-AC98-0EA373B603E2-low.png" alt="tcpip_pic32mz_project"/></div></li><li class="- topic/li li"><p class="- topic/p p">Send a TCP packet to the IP address of the hardware board using port 9760 from any TCP Client application running on the computer.</p></li><li class="- topic/li li"><p class="- topic/p p">The TCP Server demonstration running on the hardware board will echo back everything it receives along the connection.</p><p class="- topic/p p">The expected output -</p><div class=""><img class="- topic/image image break break" src="GUID-1576440F-E8BE-43AD-8CC3-0351CE949E4E-low.png" alt="tcpip_pic32mz_project"/></div></li></ol></li></ol></div></article></main></div>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <div class="mchp_disclaimer"><p class="mchp_disclaimer_text">The online versions of the documents are provided as a courtesy. Verify all content and data in the device’s PDF documentation found on the device product page.</p></div><footer class="navbar navbar-default wh_footer">
+  <div class=" footer-container mx-auto ">
+    <div class="footer">
+  <div class="mchp-wh-footer">
+    <div class="mchp-footer">
+      <div class="mchp-footer-tier1">
+        <div class="spacer"></div>
+        <div class="mchp-footer-container">
+          <div class="mchp-footer-links mchp-social-media-links">
+            <div class="mchp-component-items">
+              <div class="mchp-component-item">
+                <a class="cmp-image__link" href="https://www.facebook.com/pages/Microchip-Technology-Inc/20320981741" target="_blank">
+                  <img class="cmp-image__image" alt="Microchip Facebook" src="oxygen-webhelp/template/resources/images/201016-corp-facebook.png"/>
+                </a>
+              </div>
+              <div class="mchp-component-item">
+                <a class="cmp-image__link" href="https://www.linkedin.com/company/microchip-technology" target="_blank">
+                  <img class="cmp-image__image" alt="Microchip LinkedIn" src="oxygen-webhelp/template/resources/images/201016-corp-linkedin.png"/>
+                </a>
+              </div>
+              <div class="mchp-component-item">
+                <a class="cmp-image__link" href="https://twitter.com/MicrochipTech" target="_blank">
+                  <img class="cmp-image__image" alt="Microchip Twitter" src="oxygen-webhelp/template/resources/images/201016-corp-twitter.png"/>
+                </a>
+              </div>
+              <div class="mchp-component-item">
+                <a class="cmp-image__link" href="https://www.youtube.com/user/MicrochipTechnology" target="_blank">
+                  <img class="cmp-image__image" alt="Microchip YouTube" src="oxygen-webhelp/template/resources/images/201016-corp-youtube.png"/>
+                </a>
+              </div>
+              <div class="mchp-component-item">
+                <a class="cmp-image__link" href="https://www.instagram.com/microchiptechnologyinc/" target="_blank">
+                  <img class="cmp-image__image" alt="Microchip Instagram" src="oxygen-webhelp/template/resources/images/201016-corp-instagram.png"/>
+                </a>
+              </div>
+              <div class="mchp-component-item">
+                <a class="cmp-image__link" href="https://www.weibo.com/microchiptech" target="_blank">
+                  <img class="cmp-image__image" alt="Microchip Weibo" src="oxygen-webhelp/template/resources/images/201016-corp-weibo.png"/>
+                </a>
+              </div>
+              <div class="mchp-component-item">
+                <a class="cmp-image__link" href="https://www.microchip.com/en-us/about/blog" target="_blank">
+                  <img class="cmp-image__image" alt="Microchip Blog" src="oxygen-webhelp/template/resources/images/201016-corp-blog.png"/>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="mchp-footer-links">
+            <div class="mchp-component-items">
+              <div class="mchp-component-item">
+                <div class="link">
+                  <a href="https://www.microchip.com/about-us/contact-us" class="mchp-link__link">Contact</a>
+                  <span class="mchp-link__separator">|</span>
+                </div>
+              </div>
+              <div class="mchp-component-item ">
+                <div class="link">
+                  <a href="https://www.microchip.com/en-us/about/legal-information" class="mchp-link__link">Legal</a>
+                  <span class="mchp-link__separator">|</span>
+                </div>
+              </div>
+              <div class="mchp-component-item ">
+                <div class="link">
+                  <a href="https://www.microchip.com/en-us/about/legal-information/privacy-policy" class="mchp-link__link">Privacy Policy</a>
+                  <span class="mchp-link__separator">|</span>
+                </div>
+              </div>
+              <div class="mchp-component-item ">
+                <div class="link">
+                  <a href="https://www.microchip.com/en-us/about/legal-information/microchip-cookie-statement" class="mchp-link__link">Cookies</a>
+                  <span class="mchp-link__separator">|</span>
+                </div>
+              </div>
+              <div class="mchp-component-item">
+                <div class="link">
+                  <a href="https://careers.microchip.com/" class="mchp-link__link">Careers</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mchp-footer-newsletter">
+            <div class="cmp-text">
+              <p>Stay on the leading edge with our blog</p>
+            </div>
+            <div class="mchp-button-wrapper">
+              <a role="button" href="https://www.microchip.com/en-us/about/blog" class="mchp-button mchp-button-regular solid">
+                <span class="mchp-button__span">MicroSolutions</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="graphic">
+          <img src="oxygen-webhelp/template/resources/images/footer-graphic.png"/>
+        </div>
+      </div>
+      <div class="mchp-footer-tier2">
+        <p class="mchp-copyright">© Copyright 1998-2022 Microchip Technology Inc. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async="true" src="https://www.googletagmanager.com/gtag/js?id=UA-2724382-19"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];  
+    function gtag(){dataLayer.push(arguments);}  
+    gtag('js', new Date());   
+    gtag('config', 'UA-2724382-19');
+  </script>
+  
+  <script type="text/javascript">_satellite.pageBottom();</script><!-- Adobe Analytics -->
+  
 </div>
-<p class="p"><strong class="ph b">Running Demonstration Steps</strong></p>
-<ol class="ol"><li class="li"><span class="indent-level-default">1.</span><p class="p">Build and download the demonstration project on the target board.</p>
-</li>
-<li class="li"><span class="indent-level-default">2.</span><p class="p">If the board has a UART connection:</p>
-<ol class="ol" type="a"><li class="li"><span class="indent-level-default">a.</span><p class="p">A virtual COM port will be detected on the computer, when the USB cable is connected to USB-UART connector.</p>
-</li>
-<li class="li"><span class="indent-level-default">b.</span><p class="p">Open a standard terminal application on the computer (like Hyper-terminal or Tera Term) and configure the virtual COM port.</p>
-</li>
-<li class="li"><span class="indent-level-default">c.</span><p class="p">Set the serial baud rate to 115200 baud in the terminal application.</p>
-</li>
-<li class="li"><span class="indent-level-default">d.</span><p class="p">See that the initialization prints on the serial port terminal.</p>
-</li>
-<li class="li"><span class="indent-level-default">e.</span><p class="p">When the DHCP client is enabled in the demonstration, wait for the DHCP server to assign an IP address for the development board. This will be printed on the serial port terminal.</p>
-<ul class="ul"><li class="li"><p class="p">Alternatively: Use the Announce service or ping to get the IP address of the board.</p>
-</li>
-<li class="li"><p class="p">Run <strong class="ph b">tcpip_discoverer.jar</strong> to discover the IPv4 and IPv6 address for the board.</p>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-<li class="li"><span class="indent-level-default">3.</span><p class="p">Execution :</p>
-<ol class="ol" type="a"><li class="li"><span class="indent-level-default">a.</span><p class="p">As soon as a valid IP address is assigned through the DHCP to the demonstration, it is ready to accept a TCP/IP connection on port 9760.</p>
-</li>
-<li class="li"><span class="indent-level-default">b.</span><p class="p">Send a TCP packet to the IP address of the hardware board using port 9760 from any TCP Client application running on the computer.</p>
-</li>
-<li class="li"><span class="indent-level-default">c.</span><p class="p">The TCP Server demonstration running on the evaluation kit will echo back everything it receives along the connection.</p>
-</li>
-</ol>
-</li>
-</ol>
-</div>
-<div class="related-links">
-<div class="familylinks">
-<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="GUID-E3619664-D1A4-427D-A50A-7CBF1634F410.html">MPLAB® Harmony 3 TCP/IP Application for PIC32MZ Family</a></div>
-</div>
-</div></body>
+  </div>
+</footer>
+        
+        <div id="go2top" class="d-print-none">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </div>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        
+        
+       
+        </body>
 </html>
