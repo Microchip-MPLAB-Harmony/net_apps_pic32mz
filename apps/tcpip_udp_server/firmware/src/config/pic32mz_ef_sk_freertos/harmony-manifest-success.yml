@@ -4,7 +4,7 @@
 
 
 project: tcpip_udp_server
-creation_date: 2023-12-11T13:31:17.848-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2023-12-19T02:43:05.047+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mcc_mode: IDE            # [IDE|Standalone|Headless]
 mcc_version: v5.3.7
@@ -20,4 +20,3 @@ modules:
     - {name: "net", version: "v3.11.0"}
     - {name: "bsp", version: "v3.17.0"}
     - {name: "CMSIS-FreeRTOS", version: "v10.5.1"}
-
