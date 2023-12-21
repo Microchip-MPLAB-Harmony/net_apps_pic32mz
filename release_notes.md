@@ -7,6 +7,7 @@
 
 ### New Features
 - Addition of PPP demo for PIC32MZ EF Curiosity 2.0.
+- Addition of TCP Server Dual Interface demo for PIC32MZ EF Starter Kit.
 - All applications with TCP/IP Configurator Plugin.
 
 ### Improvements and Bug Fixes
