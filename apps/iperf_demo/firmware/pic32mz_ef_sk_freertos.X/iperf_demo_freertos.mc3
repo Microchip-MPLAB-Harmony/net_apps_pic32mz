@@ -4451,7 +4451,7 @@
     &lt;ComponentGraph dnOrder=&quot;7&quot; id=&quot;__ROOTVIEW&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;BSP_PIC32MZ_EF_Starter_Kit&quot; x=&quot;11&quot; y=&quot;29&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;FreeRTOS&quot; x=&quot;456&quot; y=&quot;57&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;FreeRTOS&quot; x=&quot;456&quot; y=&quot;55&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;HarmonyCore&quot; x=&quot;9&quot; y=&quot;119&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;TCP/IP STACK&quot; x=&quot;462&quot; y=&quot;270&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;core&quot; x=&quot;10&quot; y=&quot;85&quot;/&gt;
@@ -7624,7 +7624,7 @@
   &lt;core dnOrder=&quot;0&quot; id=&quot;XC32_HEAP_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;1024&quot;/&gt;
-      &lt;User dnOrder=&quot;1&quot; value=&quot;126976&quot;/&gt;
+      &lt;User dnOrder=&quot;1&quot; value=&quot;223360&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -8228,7 +8228,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="DRV_ETHMAC_HEAP_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
   &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;DRV_ETHMAC_HEAP_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;drvPic32mEthmac&quot; value=&quot;6624&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/drvPic32mEthmac&gt;
 &lt;/drvPic32mEthmac&gt;
 </value>
@@ -8563,7 +8565,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_RX_DESCRIPTORS"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
   &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_RX_DESCRIPTORS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;10&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/drvPic32mEthmac&gt;
 &lt;/drvPic32mEthmac&gt;
 </value>
@@ -8617,7 +8621,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="drvPic32mEthmac" name="TCPIP_EMAC_TX_DESCRIPTORS"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;drvPic32mEthmac&gt;
   &lt;drvPic32mEthmac dnOrder=&quot;0&quot; id=&quot;TCPIP_EMAC_TX_DESCRIPTORS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;10&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/drvPic32mEthmac&gt;
 &lt;/drvPic32mEthmac&gt;
 </value>
@@ -8721,7 +8727,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="lib_wolfcrypt" name="wolfSslRTOSSupport"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;lib_wolfcrypt&gt;
   &lt;lib_wolfcrypt dnOrder=&quot;0&quot; id=&quot;wolfSslRTOSSupport&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;FreeRTOS&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/lib_wolfcrypt&gt;
 &lt;/lib_wolfcrypt&gt;
 </value>
@@ -9809,7 +9817,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sys_command" name="SYS_COMMAND_MAX_CMD_ARGS"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_command&gt;
   &lt;sys_command dnOrder=&quot;0&quot; id=&quot;SYS_COMMAND_MAX_CMD_ARGS&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;16&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/sys_command&gt;
 &lt;/sys_command&gt;
 </value>
@@ -11829,7 +11839,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipIperf" name="TCPIP_IPERF_RX_BUFFER_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipIperf&gt;
   &lt;tcpipIperf dnOrder=&quot;0&quot; id=&quot;TCPIP_IPERF_RX_BUFFER_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;8192&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/tcpipIperf&gt;
 &lt;/tcpipIperf&gt;
 </value>
@@ -11847,7 +11859,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="tcpipIperf" name="TCPIP_IPERF_TX_BUFFER_SIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipIperf&gt;
   &lt;tcpipIperf dnOrder=&quot;0&quot; id=&quot;TCPIP_IPERF_TX_BUFFER_SIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;8192&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/tcpipIperf&gt;
 &lt;/tcpipIperf&gt;
 </value>
@@ -13019,7 +13033,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipStack&gt;
   &lt;tcpipStack dnOrder=&quot;0&quot; id=&quot;TCPIP_STACK_DRAM_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;59250&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;122880&quot;/&gt;
     &lt;/Values&gt;
   &lt;/tcpipStack&gt;
 &lt;/tcpipStack&gt;
@@ -13093,7 +13107,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipStack&gt;
   &lt;tcpipStack dnOrder=&quot;0&quot; id=&quot;TCPIP_STACK_HEAP_SIZE_RECOMMEND&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;42&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipStack&quot; value=&quot;50&quot;/&gt;
     &lt;/Values&gt;
   &lt;/tcpipStack&gt;
 &lt;/tcpipStack&gt;
@@ -13689,7 +13703,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;tcpipTcp&gt;
   &lt;tcpipTcp dnOrder=&quot;0&quot; id=&quot;TCPIP_TCP_HEAP_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipTcp&quot; value=&quot;18728&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;tcpipTcp&quot; value=&quot;26920&quot;/&gt;
     &lt;/Values&gt;
   &lt;/tcpipTcp&gt;
 &lt;/tcpipTcp&gt;
@@ -14474,7 +14488,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\src\tcp.c</file>
-         <hash>396fa95231f601f0291cc765e5413c1fe623eb555791e23eca7c1c66909e1725</hash>
+         <hash>d634f61a2796c02927a61e43312b0d94503b3988d4218d2f993f6ed45fd0e9b1</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\osal\osal_freertos.h</file>
@@ -14494,7 +14508,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\driver\ethphy\src\dynamic\drv_extphy_regs.h</file>
-         <hash>f86abe844bea011040ca6705895d34f1106aa53cf875bde5bc4fb9d608a9bf29</hash>
+         <hash>8b304230ccee2b2aef3b92eef3c004c938e81432844db5fb0db127986a811e9f</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\dnss.h</file>
@@ -14622,7 +14636,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\src\tcpip_mac_bridge_private.h</file>
-         <hash>4f94e7c23deb567c6717c1e790d8dd779ce85835dfb3b28f104e0460f8b90dcb</hash>
+         <hash>8a616af6e5e81b37d32df4a326d20d6f52e91a2053211a6abf2ec9391ef2b2a3</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\port\pic32\crypt_tdes_sam6150.c</file>
@@ -14882,7 +14896,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\driver\ethphy\src\drv_ethphy_local.h</file>
-         <hash>d2fca30512453811bb11b4cfff6e0bf937a0fe5afc2698a5ba1440f6346b7620</hash>
+         <hash>3f19a0efd23df04cc9ba8e7359d01372236eed0688979ea00507b429c6c9c698</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\signature.h</file>
@@ -15562,7 +15576,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\tcpip_mac.h</file>
-         <hash>218593a61106f8271a1f93a33124f01482c46982a7b70fa29a4916045e466599</hash>
+         <hash>7137ed6478803b511ada20f717583d7168e680c784b6d6c42dbaa75e4b928ea1</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\peripheral\gpio\plib_gpio.h</file>
@@ -15886,7 +15900,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\configuration.h</file>
-         <hash>c7d3cd1f9c2aac472bf0724561149963ae70d28404e46cedf6f56896cfb1eea2</hash>
+         <hash>3ff54468a456aa87cf221dd9ed64732b64d9efa6074eaa9d78c650d017aa2070</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\port\pic32\crypt_sha256_sam11105.c</file>
@@ -16014,7 +16028,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\definitions.h</file>
-         <hash>82d749d1291d5beedd78f35b4140ea6e6f26d3cd36caeb27d19612259164387a</hash>
+         <hash>7772a0fab06e82b66ce9489e37af97380d6fda3c2d0fa9b7e856e77c1e22dd79</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\tcpip_heap.h</file>
@@ -16086,7 +16100,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\driver\ethphy\src\dynamic\drv_ethphy.c</file>
-         <hash>c3d2f4da008b8ad990932fc3fd4f5842d1ce6b3ecf6d05a396fbc5f89604febd</hash>
+         <hash>f9b6cd771128c5a2f0568dbac64f8d5429a023e61052d8b587a16059d97c463f</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\cryptocb.c</file>
@@ -16134,7 +16148,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\src\ipv4.c</file>
-         <hash>5ff453e661ba6b6a9dd56b60a3cd423b067b80aac5bf81d7fbae7f59c76d2e13</hash>
+         <hash>a267bbbf54e48ce952155e9c4f502a94b655e1f4be197117b8da8e153bbd0c3d</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\system_config.h</file>
@@ -16170,7 +16184,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\library\tcpip\src\tcpip_commands.c</file>
-         <hash>67640c4c586d9328aa514eeed02861fed9fc541f41704629bf8f455e0eff0686</hash>
+         <hash>6b0979407f65fe3e4a0345b59551018c84bd9968de00716b10f5a51d4c47594a</hash>
       </entry>
       <entry>
          <file>..\src\third_party\rtos\FreeRTOS\Source\event_groups.c</file>
@@ -16230,7 +16244,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\system\command\sys_command.h</file>
-         <hash>7ef4ded141f7f71e84038aa39c414929ee9cbd9cdacb92e06544f5bf53915dca</hash>
+         <hash>ed24ba3a9c5603783bf20b35fb5464928a5be5e07c9f3d19011ccbd42b621a99</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_ef_sk_freertos\bsp\bsp.c</file>
