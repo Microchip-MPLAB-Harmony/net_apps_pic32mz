@@ -172,8 +172,8 @@ extern "C" {
 
 
 /*** TCPIP MAC Configuration ***/
-#define TCPIP_EMAC_TX_DESCRIPTORS				    8
-#define TCPIP_EMAC_RX_DESCRIPTORS				    8
+#define TCPIP_EMAC_TX_DESCRIPTORS				    10
+#define TCPIP_EMAC_RX_DESCRIPTORS				    10
 #define TCPIP_EMAC_RX_DEDICATED_BUFFERS				4
 #define TCPIP_EMAC_RX_INIT_BUFFERS				    0
 #define TCPIP_EMAC_RX_LOW_THRESHOLD				    1
@@ -303,8 +303,8 @@ extern "C" {
 
 /*** iperf Configuration ***/
 #define TCPIP_STACK_USE_IPERF
-#define TCPIP_IPERF_TX_BUFFER_SIZE		4096
-#define TCPIP_IPERF_RX_BUFFER_SIZE  	4096
+#define TCPIP_IPERF_TX_BUFFER_SIZE		8192
+#define TCPIP_IPERF_RX_BUFFER_SIZE  	8192
 #define TCPIP_IPERF_TX_WAIT_TMO     	100
 #define TCPIP_IPERF_TX_QUEUE_LIMIT  	2
 #define TCPIP_IPERF_TIMING_ERROR_MARGIN 0
@@ -327,7 +327,7 @@ extern "C" {
 
 /*** TCPIP Heap Configuration ***/
 #define TCPIP_STACK_USE_INTERNAL_HEAP
-#define TCPIP_STACK_DRAM_SIZE                       59250
+#define TCPIP_STACK_DRAM_SIZE                       122880
 #define TCPIP_STACK_DRAM_RUN_LIMIT                  2048
 
 #define TCPIP_STACK_MALLOC_FUNC                     malloc
@@ -457,7 +457,7 @@ extern "C" {
 #define NO_DEV_RANDOM
 #define HAVE_HASHDRBG
 #define WC_NO_HARDEN
-#define SINGLE_THREADED
+#define FREERTOS
 #define NO_SIG_WRAPPER
 #define NO_ERROR_STRINGS
 #define NO_WOLFSSL_MEMORY
