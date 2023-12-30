@@ -20,9 +20,7 @@
 - Hardware crypto with wolfssl(v5.4.0) not working on PIC32MZ EF Starter Kit.
 - Build warnings for third_party/wolfMQTT/mqtt_socket.c in wolfMQTT demo.
     - Workaround is to uncheck 'Make warnings into errors' in xc32 options for this file.
-- PPP demo needs to run on a board containing special hardware token support.
-    - The demo depends on the TM library which is not publicly available.
-    - The demo can be used as it is but cannot be re-configured and regenerated with MCC.
+- PPP demo needs to run on a Curiosity board containing special hardware token support.
 
 
 ### Development Tools
