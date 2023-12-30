@@ -276,9 +276,6 @@
             <itemPath>../src/config/pic32mz_curiosity/system/sys_time_h2_adapter.h</itemPath>
             <itemPath>../src/config/pic32mz_curiosity/system/sys_random_h2_adapter.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="tm" displayName="tm" projectFiles="true">
-            <itemPath>../src/config/pic32mz_curiosity/tm/tm.h</itemPath>
-          </logicalFolder>
           <itemPath>../src/config/pic32mz_curiosity/user.h</itemPath>
           <itemPath>../src/config/pic32mz_curiosity/configuration.h</itemPath>
           <itemPath>../src/config/pic32mz_curiosity/system_config.h</itemPath>
@@ -796,7 +793,7 @@
         <targetDevice>PIC32MZ2048EFM144</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool>pkob4hybrid</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>4.35</languageToolchainVersion>
         <platform>3</platform>
@@ -810,7 +807,7 @@
         <linkerTool>
           <linkerLibItems>
             <linkerLibFileItem>../src/config/pic32mz_curiosity/driver/ppp/lib/ppp_lib_pic32mz.X.a</linkerLibFileItem>
-            <linkerLibFileItem>../src/config/pic32mz_curiosity/tm_l12_pic32_mz_ef_nfO0.a</linkerLibFileItem>
+            <linkerLibFileItem>../src/config/pic32mz_curiosity/driver/ppp/lib/tm_l12_lib_pic32mz.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>

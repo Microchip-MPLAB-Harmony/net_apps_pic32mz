@@ -4,7 +4,7 @@
 
 
 project: web_net_server_ppp
-creation_date: 2023-12-15T08:43:08.208-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2023-12-30T10:52:41.498-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mcc_mode: IDE            # [IDE|Standalone|Headless]
 mcc_version: v5.3.7
@@ -20,5 +20,4 @@ modules:
     - {name: "wolfssl", version: "v5.4.0"}
     - {name: "net", version: "v3.11.0"}
     - {name: "crypto", version: "v3.8.1"}
-    - {name: "h3_token_manager", version: "unknown"}
 

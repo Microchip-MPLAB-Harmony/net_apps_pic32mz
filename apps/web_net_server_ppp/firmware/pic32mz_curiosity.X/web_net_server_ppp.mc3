@@ -182,10 +182,6 @@
          <string>class com.microchip.mcc.harmony.HarmonyModule</string>
       </entry>
       <entry>
-         <string>token_manager_lib</string>
-         <string>class com.microchip.mcc.harmony.HarmonyModule</string>
-      </entry>
-      <entry>
          <string>uart1</string>
          <string>class com.microchip.mcc.harmony.HarmonyModule</string>
       </entry>
@@ -934,15 +930,14 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="!@#harmonyUserData"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;UserData&gt;
   &lt;UserData dnOrder=&quot;0&quot;&gt;
-    &lt;ComponentGraph dnOrder=&quot;0&quot; id=&quot;APPLICATION LAYER&quot;&gt;
+    &lt;ComponentGraph dnOrder=&quot;0&quot; id=&quot;DATA LINK LAYER&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
-        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipAnnounce&quot; x=&quot;320&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipDhcp&quot; x=&quot;480&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;tcpipDns&quot; x=&quot;620&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;tcpipHttpNet&quot; x=&quot;378&quot; y=&quot;148&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;tcpipNbns&quot; x=&quot;760&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;tcpipSmtpc&quot; x=&quot;30&quot; y=&quot;60&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;tcpipSntp&quot; x=&quot;250&quot; y=&quot;140&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;PPP_MAC&quot; x=&quot;340&quot; y=&quot;274&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;drvExtPhyLan8740&quot; x=&quot;103&quot; y=&quot;67&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;drvMiim&quot; x=&quot;68&quot; y=&quot;188&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;drvPic32mEthmac&quot; x=&quot;316&quot; y=&quot;50&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;tcpipNetConfig&quot; x=&quot;483&quot; y=&quot;14&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;uart1&quot; x=&quot;159&quot; y=&quot;319&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
     &lt;ComponentGraph dnOrder=&quot;1&quot; id=&quot;TCP/IP STACK&quot;&gt;
@@ -955,15 +950,21 @@
         &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;TRANSPORT LAYER&quot; x=&quot;556&quot; y=&quot;18&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;2&quot; id=&quot;BASIC CONFIGURATION&quot;&gt;
+    &lt;ComponentGraph dnOrder=&quot;2&quot; id=&quot;APPLICATION LAYER&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
-        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipCmd&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipStack&quot; x=&quot;200&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipAnnounce&quot; x=&quot;320&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipDhcp&quot; x=&quot;480&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;tcpipDns&quot; x=&quot;620&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;tcpipHttpNet&quot; x=&quot;378&quot; y=&quot;148&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;tcpipNbns&quot; x=&quot;760&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;tcpipSmtpc&quot; x=&quot;30&quot; y=&quot;60&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;tcpipSntp&quot; x=&quot;250&quot; y=&quot;140&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;3&quot; id=&quot;PRESENTATION LAYER&quot;&gt;
+    &lt;ComponentGraph dnOrder=&quot;3&quot; id=&quot;TRANSPORT LAYER&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
-        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;net_Pres&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipTcp&quot; x=&quot;30&quot; y=&quot;120&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipUdp&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
     &lt;ComponentGraph dnOrder=&quot;4&quot; id=&quot;NETWORK LAYER&quot;&gt;
@@ -973,14 +974,19 @@
         &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;tcpipIcmp&quot; x=&quot;580&quot; y=&quot;20&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;5&quot; id=&quot;TRANSPORT LAYER&quot;&gt;
+    &lt;ComponentGraph dnOrder=&quot;5&quot; id=&quot;BASIC CONFIGURATION&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
-        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipTcp&quot; x=&quot;30&quot; y=&quot;120&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipUdp&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;tcpipCmd&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;tcpipStack&quot; x=&quot;200&quot; y=&quot;20&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
-    &lt;GraphSettings canvasHeight=&quot;599&quot; canvasWidth=&quot;881&quot; dnOrder=&quot;6&quot;/&gt;
-    &lt;ComponentGraph dnOrder=&quot;7&quot; id=&quot;__ROOTVIEW&quot;&gt;
+    &lt;ComponentGraph dnOrder=&quot;6&quot; id=&quot;PRESENTATION LAYER&quot;&gt;
+      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
+        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;net_Pres&quot; x=&quot;20&quot; y=&quot;20&quot;/&gt;
+      &lt;/ElementPositions&gt;
+    &lt;/ComponentGraph&gt;
+    &lt;GraphSettings canvasHeight=&quot;599&quot; canvasWidth=&quot;881&quot; dnOrder=&quot;7&quot;/&gt;
+    &lt;ComponentGraph dnOrder=&quot;8&quot; id=&quot;__ROOTVIEW&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;HarmonyCore&quot; x=&quot;589&quot; y=&quot;8&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;TCP/IP STACK&quot; x=&quot;738&quot; y=&quot;119&quot;/&gt;
@@ -997,18 +1003,7 @@
         &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;sys_debug&quot; x=&quot;387&quot; y=&quot;114&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;sys_fs&quot; x=&quot;341&quot; y=&quot;451&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;sys_time&quot; x=&quot;195&quot; y=&quot;56&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;token_manager_lib&quot; x=&quot;776&quot; y=&quot;27&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;16&quot; id=&quot;uart6&quot; x=&quot;6&quot; y=&quot;329&quot;/&gt;
-      &lt;/ElementPositions&gt;
-    &lt;/ComponentGraph&gt;
-    &lt;ComponentGraph dnOrder=&quot;8&quot; id=&quot;DATA LINK LAYER&quot;&gt;
-      &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
-        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;PPP_MAC&quot; x=&quot;340&quot; y=&quot;274&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;drvExtPhyLan8740&quot; x=&quot;103&quot; y=&quot;67&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;drvMiim&quot; x=&quot;68&quot; y=&quot;188&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;drvPic32mEthmac&quot; x=&quot;316&quot; y=&quot;50&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;tcpipNetConfig&quot; x=&quot;483&quot; y=&quot;14&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;uart1&quot; x=&quot;159&quot; y=&quot;319&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;uart6&quot; x=&quot;6&quot; y=&quot;329&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
   &lt;/UserData&gt;
@@ -13183,19 +13178,6 @@
 </value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="token_manager_lib" name="#&amp;__MCC_Group_Parrent_id"/>
-         <value>__ROOTVIEW</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="token_manager_lib" name="CONFIG_USE_TM"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;token_manager_lib&gt;
-  &lt;token_manager_lib dnOrder=&quot;0&quot; id=&quot;CONFIG_USE_TM&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
-  &lt;/token_manager_lib&gt;
-&lt;/token_manager_lib&gt;
-</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="uart1" name="!@#harmonyAttachmentState"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;uart1&gt;
   &lt;uart1 dnOrder=&quot;0&quot;&gt;
@@ -13834,7 +13816,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_curiosity\driver\ethphy\src\dynamic\drv_extphy_regs.h</file>
-         <hash>f86abe844bea011040ca6705895d34f1106aa53cf875bde5bc4fb9d608a9bf29</hash>
+         <hash>8b304230ccee2b2aef3b92eef3c004c938e81432844db5fb0db127986a811e9f</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\version.h</file>
@@ -14127,6 +14109,10 @@
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\types.h</file>
          <hash>90676b3a41c145939595531947df99765c749c6256bad46173a52c039d651517</hash>
+      </entry>
+      <entry>
+         <file>..\src\config\pic32mz_curiosity\driver\ppp\lib\tm_l12_lib_pic32mz.a</file>
+         <hash>8025cb264f91f93538d07a4200c23180caa589733794637e2b9fb2fb5c335d4e</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_curiosity\system\int\src\sys_int.c</file>
@@ -15194,7 +15180,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_curiosity\library\tcpip\tcpip_mac.h</file>
-         <hash>218593a61106f8271a1f93a33124f01482c46982a7b70fa29a4916045e466599</hash>
+         <hash>7137ed6478803b511ada20f717583d7168e680c784b6d6c42dbaa75e4b928ea1</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_curiosity\library\tcpip\tcpip.h</file>
@@ -15254,7 +15240,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_curiosity\definitions.h</file>
-         <hash>8c00f6247136e7341da8c3162ef43bc520e502564dffdf062129b2f13ea4340e</hash>
+         <hash>98049cbee35304aa55f9efdee0769f6db997397542f0bf95f095ba10cb6cf2f8</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_curiosity\library\tcpip\src\tftps_private.h</file>
@@ -15274,7 +15260,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_curiosity\library\tcpip\src\ipv4.c</file>
-         <hash>5ff453e661ba6b6a9dd56b60a3cd423b067b80aac5bf81d7fbae7f59c76d2e13</hash>
+         <hash>a267bbbf54e48ce952155e9c4f502a94b655e1f4be197117b8da8e153bbd0c3d</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\integer.c</file>
@@ -15534,7 +15520,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_curiosity\library\tcpip\src\tcp.c</file>
-         <hash>396fa95231f601f0291cc765e5413c1fe623eb555791e23eca7c1c66909e1725</hash>
+         <hash>d634f61a2796c02927a61e43312b0d94503b3988d4218d2f993f6ed45fd0e9b1</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_curiosity\system\fs\mpfs\mpfs.h</file>
@@ -15583,10 +15569,6 @@
       <entry>
          <file>..\src\third_party\wolfssl\src\tls.c</file>
          <hash>0c27e58cdc2d8702af4022702615289acae5bdd8475d18e0640382db16a1e4f9</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_curiosity\tm_l12_pic32_mz_ef_nfO0.a</file>
-         <hash>8025cb264f91f93538d07a4200c23180caa589733794637e2b9fb2fb5c335d4e</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\src\pk.c</file>
@@ -15730,7 +15712,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_curiosity\driver\ethphy\src\dynamic\drv_ethphy.c</file>
-         <hash>c3d2f4da008b8ad990932fc3fd4f5842d1ce6b3ecf6d05a396fbc5f89604febd</hash>
+         <hash>f9b6cd771128c5a2f0568dbac64f8d5429a023e61052d8b587a16059d97c463f</hash>
       </entry>
       <entry>
          <file>..\src\http_net_print.c</file>
@@ -15738,7 +15720,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_curiosity\driver\ethphy\src\drv_ethphy_local.h</file>
-         <hash>d2fca30512453811bb11b4cfff6e0bf937a0fe5afc2698a5ba1440f6346b7620</hash>
+         <hash>3f19a0efd23df04cc9ba8e7359d01372236eed0688979ea00507b429c6c9c698</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\src\cryptocb.c</file>
@@ -15783,10 +15765,6 @@
       <entry>
          <file>..\src\config\pic32mz_curiosity\net_pres\pres\net_pres_socketapiconversion.h</file>
          <hash>7486203d60a2a0b97834de1d5284312af0725727a5fec0b2a3fef9325ac25be0</hash>
-      </entry>
-      <entry>
-         <file>..\src\config\pic32mz_curiosity\tm\tm.h</file>
-         <hash>42322ad7b9fdf19f78e9136dc35f13d65c81244ad032bcdb8a29705e05dd2eb8</hash>
       </entry>
       <entry>
          <file>..\src\third_party\wolfssl\wolfssl\wolfcrypt\port\pic32\crypt_rng_hw.h</file>
@@ -15838,7 +15816,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_curiosity\library\tcpip\src\tcpip_commands.c</file>
-         <hash>67640c4c586d9328aa514eeed02861fed9fc541f41704629bf8f455e0eff0686</hash>
+         <hash>6b0979407f65fe3e4a0345b59551018c84bd9968de00716b10f5a51d4c47594a</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_curiosity\library\tcpip\ftp.h</file>
@@ -15854,7 +15832,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_curiosity\initialization.c</file>
-         <hash>a329cfe0299ed9cf79107d072b6adedf36465a42a248bb0e5aa7f51a11023994</hash>
+         <hash>f12bcc0417b47031e493a8259e5bcab3d05182293050402380682a4c4032660e</hash>
       </entry>
       <entry>
          <file>..\src\web_pages\index.htm</file>
@@ -15862,7 +15840,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mz_curiosity\library\tcpip\src\tcpip_mac_bridge_private.h</file>
-         <hash>4f94e7c23deb567c6717c1e790d8dd779ce85835dfb3b28f104e0460f8b90dcb</hash>
+         <hash>8a616af6e5e81b37d32df4a326d20d6f52e91a2053211a6abf2ec9391ef2b2a3</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mz_curiosity\library\tcpip\src\tcpip_announce.c</file>

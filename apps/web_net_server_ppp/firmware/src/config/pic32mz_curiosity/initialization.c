@@ -779,9 +779,9 @@ void SYS_Initialize ( void* data )
 
 	GPIO_Initialize();
 
-	UART6_Initialize();
-
     NVM_Initialize();
+
+	UART6_Initialize();
 
     CORETIMER_Initialize();
 	UART1_Initialize();
